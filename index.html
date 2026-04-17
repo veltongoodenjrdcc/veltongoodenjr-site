@@ -1,313 +1,212 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <title>Velton Gooden Jr - Digital Content Creation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Stories that move. Content Sprints and strategic video for brands that want their content to actually work." />
-  <base href="/" />
-
+  <meta charset="utf-8">
+  <title>Velton Gooden Jr | Digital Brand Strategist in Jamaica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Velton Gooden Jr is a Digital Brand Strategist in Jamaica helping brands, clients, and collaborators communicate clearly through content, digital presence, and practical systems thinking.">
+  <base href="/">
+  <link rel="canonical" href="https://www.veltongoodenjr.com/">
   <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=2025-10-23-1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/site.css">
   <script defer src="/assets/js/site.js"></script>
-
-  <meta property="og:title" content="Velton Gooden Jr - Digital Content Creation">
-  <meta property="og:description"
-    content="Stories that move. Content Sprints and strategic video for brands that want their content to actually work.">
+  <meta property="og:title" content="Velton Gooden Jr | Digital Brand Strategist in Jamaica">
+  <meta property="og:description" content="A clear digital home for clients, brands, collaborators, and curious followers getting to know Velton Gooden Jr and his work.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/">
   <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/og/default.jpg">
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Velton Gooden Jr.",
+    "url": "https://www.veltongoodenjr.com",
+    "jobTitle": "Digital Brand Strategist",
+    "description": "Digital Brand Strategist in Jamaica working across content, digital presence, production, and practical systems thinking.",
+    "address": { "@type": "PostalAddress", "addressCountry": "JM" },
+    "sameAs": [
+      "https://www.instagram.com/veltongoodenjr",
+      "https://www.linkedin.com/in/veltongoodenjr"
+    ]
+  }
+  </script>
   <style>
-    body {
-      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
-    }
-
-    /* Animated gradient backdrop for hero */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background: linear-gradient(120deg, #1db6f2, #1ba1bf, #0e7490);
-      background-size: 200% 200%;
-      animation: gradientMove 8s ease-in-out infinite;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%
-      }
-
-      50% {
-        background-position: 100% 50%
-      }
-
-      100% {
-        background-position: 0% 50%
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-bg {
-        animation: none
-      }
-    }
+    .home-hero-bg { background: linear-gradient(135deg, #0b1a2e 0%, #0e3a52 45%, #0e7490 100%); background-size: 200% 200%; animation: heroGrad 14s ease-in-out infinite; }
+    .home-hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 65% at 90% 40%, rgba(29, 182, 242, 0.12) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 5% 90%, rgba(0, 0, 0, 0.3) 0%, transparent 60%); pointer-events: none; }
+    .stat-item { text-align: center; }
+    .stat-item__num { font-family: "DM Serif Display", serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--c-brand); font-weight: 400; line-height: 1; }
+    .stat-item__label { font-size: var(--fs-xs); color: rgba(255, 255, 255, 0.58); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+    .story-grid, .signal-grid { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+    .story-card, .signal-card, .proof-note { padding: clamp(1.5rem, 3vw, 2rem); border-radius: var(--r-xl); border: 1px solid var(--c-border); background: var(--c-surface); box-shadow: var(--sh-sm); }
+    .story-card__title, .signal-card__title { font-size: var(--fs-lg); font-weight: 700; color: var(--c-ink); margin-bottom: var(--sp-2); }
+    .story-card__desc, .signal-card__desc, .proof-note p { font-size: var(--fs-sm); color: var(--c-muted); line-height: 1.7; }
+    .proof-callout { display: grid; gap: var(--sp-8); align-items: start; }
+    .proof-notes { display: grid; gap: var(--sp-4); }
+    @media (min-width: 56rem) { .proof-callout { grid-template-columns: 1.05fr 0.95fr; } }
+    @media (prefers-reduced-motion: reduce) { .home-hero-bg { animation: none; } }
   </style>
 </head>
-
-<body class="antialiased text-neutral-800 bg-neutral-50">
-
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" aria-label="Home" class="shrink-0">
-        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
-          class="h-8 md:h-9 w-auto object-contain" loading="eager">
-      </a>
-
-      <!-- Desktop Navbar -->
-      <ul class="hidden md:flex items-center gap-6 text-[15px] nav-anim">
-        <li><a class="hover:opacity-70 text-sky-700 font-semibold" href="/"><i
-              class="fa-solid fa-house me-2"></i>Home</a></li>
-        <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
-        <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-puzzle-piece me-2"></i>Services</a></li>
-        <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
-        <li><a class="hover:opacity-70" target="_blank" rel="noopener"
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
-            <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
-        <li>
-          <a class="px-4 py-2 rounded-xl text-white flex items-center font-semibold cta-pulse"
-            style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/contact/">
-            <i class="fa-regular fa-envelope me-2"></i>Contact
-          </a>
-        </li>
-      </ul>
-
-      <!-- Mobile Hamburger -->
-      <button id="mobileMenuButton"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white text-neutral-900 border border-neutral-200 shadow-sm"
-        aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-        <i class="fa-solid fa-bars text-lg"></i>
-      </button>
-    </nav>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/" class="nav-brand" aria-label="Velton Gooden Jr home"><img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr" width="130" height="36" loading="eager"></a>
+        <ul class="nav-links" role="list">
+          <li><a href="/" class="nav-link--primary">Home</a></li>
+          <li><a href="/work-with-me/">Work With Me</a></li>
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/experience/">Experience</a></li>
+          <li><a href="/insights/">Insights</a></li>
+        </ul>
+        <a href="/contact/" class="btn btn--primary nav-cta"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+        </button>
+      </nav>
+    </div>
   </header>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
-    <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
-      <i class="fa-solid fa-xmark text-2xl"></i>
-    </button>
-
-    <nav class="h-full flex flex-col pt-16 px-6">
-      <ul class="space-y-4 text-[16px]">
-        <li><a href="/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-solid fa-house"></i><span>Home</span></a></li>
-        <li><a href="/about/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-user"></i><span>About</span></a></li>
-        <li><a href="/services/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-solid fa-puzzle-piece"></i><span>Services</span></a></li>
-        <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
-        <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-            target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <div class="mobile-nav__inner">
+      <div class="mobile-nav__header">
+        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr" height="32" loading="lazy">
+        <button class="mobile-nav__close" id="navClose" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <ul class="mobile-nav__links" role="list">
+        <li><a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a></li>
+        <li><a href="/work-with-me/"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Work With Me</a></li>
+        <li><a href="/work/"><i class="fa-regular fa-images" aria-hidden="true"></i> Work</a></li>
+        <li><a href="/about/"><i class="fa-regular fa-user" aria-hidden="true"></i> About</a></li>
+        <li><a href="/experience/"><i class="fa-regular fa-briefcase" aria-hidden="true"></i> Experience</a></li>
+        <li><a href="/insights/"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> Insights</a></li>
+        <li><a href="/contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
-
-      <a href="/contact/"
-        class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
-        style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
-        <i class="fa-regular fa-envelope"></i> Contact
-      </a>
-
-      <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
-        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"
-          class="hover:text-pink-600">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"
-          class="hover:text-sky-700">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
+      <a href="/contact/" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Start a conversation</a>
+      <div class="mobile-nav__footer">
+        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
       </div>
-    </nav>
+    </div>
   </div>
-
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <!-- Animated gradient -->
-    <div class="hero-bg"></div>
-
-    <!-- Optional future showreel video here with hero-overlay -->
-
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 text-white">
-      <div class="max-w-2xl reveal">
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-          Stories That <span class="wave">
-            <span>M</span><span>o</span><span>v</span><span>e</span>
-          </span>.
-        </h1>
-
-        <p class="mt-4 text-lg/7 text-white/90">
-          I help brands turn scattered ideas into focused video content, built in sprints, so every piece has a clear
-          job in the business.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/services/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center btn-white">
-            <i class="fa-solid fa-bolt me-2" aria-hidden="true"></i>Explore Content Sprints
-          </a>
-          <a href="/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center btn-ghost">
-            <i class="fa-regular fa-paper-plane me-2" aria-hidden="true"></i>Talk about your content
-          </a>
+  <main id="main">
+    <section class="home-hero-bg" style="position: relative; overflow: hidden; color: #fff; padding-block: clamp(5rem, 10vw, 8rem);">
+      <div class="container">
+        <div class="home-hero__grid reveal">
+          <div>
+            <p class="section-label section-label--light">Velton Gooden Jr | Jamaica</p>
+            <h1 class="display-heading" style="font-size: var(--fs-5xl); color: #fff; margin-top: var(--sp-4); max-width: 12ch;">Digital Brand Strategist with a practical streak.</h1>
+            <p style="font-size: var(--fs-lg); color: rgba(255, 255, 255, 0.85); max-width: 54ch; margin-top: var(--sp-5); line-height: 1.7;">I help brands, teams, and collaborators bring more clarity to the way they show up online through content, digital presence, production, and the kind of systems thinking that keeps good work running.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-8);">
+              <a href="/work-with-me/" class="btn btn--white btn--lg btn--pulse"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Work with me</a>
+              <a href="/work/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-images" aria-hidden="true"></i> View selected work</a>
+            </div>
+            <div class="page-hero__chips" style="margin-top: var(--sp-6);">
+              <span class="chip"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Brand clarity</span>
+              <span class="chip"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Digital presence</span>
+              <span class="chip"><i class="fa-solid fa-film" aria-hidden="true"></i> Content and production</span>
+              <span class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Practical systems</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: var(--sp-6); justify-content: center;">
+            <img src="/assets/images/content/home-portrait.webp" alt="Portrait of Velton Gooden Jr" class="home-hero__img" loading="eager" width="480" height="600" style="width: 100%; max-width: 420px; margin-inline: auto;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--r-xl); padding: var(--sp-5);">
+              <div class="stat-item"><div class="stat-item__num">5+</div><div class="stat-item__label">Years active</div></div>
+              <div class="stat-item"><div class="stat-item__num">4</div><div class="stat-item__label">Organisations</div></div>
+              <div class="stat-item"><div class="stat-item__num">10+</div><div class="stat-item__label">Client brands</div></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Core Offerings -->
-  <section class="max-w-6xl mx-auto px-4 py-14">
-    <h2 class="text-3xl font-semibold text-center mb-10 reveal">How we can work together</h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <!-- Content Sprints -->
-      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
-        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-          <i class="fa-solid fa-clapperboard"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-4">Content Sprints</h3>
-        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Batch short-form video</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">One clear business goal</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Shoot once, post for weeks</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Built for social</span>
-        </div>
-        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-          A focused planning and filming session that gives you a small library of short-form videos around one clear
-          outcome, plus simple guidance on how to post and measure them so the content actually pulls its weight.
-        </p>
-      </div>
-
-      <!-- Ongoing Video Support -->
-      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
-        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-          <i class="fa-solid fa-video"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-4">Ongoing Video Support</h3>
-        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Campaign content</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Launch assets</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Event recap films</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Social cutdowns</span>
-        </div>
-        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-          If you want to keep your content rhythm going after a sprint, I can support you with additional videos,
-          campaign pieces, or simple event coverage. The goal here is continuity — helping you stay visible and
-          consistent without the stress of starting from scratch each time.
-        </p>
-      </div>
-
-
-      <!-- Voice & Audio -->
-      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
-        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-          <i class="fa-solid fa-microphone-lines"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-4">Voice & Audio Add-Ons</h3>
-        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">In-house voiceover</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">On-site voice recording</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Commercial & narrative</span>
-          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Tone-matched audio</span>
-        </div>
-        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-          You can use my VO services for narration, or I can bring the recording setup to you during a scheduled sprint.
-          Either way, you get clean, polished audio that fits naturally into the story we're telling.
-        </p>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="max-w-5xl mx-auto px-4 py-10 text-center reveal">
-    <h2 class="text-3xl font-semibold mb-3">Ready to give your content a clear job?</h2>
-    <p class="text-neutral-600 max-w-2xl mx-auto">
-      Most clients start with a Content Sprint, then we decide together what type of ongoing support makes sense. If you
-      know your message is strong but the content feels scattered, that is where we work best.
-    </p>
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="/contact/" class="px-5 py-3 border rounded-xl btn-outline">
-        Start with a Content Sprint
-      </a>
-      <a href="/portfolio/" class="px-5 py-3 border rounded-xl btn-outline">
-        View recent work
-      </a>
-    </div>
-  </section>
-
-  <!-- Newsletter CTA -->
-  <section class="max-w-6xl mx-auto px-4 py-10 reveal">
-    <div class="p-6 md:p-8 rounded-2xl text-white card" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf)">
-      <div class="md:flex items-center justify-between gap-6">
-        <div>
-          <h2 class="text-2xl font-semibold flex items-center gap-2">
-            <i class="fa-regular fa-newspaper"></i> Creator’s Current - Newsletter
-          </h2>
-          <p class="mt-2 text-white/90 text-[15px] max-w-2xl">
-            Notes on creative work, structure, and building systems that support your content instead of strangling it.
-          </p>
-        </div>
-        <div class="mt-4 md:mt-0">
-          <a class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl"
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-            target="_blank" rel="noopener">
-            <i class="fa-regular fa-newspaper"></i> Read on LinkedIn
-          </a>
+    </section>
+    <section style="background: var(--c-surface); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); padding-block: var(--sp-8);">
+      <div class="container" style="margin-bottom: var(--sp-4);"><p class="section-label" style="display: block; text-align: center; margin-bottom: var(--sp-4);">Work connected to</p></div>
+      <div class="cred-strip"><div class="cred-strip__track" aria-hidden="true"><div class="cred-strip__item"><i class="fa-solid fa-tv"></i> HBO Max</div><div class="cred-strip__item"><i class="fa-solid fa-globe-americas"></i> Jamaica Tourist Board</div><div class="cred-strip__item"><i class="fa-solid fa-building"></i> Yello Media Group</div><div class="cred-strip__item"><i class="fa-solid fa-graduation-cap"></i> UWI Mona</div><div class="cred-strip__item"><i class="fa-solid fa-hotel"></i> Jamaica Pegasus</div><div class="cred-strip__item"><i class="fa-solid fa-person-running"></i> Kingston City Run</div><div class="cred-strip__item"><i class="fa-solid fa-scale-balanced"></i> Edmond Law</div><div class="cred-strip__item"><i class="fa-solid fa-briefcase-medical"></i> Cari-Med Group</div><div class="cred-strip__item"><i class="fa-solid fa-microphone"></i> Montego Bay Convention Centre</div><div class="cred-strip__item"><i class="fa-solid fa-seedling"></i> GrassROOTS Foundation</div><div class="cred-strip__item"><i class="fa-solid fa-store"></i> Hi-Pro Ace Supercentre</div><div class="cred-strip__item"><i class="fa-solid fa-bullhorn"></i> Amplify Studios</div><div class="cred-strip__item"><i class="fa-solid fa-tv"></i> HBO Max</div><div class="cred-strip__item"><i class="fa-solid fa-globe-americas"></i> Jamaica Tourist Board</div><div class="cred-strip__item"><i class="fa-solid fa-building"></i> Yello Media Group</div><div class="cred-strip__item"><i class="fa-solid fa-graduation-cap"></i> UWI Mona</div><div class="cred-strip__item"><i class="fa-solid fa-hotel"></i> Jamaica Pegasus</div><div class="cred-strip__item"><i class="fa-solid fa-person-running"></i> Kingston City Run</div><div class="cred-strip__item"><i class="fa-solid fa-scale-balanced"></i> Edmond Law</div><div class="cred-strip__item"><i class="fa-solid fa-briefcase-medical"></i> Cari-Med Group</div><div class="cred-strip__item"><i class="fa-solid fa-microphone"></i> Montego Bay Convention Centre</div><div class="cred-strip__item"><i class="fa-solid fa-seedling"></i> GrassROOTS Foundation</div><div class="cred-strip__item"><i class="fa-solid fa-store"></i> Hi-Pro Ace Supercentre</div><div class="cred-strip__item"><i class="fa-solid fa-bullhorn"></i> Amplify Studios</div></div></div>
+    </section>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header--center reveal"><span class="section-label">Start where you need to</span><h2>A clearer path for different visitors</h2><p>This site is meant to help you find the right next step without making you dig through everything at once.</p></div>
+        <div class="router-grid">
+          <a href="/work-with-me/" class="router-card reveal reveal--delay-1"><div class="router-card__icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div><div><div class="router-card__title">Work with me</div><p class="router-card__desc">For clients, brands, collaborators, media opportunities, workshops, and aligned conversations.</p></div><div class="router-card__cta">Open the opportunity hub <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
+          <a href="/work/" class="router-card reveal reveal--delay-2"><div class="router-card__icon"><i class="fa-regular fa-images" aria-hidden="true"></i></div><div><div class="router-card__title">See proof of work</div><p class="router-card__desc">Selected websites, production work, voiceover, and digital execution across different contexts.</p></div><div class="router-card__cta">View selected work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
+          <a href="/about/" class="router-card reveal reveal--delay-1"><div class="router-card__icon"><i class="fa-regular fa-user" aria-hidden="true"></i></div><div><div class="router-card__title">Get to know me</div><p class="router-card__desc">A more personal look at how I think, what I value in work, and the kind of role I naturally play.</p></div><div class="router-card__cta">Read the story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
+          <a href="/insights/" class="router-card reveal reveal--delay-2"><div class="router-card__icon"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i></div><div><div class="router-card__title">Follow the thinking</div><p class="router-card__desc">Ideas on brand clarity, content systems, digital presence, and work that needs to hold up over time.</p></div><div class="router-card__cta">Browse insights <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t mt-12">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
-      <div class="flex justify-center mb-4">
-        <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="proof-callout">
+          <div class="reveal">
+            <span class="section-label">What the work tends to look like</span>
+            <h2 style="margin-top: var(--sp-3);">A crossover role by design</h2>
+            <p style="margin-top: var(--sp-4); max-width: 58ch; color: var(--c-muted); font-size: var(--fs-lg);">My best work usually sits somewhere between strategy, execution, production, and cleanup. Sometimes that means clarifying a brand story. Sometimes it means building the website, filming the content, or tightening the system underneath it.</p>
+            <div class="story-grid" style="margin-top: var(--sp-8);">
+              <article class="story-card reveal reveal--delay-1"><h3 class="story-card__title">Content with a job to do</h3><p class="story-card__desc">Not just output for the sake of output. Content should support a clearer message, stronger trust, or a better next step.</p></article>
+              <article class="story-card reveal reveal--delay-2"><h3 class="story-card__title">Digital presence that feels intentional</h3><p class="story-card__desc">Clean websites, cleaner messaging, and fewer moments where people land on your brand and still feel unsure.</p></article>
+              <article class="story-card reveal reveal--delay-1"><h3 class="story-card__title">Systems that reduce friction</h3><p class="story-card__desc">The quieter side of the work. Better workflows, clearer handoffs, and less confusion for the people running things.</p></article>
+            </div>
+          </div>
+          <aside class="proof-notes reveal reveal--delay-2" aria-label="Selected signals">
+            <div class="proof-note"><strong>Where the range comes from</strong><p>Five years across media, hospitality, content, independent client work, and digital delivery have made me useful in more than one lane.</p></div>
+            <div class="proof-note"><strong>How I tend to work</strong><p>Thoughtful, adaptable, and practical. I care more about usefulness than noise, and more about clarity than performance.</p></div>
+            <div class="proof-note"><strong>What I am still growing in</strong><p>There are areas where I am still sharpening depth. I would rather be honest about that than pretend to be everything.</p></div>
+          </aside>
+        </div>
       </div>
-      <p class="mb-4">
-        © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved.
-      </p>
-      <div class="flex justify-center gap-5 mb-4 text-lg">
-        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"
-          class="hover:text-pink-600">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"
-          class="hover:text-sky-700">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
+    </section>
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-header flex-between reveal"><div><span class="section-label">Selected work</span><h2 style="margin-top: var(--sp-3);">Proof that the overlap works</h2></div><a href="/work/" class="btn btn--secondary">All work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        <div class="work-grid">
+          <article class="work-card reveal reveal--delay-1"><div class="work-card__thumb"><img src="/assets/images/content/kcr-website.jpeg" alt="Kingston City Run website shown on a desktop screen" loading="lazy" width="800" height="450"></div><div class="work-card__body"><div class="work-card__tags"><span class="tag tag--blue">Web Design</span><span class="tag tag--teal">Digital Presence</span></div><h3 class="work-card__title">Kingston City Run</h3><p class="work-card__meta">Website design and build</p><p class="work-card__desc">A cleaner digital home for a major Jamaican event, with mobile-first structure and a clearer path for visitors.</p><div class="work-card__footer"><a href="/work/" class="btn btn--outline btn--sm">View project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></article>
+          <article class="work-card reveal reveal--delay-2"><div class="work-card__thumb work-card__thumb--placeholder" aria-hidden="true"><i class="fa-solid fa-users-viewfinder"></i></div><div class="work-card__body"><div class="work-card__tags"><span class="tag tag--blue">Video Production</span><span class="tag tag--teal">Content</span></div><h3 class="work-card__title">UWI Mona Student Series</h3><p class="work-card__meta">Content production and editing</p><p class="work-card__desc">Reels and discussion content shaped to make student leadership and community storytelling more engaging and easier to follow.</p><div class="work-card__footer"><a href="/work/" class="btn btn--outline btn--sm">View project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></article>
+          <article class="work-card reveal reveal--delay-1"><div class="work-card__thumb work-card__thumb--placeholder" aria-hidden="true"><i class="fa-solid fa-microphone-lines"></i></div><div class="work-card__body"><div class="work-card__tags"><span class="tag tag--blue">Voiceover</span><span class="tag tag--gray">Brand Work</span></div><h3 class="work-card__title">Broadcast and branded voiceover</h3><p class="work-card__meta">Commercial and institutional delivery</p><p class="work-card__desc">Voice work delivered for HBO Max, Cari-Med Group, and Montego Bay Convention Centre with a clear, confident, Caribbean-rooted tone.</p><div class="work-card__footer"><a href="/work/" class="btn btn--outline btn--sm">View examples <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></article>
+        </div>
       </div>
-      <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
+    </section>
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <div class="reveal"><span class="section-label">A little more context</span><h2 style="margin-top: var(--sp-3);">What makes the approach distinct</h2></div>
+        <div class="signal-grid reveal" style="margin-top: var(--sp-8);">
+          <article class="signal-card"><h3 class="signal-card__title">I pay attention to what is underneath the visible problem.</h3><p class="signal-card__desc">A weak website is not always a web problem. A content bottleneck is not always a content problem. Often the issue starts earlier, in unclear structure or unclear thinking.</p></article>
+          <article class="signal-card"><h3 class="signal-card__title">I like work that feels useful, not inflated.</h3><p class="signal-card__desc">That usually means fewer moving parts, cleaner language, and stronger choices about what actually needs to be said or built.</p></article>
+          <article class="signal-card"><h3 class="signal-card__title">I am still becoming, not pretending to be finished.</h3><p class="signal-card__desc">There is enough range here to be credible, and enough honesty to avoid the usual polished exaggeration that makes so many sites feel less real.</p></article>
+        </div>
+        <div style="margin-top: var(--sp-10); text-align: center;" class="reveal"><a href="/about/" class="btn btn--primary btn--lg">Read more about how I think <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      </div>
+    </section>
+    <section class="section section--dark">
+      <div class="container container--narrow">
+        <div style="text-align: center;" class="reveal"><span class="section-label section-label--light">Work With Me</span><h2 style="color: #fff; font-size: var(--fs-3xl); margin-top: var(--sp-3);">A better starting point for opportunities</h2><p style="color: rgba(255, 255, 255, 0.7); max-width: 54ch; margin: var(--sp-4) auto 0; font-size: var(--fs-lg);">If you are here as a brand, interested client, collaborator, hiring team, or someone planning a workshop, interview, or speaking opportunity, the new hub is built to make that path clearer.</p><div style="display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; margin-top: var(--sp-8);"><a href="/work-with-me/" class="btn btn--primary btn--lg"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Open Work With Me</a><a href="/contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact directly</a></div></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="newsletter-feature reveal">
+          <div><span class="section-label" style="color: rgba(255, 255, 255, 0.55);">Creator's Current</span><h2 style="margin-top: var(--sp-3); font-size: var(--fs-3xl);">Thoughtful updates, not noise</h2><p style="margin-top: var(--sp-4);">I write about brand clarity, content systems, digital presence, and the small structural changes that quietly improve how work gets done.</p><div class="newsletter-feature__actions"><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener" class="btn btn--white btn--lg"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> Subscribe on LinkedIn</a><a href="/insights/" class="btn btn--ghost btn--lg">Browse insights <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div>
+          <div style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--r-xl); padding: var(--sp-5);"><p style="font-size: var(--fs-sm); font-weight: 700; color: #fff; margin-bottom: var(--sp-2);">Inside the newsletter</p><ul style="display: flex; flex-direction: column; gap: var(--sp-2);"><li style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.8);"><i class="fa-solid fa-check" style="color: var(--c-brand);" aria-hidden="true"></i> Digital brand strategy in practice</li><li style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.8);"><i class="fa-solid fa-check" style="color: var(--c-brand);" aria-hidden="true"></i> Content systems that are easier to sustain</li><li style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.8);"><i class="fa-solid fa-check" style="color: var(--c-brand);" aria-hidden="true"></i> Cleaner websites and clearer digital journeys</li><li style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.8);"><i class="fa-solid fa-check" style="color: var(--c-brand);" aria-hidden="true"></i> Honest notes from the overlap of strategy and execution</li></ul></div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--tint">
+      <div class="container"><div class="cta-section reveal"><h2>Ready to start somewhere concrete?</h2><p>Whether it is a project, partnership, role, workshop, or a first conversation, the next step should feel simple.</p><div class="cta-section__actions"><a href="/contact/" class="btn btn--primary btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact me</a><a href="/work-with-me/" class="btn btn--ghost btn--lg"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Visit Work With Me</a><a href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20came%20across%20your%20site%20and%20wanted%20to%20reach%20out." target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></div></div></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>A thoughtful digital home for clients, partners, collaborators, and curious people getting to know the work.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
+        <nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="/">Home</a><a href="/work-with-me/">Work With Me</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/experience/">Experience</a></div></nav>
+        <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="/insights/">Insights</a><a href="/services/">Services</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Newsletter</a></div></nav>
+      </div>
+      <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="/privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
+  <div class="wa-float"><a class="wa-btn" href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20came%20across%20your%20site%20and%20wanted%20to%20reach%20out." target="_blank" rel="noopener" aria-label="Send a WhatsApp message to Velton"><i class="fa-brands fa-whatsapp wa-btn__icon" aria-hidden="true"></i><span class="wa-btn__label" aria-hidden="true"><span class="wa-btn__title">Want to chat?</span><span class="wa-btn__sub">Quick WhatsApp</span></span></a></div>
 </body>
-
 </html>

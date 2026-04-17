@@ -1,105 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found — Velton Gooden Jr</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found | Velton Gooden Jr</title>
+  <meta name="robots" content="noindex">
+  <base href="/">
   <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/site.css">
-
   <style>
-    body {
-      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(120deg, #1db6f2, #1ba1bf);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 3rem 2rem;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      max-width: 440px;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    .card h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .home-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #fff;
-      color: #0d3b4c;
-      font-weight: 600;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .home-link:hover {
-      background: #e6f9ff;
-      transform: translateY(-2px);
-    }
-
-    .icon {
-      font-size: 4rem;
-      color: #fff;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 640px) {
-      .card { padding: 2.5rem 1.5rem; }
-      .card h1 { font-size: 2.5rem; }
-      .icon { font-size: 3rem; }
-    }
+    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--sp-8) var(--sp-6); background: var(--c-brand-grad); color: #fff; }
+    .error-icon { font-size: clamp(3rem, 8vw, 5rem); margin-bottom: var(--sp-6); opacity: 0.9; }
+    .error-code { font-size: clamp(5rem, 16vw, 9rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: var(--sp-4); opacity: 0.9; }
+    .error-title { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 600; margin-bottom: var(--sp-4); }
+    .error-desc { font-size: var(--fs-lg); color: rgba(255,255,255,0.8); max-width: 44ch; line-height: 1.6; margin-bottom: var(--sp-8); }
+    .error-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; }
   </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="icon">
-      <i class="fa-solid fa-compass"></i>
+  <div class="error-page" role="main">
+    <div class="error-icon" aria-hidden="true"><i class="fa-solid fa-compass"></i></div>
+    <p class="error-code" aria-label="Error 404">404</p>
+    <h1 class="error-title">That page took a wrong turn.</h1>
+    <p class="error-desc">It may have been moved, renamed, or it never existed. Let us get you back somewhere useful.</p>
+    <div class="error-actions">
+      <a href="/" class="btn btn--white btn--lg"><i class="fa-solid fa-house" aria-hidden="true"></i> Go to homepage</a>
+      <a href="/work/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-images" aria-hidden="true"></i> View work</a>
+      <a href="/contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Get in touch</a>
     </div>
-    <h1>404</h1>
-    <p>Oops! The page you’re looking for doesn’t seem to exist.  
-      It might have been moved, renamed, or never existed in the first place.</p>
-    <a href="/" class="home-link"><i class="fa-solid fa-house"></i> Go Home</a>
   </div>
 </body>
 </html>
