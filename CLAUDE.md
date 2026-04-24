@@ -1,4 +1,4 @@
-# CLAUDE.md — Velton Gooden Jr Website Rebuild Brief
+# CLAUDE.md â€” Velton Gooden Jr Website Rebuild Brief
 
 > **You are Claude Code working in VS Code on the personal website of Velton Gooden Jr. This is not a casual refresh. This is a strategic rebuild. Read this file end-to-end before touching a single file. The website must become a world-class digital hub that can credibly serve clients, collaborators, brand partners, and interested followers without feeling split, messy, or generic.**
 
@@ -8,7 +8,7 @@
 
 This site is no longer just a freelancer brochure.
 
-It must now function as **Velton’s central digital home base**.
+It must now function as **Veltonâ€™s central digital home base**.
 
 It should:
 - help potential clients understand what he can do and how to work with him
@@ -18,7 +18,7 @@ It should:
 - showcase his taste, judgment, and web design ability so the site itself becomes proof of competence
 
 **The site must feel like someone serious built it.**
-Not flashy for the sake of it. Not template-y. Not “good enough”.
+Not flashy for the sake of it. Not template-y. Not â€œgood enoughâ€.
 It should feel thoughtful, controlled, premium, and unmistakably intentional.
 
 ---
@@ -34,7 +34,7 @@ Treat these as problems to solve, not notes to ignore.
    A collaborator, a potential client, a brand partner, and a newsletter reader all land on the same site, but the current information architecture does not cleanly guide each person to what matters most to them.
 
 3. **The homepage has public placeholders.**
-   Placeholder thumbnails, placeholder logos, “drop a video here later”, diagram placeholders, and generic content blocks weaken trust immediately. Public-facing placeholder content is not acceptable.
+   Placeholder thumbnails, placeholder logos, â€œdrop a video here laterâ€, diagram placeholders, and generic content blocks weaken trust immediately. Public-facing placeholder content is not acceptable.
 
 4. **The proof is present, but not shaped well enough.**
    There is real experience and real work, but it is not yet packaged in a way that creates strong confidence quickly.
@@ -43,10 +43,10 @@ Treat these as problems to solve, not notes to ignore.
    It works, but it still carries signs of a build-in-progress. The end result must feel authored, not stitched together.
 
 6. **The technical finish is not yet premium enough.**
-   Missing canonicals, thin metadata coverage, no skip link, no `aria-current`, production reliance on Tailwind Play CDN, lots of inline styling, and uneven consistency across pages all undermine the “immaculate” standard.
+   Missing canonicals, thin metadata coverage, no skip link, no `aria-current`, production reliance on Tailwind Play CDN, lots of inline styling, and uneven consistency across pages all undermine the â€œimmaculateâ€ standard.
 
 7. **The contact experience needs to feel cleaner and more confident.**
-   No awkward gating. No “coming soon” dead ends. No friction that makes serious people hesitate.
+   No awkward gating. No â€œcoming soonâ€ dead ends. No friction that makes serious people hesitate.
 
 ---
 
@@ -58,13 +58,13 @@ These are non-negotiable.
 2. **Mobile-first.** The site must feel premium on a phone first, then scale upward.
 3. **Fast and static.** GitHub Pages-friendly. No build system dependency unless absolutely necessary. Prefer a high-quality static implementation.
 4. **No Tailwind Play CDN in the final build.** Replace with a deliberate stylesheet and real design system.
-5. **No public placeholders.** No dummy logos, no “coming soon”, no generic filler blocks, no placeholder cards, no dead modules.
+5. **No public placeholders.** No dummy logos, no â€œcoming soonâ€, no generic filler blocks, no placeholder cards, no dead modules.
 6. **No fake proof.** Do not invent metrics, clients, testimonials, outcomes, partnerships, or case studies.
 7. **Accessibility is mandatory.** WCAG 2.2 AA thinking throughout.
 8. **British English throughout.**
 9. **No em dashes unless absolutely unavoidable.** Prefer commas, parentheses, or full sentence breaks.
 10. **The website itself must demonstrate web design competence.** The design, structure, states, hierarchy, motion, and responsiveness all need to be a portfolio piece.
-11. **No generic AI-sounding copy.** No hollow hype, no “passionate visionary”, no bloated filler, no buzzword soup.
+11. **No generic AI-sounding copy.** No hollow hype, no â€œpassionate visionaryâ€, no bloated filler, no buzzword soup.
 12. **Do not describe Velton as a hospitality specialist.** He has worked in hospitality contexts before, but that is not his specialism.
 13. **Do not make him sound like a giant agency.** He is a multidisciplinary operator with strong systems thinking, not a fake 20-person studio.
 14. **Do not oversell weak areas.** Lead with actual strengths: systems thinking, workflow optimisation, brand clarity, content strategy, web builds, multimedia execution, practical problem-solving.
@@ -172,7 +172,7 @@ Within seconds, the site should communicate:
 The homepage must make it very obvious where each audience should go next.
 
 ### Job 3: Package proof in a stronger way
-Not just “here are things I did”, but:
+Not just â€œhere are things I didâ€, but:
 - what the project was
 - what contribution Velton made
 - what problem was being solved
@@ -180,7 +180,7 @@ Not just “here are things I did”, but:
 - why it matters
 
 ### Job 4: Create multiple conversion paths
-Not just a single “contact me” path.
+Not just a single â€œcontact meâ€ path.
 The site must support:
 - project enquiries
 - lead-flow enquiries
@@ -215,11 +215,11 @@ Think of it as a hybrid of:
 - collaboration deck in website form
 
 The site should make visitors feel:
-- “This person is more thoughtful than the average freelancer.”
-- “This person understands both the message and the machinery.”
-- “I can see how to work with him.”
-- “I can see why I would work with him.”
-- “I can see why I’d want to keep up with him.”
+- â€œThis person is more thoughtful than the average freelancer.â€
+- â€œThis person understands both the message and the machinery.â€
+- â€œI can see how to work with him.â€
+- â€œI can see why I would work with him.â€
+- â€œI can see why Iâ€™d want to keep up with him.â€
 
 ---
 
@@ -232,7 +232,7 @@ Use clean directory routing.
 /about/
 /work/
 /lead-flow-fix/
-/other-opportunities/
+/partnerships/
 /insights/
 /contact/
 /privacy/
@@ -252,7 +252,7 @@ Optional sub-pages if useful:
 - **About** gives the narrative and positioning
 - **Work** proves range and quality
 - **Lead Flow Fix** helps clients understand the core offer
-- **Other Opportunities** helps collaborators, sponsors, collaborators, and brands evaluate alignment
+- **Partnerships** helps collaborators, sponsors, collaborators, and brands evaluate alignment
 - **Insights** supports thought leadership, newsletter growth, and follower retention
 - **Contact** gives clean paths for the right type of enquiry
 
@@ -305,17 +305,17 @@ It must not try to say everything at once. It must guide.
    - one meaningful line about what the work achieved or clarified
 
 6. **Why this mix matters**
-   A section that explains why Velton’s value is not just one skill, but the way his skills converge.
+   A section that explains why Veltonâ€™s value is not just one skill, but the way his skills converge.
    This should speak to both clients and collaborators.
 
 7. **Opportunity snapshot**
-   Short, sharp overview of selected projects, capabilities, collaborations, and media-ready context with a CTA to `/other-opportunities/`.
+   Short, sharp overview of selected projects, capabilities, collaborations, and media-ready context with a CTA to `/partnerships/`.
 
 8. **Partnership / collaboration teaser**
    A section that quietly signals openness to brand collaborations, tool partnerships, creator collaborations, speaking, workshops, or campaign support.
 
 9. **Newsletter / insights teaser**
-   Feature Creator’s Current and the broader content / ideas side of the brand.
+   Feature Creatorâ€™s Current and the broader content / ideas side of the brand.
    Make it clear why somebody should subscribe or follow.
 
 10. **Strong final CTA section**
@@ -324,7 +324,7 @@ It must not try to say everything at once. It must guide.
 ### The homepage must not include
 - placeholders
 - unfinished modules
-- “coming soon” notices
+- â€œcoming soonâ€ notices
 - vague cards with no proof
 - generic stock sections that could belong to anybody
 
@@ -367,7 +367,7 @@ This page should make Velton feel legible, credible, and human.
    Enough humanity to feel like a person, not a robot or faceless service business.
 
 7. **CTA block**
-   Route to work, Lead Flow Fix, other opportunities, insights, or contact.
+   Route to work, Lead Flow Fix, Partnerships, insights, or contact.
 
 ---
 
@@ -421,7 +421,7 @@ These should be world-class mini case studies, not bloated essays.
 
 This page is for potential clients with messy lead flow.
 
-The current version is too tied to a narrower service mix. The new version should reflect Velton’s broader, more strategic direction while staying honest.
+The current version is too tied to a narrower service mix. The new version should reflect Veltonâ€™s broader, more strategic direction while staying honest.
 
 ### Position the offer around clear, practical fixes
 Possible Lead Flow Fix areas:
@@ -447,7 +447,7 @@ The framing should be:
 - what kind of enquiry to send
 
 ### Do not include
-- limp “I can do anything” language
+- limp â€œI can do anythingâ€ language
 - defensive disclaimers everywhere
 - awkward morality or content policy copy unless it is truly necessary and elegantly handled
 
@@ -455,7 +455,7 @@ If a fit filter is needed, make it subtle and mature.
 
 ---
 
-## 12. Other Opportunities page requirements
+## 12. Partnerships page requirements
 
 This page exists primarily for collaborators, partners, media, workshops, and aligned brand conversations.
 
@@ -536,7 +536,7 @@ This page is for followers, readers, and future subscribers.
 It should support the content side of the brand and give the site a reason to be revisited.
 
 ### Include
-- Creator’s Current as a featured newsletter property
+- Creatorâ€™s Current as a featured newsletter property
 - selected articles or posts
 - content pillars
 - why somebody should subscribe
@@ -556,7 +556,7 @@ That means:
 - fewer pieces is fine
 - they must be presented well
 - no empty blog shell
-- no thin fake “insights” page with nothing to say
+- no thin fake â€œinsightsâ€ page with nothing to say
 
 ---
 
@@ -583,11 +583,11 @@ Use a clear selector or grouped options for:
 No awkward reveal gates unless there is a very strong reason.
 
 ### Optional
-A short “best for” note so people know what kind of message is useful.
+A short â€œbest forâ€ note so people know what kind of message is useful.
 
 ### Avoid
 - clunky friction
-- “scheduling coming soon” language
+- â€œscheduling coming soonâ€ language
 - anything that makes the site feel incomplete
 
 ---
@@ -666,8 +666,8 @@ The copy should be:
 
 ### Copy rules
 - no em dashes unless absolutely necessary
-- no AI cliché phrasing
-- no lazy “passionate about helping brands thrive” type language
+- no AI clichÃ© phrasing
+- no lazy â€œpassionate about helping brands thriveâ€ type language
 - no pretending to be bigger than reality
 - no trying too hard to sound profound
 
@@ -787,8 +787,8 @@ The redesign must directly fix these problems:
 - remove all placeholders from the homepage
 - replace weak gallery logic with stronger case-study logic
 - create a clear audience-routing system on the homepage
-- make `/other-opportunities/` work clearly for collaborators, partners, media, workshops, and brand collaborations
-- elevate Creator’s Current and the insights side of the brand
+- make `/partnerships/` work clearly for collaborators, partners, media, workshops, and brand collaborations
+- elevate Creatorâ€™s Current and the insights side of the brand
 - clean up the contact experience and remove incomplete-feeling friction
 - create a more bespoke visual identity
 - improve technical polish and accessibility
@@ -829,7 +829,7 @@ Before calling the rebuild done, verify all of this.
 ### Final gut-check
 Ask this before shipping:
 
-**Would this site make a serious person think “this person clearly knows what they’re doing”?**
+**Would this site make a serious person think â€œthis person clearly knows what theyâ€™re doingâ€?**
 
 If the answer is not yes, keep refining.
 
@@ -842,7 +842,7 @@ If the answer is not yes, keep refining.
 3. rebuild the homepage completely around routing and proof
 4. rebuild `/work/`
 5. rebuild `/lead-flow-fix/`
-6. rebuild `/other-opportunities/`
+6. rebuild `/partnerships/`
 7. rebuild `/about/`
 8. rebuild `/insights/`
 9. rebuild `/contact/`
@@ -853,7 +853,7 @@ If the answer is not yes, keep refining.
 
 ## 25. Final reminder
 
-This site is not meant to be merely “nice”.
+This site is not meant to be merely â€œniceâ€.
 It is meant to become a serious business and brand asset.
 
 A client should feel safer working with Velton because of it.

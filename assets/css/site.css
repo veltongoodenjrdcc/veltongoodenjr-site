@@ -1706,7 +1706,58 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 
 /* ----------------------------------------------------------
-   26. ANIMATIONS
+   26. TOAST NOTICE
+   ---------------------------------------------------------- */
+.site-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: min(calc(100vw - 2rem), 30rem);
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--r-lg);
+  background: rgba(15,23,42,0.94);
+  color: #fff;
+  box-shadow: var(--sh-xl);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 14px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.site-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.site-toast__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: var(--r-pill);
+  background: rgba(29,182,242,0.18);
+  color: #7dd3fc;
+}
+.site-toast__text {
+  color: rgba(255,255,255,0.88);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+@media (max-width: 47.9rem) {
+  .site-toast {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+
+/* ----------------------------------------------------------
+   27. ANIMATIONS
    ---------------------------------------------------------- */
 @keyframes spin {
   to { transform: translateY(-50%) rotate(360deg); }
@@ -1732,7 +1783,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 
 /* ----------------------------------------------------------
-   27. MISC / UTILITIES
+   28. MISC / UTILITIES
    ---------------------------------------------------------- */
 .sr-only {
   position: absolute;

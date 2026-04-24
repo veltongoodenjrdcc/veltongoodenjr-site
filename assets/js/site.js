@@ -121,4 +121,45 @@
     });
   });
 
+  /* ----------------------------------------------------------
+     8. PENDING RESOURCE NOTICE
+     ---------------------------------------------------------- */
+  const pendingResourceButtons = document.querySelectorAll('[data-pending-resource]');
+  if (pendingResourceButtons.length > 0) {
+    let noticeTimer;
+    let notice;
+
+    const getNotice = () => {
+      if (notice) return notice;
+      notice = document.createElement('div');
+      notice.className = 'site-toast';
+      notice.setAttribute('role', 'status');
+      notice.setAttribute('aria-live', 'polite');
+      notice.innerHTML = '<span class="site-toast__icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span><span class="site-toast__text"></span>';
+      document.body.appendChild(notice);
+      return notice;
+    };
+
+    const showPendingNotice = (resourceName) => {
+      const activeNotice = getNotice();
+      const text = activeNotice.querySelector('.site-toast__text');
+      const resource = resourceName ? resourceName.trim() : '';
+      text.textContent = resource
+        ? `${resource} is not quite ready yet. Email me if you need it now.`
+        : 'Still getting this ready for you. Email me if you need it now.';
+
+      activeNotice.classList.add('is-visible');
+      clearTimeout(noticeTimer);
+      noticeTimer = window.setTimeout(() => {
+        activeNotice.classList.remove('is-visible');
+      }, 3600);
+    };
+
+    pendingResourceButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        showPendingNotice(button.getAttribute('data-pending-resource'));
+      });
+    });
+  }
+
 })();
