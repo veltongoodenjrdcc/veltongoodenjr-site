@@ -1,6 +1,6 @@
 # CLAUDE.md — Velton Gooden Jr Website Rebuild Brief
 
-> **You are Claude Code working in VS Code on the personal website of Velton Gooden Jr. This is not a casual refresh. This is a strategic rebuild. Read this file end-to-end before touching a single file. The website must become a world-class digital hub that can credibly serve clients, hiring managers, brand partners, and interested followers without feeling split, messy, or generic.**
+> **You are Claude Code working in VS Code on the personal website of Velton Gooden Jr. This is not a casual refresh. This is a strategic rebuild. Read this file end-to-end before touching a single file. The website must become a world-class digital hub that can credibly serve clients, collaborators, brand partners, and interested followers without feeling split, messy, or generic.**
 
 ---
 
@@ -12,7 +12,7 @@ It must now function as **Velton’s central digital home base**.
 
 It should:
 - help potential clients understand what he can do and how to work with him
-- help hiring managers quickly see his strengths, experience, and fit
+- help collaborators quickly see his strengths, experience, and fit
 - help brand partners understand what kinds of collaborations make sense
 - help curious visitors, followers, and newsletter readers find a reason to stay connected
 - showcase his taste, judgment, and web design ability so the site itself becomes proof of competence
@@ -28,10 +28,10 @@ It should feel thoughtful, controlled, premium, and unmistakably intentional.
 Treat these as problems to solve, not notes to ignore.
 
 1. **It is still too narrow.**
-   Right now the site reads mainly like a service brochure for video, voiceover, and event coverage. That is too small for the role the site now needs to play.
+   Right now the site reads mainly like a service brochure for video, voiceover, and event coverage. That is too small for the purpose the site now needs to serve.
 
 2. **It does not route different visitor types clearly enough.**
-   A hiring manager, a potential client, a brand partner, and a newsletter reader all land on the same site, but the current information architecture does not cleanly guide each person to what matters most to them.
+   A collaborator, a potential client, a brand partner, and a newsletter reader all land on the same site, but the current information architecture does not cleanly guide each person to what matters most to them.
 
 3. **The homepage has public placeholders.**
    Placeholder thumbnails, placeholder logos, “drop a video here later”, diagram placeholders, and generic content blocks weaken trust immediately. Public-facing placeholder content is not acceptable.
@@ -54,7 +54,7 @@ Treat these as problems to solve, not notes to ignore.
 
 These are non-negotiable.
 
-1. **World-class standard.** Every page must be good enough to show a high-value client, a recruiter, or a sponsor without apology.
+1. **World-class standard.** Every page must be good enough to show a high-value client, a collaborator, or a sponsor without apology.
 2. **Mobile-first.** The site must feel premium on a phone first, then scale upward.
 3. **Fast and static.** GitHub Pages-friendly. No build system dependency unless absolutely necessary. Prefer a high-quality static implementation.
 4. **No Tailwind Play CDN in the final build.** Replace with a deliberate stylesheet and real design system.
@@ -65,7 +65,7 @@ These are non-negotiable.
 9. **No em dashes unless absolutely unavoidable.** Prefer commas, parentheses, or full sentence breaks.
 10. **The website itself must demonstrate web design competence.** The design, structure, states, hierarchy, motion, and responsiveness all need to be a portfolio piece.
 11. **No generic AI-sounding copy.** No hollow hype, no “passionate visionary”, no bloated filler, no buzzword soup.
-12. **Do not describe Velton as a hospitality specialist.** He has worked in hospitality roles before, but that is not his specialism.
+12. **Do not describe Velton as a hospitality specialist.** He has worked in hospitality contexts before, but that is not his specialism.
 13. **Do not make him sound like a giant agency.** He is a multidisciplinary operator with strong systems thinking, not a fake 20-person studio.
 14. **Do not oversell weak areas.** Lead with actual strengths: systems thinking, workflow optimisation, brand clarity, content strategy, web builds, multimedia execution, practical problem-solving.
 15. **Keep the tone human and grounded.** Smart, warm, direct, and credible.
@@ -79,7 +79,7 @@ The site should position Velton as:
 - a **digital brand strategist** with real execution range
 - someone who understands the overlap of **brand, content, systems, and delivery**
 - someone who can think strategically and also make things
-- someone credible enough to hire, collaborate with, or follow
+- someone credible enough to work with, collaborate with, or follow
 - someone Jamaica-based, Caribbean-aware, and internationally legible
 
 This is a personal brand site, but it should still feel commercially serious.
@@ -90,7 +90,7 @@ It must balance:
 - **personality**
 - **practical conversion**
 
-The site should not force visitors to choose between “creative”, “professional”, and “employable”. It needs to hold all three.
+The site should not force visitors to choose between creative, professional, and commercially useful. It needs to hold all three.
 
 ---
 
@@ -112,13 +112,13 @@ They care about:
 - proof of taste and execution
 - whether he can reduce confusion and make their brand or project stronger
 
-### B. Hiring managers
+### B. Collaborators
 They need to know:
-- what kind of role he fits
+- what kinds of projects and conversations fit
 - what he is actually strong at
 - the range of his experience
 - what he has built, improved, or contributed to
-- what makes him distinctive beyond a generic marketing candidate
+- what makes him distinctive beyond a generic marketing operator
 
 They care about:
 - competence
@@ -174,7 +174,7 @@ The homepage must make it very obvious where each audience should go next.
 ### Job 3: Package proof in a stronger way
 Not just “here are things I did”, but:
 - what the project was
-- what role Velton played
+- what contribution Velton made
 - what problem was being solved
 - what artefact or outcome came out of it
 - why it matters
@@ -183,8 +183,8 @@ Not just “here are things I did”, but:
 Not just a single “contact me” path.
 The site must support:
 - project enquiries
-- hiring enquiries
-- partnership enquiries
+- lead-flow enquiries
+- partnership and media enquiries
 - newsletter subscriptions / follows
 
 ### Job 5: Act as a living hub
@@ -192,7 +192,7 @@ This site should be able to grow over time without becoming incoherent.
 It should hold:
 - client-facing services
 - portfolio and case studies
-- professional experience
+- professional context
 - partnership opportunities
 - content and newsletter touchpoints
 
@@ -205,20 +205,20 @@ The site should feel like a **personal headquarters**.
 Not a generic portfolio.
 Not a boxed-in agency site.
 Not a content creator bio page.
-Not a CV awkwardly put on the web.
+Not a thin bio awkwardly put on the web.
 
 Think of it as a hybrid of:
 - premium portfolio
 - strategic services site
 - personal brand home base
-- employability signal
+- collaboration signal
 - collaboration deck in website form
 
 The site should make visitors feel:
 - “This person is more thoughtful than the average freelancer.”
 - “This person understands both the message and the machinery.”
 - “I can see how to work with him.”
-- “I can see how to hire him.”
+- “I can see why I would work with him.”
 - “I can see why I’d want to keep up with him.”
 
 ---
@@ -231,9 +231,8 @@ Use clean directory routing.
 /
 /about/
 /work/
-/services/
-/experience/
-/partners/
+/lead-flow-fix/
+/other-opportunities/
 /insights/
 /contact/
 /privacy/
@@ -252,9 +251,8 @@ Optional sub-pages if useful:
 - **Home** routes and frames the whole ecosystem
 - **About** gives the narrative and positioning
 - **Work** proves range and quality
-- **Services** helps clients understand the offer
-- **Experience** helps hiring managers assess fit quickly
-- **Partners** helps sponsors, collaborators, and brands evaluate alignment
+- **Lead Flow Fix** helps clients understand the core offer
+- **Other Opportunities** helps collaborators, sponsors, collaborators, and brands evaluate alignment
 - **Insights** supports thought leadership, newsletter growth, and follower retention
 - **Contact** gives clean paths for the right type of enquiry
 
@@ -271,14 +269,14 @@ It must not try to say everything at once. It must guide.
    - strong one-line positioning
    - supporting copy that explains the overlap of strategy, content, systems, and execution
    - primary CTA for client work
-   - secondary CTA for hiring / experience
+   - secondary CTA for partnerships / media
    - tertiary or supporting route for newsletter / insights
    - visual treatment must feel custom and premium, not generic SaaS, not generic creator template
 
 2. **Choose your path / audience router**
    Four cards or a similarly elegant routing system:
    - Work with me
-   - Hiring / experience
+   - Partnerships / media
    - Partnerships
    - Follow the work / insights
 
@@ -286,7 +284,7 @@ It must not try to say everything at once. It must guide.
 
 3. **Credibility strip**
    Use real proof only. This can include selected names, project categories, or notable work references.
-   Possible references include real work connected to HBO Max, Jamaica Tourist Board, Yello Media, UWI Mona, Jamaica Pegasus, Edmond Law, Kingston City Run, and similar verified items.
+   Possible references include real work connected to HBO Max, Jamaica Tourist Board, Yello Media, UWI Mona, Jamaica Pegasus, Edmond Law, selected Jamaican business work, and similar verified items.
 
 4. **What I actually do**
    A concise strategic section that explains the core overlap:
@@ -302,16 +300,16 @@ It must not try to say everything at once. It must guide.
    3 to 6 featured projects with strong framing.
    Each card should show:
    - project / brand name
-   - role
+   - contribution
    - medium or deliverable
    - one meaningful line about what the work achieved or clarified
 
 6. **Why this mix matters**
    A section that explains why Velton’s value is not just one skill, but the way his skills converge.
-   This should speak to both clients and employers.
+   This should speak to both clients and collaborators.
 
-7. **Experience snapshot**
-   Short, sharp overview of selected roles, projects, and capabilities with a CTA to `/experience/`.
+7. **Opportunity snapshot**
+   Short, sharp overview of selected projects, capabilities, collaborations, and media-ready context with a CTA to `/other-opportunities/`.
 
 8. **Partnership / collaboration teaser**
    A section that quietly signals openness to brand collaborations, tool partnerships, creator collaborations, speaking, workshops, or campaign support.
@@ -369,7 +367,7 @@ This page should make Velton feel legible, credible, and human.
    Enough humanity to feel like a person, not a robot or faceless service business.
 
 7. **CTA block**
-   Route to work, experience, insights, or contact.
+   Route to work, Lead Flow Fix, other opportunities, insights, or contact.
 
 ---
 
@@ -385,7 +383,7 @@ The current portfolio is a start, but it needs to become stronger, more strategi
 Each project block or card should include:
 - project / brand name
 - year
-- role
+- contribution
 - deliverable type
 - context or challenge
 - what Velton did
@@ -402,7 +400,7 @@ Examples:
 
 ### Prioritise work that best supports the new direction
 Likely stronger anchors include:
-- Kingston City Run website and brand/digital setup
+- selected Jamaican business work website and brand/digital setup
 - Edmond Law website
 - hospitality and hotel-related digital work where relevant
 - Yello Media content work
@@ -411,7 +409,7 @@ Likely stronger anchors include:
 - any project that demonstrates cross-functional thinking, not just one-off output
 
 ### Important rule
-Do not present only tasks. Present judgment, role, and relevance.
+Do not present only tasks. Present judgment, contribution, and relevance.
 
 ### Optional enhancement
 Create dedicated case study pages for 2 to 4 strongest projects.
@@ -419,19 +417,19 @@ These should be world-class mini case studies, not bloated essays.
 
 ---
 
-## 11. Services page requirements
+## 11. Lead Flow Fix page requirements
 
-This page is for potential clients.
+This page is for potential clients with messy lead flow.
 
 The current version is too tied to a narrower service mix. The new version should reflect Velton’s broader, more strategic direction while staying honest.
 
-### Position the offer around clear categories
-Possible service groupings:
-- brand clarity and digital positioning
-- websites and digital presence
-- content strategy and content systems
-- multimedia production (video / voice where relevant)
-- practical workflow or content infrastructure support for smaller teams
+### Position the offer around clear, practical fixes
+Possible Lead Flow Fix areas:
+- digital front door clarity
+- Google presence cleanup
+- WhatsApp Business flow
+- saved replies and FAQ logic
+- simple lead labels, tracking, and follow-up structure
 
 ### Important
 This page should not make him look like he is claiming mastery in everything.
@@ -442,10 +440,10 @@ The framing should be:
 - adaptable
 
 ### Include
-- what kinds of businesses or projects are a good fit
-- what a typical engagement might look like
+- what kinds of service businesses are a good fit
+- what a typical engagement might tighten
 - what is in scope vs out of scope
-- when he collaborates with trusted partners
+- why the work is practical rather than a giant custom buildout
 - what kind of enquiry to send
 
 ### Do not include
@@ -457,29 +455,29 @@ If a fit filter is needed, make it subtle and mature.
 
 ---
 
-## 12. Experience page requirements
+## 12. Other Opportunities page requirements
 
-This page exists primarily for hiring managers, though others may read it.
+This page exists primarily for collaborators, partners, media, workshops, and aligned brand conversations.
 
-It should feel like a polished bridge between a CV and a personal site.
+It should feel like a polished bridge between a collaboration page and a personal site.
 
 ### Goals
 - help someone quickly understand what kind of professional Velton is
-- clarify his strongest role fit
+- clarify the kinds of conversations and opportunities that fit
 - highlight experience, achievements, and range
-- provide a downloadable CV / résumé
+- offer relevant supporting material only when useful
 
 ### Required sections
 
 1. **Positioning summary**
-   A concise statement of the kinds of roles he is best suited for.
-   Examples may include digital brand strategy, content strategy, web or digital communications, creative marketing, multimedia, and systems-minded brand roles.
+   A concise statement of the kinds of partnerships, workshops, media conversations, and collaborations he is best suited for.
+   Examples may include digital brand strategy, content strategy, web or digital communications, creative marketing, multimedia, and systems-minded brand conversations.
 
 2. **Strengths at a glance**
    Not a generic skill cloud. Curated strengths only.
 
 3. **Selected experience timeline**
-   Use real roles and projects, framed cleanly.
+   Use real projects and contributions, framed cleanly.
 
 4. **Selected achievements / contributions**
    Explain meaningful contributions without inflation.
@@ -487,14 +485,11 @@ It should feel like a polished bridge between a CV and a personal site.
 5. **Tools and platforms**
    Only include tools he can credibly speak to and use.
 
-6. **Download CV CTA**
-   Prominent and easy.
-
-7. **Contact path for hiring managers**
+6. **Contact path for collaborators**
    A clean dedicated route.
 
 ### Important tone rule
-This page should be professional and clear, but it must still sound like Velton, not a generic HR auto-summary.
+This page should be professional and clear, but it must still sound like Velton, not a generic auto-summary.
 
 ---
 
@@ -572,7 +567,7 @@ The contact page should feel calm, premium, and easy.
 ### It must support multiple enquiry types
 Use a clear selector or grouped options for:
 - project / client enquiry
-- hiring / role enquiry
+- partnership / media enquiry
 - partnership / collaboration enquiry
 - general question
 
@@ -610,7 +605,7 @@ The visual system should communicate:
 - a bootstrap SaaS template
 - a generic Tailwind landing page
 - a loud creator page
-- a corporate CV microsite
+- a corporate bio microsite
 
 ### Visual principles
 - generous whitespace
@@ -692,10 +687,10 @@ Wherever possible, pull from verified projects, experience, and work already con
 - Cari-Med Group Ltd. voiceover work
 - Joel Nomdarkham / Future Makers project
 - GrassROOTS Community Foundation project via Amplify Studios
-- Yello Media roles and projects
+- Yello Media projects
 - Jamaica Pegasus / Courtleigh digital work where relevant
 - UWI Mona project work
-- Kingston City Run digital and website work
+- selected Jamaican business work digital and website work
 - Edmond Law website project
 - other real client or brand work already represented truthfully
 
@@ -792,8 +787,7 @@ The redesign must directly fix these problems:
 - remove all placeholders from the homepage
 - replace weak gallery logic with stronger case-study logic
 - create a clear audience-routing system on the homepage
-- add a dedicated experience page for hiring managers
-- add a dedicated partnerships page for brand collaborations
+- make `/other-opportunities/` work clearly for collaborators, partners, media, workshops, and brand collaborations
 - elevate Creator’s Current and the insights side of the brand
 - clean up the contact experience and remove incomplete-feeling friction
 - create a more bespoke visual identity
@@ -807,7 +801,7 @@ The redesign must directly fix these problems:
 Before calling the rebuild done, verify all of this.
 
 ### Strategic QA
-- Does the site clearly serve clients, hiring managers, partners, and followers?
+- Does the site clearly serve clients, collaborators, partners, and followers?
 - Can each visitor type find their route within seconds?
 - Does the site feel coherent rather than crowded?
 - Does the site make Velton look more credible than before?
@@ -847,24 +841,23 @@ If the answer is not yes, keep refining.
 2. rebuild shared header, footer, navigation, buttons, cards, and layout primitives
 3. rebuild the homepage completely around routing and proof
 4. rebuild `/work/`
-5. rebuild `/services/`
-6. rebuild `/experience/`
-7. rebuild `/partners/`
-8. rebuild `/about/`
-9. rebuild `/insights/`
-10. rebuild `/contact/`
-11. clean up privacy and 404
-12. finish metadata, schema, sitemap, robots, and final QA
+5. rebuild `/lead-flow-fix/`
+6. rebuild `/other-opportunities/`
+7. rebuild `/about/`
+8. rebuild `/insights/`
+9. rebuild `/contact/`
+10. clean up privacy and 404
+11. finish metadata, schema, sitemap, robots, and final QA
 
 ---
 
 ## 25. Final reminder
 
 This site is not meant to be merely “nice”.
-It is meant to become a serious business and career asset.
+It is meant to become a serious business and brand asset.
 
-A client should feel safer hiring Velton because of it.
-A hiring manager should feel clearer about bringing him in because of it.
+A client should feel safer working with Velton because of it.
+A collaborator should feel clearer about starting a conversation because of it.
 A brand partner should see a credible collaborator because of it.
 A thoughtful follower should want to stay connected because of it.
 

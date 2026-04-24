@@ -665,15 +665,6 @@ strong { font-weight: 700; color: var(--c-ink); }
     grid-template-columns: 1fr 1fr;
   }
 }
-.home-hero__img {
-  border-radius: var(--r-2xl);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  box-shadow: var(--sh-xl);
-}
-
-
 /* ----------------------------------------------------------
    9. CARDS
    ---------------------------------------------------------- */
@@ -1715,135 +1706,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 
 /* ----------------------------------------------------------
-   26. COMING SOON TOAST
-   ---------------------------------------------------------- */
-.coming-soon-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  align-items: flex-start;
-  width: 100%;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: var(--r-xl);
-  box-shadow: var(--sh-sm);
-  text-align: left;
-  color: inherit;
-}
-
-.coming-soon-card:hover {
-  border-color: var(--c-brand);
-  box-shadow: var(--sh-md);
-}
-
-.coming-soon-card__meta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--c-brand-dark);
-}
-
-.coming-soon-card__title {
-  font-size: var(--fs-lg);
-  font-weight: 700;
-  color: var(--c-ink);
-}
-
-.coming-soon-card__desc {
-  font-size: var(--fs-sm);
-  color: var(--c-muted);
-  line-height: 1.65;
-}
-
-.coming-soon-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--c-brand-dark);
-}
-
-.toast-stack {
-  position: fixed;
-  right: 20px;
-  bottom: 100px;
-  z-index: 9500;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  pointer-events: none;
-  width: min(24rem, calc(100vw - 2rem));
-}
-
-.toast {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--sp-3);
-  align-items: start;
-  padding: var(--sp-4) var(--sp-5);
-  border-radius: var(--r-lg);
-  background: rgba(15, 23, 42, 0.94);
-  color: #fff;
-  box-shadow: var(--sh-xl);
-  transform: translateY(16px);
-  opacity: 0;
-  transition: transform 0.24s ease, opacity 0.24s ease;
-}
-
-.toast.is-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.toast__icon {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(29, 182, 242, 0.18);
-  color: #7dd3fc;
-  flex-shrink: 0;
-}
-
-.toast__title {
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: #fff;
-}
-
-.toast__body {
-  font-size: var(--fs-xs);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-  margin-top: 2px;
-}
-
-@media (max-width: 47.9rem) {
-  .toast-stack {
-    right: 1rem;
-    left: 1rem;
-    width: auto;
-    bottom: 86px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .toast {
-    transition: none;
-  }
-}
-
-
-/* ----------------------------------------------------------
-   27. ANIMATIONS
+   26. ANIMATIONS
    ---------------------------------------------------------- */
 @keyframes spin {
   to { transform: translateY(-50%) rotate(360deg); }
@@ -1869,7 +1732,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 
 /* ----------------------------------------------------------
-   28. MISC / UTILITIES
+   27. MISC / UTILITIES
    ---------------------------------------------------------- */
 .sr-only {
   position: absolute;

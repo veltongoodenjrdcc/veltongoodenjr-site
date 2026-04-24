@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Lead Flow Fix | Velton Gooden Jr.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical setup for Jamaican service businesses losing warm leads between social media, WhatsApp, and the final sale.">
+  <meta name="description" content="A practical setup for Jamaican service businesses that get enquiries but lose momentum between social media, WhatsApp, and follow-up.">
   <base href="/">
   <link rel="canonical" href="https://www.veltongoodenjr.com/lead-flow-fix/">
   <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
@@ -15,16 +15,48 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <script defer src="/assets/js/site.js"></script>
   <meta property="og:title" content="Lead Flow Fix | Velton Gooden Jr.">
-  <meta property="og:description" content="Tighten the path between online interest and actual next steps for service businesses.">
+  <meta property="og:description" content="Clean up the handoff between online interest, WhatsApp conversations, reusable replies, lead tracking, and follow-up.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/lead-flow-fix/">
-  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/home-portrait.webp">
+  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/stock/hero-online-business.jpg">
   <style>
+    .page-hero__lead p { color: inherit; }
+    .page-hero__lead p + p { margin-top: var(--sp-3); }
+    .hero-microcopy { max-width: 54ch; margin-top: var(--sp-5); color: rgba(255,255,255,0.72); font-size: var(--fs-sm); line-height: 1.7; }
+    .hero-microcopy i { margin-right: var(--sp-2); }
     .check-list { display: grid; gap: var(--sp-3); }
     .check-list li { display: flex; gap: var(--sp-3); align-items: flex-start; padding: var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); color: var(--c-ink-2); }
     .check-list i { color: var(--c-brand-dark); margin-top: 0.2rem; }
     .fit-list li i { color: #15803d; }
     .not-list li i { color: #b91c1c; }
+    .mechanism-grid { display: grid; gap: var(--sp-5); counter-reset: mechanisms; }
+    @media (min-width: 56rem) { .mechanism-grid { grid-template-columns: repeat(4, 1fr); } }
+    .mechanism-card { counter-increment: mechanisms; padding: var(--sp-6); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-xl); box-shadow: var(--sh-sm); }
+    .mechanism-card::before { content: counter(mechanisms, decimal-leading-zero); display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; margin-bottom: var(--sp-4); border-radius: var(--r-pill); background: var(--c-surface-3); color: var(--c-brand-dark); font-size: var(--fs-xs); font-weight: 800; }
+    .mechanism-card h3 { font-size: var(--fs-lg); }
+    .mechanism-card p { margin-top: var(--sp-3); color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.7; }
+    .offer-list { display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+    .offer-list li { display: flex; gap: var(--sp-3); align-items: flex-start; padding: var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); color: var(--c-ink-2); }
+    .offer-list i { color: var(--c-brand-dark); margin-top: 0.2rem; }
+    .before-after { display: grid; gap: var(--sp-5); }
+    @media (min-width: 56rem) { .before-after { grid-template-columns: repeat(2, 1fr); } }
+    .comparison-card { padding: clamp(1.5rem, 4vw, 2rem); border: 1px solid var(--c-border); border-radius: var(--r-xl); background: var(--c-surface); box-shadow: var(--sh-sm); }
+    .comparison-card h3 { font-size: var(--fs-xl); }
+    .comparison-card ul { display: grid; gap: var(--sp-3); margin-top: var(--sp-5); }
+    .comparison-card li { display: flex; gap: var(--sp-3); align-items: flex-start; color: var(--c-ink-2); font-size: var(--fs-sm); line-height: 1.7; }
+    .comparison-card i { margin-top: 0.25rem; }
+    .comparison-card--before i { color: #b91c1c; }
+    .comparison-card--after i { color: #15803d; }
+    .proof-note { display: grid; gap: var(--sp-5); padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: var(--r-2xl); background: var(--c-ink); color: #fff; }
+    @media (min-width: 56rem) { .proof-note { grid-template-columns: 0.9fr 1.1fr; align-items: center; } }
+    .proof-note h2 { color: #fff; font-size: var(--fs-3xl); }
+    .proof-note p, .proof-note li { color: rgba(255,255,255,0.76); }
+    .proof-note ul { display: grid; gap: var(--sp-3); }
+    .proof-note li { padding: var(--sp-4); border-radius: var(--r-md); background: rgba(255,255,255,0.08); }
+    .faq-list { display: grid; gap: var(--sp-4); }
+    .faq-item { padding: var(--sp-5); border: 1px solid var(--c-border); border-radius: var(--r-lg); background: var(--c-surface); box-shadow: var(--sh-sm); }
+    .faq-item h3 { font-size: var(--fs-lg); }
+    .faq-item p { margin-top: var(--sp-3); color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.75; }
   </style>
 </head>
 <body>
@@ -36,12 +68,12 @@
         <ul class="nav-links" role="list">
           <li><a href="/">Home</a></li>
           <li><a href="/lead-flow-fix/">Lead Flow Fix</a></li>
-          <li><a href="/work/">Work</a></li>
+          <li><a href="/work/">My Work</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/other-opportunities/">Other Opportunities</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
-        <a href="/contact/" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+        <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span></button>
       </nav>
     </div>
@@ -52,12 +84,12 @@
       <ul class="mobile-nav__links" role="list">
         <li><a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a></li>
         <li><a href="/lead-flow-fix/"><i class="fa-solid fa-filter" aria-hidden="true"></i> Lead Flow Fix</a></li>
-        <li><a href="/work/"><i class="fa-regular fa-images" aria-hidden="true"></i> Work</a></li>
+        <li><a href="/work/"><i class="fa-regular fa-images" aria-hidden="true"></i> My Work</a></li>
         <li><a href="/about/"><i class="fa-regular fa-user" aria-hidden="true"></i> About</a></li>
         <li><a href="/other-opportunities/"><i class="fa-regular fa-handshake" aria-hidden="true"></i> Other Opportunities</a></li>
         <li><a href="/contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
-      <a href="/contact/" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
+      <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
       <div class="mobile-nav__footer"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div>
     </div>
   </div>
@@ -65,13 +97,18 @@
     <section class="page-hero">
       <div class="container">
         <div class="page-hero__content reveal">
-          <p class="page-hero__eyebrow">For service businesses with messy lead flow</p>
-          <h1 class="page-hero__title display-heading">Stop letting warm leads die in the inbox.</h1>
-          <p class="page-hero__lead">The Lead Flow Fix helps service businesses tighten the path between online interest and actual next steps. That can include your digital front door, Google presence, WhatsApp flow, saved replies, lead tracking, and the follow-up structure most businesses should have had already.</p>
-          <div class="page-hero__actions">
-            <a href="/contact/" class="btn btn--white btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a discovery call</a>
-            <a href="#process" class="btn btn--ghost btn--lg"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> See how it works</a>
+          <p class="page-hero__eyebrow">For Jamaican service businesses that get enquiries but lose momentum</p>
+          <h1 class="page-hero__title display-heading">People are interested. Then the trail goes cold.</h1>
+          <div class="page-hero__lead">
+            <p>That is usually not a demand problem. It is a handoff problem.</p>
+            <p>Someone finds the business, sends a message, asks a question, or means to book. Then things get patchy. Replies are slow. Info is scattered. WhatsApp is there, but not really doing its job. Follow-up depends on memory. A warm lead cools off and nobody notices until it is too late.</p>
+            <p>The Lead Flow Fix helps clean that up.</p>
           </div>
+          <div class="page-hero__actions">
+            <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--white btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a discovery call</a>
+            <a href="#what-gets-fixed" class="btn btn--ghost btn--lg"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> See what gets fixed</a>
+          </div>
+          <p class="hero-microcopy"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Built for owner-led service businesses using WhatsApp, social media, and more manual effort than they should have to.</p>
         </div>
       </div>
     </section>
@@ -79,36 +116,123 @@
     <section class="section section--alt">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-label">Problem articulation</span>
-          <h2>This is what the leak usually looks like</h2>
+          <span class="section-label">Where the leak usually is</span>
+          <h2>The business can look fine on the surface and still be leaking money underneath.</h2>
+          <p>This is the kind of mess I mean:</p>
         </div>
         <ul class="check-list reveal" role="list">
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>People hear about you, then struggle to find clear information.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>They message on Instagram or Facebook, but replies are slow or scattered.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>The same questions get typed over and over.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>WhatsApp is being used, but not properly.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Nobody knows which lead is still warm and which one is gone.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Follow-up depends too much on memory.</span></li>
-          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Business gets lost in the shuffle.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>People hear about you, then struggle to find the right info fast.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enquiries land in Instagram, Facebook, WhatsApp, maybe Google too.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>The same questions get answered from scratch over and over.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Some people get a quick reply, others wait too long.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>No one is fully sure who still needs a follow-up.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Warm leads go quiet and stay quiet.</span></li>
+          <li><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Too much of the process lives in one person's head.</span></li>
         </ul>
-        <p class="reveal" style="margin-top: var(--sp-6); color: var(--c-muted); font-size: var(--fs-lg);">That does not always look dramatic from the outside. It just quietly costs you.</p>
+        <p class="reveal" style="margin-top: var(--sp-6); color: var(--c-muted); font-size: var(--fs-lg);">That is not just admin. It costs you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <span class="section-label">Why this offer exists</span>
+          <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">I did not land here by trying to invent a fancy new service.</h2>
+        </div>
+        <div class="prose reveal" style="margin-top: var(--sp-6);">
+          <p>I landed here by noticing the same problem in different clothes.</p>
+          <p>I have worked across content, websites, digital communication, client-facing execution, and all the little bits in between. Over time, one thing kept standing out. A lot of businesses are not actually losing because nobody is interested. They are losing in the gap between interest and action.</p>
+          <p>The work might be good. The referrals might already be happening. The page might even look decent. But once someone reaches out, the process gets loose. Information is in too many places. Responses depend on who saw what. Follow-up becomes a maybe. Things stall for reasons that feel small in the moment and expensive later.</p>
+          <p>I know that kind of mess from the inside too. That is probably part of why I am good at spotting it. I have had to think hard about structure, follow-through, labels, notes, and systems because when they are weak, things slip. Fast.</p>
+          <p>So this offer is not me trying to sound clever. It is me getting more honest about the kind of problem I am actually good at fixing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="what-gets-fixed">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What actually changes</span>
+          <h2>This is not about adding more moving parts. It is about making the existing path easier to use.</h2>
+          <p>The Lead Flow Fix tightens four places where businesses usually lose momentum.</p>
+        </div>
+        <div class="mechanism-grid reveal">
+          <article class="mechanism-card"><h3>The front door</h3><p>People should be able to find the right information and know what to do next without guessing.</p></article>
+          <article class="mechanism-card"><h3>The handoff</h3><p>If enquiries start on Instagram, Facebook, Google, or a website, there should be a cleaner path into the place where the conversation can actually move.</p></article>
+          <article class="mechanism-card"><h3>The replies</h3><p>If the same questions come up every week, the business should not be typing from zero every time.</p></article>
+          <article class="mechanism-card"><h3>The follow-up</h3><p>Leads should not vanish just because nobody remembered to circle back.</p></article>
+        </div>
+        <p class="reveal" style="margin-top: var(--sp-6); color: var(--c-muted); font-size: var(--fs-lg); max-width: 64ch;">Simple beats impressive here. The goal is not to make the setup look advanced. The goal is to make the business easier to run and easier to buy from.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-label">What the offer includes</span>
-          <h2>What gets tightened up</h2>
-          <p>Depending on fit and scope, the Lead Flow Fix can include:</p>
+          <span class="section-label">What gets cleaned up</span>
+          <h2>Depending on the business, the fix can include:</h2>
         </div>
-        <div class="grid grid--3 reveal">
-          <article class="service-card"><div class="service-card__icon"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i></div><h3 class="service-card__title">A cleaner digital front door</h3><p class="service-card__desc">A clearer place for people to understand what you do, what to ask, and how to move.</p></article>
-          <article class="service-card"><div class="service-card__icon"><i class="fa-brands fa-google" aria-hidden="true"></i></div><h3 class="service-card__title">Google presence cleanup</h3><p class="service-card__desc">Google Business Profile basics, contact details, calls to action, and trust signals.</p></article>
-          <article class="service-card"><div class="service-card__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div><h3 class="service-card__title">WhatsApp flow</h3><p class="service-card__desc">Clearer entry points, WhatsApp Business optimisation, saved replies, and FAQ logic.</p></article>
-          <article class="service-card"><div class="service-card__icon"><i class="fa-solid fa-tags" aria-hidden="true"></i></div><h3 class="service-card__title">Lead labels and tracking</h3><p class="service-card__desc">Simple labels and a lightweight tracker so warm leads do not disappear into memory.</p></article>
-          <article class="service-card"><div class="service-card__icon"><i class="fa-solid fa-reply" aria-hidden="true"></i></div><h3 class="service-card__title">Follow-up structure</h3><p class="service-card__desc">Prompts and practical recovery language for people who went quiet but are not necessarily gone.</p></article>
-          <article class="service-card"><div class="service-card__icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></div><h3 class="service-card__title">Usable handover</h3><p class="service-card__desc">A setup the business can keep using after the work is technically complete.</p></article>
+        <ul class="offer-list reveal" role="list">
+          <li><i class="fa-solid fa-window-maximize" aria-hidden="true"></i><span>A cleaner digital front door or one-page landing page.</span></li>
+          <li><i class="fa-brands fa-google" aria-hidden="true"></i><span>Google Business Profile cleanup.</span></li>
+          <li><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Clearer paths into WhatsApp.</span></li>
+          <li><i class="fa-solid fa-gear" aria-hidden="true"></i><span>WhatsApp Business optimisation.</span></li>
+          <li><i class="fa-solid fa-message" aria-hidden="true"></i><span>Saved replies and FAQ handling.</span></li>
+          <li><i class="fa-solid fa-tags" aria-hidden="true"></i><span>Simple lead labels.</span></li>
+          <li><i class="fa-solid fa-table-list" aria-hidden="true"></i><span>A lightweight lead tracker.</span></li>
+          <li><i class="fa-solid fa-bell" aria-hidden="true"></i><span>Basic follow-up prompts.</span></li>
+          <li><i class="fa-solid fa-reply" aria-hidden="true"></i><span>Ghosted lead recovery language.</span></li>
+          <li><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i><span>Practical handover so the setup does not die the week after launch.</span></li>
+        </ul>
+        <p class="reveal" style="margin-top: var(--sp-6); color: var(--c-muted); font-size: var(--fs-lg); max-width: 64ch;">Not every business needs every piece. The point is to fix the leak, not force a bloated package.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What this should feel like after</span>
+          <h2>Less scramble. Less guesswork. Fewer missed chances.</h2>
+        </div>
+        <div class="before-after reveal">
+          <article class="comparison-card comparison-card--before">
+            <h3>Before</h3>
+            <ul role="list">
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Enquiries come in from different places with no clean handoff.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>The same answers get typed over and over.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Follow-up depends too much on memory.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>No one is fully sure which lead is still alive.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>The business feels patchy underneath even if it looks decent online.</span></li>
+            </ul>
+          </article>
+          <article class="comparison-card comparison-card--after">
+            <h3>After</h3>
+            <ul role="list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>The next step is clearer.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>More enquiries get routed where they can actually be handled.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Repeated answers become reusable.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Active leads are easier to spot.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Follow-up becomes more deliberate.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>The business feels less held together by stress and memory.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="proof-note reveal">
+          <div>
+            <span class="section-label" style="color: rgba(255,255,255,0.58);">Proof</span>
+            <h2 style="margin-top: var(--sp-3);">Proof should do more than say "trust me."</h2>
+            <p style="margin-top: var(--sp-4);">The useful proof for this kind of work is not a vague claim. It is the difference between messy and tightened-up.</p>
+          </div>
+          <ul role="list">
+            <li><strong style="color: #fff;">Before and after snapshots:</strong> what was happening before, what changed, and what became easier.</li>
+            <li><strong style="color: #fff;">Mini case-study logic:</strong> what was messy, what got fixed, and how the business became easier to handle.</li>
+            <li><strong style="color: #fff;">What people usually notice first:</strong> not just that something was set up, but that things felt easier after.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -117,21 +241,26 @@
       <div class="container">
         <div class="grid grid--2-fixed">
           <div class="reveal">
-            <span class="section-label">Best fit for</span>
-            <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">Owner-led service businesses already getting some attention.</h2>
-            <p style="margin-top: var(--sp-4); color: var(--c-muted); font-size: var(--fs-lg);">This is most useful for businesses losing momentum between interest and action.</p>
+            <span class="section-label">Fit</span>
+            <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">Best fit if:</h2>
             <ul class="check-list fit-list" role="list" style="margin-top: var(--sp-6);">
-              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Beauty businesses, clinics, consultants, service providers, event businesses, and conversation-based sales teams.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>You already get some level of interest or enquiries.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>A lot of business happens through WhatsApp or messages.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>The handoff between platforms feels messy.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>The same questions come up constantly.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Follow-up is too manual.</span></li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>You want a practical setup, not a giant software project.</span></li>
             </ul>
           </div>
           <div class="reveal reveal--delay-2">
-            <span class="section-label">Probably not for you if</span>
+            <span class="section-label">Probably not a fit if</span>
+            <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">This is not the right answer for every business.</h2>
             <ul class="check-list not-list" role="list" style="margin-top: var(--sp-6);">
-              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You want a giant custom buildout.</span></li>
-              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You need enterprise-level software integration.</span></li>
-              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You are looking for full social media management.</span></li>
-              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You do not have enough demand yet for follow-through to matter.</span></li>
-              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You want a miracle without changing how the business responds.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You want a massive custom build.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You need deep enterprise software integration.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You want full social media management.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You barely get any inbound interest yet.</span></li>
+              <li><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>You want the system to save you while the team keeps handling leads badly.</span></li>
             </ul>
           </div>
         </div>
@@ -140,21 +269,31 @@
 
     <section class="section" id="process">
       <div class="container">
-        <div class="section-header--center reveal"><span class="section-label">Process</span><h2>How it works</h2></div>
-        <div class="steps reveal">
-          <article class="step"><h3 class="step__title">We diagnose the leak</h3><p class="step__desc">We look at where people are coming in, where they are getting stuck, and what is being handled too manually.</p></article>
-          <article class="step"><h3 class="step__title">We tighten the path</h3><p class="step__desc">I clean up the key points where interest is being dropped.</p></article>
-          <article class="step"><h3 class="step__title">We make it usable</h3><p class="step__desc">Labels, replies, structure, and handover so the thing can actually live beyond launch day.</p></article>
+        <div class="section-header--center reveal">
+          <span class="section-label">How it works</span>
+          <h2>Simple on purpose</h2>
         </div>
+        <div class="steps reveal">
+          <article class="step"><h3 class="step__title">Spot the leak</h3><p class="step__desc">We look at where people are coming in, where momentum is being lost, and what is still too manual.</p></article>
+          <article class="step"><h3 class="step__title">Tighten the path</h3><p class="step__desc">I clean up the weak points between discovery, response, and next step.</p></article>
+          <article class="step"><h3 class="step__title">Make it usable</h3><p class="step__desc">Labels, replies, structure, and handover so the thing can actually live beyond setup day.</p></article>
+        </div>
+        <p class="reveal" style="margin: var(--sp-8) auto 0; max-width: 58ch; text-align: center; color: var(--c-muted); font-size: var(--fs-lg);">This does not have to start with a giant rebuild. A lot of the value is in fixing the obvious bits properly.</p>
       </div>
     </section>
 
     <section class="section section--alt">
       <div class="container container--narrow">
-        <div class="reveal"><span class="section-label">Why me</span><h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">This sits right in the overlap I work best in.</h2></div>
-        <div class="prose reveal" style="margin-top: var(--sp-6);">
-          <p>It is not just a web problem, not just a copy problem, not just a systems problem. It is usually all three wearing each other's clothes.</p>
-          <p>I am good at seeing where the visible problem and the actual problem do not match, then making the messy bit make more sense.</p>
+        <div class="section-header reveal">
+          <span class="section-label">Fair questions</span>
+          <h2>Questions worth asking before you book</h2>
+        </div>
+        <div class="faq-list reveal">
+          <article class="faq-item"><h3>Do I need a whole new website for this?</h3><p>Not always. Sometimes the issue is the site. Sometimes it is the handoff, the messaging, the call to action, or the follow-up. The job is to fix the leak, not force a rebuild that does not need to happen.</p></article>
+          <article class="faq-item"><h3>What if most of my leads already come through WhatsApp?</h3><p>That is exactly why this matters. A lot of businesses are on WhatsApp already. The problem is that the setup is loose, inconsistent, or too dependent on memory.</p></article>
+          <article class="faq-item"><h3>Is this only for bigger teams?</h3><p>No. It is especially useful for owner-led businesses where too much is living in one person's head.</p></article>
+          <article class="faq-item"><h3>Will this create more admin?</h3><p>It should do the opposite. The goal is fewer repeated explanations, fewer dropped balls, and less mental clutter.</p></article>
+          <article class="faq-item"><h3>What if the business is still pretty manual?</h3><p>That is common. This is meant to help with that, not punish you for it.</p></article>
         </div>
       </div>
     </section>
@@ -162,9 +301,14 @@
     <section class="section section--tint">
       <div class="container">
         <div class="cta-section reveal">
-          <h2>If the business is getting interest but not enough movement, start here.</h2>
-          <p>We do not need to start with a giant rebuild. We need to find the leak and fix the obvious bits first.</p>
-          <div class="cta-section__actions"><a href="/contact/" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a></div>
+          <h2>If people are showing interest but the business still feels too patchy underneath, start there.</h2>
+          <p>You may not need a full reinvention. You may need a cleaner front door, a better handoff, fewer repeated explanations, and a clearer follow-up structure.</p>
+          <p>That is a real problem. It is also a fixable one.</p>
+          <div class="cta-section__actions">
+            <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a discovery call</a>
+            <a href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20want%20to%20talk%20about%20the%20Lead%20Flow%20Fix." target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Send a WhatsApp message</a>
+          </div>
+          <p style="font-size: var(--fs-sm);">We can start with what already exists and find the obvious leak first.</p>
         </div>
       </div>
     </section>
@@ -173,12 +317,11 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand"><img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Sharper communication, cleaner digital paths, and practical systems help for businesses and aligned opportunities.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
-        <nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="/lead-flow-fix/">Lead Flow Fix</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav>
+        <nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="/lead-flow-fix/">Lead Flow Fix</a><a href="/work/">My Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav>
         <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="/other-opportunities/">Other Opportunities</a><a href="/insights/">Insights</a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Newsletter</a></div></nav>
       </div>
       <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="/privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
     </div>
   </footer>
-  <div class="wa-float"><a class="wa-btn" href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20came%20across%20your%20site%20and%20wanted%20to%20reach%20out." target="_blank" rel="noopener" aria-label="Send a WhatsApp message to Velton"><i class="fa-brands fa-whatsapp wa-btn__icon" aria-hidden="true"></i><span class="wa-btn__label" aria-hidden="true"><span class="wa-btn__title">Want to chat?</span><span class="wa-btn__sub">Quick WhatsApp</span></span></a></div>
 </body>
 </html>

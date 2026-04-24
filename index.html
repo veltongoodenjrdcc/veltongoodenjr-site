@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <title>Velton Gooden Jr. | Digital Brand Strategist and Systems-Minded Operator</title>
+  <title>Velton Gooden Jr. | Digital Clarity, Content, and Practical Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Velton Gooden Jr. helps businesses tighten messy digital journeys, sharpen communication, and fix the gaps between interest and action.">
   <base href="/">
@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script defer src="/assets/js/site.js"></script>
-  <meta property="og:title" content="Velton Gooden Jr. | Digital Brand Strategist and Systems-Minded Operator">
+  <meta property="og:title" content="Velton Gooden Jr. | Digital Clarity, Content, and Practical Systems">
   <meta property="og:description" content="Practical help for businesses with messy digital journeys, unclear messaging, and warm leads slipping through the cracks.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/">
-  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/home-portrait.webp">
+  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/stock/hero-digital-workspace.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,7 +26,7 @@
     "name": "Velton Gooden Jr.",
     "url": "https://www.veltongoodenjr.com",
     "jobTitle": "Digital Brand Strategist",
-    "description": "Digital Brand Strategist and systems-minded operator in Jamaica helping businesses tighten messy digital journeys and communication.",
+    "description": "Systems-minded operator in Jamaica helping businesses tighten messy digital journeys, content, communication, and follow-through.",
     "address": { "@type": "PostalAddress", "addressCountry": "JM" },
     "sameAs": [
       "https://www.instagram.com/veltongoodenjr",
@@ -36,8 +36,26 @@
   </script>
   <style>
     .home-hero-bg { background: linear-gradient(135deg, #07111f 0%, #123047 48%, #0e7490 100%); color: #fff; position: relative; overflow: hidden; padding-block: clamp(5rem, 10vw, 8rem); }
-    .home-hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 55% at 88% 34%, rgba(29, 182, 242, 0.14), transparent 70%); pointer-events: none; }
-    .home-hero__note { display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-5); color: rgba(255, 255, 255, 0.72); font-size: var(--fs-sm); }
+    .home-hero-bg::after { content: ""; position: absolute; z-index: 1; inset: 0; background: radial-gradient(ellipse 50% 55% at 88% 34%, rgba(29, 182, 242, 0.16), transparent 70%); pointer-events: none; }
+    .home-hero-carousel { position: absolute; inset: 0; z-index: 0; opacity: 0; pointer-events: none; animation: heroCarouselLoad 420ms ease-out forwards; }
+    .home-hero-carousel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7, 17, 31, 0.96) 0%, rgba(7, 17, 31, 0.84) 42%, rgba(7, 17, 31, 0.7) 100%), linear-gradient(180deg, rgba(7, 17, 31, 0.2), rgba(7, 17, 31, 0.68)); }
+    .home-hero-carousel__slide { position: absolute; inset: -4%; background-size: cover; background-position: center; opacity: 0; transform: scale(1.02); animation: heroCarouselFade 24s ease-in-out infinite; will-change: opacity, transform; }
+    .home-hero-carousel__slide:nth-child(1) { background-image: url("/assets/images/content/stock/hero-digital-workspace.jpg"); animation-delay: 0s; }
+    .home-hero-carousel__slide:nth-child(2) { background-image: url("/assets/images/content/stock/hero-online-business.jpg"); animation-delay: 8s; }
+    .home-hero-carousel__slide:nth-child(3) { background-image: url("/assets/images/content/stock/hero-strategy-meeting.jpg"); animation-delay: 16s; }
+    .home-hero__note { display: block; margin-top: var(--sp-5); color: rgba(255, 255, 255, 0.72); font-size: var(--fs-sm); line-height: 1.7; max-width: 42rem; }
+    .home-hero__note i { margin-right: var(--sp-2); }
+    .home-hero__visual { display: flex; flex-direction: column; gap: var(--sp-5); justify-content: center; }
+    .home-hero__signal-panel { display: grid; gap: var(--sp-5); padding: clamp(1.25rem, 3vw, 1.75rem); border-radius: var(--r-xl); border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.08); box-shadow: var(--sh-xl); backdrop-filter: blur(16px); }
+    .home-hero__flow { display: grid; gap: var(--sp-3); }
+    .home-hero__flow-row { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--sp-3); align-items: center; padding: var(--sp-3); border-radius: var(--r-lg); background: rgba(255, 255, 255, 0.08); }
+    .home-hero__flow-icon { width: 2.5rem; height: 2.5rem; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-md); background: rgba(255, 255, 255, 0.14); color: #8ee8ff; }
+    .home-hero__flow-title { color: #fff; font-weight: 800; }
+    .home-hero__flow-copy { margin-top: 0.15rem; color: rgba(255, 255, 255, 0.68); font-size: var(--fs-xs); line-height: 1.5; }
+    .home-hero__mini-grid { display: grid; gap: var(--sp-3); grid-template-columns: repeat(3, 1fr); }
+    .home-hero__mini-grid div { min-width: 0; text-align: center; padding: var(--sp-3); border-radius: var(--r-md); background: rgba(255, 255, 255, 0.07); }
+    .home-hero__mini-grid strong { display: block; color: #fff; font-size: var(--fs-sm); }
+    .home-hero__mini-grid p { margin-top: var(--sp-1); font-size: var(--fs-xs); color: rgba(255, 255, 255, 0.65); line-height: 1.35; }
     .signal-card, .leak-card { padding: clamp(1.5rem, 3vw, 2rem); border-radius: var(--r-xl); border: 1px solid var(--c-border); background: var(--c-surface); box-shadow: var(--sh-sm); }
     .signal-card__icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: var(--r-md); background: var(--c-surface-3); color: var(--c-brand-dark); margin-bottom: var(--sp-4); }
     .signal-card h3, .leak-card h3 { font-size: var(--fs-lg); }
@@ -45,6 +63,19 @@
     .proof-list { display: grid; gap: var(--sp-3); }
     .proof-list li { display: flex; align-items: flex-start; gap: var(--sp-3); padding: var(--sp-4); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); color: var(--c-ink-2); }
     .proof-list i { color: var(--c-brand-dark); margin-top: 0.2rem; }
+    @keyframes heroCarouselLoad { to { opacity: 1; } }
+    @keyframes heroCarouselFade {
+      0% { opacity: 0; transform: scale(1.025); }
+      2% { opacity: 0.28; transform: scale(1.015); }
+      30% { opacity: 0.28; transform: scale(1); }
+      39% { opacity: 0; transform: scale(1.01); }
+      100% { opacity: 0; transform: scale(1.025); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-hero-carousel { opacity: 1; animation: none; }
+      .home-hero-carousel__slide { animation: none; transform: none; }
+      .home-hero-carousel__slide:first-child { opacity: 0.2; }
+    }
   </style>
 </head>
 <body>
@@ -56,12 +87,12 @@
         <ul class="nav-links" role="list">
           <li><a href="/">Home</a></li>
           <li><a href="/lead-flow-fix/">Lead Flow Fix</a></li>
-          <li><a href="/work/">Work</a></li>
+          <li><a href="/work/">My Work</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/other-opportunities/">Other Opportunities</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
-        <a href="/contact/" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+        <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
           <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
         </button>
@@ -77,12 +108,12 @@
       <ul class="mobile-nav__links" role="list">
         <li><a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a></li>
         <li><a href="/lead-flow-fix/"><i class="fa-solid fa-filter" aria-hidden="true"></i> Lead Flow Fix</a></li>
-        <li><a href="/work/"><i class="fa-regular fa-images" aria-hidden="true"></i> Work</a></li>
+        <li><a href="/work/"><i class="fa-regular fa-images" aria-hidden="true"></i> My Work</a></li>
         <li><a href="/about/"><i class="fa-regular fa-user" aria-hidden="true"></i> About</a></li>
         <li><a href="/other-opportunities/"><i class="fa-regular fa-handshake" aria-hidden="true"></i> Other Opportunities</a></li>
         <li><a href="/contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
-      <a href="/contact/" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
+      <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
       <div class="mobile-nav__footer">
         <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
         <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
@@ -91,24 +122,44 @@
   </div>
   <main id="main">
     <section class="home-hero-bg">
+      <div class="home-hero-carousel" aria-hidden="true">
+        <span class="home-hero-carousel__slide"></span>
+        <span class="home-hero-carousel__slide"></span>
+        <span class="home-hero-carousel__slide"></span>
+      </div>
       <div class="container">
-        <div class="home-hero__grid reveal" style="position: relative; z-index: 1;">
+        <div class="home-hero__grid reveal" style="position: relative; z-index: 2;">
           <div>
             <p class="section-label section-label--light">Velton Gooden Jr. | Jamaica</p>
             <h1 class="display-heading" style="font-size: var(--fs-5xl); color: #fff; margin-top: var(--sp-4); max-width: 11ch;">Looks good. Leaks anyway.</h1>
             <p style="font-size: var(--fs-lg); color: rgba(255, 255, 255, 0.86); max-width: 58ch; margin-top: var(--sp-5); line-height: 1.7;">That gap between polished and actually working is where I do my best work. I help businesses tighten the messy bits between attention, action, and follow-through through clearer messaging, cleaner digital touchpoints, and practical systems thinking.</p>
             <div style="display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-8);">
               <a href="/lead-flow-fix/" class="btn btn--white btn--lg btn--pulse"><i class="fa-solid fa-filter" aria-hidden="true"></i> See the Lead Flow Fix</a>
-              <a href="/work/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-images" aria-hidden="true"></i> View selected work</a>
+              <a href="/work/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-images" aria-hidden="true"></i> Explore My Work</a>
             </div>
-            <p class="home-hero__note"><i class="fa-regular fa-compass" aria-hidden="true"></i> Also here for hiring, partnerships, or media? Start with <a href="/other-opportunities/" style="color: #fff; font-weight: 700;">Other Opportunities</a>.</p>
+            <p class="home-hero__note"><i class="fa-regular fa-compass" aria-hidden="true"></i> Also here for partnerships, media, workshops, or collaborations? Start with <a href="/other-opportunities/" style="color: #fff; font-weight: 700;">Other Opportunities</a>.</p>
           </div>
-          <div style="display: flex; flex-direction: column; gap: var(--sp-5); justify-content: center;">
-            <img src="/assets/images/content/home-portrait.webp" alt="Portrait of Velton Gooden Jr" class="home-hero__img" loading="eager" width="480" height="600" style="width: 100%; max-width: 420px; margin-inline: auto;">
-            <div style="display: grid; gap: var(--sp-3); grid-template-columns: repeat(3, 1fr); background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--r-xl); padding: var(--sp-4);">
-              <div style="text-align: center;"><strong style="color: #fff;">Strategy</strong><p style="font-size: var(--fs-xs); color: rgba(255,255,255,.65);">Clearer choices</p></div>
-              <div style="text-align: center;"><strong style="color: #fff;">Execution</strong><p style="font-size: var(--fs-xs); color: rgba(255,255,255,.65);">Built to use</p></div>
-              <div style="text-align: center;"><strong style="color: #fff;">Systems</strong><p style="font-size: var(--fs-xs); color: rgba(255,255,255,.65);">Less friction</p></div>
+          <div class="home-hero__visual">
+            <div class="home-hero__signal-panel">
+              <div class="home-hero__flow">
+                <div class="home-hero__flow-row">
+                  <span class="home-hero__flow-icon"><i class="fa-regular fa-eye" aria-hidden="true"></i></span>
+                  <div><div class="home-hero__flow-title">Attention</div><p class="home-hero__flow-copy">People notice the brand, page, post, event, or offer.</p></div>
+                </div>
+                <div class="home-hero__flow-row">
+                  <span class="home-hero__flow-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+                  <div><div class="home-hero__flow-title">Action</div><p class="home-hero__flow-copy">The route is clear enough for someone to take the next step.</p></div>
+                </div>
+                <div class="home-hero__flow-row">
+                  <span class="home-hero__flow-icon"><i class="fa-regular fa-circle-check" aria-hidden="true"></i></span>
+                  <div><div class="home-hero__flow-title">Follow-through</div><p class="home-hero__flow-copy">The handoff, reply, booking, or decision does not fall apart.</p></div>
+                </div>
+              </div>
+              <div class="home-hero__mini-grid">
+                <div><strong>Strategy</strong><p>Clearer choices</p></div>
+                <div><strong>Execution</strong><p>Built to use</p></div>
+                <div><strong>Systems</strong><p>Less friction</p></div>
+              </div>
             </div>
           </div>
         </div>
@@ -171,14 +222,14 @@
             <h2>A few places that work has shown up</h2>
             <p>Different formats, same underlying thread: clearer communication, stronger presentation, better structure.</p>
           </div>
-          <a href="/work/" class="btn btn--secondary">See selected work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a href="/work/" class="btn btn--secondary">Explore My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
         <ul class="proof-list reveal" role="list">
           <li><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i><span>HBO Max voiceover work.</span></li>
-          <li><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Kingston City Run website and digital buildout.</span></li>
+          <li><i class="fa-solid fa-globe" aria-hidden="true"></i><span>Website and digital front-door work for Jamaican businesses.</span></li>
           <li><i class="fa-solid fa-video" aria-hidden="true"></i><span>UWI Mona content and communication work.</span></li>
-          <li><i class="fa-solid fa-window-maximize" aria-hidden="true"></i><span>Website projects for Jamaican businesses.</span></li>
-          <li><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Strategy and systems-minded support across brand and digital work.</span></li>
+          <li><i class="fa-solid fa-window-maximize" aria-hidden="true"></i><span>Digital cleanup, offer shaping, and lead-flow thinking for service businesses.</span></li>
+          <li><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Strategy and systems-minded support where brand, content, and execution have to meet.</span></li>
         </ul>
       </div>
     </section>
@@ -191,9 +242,10 @@
         </div>
         <div class="prose reveal" style="margin-top: var(--sp-6);">
           <p>For clients, that means a clearer picture of how I can help.</p>
-          <p>For hiring teams, it means a better sense of how I think and what I can do.</p>
+          <p>For people reviewing the work, it means a better sense of how the creative and systems sides connect.</p>
           <p>For partners, collaborators, and media, it means less guesswork and less back-and-forth.</p>
-          <p>Not everything needs a labyrinth. Sometimes it just needs a cleaner front door.</p>
+          <p>I am not trying to make the site feel bigger than the work. I am trying to make the work easier to understand, easier to trust, and easier to start from.</p>
+          <p>Not everything needs a labyrinth. Sometimes it just needs a cleaner front door and a person who can see where the path is getting weird.</p>
         </div>
       </div>
     </section>
@@ -206,8 +258,8 @@
         </div>
         <div class="router-grid">
           <a href="/lead-flow-fix/" class="router-card reveal reveal--delay-1"><div class="router-card__icon"><i class="fa-solid fa-filter" aria-hidden="true"></i></div><div><div class="router-card__title">I need help with a business problem</div><p class="router-card__desc">Lead flow, messaging, digital cleanup, websites, or practical brand support.</p></div><div class="router-card__cta">Go to Lead Flow Fix <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
-          <a href="/work/" class="router-card reveal reveal--delay-2"><div class="router-card__icon"><i class="fa-regular fa-images" aria-hidden="true"></i></div><div><div class="router-card__title">I want to review work and capability</div><p class="router-card__desc">Projects, context, and proof across web, content, voice, and digital support.</p></div><div class="router-card__cta">Go to Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
-          <a href="/other-opportunities/" class="router-card reveal reveal--delay-1"><div class="router-card__icon"><i class="fa-regular fa-handshake" aria-hidden="true"></i></div><div><div class="router-card__title">I am here about a role, partnership, or media opportunity</div><p class="router-card__desc">Hiring, collaboration, speaking, interviews, panels, and brand conversations.</p></div><div class="router-card__cta">Go to Other Opportunities <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
+          <a href="/work/" class="router-card reveal reveal--delay-2"><div class="router-card__icon"><i class="fa-regular fa-images" aria-hidden="true"></i></div><div><div class="router-card__title">I want to understand the range of the work</div><p class="router-card__desc">A portfolio-style view across web, content, voice, communication, and systems thinking.</p></div><div class="router-card__cta">Go to My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
+          <a href="/other-opportunities/" class="router-card reveal reveal--delay-1"><div class="router-card__icon"><i class="fa-regular fa-handshake" aria-hidden="true"></i></div><div><div class="router-card__title">I am here about a partnership, workshop, or media opportunity</div><p class="router-card__desc">Collaborations, speaking, interviews, panels, creator work, and brand conversations.</p></div><div class="router-card__cta">Go to Other Opportunities <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></a>
         </div>
       </div>
     </section>
@@ -218,7 +270,7 @@
           <h2>If something is leaking, clunky, or harder than it should be, that is worth a conversation.</h2>
           <p>Tell me what is going on, what is getting stuck, or what you are trying to build. We can start there.</p>
           <div class="cta-section__actions">
-            <a href="/contact/" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+            <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
             <a href="/contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Send a Message</a>
           </div>
         </div>
@@ -229,7 +281,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand"><img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Sharper communication, cleaner digital paths, and practical systems help for businesses and aligned opportunities.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
-        <nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="/lead-flow-fix/">Lead Flow Fix</a><a href="/work/">Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav>
+        <nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="/lead-flow-fix/">Lead Flow Fix</a><a href="/work/">My Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav>
         <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="/other-opportunities/">Other Opportunities</a><a href="/insights/">Insights</a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Newsletter</a></div></nav>
       </div>
       <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="/privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
