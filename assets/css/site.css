@@ -520,6 +520,10 @@ strong { font-weight: 700; color: var(--c-ink); }
   justify-content: space-between;
   margin-bottom: var(--sp-8);
 }
+.mobile-nav__header img {
+  height: 22px;
+  width: auto;
+}
 .mobile-nav__close {
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
