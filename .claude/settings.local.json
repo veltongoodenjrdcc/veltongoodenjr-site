@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression; $zip = [System.IO.Compression.ZipFile]::OpenRead\\('g:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\assets\\\\Creator''s Current Newsletter Compilation.docx'\\); $xmlEntry = $zip.Entries | Where-Object { $_.Name -eq 'document.xml' }; if \\($xmlEntry\\) { $reader = New-Object System.IO.StreamReader\\($xmlEntry.Open\\(\\)\\); $xml = $reader.ReadToEnd\\(\\); $reader.Close\\(\\); [xml]$doc = $xml; $doc.InnerXml.Substring\\(0, [Math]::Min\\(5000, $doc.InnerXml.Length\\)\\) } else { 'Could not find document.xml' })",
+      "PowerShell([Reflection.Assembly]::LoadWithPartialName\\('System.IO.Compression'\\) | Out-Null; $zip = New-Object System.IO.Compression.ZipFile\\('g:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\assets\\\\Creator''s Current Newsletter Compilation.docx', [System.IO.FileMode]::Open\\); $entry = $zip.GetEntry\\('word/document.xml'\\); $stream = $entry.Open\\(\\); $reader = New-Object System.IO.StreamReader\\($stream\\); $content = $reader.ReadToEnd\\(\\); $reader.Close\\(\\); $stream.Close\\(\\); $zip.Dispose\\(\\); $content.Substring\\(0, [Math]::Min\\(8000, $content.Length\\)\\))",
+      "Bash(docx2txt \"g:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website/assets/Creator's Current Newsletter Compilation.docx\" -)",
+      "Bash(docx2txt \"g:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website/assets/Creator's Current Newsletter Compilation.docx\")",
+      "Bash(git checkout *)",
+      "Bash(npm --version)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npx playwright *)",
+      "Bash(node -e \"const pw = require\\('@playwright/test'\\); console.log\\('Playwright loaded OK'\\);\")",
+      "Bash(findstr \"exports\\\\|type\\\\|main\")",
+      "Bash(Get-Content \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\node_modules\\\\@playwright\\\\test\\\\package.json\")",
+      "Bash(Select-String \"exports|type|main\")",
+      "Bash(Select-Object -First 20)",
+      "PowerShell($content = Get-Content \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\node_modules\\\\@playwright\\\\test\\\\package.json\" -Raw; $content.Substring\\(0, [Math]::Min\\(500, $content.Length\\)\\))",
+      "PowerShell(Set-Location \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\"; $json = Get-Content \"node_modules\\\\@playwright\\\\test\\\\package.json\" -Raw -Encoding UTF8; if \\($json\\) { Write-Output \"File readable, length: $\\($json.Length\\)\" } else { Write-Output \"File empty or unreadable\" })",
+      "PowerShell($json = Get-Content \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\node_modules\\\\@playwright\\\\test\\\\package.json\" -Raw -Encoding UTF8; if \\($json\\) { Write-Output \"OK - length $\\($json.Length\\)\" } else { Write-Output \"EMPTY\" })",
+      "PowerShell($json = Get-Content \"C:\\\\vgj-qa\\\\node_modules\\\\@playwright\\\\test\\\\package.json\" -Raw -Encoding UTF8; if \\($json\\) { Write-Output \"OK - length $\\($json.Length\\)\" } else { Write-Output \"EMPTY\" })",
+      "PowerShell(\\(Get-Item \"C:\\\\vgj-qa\\\\node_modules\\\\@playwright\\\\test\\\\package.json\"\\).Length)",
+      "PowerShell(\\(Get-Item \"C:\\\\vgj-qa-modules\\\\node_modules\\\\@playwright\\\\test\\\\package.json\"\\).Length)",
+      "PowerShell(Set-Location C:\\\\vgj-qa-modules; $env:PLAYWRIGHT_BROWSERS_PATH = \"C:\\\\vgj-pw-browsers\"; npx playwright install chromium 2>&1 | Select-Object -Last 5)",
+      "PowerShell(Set-Location C:\\\\vgj-qa-modules; $env:PLAYWRIGHT_BROWSERS_PATH = \"C:\\\\vgj-pw-browsers\"; npx playwright install chromium 2>&1)",
+      "PowerShell(Set-Location C:\\\\vgj-qa-modules; $cmd = \".\\\\node_modules\\\\.bin\\\\playwright install chromium\"; Invoke-Expression $cmd 2>&1 | Select-Object -Last 10)",
+      "PowerShell($dir = Get-Item \"C:\\\\Users\\\\velto\\\\AppData\\\\Local\\\\ms-playwright\"; $dir.GetDirectories\\(\\) | ForEach-Object { $_.Name })",
+      "PowerShell(New-Item -ItemType Directory -Force \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\reports\\\\screenshots\")",
+      "PowerShell(Set-Location C:\\\\vgj-qa-modules; $env:IMPECCABLE_CACHE = \"C:\\\\impeccable-cache\"; node --version; npx impeccable detect \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\" --fast 2>&1 | Select-Object -First 80)",
+      "PowerShell(Set-Location C:\\\\vgj-qa-modules; npx impeccable detect \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\" --fast --json 2>&1 | Where-Object { $_ -match '^\\\\[' -or $_ -eq '' } | Select-Object -First 200 | Out-File \"G:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\reports\\\\impeccable-baseline.json\" -Encoding UTF8 2>&1; Write-Output \"Done\")",
+      "PowerShell(\\(Get-Item \"C:\\\\vgj-qa-modules\\\\node_modules\\\\@playwright\\\\test\\\\package.json\"\\).Length; \\(Get-Item \"C:\\\\vgj-qa-modules\\\\node_modules\\\\playwright-core\\\\package.json\"\\).Length)",
+      "Bash(Get-ChildItem \"g:\\\\My Drive\\\\VGJ Systems\\\\veltongoodenjrdcc-website\\\\reports\" -Recurse)",
+      "Bash(Select-Object FullName, LastWriteTime)",
+      "Read(//c/vgj-qa-modules/**)",
+      "Bash(node \"/g/My Drive/VGJ Systems/veltongoodenjrdcc-website/scripts/visual-qa.mjs\")",
+      "Bash(npx impeccable *)"
+    ]
+  }
+}

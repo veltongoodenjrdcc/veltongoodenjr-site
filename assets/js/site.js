@@ -145,7 +145,7 @@
       const text = activeNotice.querySelector('.site-toast__text');
       const resource = resourceName ? resourceName.trim() : '';
       text.textContent = resource
-        ? `${resource} is not quite ready yet. Email me if you need it now.`
+        ? `${resource} is still getting its shoes on. Email me if you need the grown-up version now.`
         : 'Still getting this ready for you. Email me if you need it now.';
 
       activeNotice.classList.add('is-visible');
@@ -161,5 +161,111 @@
       });
     });
   }
+
+  /* ----------------------------------------------------------
+     9. GENTLE SOCIAL EXIT ASIDE
+     One friendly pause for profile links only. Newsletter,
+     WhatsApp, calendar, email, forms, and essential contact links
+     continue normally.
+     ---------------------------------------------------------- */
+  const SOCIAL_EXIT_KEY = 'vgj-social-exit-aside-seen';
+  const NEWSLETTER_URL = 'https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402';
+  const socialExitSeen = () => {
+    try { return sessionStorage.getItem(SOCIAL_EXIT_KEY) === '1'; } catch { return true; }
+  };
+  const markSocialExitSeen = () => {
+    try { sessionStorage.setItem(SOCIAL_EXIT_KEY, '1'); } catch { /* Storage unavailable; skip the aside. */ }
+  };
+  const canShowSocialAside = () => {
+    return window.matchMedia('(min-width: 48rem)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+      !socialExitSeen();
+  };
+
+  const isSocialProfileExit = (link) => {
+    try {
+      const url = new URL(link.href, window.location.href);
+      const host = url.hostname.replace(/^www\./, '');
+      const href = url.href;
+      if (href === NEWSLETTER_URL) return false;
+      if (url.protocol === 'mailto:' || url.protocol === 'tel:') return false;
+      if (host === 'wa.me' || host === 'calendar.app.google' || host.includes('web3forms.com')) return false;
+      return (host === 'linkedin.com' && url.pathname.includes('/in/veltongoodenjr')) ||
+        (host === 'instagram.com' && url.pathname.replace(/\/$/, '') === '/veltongoodenjr');
+    } catch {
+      return false;
+    }
+  };
+
+  let socialAside;
+  let socialAsideContinue;
+  let socialAsideClose;
+  let pendingSocialHref = '';
+  let pendingSocialTarget = '_blank';
+
+  const closeSocialAside = () => {
+    if (!socialAside) return;
+    socialAside.classList.remove('is-visible');
+    pendingSocialHref = '';
+  };
+
+  const continueSocialExit = () => {
+    if (!pendingSocialHref) {
+      closeSocialAside();
+      return;
+    }
+    const href = pendingSocialHref;
+    const target = pendingSocialTarget || '_blank';
+    closeSocialAside();
+    if (target === '_blank') {
+      window.open(href, '_blank', 'noopener');
+    } else {
+      window.location.href = href;
+    }
+  };
+
+  const getSocialAside = () => {
+    if (socialAside) return socialAside;
+    socialAside = document.createElement('aside');
+    socialAside.className = 'external-aside';
+    socialAside.setAttribute('role', 'dialog');
+    socialAside.setAttribute('aria-modal', 'false');
+    socialAside.setAttribute('aria-labelledby', 'externalAsideTitle');
+    socialAside.innerHTML = `
+      <button type="button" class="external-aside__close" aria-label="Close this note"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <p class="external-aside__eyebrow">Before you head out</p>
+      <h2 class="external-aside__title" id="externalAsideTitle">Thanks for stopping by.</h2>
+      <p class="external-aside__copy">If LinkedIn is your next stop, Creator's Current lives there too: the nerdy deep-dives, useful mess, and occasional "wait, that actually makes sense" moment.</p>
+      <div class="external-aside__actions">
+        <a class="btn btn--primary btn--sm" href="${NEWSLETTER_URL}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> Subscribe on LinkedIn</a>
+        <button type="button" class="btn btn--secondary btn--sm" data-social-continue>Continue</button>
+      </div>
+    `;
+    document.body.appendChild(socialAside);
+    socialAsideClose = socialAside.querySelector('.external-aside__close');
+    socialAsideContinue = socialAside.querySelector('[data-social-continue]');
+    socialAsideClose.addEventListener('click', closeSocialAside);
+    socialAsideContinue.addEventListener('click', continueSocialExit);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && socialAside.classList.contains('is-visible')) {
+        closeSocialAside();
+      }
+    });
+    return socialAside;
+  };
+
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      if (!canShowSocialAside() || !isSocialProfileExit(link)) return;
+      event.preventDefault();
+      pendingSocialHref = link.href;
+      pendingSocialTarget = link.target || '_blank';
+      markSocialExitSeen();
+      const aside = getSocialAside();
+      aside.classList.add('is-visible');
+      window.setTimeout(() => socialAsideContinue && socialAsideContinue.focus(), 30);
+    });
+  });
 
 })();

@@ -1,866 +1,1596 @@
-# CLAUDE.md â€” Velton Gooden Jr Website Rebuild Brief
+# VGJ Website Production Accuracy, Personality, and Final Polish Pass
 
-> **You are Claude Code working in VS Code on the personal website of Velton Gooden Jr. This is not a casual refresh. This is a strategic rebuild. Read this file end-to-end before touching a single file. The website must become a world-class digital hub that can credibly serve clients, collaborators, brand partners, and interested followers without feeling split, messy, or generic.**
+## Purpose of this pass
 
----
+The current website rebuild is structurally useful, but it still has two major issues that must be corrected before it can be treated as production-ready:
 
-## 0. The mission
+1. **Accuracy problem:** Some project descriptions and credibility sections contain AI-inferred or overstated details because there was not enough context at build time. These must be corrected.
+2. **Personality problem:** The site still feels too impersonal for a personal brand website. It needs more Velton Gooden Jr. visually, narratively, and tonally.
 
-This site is no longer just a freelancer brochure.
+This pass is not a full rebuild. It is a production accuracy and personality pass.
 
-It must now function as **Veltonâ€™s central digital home base**.
+The goal is to make the site feel like:
 
-It should:
-- help potential clients understand what he can do and how to work with him
-- help collaborators quickly see his strengths, experience, and fit
-- help brand partners understand what kinds of collaborations make sense
-- help curious visitors, followers, and newsletter readers find a reason to stay connected
-- showcase his taste, judgment, and web design ability so the site itself becomes proof of competence
+- Velton Gooden Jr.’s personal website
+- a credible personal authority hub
+- a Jamaica-based creative and digital brand strategist’s home base
+- a site with real story, real proof, and clear paths
+- visually connected to the VGJ brand, not a generic consultant template
 
-**The site must feel like someone serious built it.**
-Not flashy for the sake of it. Not template-y. Not â€œgood enoughâ€.
-It should feel thoughtful, controlled, premium, and unmistakably intentional.
+Do not turn this into a new strategic direction. Do not add Freeboard publicly in this pass. Do not invent proof.
 
 ---
 
-## 1. What is wrong with the current site
+## Critical rule: accuracy over polish
 
-Treat these as problems to solve, not notes to ignore.
+Before improving copy, audit every section for claims that sound specific but were not provided.
 
-1. **It is still too narrow.**
-   Right now the site reads mainly like a service brochure for video, voiceover, and event coverage. That is too small for the purpose the site now needs to serve.
+If something is not verified, do one of the following:
 
-2. **It does not route different visitor types clearly enough.**
-   A collaborator, a potential client, a brand partner, and a newsletter reader all land on the same site, but the current information architecture does not cleanly guide each person to what matters most to them.
+- remove it
+- soften it
+- mark it with `<!-- CONTENT NEEDED: [specific missing detail] -->`
+- rewrite it as a broad but truthful statement
+- ask for confirmation later
 
-3. **The homepage has public placeholders.**
-   Placeholder thumbnails, placeholder logos, â€œdrop a video here laterâ€, diagram placeholders, and generic content blocks weaken trust immediately. Public-facing placeholder content is not acceptable.
+Do **not** invent:
 
-4. **The proof is present, but not shaped well enough.**
-   There is real experience and real work, but it is not yet packaged in a way that creates strong confidence quickly.
-
-5. **The site currently feels more assembled than designed.**
-   It works, but it still carries signs of a build-in-progress. The end result must feel authored, not stitched together.
-
-6. **The technical finish is not yet premium enough.**
-   Missing canonicals, thin metadata coverage, no skip link, no `aria-current`, production reliance on Tailwind Play CDN, lots of inline styling, and uneven consistency across pages all undermine the â€œimmaculateâ€ standard.
-
-7. **The contact experience needs to feel cleaner and more confident.**
-   No awkward gating. No â€œcoming soonâ€ dead ends. No friction that makes serious people hesitate.
+- deliverables
+- campaign results
+- metrics
+- client outcomes
+- paid speaking history
+- current client relationships
+- strategic responsibilities that were not held
+- employer/client relationship where the work was actually through another agency or role
 
 ---
 
-## 2. Hard constraints
+## Important context to use, but not overexpose
 
-These are non-negotiable.
+The business dossier is useful background, but do not publicly include the Freeboard positioning yet.
 
-1. **World-class standard.** Every page must be good enough to show a high-value client, a collaborator, or a sponsor without apology.
-2. **Mobile-first.** The site must feel premium on a phone first, then scale upward.
-3. **Fast and static.** GitHub Pages-friendly. No build system dependency unless absolutely necessary. Prefer a high-quality static implementation.
-4. **No Tailwind Play CDN in the final build.** Replace with a deliberate stylesheet and real design system.
-5. **No public placeholders.** No dummy logos, no â€œcoming soonâ€, no generic filler blocks, no placeholder cards, no dead modules.
-6. **No fake proof.** Do not invent metrics, clients, testimonials, outcomes, partnerships, or case studies.
-7. **Accessibility is mandatory.** WCAG 2.2 AA thinking throughout.
-8. **British English throughout.**
-9. **No em dashes unless absolutely unavoidable.** Prefer commas, parentheses, or full sentence breaks.
-10. **The website itself must demonstrate web design competence.** The design, structure, states, hierarchy, motion, and responsiveness all need to be a portfolio piece.
-11. **No generic AI-sounding copy.** No hollow hype, no â€œpassionate visionaryâ€, no bloated filler, no buzzword soup.
-12. **Do not describe Velton as a hospitality specialist.** He has worked in hospitality contexts before, but that is not his specialism.
-13. **Do not make him sound like a giant agency.** He is a multidisciplinary operator with strong systems thinking, not a fake 20-person studio.
-14. **Do not oversell weak areas.** Lead with actual strengths: systems thinking, workflow optimisation, brand clarity, content strategy, web builds, multimedia execution, practical problem-solving.
-15. **Keep the tone human and grounded.** Smart, warm, direct, and credible.
+Use the dossier only to better understand Velton’s real background:
 
----
+- Jamaican creative-operator
+- work at the intersection of content, communication, digital execution, and practical systems
+- hybrid front-end and back-end thinker
+- not just a content creator
+- not trying to be a vague consultant
+- grounded in Jamaican MSME realities
+- practical business-building context
+- ADHD-aware need for structured, workable delivery
+- personal brand as a trust and visibility engine
 
-## 3. Brand position the site must communicate
+Do **not** add:
 
-The site should position Velton as:
+- Freeboard
+- “Work, made workable”
+- explicit future-business-brand claims
+- long internal business-model reflections
+- financial-pressure language
+- ADHD details as public positioning unless intentionally used in a subtle and controlled way
+- anything that makes the website feel like a strategy diary instead of a polished public website
 
-- a **digital brand strategist** with real execution range
-- someone who understands the overlap of **brand, content, systems, and delivery**
-- someone who can think strategically and also make things
-- someone credible enough to work with, collaborate with, or follow
-- someone Jamaica-based, Caribbean-aware, and internationally legible
 
-This is a personal brand site, but it should still feel commercially serious.
-It must balance:
-- **strategy**
-- **craft**
-- **proof**
-- **personality**
-- **practical conversion**
+The visible website should still centre:
 
-The site should not force visitors to choose between creative, professional, and commercially useful. It needs to hold all three.
+> Velton Gooden Jr., Jamaica-based Digital Brand Strategist, creative operator, content creator, storyteller, speaker, and systems-minded digital professional.
 
 ---
 
-## 4. The audiences this site must serve
+## Tone and personality direction: let the site sound more like Velton
 
-The architecture and content must deliberately serve four avatars.
+The current website should not only be accurate and visually personal. It should also feel like Velton is in the room, guiding the visitor through the page.
 
-### A. Potential clients
-They need to know:
-- what he helps with
-- what kinds of projects fit
-- what the working relationship feels like
-- whether he is credible
-- how to get in touch quickly
+This does **not** mean making the site unserious, overly casual, or full of jokes. It means the copy should have moments of personal cadence, warmth, humour, and aside-style commentary where appropriate.
 
-They care about:
-- clarity
-- professionalism
-- proof of taste and execution
-- whether he can reduce confusion and make their brand or project stronger
+The site should feel like:
 
-### B. Collaborators
-They need to know:
-- what kinds of projects and conversations fit
-- what he is actually strong at
-- the range of his experience
-- what he has built, improved, or contributed to
-- what makes him distinctive beyond a generic marketing operator
+- Velton speaking directly to the visitor
+- thoughtful but not stiff
+- informed but not pompous
+- funny in small, natural moments
+- self-aware without undermining credibility
+- practical, human, and occasionally nerdy
+- clear enough for business owners
+- personal enough for collaborators, subscribers, and media people to feel the person behind the work
 
-They care about:
-- competence
-- judgment
+Use the Creator's Current Newsletter Compilation as the tone reference. Do not just read the body copy. Extract the embedded images, review the captions, and study how text, visual references, personal artefacts, and jokes work together to tell a story.
+
+Important: the goal is not to copy article paragraphs into the website. The goal is to absorb the voice.
+
+### What Velton's voice tends to do
+
+The Creator's Current pieces show a few recurring voice patterns that should influence the website copy:
+
+- He explains abstract ideas by grounding them in simple images, like calibration, tuning, archives, noise, signals, energy, and storytelling.
+- He uses personal asides to make technical or reflective ideas feel lighter.
+- He admits when he is still learning instead of pretending to have arrived.
+- He uses small jokes, parentheticals, and pop-culture or internet references without derailing the point.
+- He often moves from a personal story to a useful principle.
+- He does not write like a detached corporate strategist.
+- He gives readers a sense of being brought along on the thinking process.
+
+### Examples of tone patterns to preserve
+
+Use these as *style cues*, not necessarily exact copy:
+
+- a quick aside after a nerdy word or concept
+- a small admission like "trust me, it wasn't"
+- playful phrasing like "Marketing has entered the chat"
+- small self-checks like "to be clear" or "I am still working on this myself"
+- a light joke after a serious idea, then back to the point
+- references to games, anime, documentaries, creative tools, learning rabbit holes, and internet culture where they naturally fit
+- "Think Let's Play, not Walkthrough" style framing, meaning the site can invite people into the journey instead of pretending to be a finished guru manual
+- comments that feel like Velton thinking aloud, but still cleaned up for a public website
+
+### Where playful copy belongs
+
+Add personal, playful, or aside-style copy in places like:
+
+- homepage hero supporting line
+- homepage personal bridge section
+- small captions under images
+- Creator's Current teaser
+- About page section transitions
+- Work page "what this taught me" or "what it demonstrates" callouts
+- Speaking & Partnerships resource cards
+- Contact page direct contact human-check copy
+- empty or coming-soon resource states
+- small microcopy near CTAs
+- tooltips, captions, and small helper text
+
+### Where playful copy does **not** belong
+
+Keep copy more restrained in:
+
+- legal/privacy copy
+- form validation errors
+- accessibility labels
+- SEO metadata
+- structured data
+- project descriptions that need accuracy
+- value/boundary policy language
+- content involving clients, employers, or sensitive claims
+
+The playful voice must never make the site look careless, unserious, or legally risky.
+
+### Copy principle
+
+Use this rule:
+
+> Professional enough to trust. Personal enough to remember.
+
+If a line feels like any AI consultant site could have written it, rewrite it.
+
+If a line feels like a private WhatsApp voice note that was pasted directly onto the page, polish it.
+
+The sweet spot is public-facing Velton: natural, warm, clear, slightly playful, and still credible.
+
+### Example copy adjustments
+
+Instead of:
+
+```text
+I work across content, websites, voice, video, and systems.
+```
+
+Consider:
+
+```text
+I work across content, websites, voice, video, and systems, which sounds like a lot until you realise they all point to the same question: is this easier to understand and act on?
+```
+
+Instead of:
+
+```text
+My background spans communication, storytelling, marketing, and digital execution.
+```
+
+Consider:
+
+```text
+My path has moved through writing, voice, video, marketing, websites, and a surprising number of "wait, there has to be a cleaner way to do this" moments.
+```
+
+Instead of:
+
+```text
+Creator's Current explores creativity, digital presence, and systems.
+```
+
+Consider:
+
+```text
+Creator's Current is where I unpack the messy middle of creative work, digital presence, systems, and the occasional idea that refused to leave me alone.
+```
+
+Instead of:
+
+```text
+Complete the human check to reveal contact details.
+```
+
+Consider:
+
+```text
+Tiny human check first. Nothing dramatic, just enough to make the bots work for it.
+```
+
+### Keep humour grounded
+
+Use jokes and asides lightly. They should feel like seasoning, not the meal.
+
+Good:
+
+```text
+Not a guru manifesto. More like field notes from the person still in the workshop.
+```
+
+Too much:
+
+```text
+Welcome to my wacky wild world of digital wizardry!!!
+```
+
+Do not do that.
+
+### Sitewide review task
+
+After implementing the content changes, do one pass specifically for tone.
+
+Search for bland phrases like:
+
+- "comprehensive solutions"
+- "tailored strategies"
+- "unlock your potential"
+- "seamless experience"
+- "elevate your brand"
+- "cutting-edge"
+- "world-class" unless clearly earned
+- "leverage" unless it genuinely helps
+- "innovative solutions"
+
+Replace generic phrases with more specific, personal, grounded copy.
+
+---
+
+## Creator's Current visual and image extraction instructions
+
+The Creator's Current Newsletter Compilation `.docx` contains embedded images and captions that give additional context for Velton's story, humour, references, and visual thinking.
+
+Before rewriting the About page, homepage personal bridge, Creator's Current teaser, or any personal captions:
+
+1. Extract the embedded images from the `.docx`.
+2. Save them into a temporary review folder, for example:
+
+```text
+assets/source/creators-current-extracted-media/
+```
+
+or if not committing source files:
+
+```text
+reports/creators-current-extracted-media/
+```
+
+3. Create a simple contact sheet or visual audit note so the images can be reviewed as part of the writing pass.
+4. Use the images and captions to understand:
+   - how Velton uses visual artefacts to support a story
+   - how he blends nostalgia, humour, proof, and reflection
+   - what kinds of memories, objects, screenshots, and old files matter to his storytelling
+   - how the archive, childhood creativity, writing awards, and creative references shape his personal brand
+5. Do not blindly place every extracted image on the website.
+
+### Image use rules
+
+Use extracted images in three possible ways:
+
+#### 1. Approved personal images or artefacts
+
+If the image is clearly Velton's own photo, old creative artefact, award photo, archive screenshot, or a personal/business-related visual that he has the right to use, it can be considered for:
+
+- About page story sections
+- Creator's Current article pages
+- small captions or story fragments
+- personal proof/texture sections
+
+#### 2. Third-party copyrighted screenshots or media
+
+If the image is a screenshot or copyrighted media reference, such as a film/DVD screenshot, treat it carefully.
+
+Do not use it broadly across the site as decorative design.
+
+Only use it inside the relevant article context if:
+
+- the current article already uses it for commentary or illustration
+- the caption/credit remains
+- the use is intentional
+- Velton is comfortable with the risk and context
+
+Otherwise, use it as internal reference for tone, not as a production asset.
+
+#### 3. Stock or replacement imagery
+
+Where the article used a concept image that is not essential, consider replacing it with:
+
+- a Velton-owned image
+- a relevant local/Jamaican/Caribbean image
+- a more original graphic element
+- no image at all if it would feel forced
+
+### Important visual lesson
+
+The site should not rely only on polished professional portraits. Part of Velton's story comes from artefacts: trophies, old screenshots, archive finds, creative references, production tools, messy drafts, and evidence of growth.
+
+Use that idea to make the website feel more personal and layered, especially on the About page.
+
+Do not turn the site into a scrapbook. Use the archive strategically.
+
+---
+
+## Sitewide visual direction
+
+### 1. Make it feel more personal
+
+The site currently does not show enough of Velton. That is a problem because this is a personal website.
+
+Use more images of Velton from the project assets.
+
+Priority locations:
+
+- Homepage hero
+- Homepage section transitions
+- About hero or story section
+- Speaking & Partnerships page
+- Contact page hero or side card
+- Media/resources area if suitable
+
+Use images sparingly but intentionally. The goal is not to turn the site into a photo dump. The goal is to make the site visibly and emotionally connected to Velton.
+
+### 2. Homepage hero must show Velton
+
+The homepage hero must include an image of Velton.
+
+Preferred direction:
+
+- Use a background-removed transparent PNG of Velton if provided in the assets.
+- If a transparent PNG is not available, use the strongest existing portrait and design around it.
+- The hero should show his face and name clearly.
+- The first impression should not be abstract strategy copy alone.
+
+The hero should immediately communicate:
+
+- this is Velton Gooden Jr.
+- he is Jamaica-based
+- he works across digital brand strategy, content, websites, voice, video, and systems
+- his personal story and perspective matter
+
+### 3. Add depth with image layering
+
+Right now the sections feel too self-contained.
+
+Add selective design depth using:
+
+- cutout images
+- overlapping image elements
+- circular or organic image masks
+- section-overlapping portraits
+- small floating image tiles
+- editorial-style image placements
+
+Use this especially on the homepage, About, and Speaking & Partnerships pages.
+
+Do not overdo it. It should feel designed, not cluttered.
+
+### 4. Use more relevant imagery in general
+
+Where stock images are needed, use context-specific imagery.
+
+Avoid generic corporate stock. Avoid images that feel like random SaaS filler.
+
+For stock or supporting imagery:
+
+- prefer Caribbean, Jamaican, Black, brown, or broadly people-of-colour contexts
+- avoid generic white boardroom imagery
+- avoid cliché laptop-handshake stock
+- avoid photos that feel imported from a US SaaS landing page
+- use images that fit small businesses, creators, workspaces, media production, digital work, storytelling, events, and local/regional business life
+
+If suitable stock cannot be added cleanly and legally, leave a placeholder comment rather than using poor imagery.
+
+### 5. Logos are too small
+
+Across the site, logos are currently too tiny and hard to perceive.
+
+Fix logo sizing in:
+
+- homepage credibility strip
+- work page project entries
+- any resource or brand section that uses logos
+- Creator’s Current section if the logo is being shown too small
+
+Recommended approach:
+
+- increase logo container height
+- increase logo max-height
+- reduce excessive padding inside logo cards
+- if source logo files have too much transparent canvas, create processed/cropped versions in a separate folder, e.g. `assets/images/brand/past-logos/processed/`
+- keep aspect ratios intact
+- do not distort logos
+
+Suggested CSS direction:
+
+- credibility strip item height: roughly 70-90px instead of tiny pill-like items
+- logo max-height: roughly 44-64px depending on source
+- article or project entry logo max-height: roughly 48-72px where appropriate
+
+Be careful not to make the page look like a chaotic logo wall. The key issue is recognisability.
+
+---
+
+## Homepage changes
+
+### Main issue
+
+The homepage still feels too impersonal. It needs to “scream Velton Gooden Jr.” from the start.
+
+### Required homepage changes
+
+#### 1. Hero section
+
+Update the hero so that:
+
+- Velton’s name appears prominently above the fold
+- an image of Velton appears in the hero
+- the hero does not feel like a generic strategy landing page
+- the copy ties the work back to Velton as a person, not just a set of services
+
+Possible copy direction:
+
+```text
+Velton Gooden Jr.
+
+I help make digital presence make sense.
+
+I’m a Jamaica-based Digital Brand Strategist working across content, websites, voice, video, and practical systems. My work connects story, tools, and execution so people can understand what you do, trust it, and know what to do next.
+```
+
+Or:
+
+```text
+I’m Velton Gooden Jr.
+
+A Jamaica-based Digital Brand Strategist helping businesses, creators, and teams turn scattered digital activity into something clearer, more credible, and easier to act on.
+```
+
+Use one of these as a direction, not necessarily exact final copy.
+
+#### 2. Mention Velton’s story earlier
+
+The homepage should not wait until the About page to signal who Velton is.
+
+Add a short personal bridge section or paragraph near the top that hints at the story:
+
 - communication
-- initiative
-- versatility without chaos
-- whether he can create structure, momentum, and quality
+- storytelling
+- writing
+- video
+- voiceover
+- marketing
+- websites
+- systems thinking
 
-### C. Brand partners and collaborators
-They need to know:
-- what his platform and perspective are about
-- what kinds of collabs make sense
-- what formats he can credibly produce
-- whether he is a good fit for creator partnerships, workshops, products, or tools
+Example direction:
 
-They care about:
-- alignment
-- clarity of voice
-- audience fit
-- content quality
-- reliability
-
-### D. Followers, readers, and subscribers
-They need to know:
-- what kind of ideas and work he shares
-- why they should keep up with him
-- where to subscribe or follow
-- what the through-line is between his content, work, and thinking
-
-They care about:
-- resonance
-- insight
-- consistency of perspective
-- whether the content will actually help or interest them
-
----
-
-## 5. The core website jobs
-
-This site has five jobs.
-
-### Job 1: Establish a sharp first impression
-Within seconds, the site should communicate:
-- this person is credible
-- this person has taste
-- this person can think and execute
-- this site was clearly built with intention
-
-### Job 2: Route the right person to the right next step
-The homepage must make it very obvious where each audience should go next.
-
-### Job 3: Package proof in a stronger way
-Not just â€œhere are things I didâ€, but:
-- what the project was
-- what contribution Velton made
-- what problem was being solved
-- what artefact or outcome came out of it
-- why it matters
-
-### Job 4: Create multiple conversion paths
-Not just a single â€œcontact meâ€ path.
-The site must support:
-- project enquiries
-- lead-flow enquiries
-- partnership and media enquiries
-- newsletter subscriptions / follows
-
-### Job 5: Act as a living hub
-This site should be able to grow over time without becoming incoherent.
-It should hold:
-- client-facing services
-- portfolio and case studies
-- professional context
-- partnership opportunities
-- content and newsletter touchpoints
-
----
-
-## 6. Strategic direction for the rebuild
-
-The site should feel like a **personal headquarters**.
-
-Not a generic portfolio.
-Not a boxed-in agency site.
-Not a content creator bio page.
-Not a thin bio awkwardly put on the web.
-
-Think of it as a hybrid of:
-- premium portfolio
-- strategic services site
-- personal brand home base
-- collaboration signal
-- collaboration deck in website form
-
-The site should make visitors feel:
-- â€œThis person is more thoughtful than the average freelancer.â€
-- â€œThis person understands both the message and the machinery.â€
-- â€œI can see how to work with him.â€
-- â€œI can see why I would work with him.â€
-- â€œI can see why Iâ€™d want to keep up with him.â€
-
----
-
-## 7. Information architecture
-
-Use clean directory routing.
-
+```text
+My work started with communication long before I had language for strategy. Writing, voice, video, marketing, websites, and systems have all become different ways of solving the same problem: helping ideas travel clearly from one person to another.
 ```
-/
-/about/
-/work/
-/lead-flow-fix/
-/partnerships/
-/insights/
+
+Keep it concise, but make the site feel human.
+
+#### 3. Lead Flow Fix needs its own visible section
+
+Lead Flow Fix should **not** be buried inside a small “current offer” callout or mixed into a section about collaborations/partnerships.
+
+It is a core offer and should have its own distinct homepage section, ideally higher up the page.
+
+Important:
+
+- Lead Flow Fix should still not return to the main navbar.
+- But it should be visible and compelling on the homepage.
+- It should draw curiosity and attention.
+- It should feel like a serious current offer.
+
+Suggested placement:
+
+- after the hero and audience router
+- before or after “What I actually do”
+- definitely before the final CTA
+
+Suggested section direction:
+
+```text
+Getting messages is one thing.
+Turning them into business is another.
+
+Lead Flow Fix is a focused offer for Jamaican service businesses that are getting interest online, but losing momentum after people reach out.
+
+If WhatsApp messages, Instagram DMs, calls, forms, and follow-ups are scattered across your day, this helps you tighten the path from first contact to next step.
+```
+
+CTA:
+
+```text
+Explore Lead Flow Fix
+```
+
+Design direction:
+
+- make it visually distinct
+- use bolder design
+- include an image or abstract flow visual
+- use a pain-point question
+- use a strong CTA
+- not just a small text callout
+
+Possible pain-point hook:
+
+```text
+Are people reaching out, then slipping through the cracks?
+```
+
+Do not overclaim results.
+
+#### 4. Organisations and brands section
+
+The logos are currently too tiny.
+
+Make this section feel more credible without overclaiming.
+
+Preferred label:
+
+```text
+Experience and project touchpoints
+```
+
+or
+
+```text
+A few places my work has touched
+```
+
+Avoid:
+
+```text
+Trusted by
+```
+
+Support copy should make it clear that these represent roles, projects, collaborations, freelance work, voiceover work, employment, or agency-linked work, not all direct current clients.
+
+#### 5. Creator’s Current homepage teaser
+
+The Creator’s Current logo is too small and hard to perceive.
+
+Fix:
+
+- increase logo size
+- improve hierarchy
+- use `200+ subscribers` instead of the exact `243 subscribers`
+- make the section more visually distinctive and editorial
+- keep the LinkedIn subscribe button
+- do not spend major effort on the full Creator’s Current page yet, since that will be handled separately
+
+Suggested line:
+
+```text
+Also published on LinkedIn, where Creator’s Current has 200+ subscribers.
+```
+
+---
+
+## About page changes
+
+### Main issue
+
+The About page is not warm or personal enough. The current image also feels a bit standoffish.
+
+This page should be more about who Velton is, not just what someone can get from him.
+
+It should feel like a narrative journey.
+
+### Required About changes
+
+#### 1. Replace or reconsider the current image
+
+The current image is not the warmest or most personable.
+
+Use a warmer image from the supplied photos.
+
+Look for an image that feels:
+
+- approachable
+- thoughtful
+- warm
+- personal
+- confident but not closed-off
+- less standoffish
+
+If suitable, use a speaking/event image later once provided.
+
+#### 2. Expand the narrative arc
+
+The About page should draw more heavily from:
+
+- Creator’s Current articles
+- Velton’s known creative history
+- the business dossier as background flavour
+- existing memory/context
+- his current positioning as a Digital Brand Strategist
+
+The story should include:
+
+- childhood interest in communication
+- dictionaries, thesauruses, documentaries, literature, research
+- making stories, comics, essays, poetry
+- music and lyric writing
+- video production and editing
+- voiceover
+- social media and marketing
+- web design and static websites
+- studying marketing
+- AI tools and coding/vibe-coding exploration
+- ChatGPT, Claude, Gemini, Codex as practical work-enhancement tools
+- terminal shortcuts and scripting to speed up procedural work
+- Google Apps Script and Web3Forms-style practical implementation learning
+- systems thinking and creativity feeding each other
+- faith as one of Jehovah’s Witnesses
+- Bible-based values shaping service, boundaries, balance, and character
+- the influence of his father, Dr. Velton Gooden, as a mentor
+
+Do not turn this into a long autobiography with no reader benefit. The reader should understand why this background makes Velton useful, credible, and distinct.
+
+#### 3. Core About theme
+
+The About page should communicate this idea:
+
+> My creativity makes my systems thinking more human, and my systems thinking makes my creativity more useful.
+
+This should become one of the central through-lines.
+
+Possible wording:
+
+```text
+The creative side helps me understand story, emotion, tone, and attention. The systems side helps me ask what happens next, where things break, and how to make the work easier to repeat. Most of my value sits in that overlap.
+```
+
+#### 4. Faith and values
+
+Include faith with subtlety and clarity.
+
+Direction:
+
+```text
+As one of Jehovah’s Witnesses, my Bible-based values shape how I think about service, stewardship, honesty, balance, and the kind of opportunities I say yes to.
+```
+
+Do not make the whole page religious. It should be part of the character and boundary layer.
+
+#### 5. Father/mentor influence
+
+Include a measured mention of Dr. Velton Gooden.
+
+Direction:
+
+```text
+I have also been shaped by the example and counsel of my father, Dr. Velton Gooden. Watching his discipline, standards, and way of thinking has influenced how I approach communication, learning, and the kind of work I want to be known for.
+```
+
+Do not overstate or make the page about him. It should be a meaningful personal note.
+
+#### 6. Avoid Freeboard
+
+Do not mention Freeboard or its tagline on the About page in this pass.
+
+The business dossier can shape the tone, but the current site should remain centred on Velton Gooden Jr. and his personal brand.
+
+---
+
+## Work page changes
+
+### Main issue
+
+The Work page contains too many AI-hallucinated project assumptions. It must be corrected.
+
+Also, the anchor buttons are misaligned or too far left in horizontal/desktop view.
+
+### Required Work page layout changes
+
+#### 1. Centre or improve the group navigation buttons
+
+The sub-buttons that jump to:
+
+- Web and Digital Presence
+- Content and Campaign Work
+- Voiceover and Narration
+- Brand Strategy and Systems
+- Creative and Operational Support
+
+should feel centred and intentional on desktop.
+
+Do not leave them visually stuck to the left unless the overall layout clearly supports that.
+
+#### 2. Increase logo visibility
+
+Logos in work project cards are too small.
+
+Increase logo size and improve logo presentation.
+
+If needed:
+
+- create larger logo slots
+- crop overly padded logo files
+- use bigger containers
+- show logos above project names instead of tiny side details
+- keep project cards readable on mobile
+
+#### 3. Correct project descriptions
+
+Replace any hallucinated or inaccurate project details with the following.
+
+---
+
+### Edmond Law
+
+Accurate relationship:
+
+- Velton built a multi-page website for Edmond Law.
+- The site is currently looking good so far and continues to be refined as needed.
+
+Use only this type of framing unless more confirmed details are provided.
+
+Suggested copy:
+
+```text
+Built a multi-page website for Edmond Law, creating a clearer digital presence and a more professional online home for the firm.
+```
+
+Do not claim legal marketing strategy, lead generation results, content strategy, or other deliverables unless provided.
+
+---
+
+### The Jamaica Pegasus Hotel and The Courtleigh Hotel & Suites
+
+Accurate relationship:
+
+- Velton worked at The Courtleigh Hospitality Group as Digital Marketing and PR Executive.
+- The group included The Jamaica Pegasus Hotel and The Courtleigh Hotel & Suites, along with related sub-brands and restaurants such as Blue Window and Alexander’s.
+- Responsibilities included digital marketing support, content production, event coverage, social media scheduling/posting, website updates through the hotel CMS, supporting a website reskin/rebuild exercise, and collaborating with an external PR specialist on articles and supporting content.
+
+Possible deliverables to mention:
+
+- event photography and video
+- filming content with gimbal/camera setup
+- social media scheduling and posting
+- content production for events and special guests
+- website updates through the CMS
+- support during website reskin/rebuild
+- coordination with external PR support
+- aligning social posts and article releases where needed
+
+Suggested copy:
+
+```text
+As Digital Marketing and PR Executive at The Courtleigh Hospitality Group, I supported digital marketing, content production, website updates, and PR coordination across The Jamaica Pegasus Hotel, The Courtleigh Hotel & Suites, and related sub-brands. The work included event content, social publishing, CMS updates, and support during website refresh activity.
+```
+
+Do not frame these hotels as freelance website clients.
+
+---
+
+### Jamaica Tourist Board
+
+Correction:
+
+- Velton did not work at Jamaica Tourist Board.
+- Velton provided voiceover work for a Jamaica Tourist Board onboarding project.
+- This involved multiple voiceover recordings used alongside onboarding/training-style video material.
+
+Suggested copy:
+
+```text
+Provided Jamaican voiceover recordings for a Jamaica Tourist Board onboarding project, helping narrate material introducing the organisation, its background, and related internal context.
+```
+
+Do not claim campaign strategy, video production, employment, or broader tourism marketing work.
+
+---
+
+### Future Makers / Joel Nomdarkham
+
+Accurate relationship:
+
+- Velton worked on video editing for the book project `Future Makers: A Guide to 30 Creative Careers`.
+- The book included complementary videos for each featured profession/role.
+- The videos featured real-world practitioners speaking to the reader/viewer.
+- Velton edited the video content.
+- Velton did not capture the footage.
+
+Suggested copy:
+
+```text
+Edited a large set of companion videos for Future Makers: A Guide to 30 Creative Careers by Joel Nomdarkham. Each video supported a featured creative career by spotlighting a real-world practitioner, creating bonus content that extended the book experience.
+```
+
+Do not claim filming, directing, or strategy unless provided.
+
+---
+
+### GrassROOTS Community Foundation
+
+Accurate relationship:
+
+- Work was done through Amplify Studios.
+- Velton edited videos for an award ceremony.
+- He used provided assets such as images and existing materials.
+- He also provided voiceovers for those award videos.
+- The videos were played during the award ceremony as recipients were recognised.
+
+Suggested copy:
+
+```text
+Through Amplify Studios, edited award-recognition videos for GrassROOTS Community Foundation using provided assets, and recorded voiceovers for the pieces. The videos were used during the award ceremony to recognise honourees and their contributions.
+```
+
+Do not claim that Velton filmed the original content unless confirmed.
+
+---
+
+### UWI Mona
+
+Accurate relationship:
+
+- Velton managed UWI Mona social media in 2025 for a few months under `Velton Gooden Jr. - Digital Content Creation`.
+- Primary platforms: Instagram and Facebook.
+- Responsibilities included filming, editing, scheduling, publishing, and content support.
+- He managed a small subcontracted team, including a graphic designer and social media support.
+
+Suggested copy:
+
+```text
+Managed UWI Mona’s Instagram and Facebook presence for a period in 2025 under Velton Gooden Jr. - Digital Content Creation. The work included filming and editing content, scheduling and publishing posts, and coordinating a small subcontracted support team for design and day-to-day social media execution.
+```
+
+Avoid making this sound like a permanent long-term role unless confirmed.
+
+---
+
+### HBO Max
+
+Accurate relationship:
+
+- Velton provided voiceover work for a commercial spot that needed Jamaican voiceover talent.
+- The project came through an agency relationship.
+
+Suggested copy:
+
+```text
+Provided Jamaican voiceover talent for an HBO Max commercial spot through an agency relationship.
+```
+
+Do not overstate the relationship as a direct client unless confirmed.
+
+---
+
+### Cari-Med Group
+
+Accurate relationship:
+
+- Velton provided a voiceover introduction for a corporate event.
+
+Suggested copy:
+
+```text
+Recorded a corporate event voiceover introduction for Cari-Med Group.
+```
+
+Do not add unrelated campaign details.
+
+---
+
+### Montego Bay Convention Centre
+
+Accurate relationship:
+
+- Velton provided narration-style voiceover for a series of videos.
+- The videos walked through different rooms, spaces, and facilities at the Montego Bay Convention Centre.
+
+Suggested copy:
+
+```text
+Provided narration-style voiceover for a series of videos highlighting rooms, spaces, and facilities at the Montego Bay Convention Centre.
+```
+
+---
+
+### Yello Media Group
+
+This needs a careful, layered description.
+
+Accurate relationship:
+
+Velton’s Yello experience included multiple roles and phases:
+
+1. Digital Brand Officer Intern
+   - supported digital initiatives across Yello Media Group
+   - worked on content for multiple Caribbean and Latin American markets
+   - collaborated with colleagues and supervisors on brand/digital initiatives
+
+2. Social Content and Community Creator, Jamaica
+   - created social content for the Jamaica branch
+   - collaborated on work connected to Yello Creators Hub and related initiatives
+
+3. Digital Fulfilment Specialist, Online Search Solutions / FindYello platform
+   - used internal/proprietary CMS to update customer information
+   - worked across many customer profiles and markets
+   - updated profiles, information, and ads on findyello.com
+   - coordinated banner/ad assets with the graphics team
+   - worked from content collection forms
+   - supported listings management via Yext
+   - developed or supported workflows around Google Business Profile, Google Maps, Apple Maps, location/geocode collection, and listing consistency
+   - created tutorial videos and standardised guidance for sales reps
+   - helped with bulk upload workflows using CSVs
+   - created SOPs and repeatable workflows
+   - trained interns who later became full-time staff
+   - explored controlled AI integration into workflows without leaking company data
+
+4. Digital Fulfilment Specialist, Social Media Management
+   - managed social media for a portfolio of Jamaican clients, peaking around 11 clients
+   - did site visits and content collection
+   - captured video content
+   - edited and published video content
+   - collaborated with internal graphics team for static creative
+   - worked across varied industries such as retail, auto parts, equipment rental, education, cement/agri-related spaces, and more
+
+Suggested summary copy:
+
+```text
+At Yello Media Group, my work moved across digital brand support, social content, online search solutions, listings management, and social media fulfilment. I worked with internal CMS tools, FindYello customer profiles, platform-specific ads, Yext listings management, Google Business Profile-related workflows, SOPs, tutorial videos, bulk upload processes, and client social media execution across multiple sectors.
+```
+
+Suggested “what it demonstrates”:
+
+```text
+This experience shaped how I think about digital presence as more than content. It showed me how business information, listings, platforms, workflows, customer touchpoints, and content all connect.
+```
+
+Avoid getting too long inside a card. Consider using a collapsible “more context” block if needed.
+
+---
+
+### Berger Paints Jamaica
+
+Accurate relationship:
+
+- Velton edited a recap video for internal engagement/CSR activities in 2024.
+- It was for HR/internal activation context.
+
+Suggested copy:
+
+```text
+Edited a 2024 internal engagement/CSR recap video for Berger Paints Jamaica, supporting HR/internal communications.
+```
+
+Do not claim campaign ownership.
+
+---
+
+### Jamaica Book Festival
+
+Accurate relationship:
+
+- Work was done through Amplify Studios.
+- Velton supported Jamaica Book Festival social media/content.
+- He created, edited, scheduled, and published video content.
+- Some content he filmed himself.
+- Some footage was captured by others and sent to him for editing.
+- He worked alongside existing graphic design support/team.
+
+Suggested copy:
+
+```text
+Through Amplify Studios, supported Jamaica Book Festival’s social media content with video production, editing, scheduling, and publishing. Some content was filmed directly, while other footage was edited from provided materials, working alongside existing design support.
+```
+
+---
+
+### Benchmark QMS
+
+Important status:
+
+- Benchmark QMS is no longer operational.
+- If included, make that clear.
+- Velton did freelance content marketing and production work for them.
+- This included social media content, photography, and a YouTube-style series around quality-related topics.
+
+Suggested copy:
+
+```text
+For Benchmark QMS, a now-inactive business, provided freelance content marketing and production support, including social media content, photography, and video content around quality-related topics.
+```
+
+Consider placing under an “Archived / early projects” label.
+
+---
+
+### Hi-Pro Ace
+
+Correction:
+
+- Hi-Pro Ace should not be presented as a separate direct case unless needed.
+- It was part of Velton’s social media management client portfolio while at Yello.
+
+Instruction:
+
+```text
+Do not include Hi-Pro Ace as a standalone project unless framed under Yello Media Group portfolio work.
+```
+
+---
+
+### AgriPro
+
+Accurate relationship:
+
+- Velton built a website for AgriPro.
+- Similar scope to Edmond Law in terms of current confirmed work.
+
+Suggested copy:
+
+```text
+Built a website for AgriPro, creating a simple online presence to support clarity, credibility, and easier customer understanding.
+```
+
+Do not claim social media, marketing strategy, or broader campaign work unless provided.
+
+---
+
+## Speaking & Partnerships page changes
+
+### Main issue
+
+The page is solid structurally, but it feels empty and impersonal. It needs more story, more images, more context, and clearer resource buttons.
+
+### Required Speaking & Partnerships changes
+
+#### 1. Add more personal context
+
+The page should explain why Velton is a good person to invite into conversations, even though he is still growing this lane.
+
+Do not falsely imply a long paid-speaking history.
+
+Frame it as:
+
+- available for speaking
+- interested in doing more of this work
+- clear communicator
+- experienced in public communication, talks, content, voiceover, training/tutorials, and explanation
+- able to make complex digital/creative systems easier to understand
+- rooted in practical Jamaican and creator/business contexts
+
+Possible copy direction:
+
+```text
+Speaking is a natural extension of the same work I do across content, voiceover, writing, and digital strategy: taking messy ideas and making them easier to understand. I am building this lane intentionally, so I am especially interested in conversations, workshops, panels, and sessions where practical clarity matters more than performance.
+```
+
+#### 2. Add speaking/event images
+
+The user will provide images of him speaking at an event.
+
+When provided:
+
+- add them to the Speaking & Partnerships page
+- use them to break up text-heavy sections
+- include one strong image near the hero or speaker-fit section
+- add alt text that identifies the context without overclaiming
+
+Example alt:
+
+```text
+Velton Gooden Jr. speaking during a live event.
+```
+
+Do not claim it was a paid keynote unless confirmed.
+
+#### 3. Add belief and boundary fit filter
+
+This page should include a clearer opportunity fit filter based on Velton’s values as one of Jehovah’s Witnesses.
+
+The goal is not to preach. The goal is to filter out misaligned opportunities before they contact him.
+
+Add a section like:
+
+```text
+A note on fit
+
+My Bible-based values shape what I can comfortably promote, speak on, or attach my name to. I am not the right fit for opportunities centred on partisan politics, violence, illicit drugs, gambling, explicit sexual content, occult or spiritistic themes, hate or discrimination, or alcohol-led promotion.
+```
+
+Suggested list:
+
+- partisan politics or political campaigning
+- violence or violent themes
+- illicit drugs or recreational drug promotion
+- gambling
+- explicit sexual content
+- occult or spiritistic themes
+- hate, discrimination, or degrading content
+- alcohol-led events, campaigns, or promotion
+
+Be careful with wording around alcohol. Better phrasing:
+
+```text
+alcohol-led events, campaigns, or promotion
+```
+
+rather than implying he cannot ever be in a venue where alcohol exists.
+
+#### 4. Improve resource buttons
+
+The resource buttons currently blend in too much.
+
+For:
+
+- Media kit
+- Short bio
+- Topic menu
+- Collaboration deck
+
+make them more visible and more intuitive.
+
+Use resource cards instead of tiny blended buttons.
+
+Each resource should clearly indicate:
+
+- what the person gets
+- whether it is ready now or being finalised
+- what happens when clicked
+
+Suggested layout:
+
+```text
+Quick resources
+
+Media kit
+For event organisers, brands, and media contacts who need approved images, bio, links, and basic background.
+[Open / Coming soon]
+
+Short bio
+Copy-ready bio options for event pages, podcast notes, and introductions.
+[View bio]
+
+Topic menu
+A quick list of themes I can speak on or collaborate around.
+[View topics]
+
+Collaboration deck
+A short overview for brand and creator partnerships.
+[Coming soon]
+```
+
+If resources are not ready, make the unavailable state clear and charming, but do not make it look broken.
+
+#### 5. CTA routing
+
+Change CTAs that currently say:
+
+- “Email the opportunity”
+- “Email info@veltongoodenjr.com”
+
+to route to the contact page.
+
+Use:
+
+```text
+Start through the contact form
+```
+
+or:
+
+```text
+Send the opportunity
+```
+
+Link to:
+
+```text
 /contact/
-/privacy/
-/404.html
 ```
 
-Optional sub-pages if useful:
+Optionally add a query parameter if the site supports it:
 
+```text
+/contact/?type=speaking
+/contact/?type=partnership
 ```
-/work/[case-study-slug]/
-/insights/[article-slug]/
+
+Only do query parameters if they will not break anything.
+
+Reason:
+
+- The contact page already includes the email.
+- The form adds structure.
+- It reduces spam exposure.
+- It keeps the workflow cleaner.
+
+---
+
+## Contact page changes
+
+### Main issue
+
+The contact page is mostly fine, but it could use a little more personality. Also, the direct contact card should regain the old human-check/captcha-esque reveal system from a previous version.
+
+### Required Contact changes
+
+#### 1. Preserve Web3Forms
+
+Do not break the working Web3Forms integration.
+
+Preserve:
+
+- Web3Forms endpoint
+- access key
+- hidden fields
+- async fetch submission
+- subject mapping
+- helper text
+- success/error handling
+- form validation
+- botcheck/honeypot
+
+Do not reintroduce Google Apps Script.
+
+#### 2. Add or restore direct contact human check
+
+Use the old contact page as reference for the direct contact card only.
+
+The old page included a charming lightweight human-check pattern:
+
+- checkbox: “I am human”
+- after checked, show a simple arithmetic challenge
+- refresh challenge button
+- unlock button remains disabled until the answer is correct
+- after unlock, reveal email, phone, and WhatsApp
+- email and phone assembled via JavaScript
+- noscript fallback uses obfuscated text
+
+Implement this pattern in the current design system.
+
+Do **not** copy the old page wholesale.
+
+Most importantly:
+
+- Do not copy the old Google Apps Script form submission code.
+- Do not copy any old exposed API secret.
+- Do not copy any old `script.google.com` endpoint.
+- Only use the human-check direct contact reveal pattern.
+
+#### 3. Direct contact reveal details
+
+The revealed contact content should include:
+
+- email: `info@veltongoodenjr.com`
+- phone: `+1 876-573-5858`
+- WhatsApp link with a simple prefilled message
+
+Suggested WhatsApp prefill:
+
+```text
+Hi Velton, reaching out via your website.
 ```
 
-### Why these pages exist
+Use JavaScript assembly for email/phone so the raw email/phone is not just sitting in plain visible HTML before reveal.
 
-- **Home** routes and frames the whole ecosystem
-- **About** gives the narrative and positioning
-- **Work** proves range and quality
-- **Lead Flow Fix** helps clients understand the core offer
-- **Partnerships** helps collaborators, sponsors, collaborators, and brands evaluate alignment
-- **Insights** supports thought leadership, newsletter growth, and follower retention
-- **Contact** gives clean paths for the right type of enquiry
+Noscript fallback can use:
 
----
+```text
+Email: info [at] veltongoodenjr [dot] com
+Phone: 876 [dash] 573 [dash] 5858
+```
 
-## 8. Home page requirements
+#### 4. Contact hero
 
-The homepage is the most important page on the site.
-It must not try to say everything at once. It must guide.
+Add a bit more personality to the hero area.
 
-### Required sections
+This can be done with:
 
-1. **Hero**
-   - strong one-line positioning
-   - supporting copy that explains the overlap of strategy, content, systems, and execution
-   - primary CTA for client work
-   - secondary CTA for partnerships / media
-   - tertiary or supporting route for newsletter / insights
-   - visual treatment must feel custom and premium, not generic SaaS, not generic creator template
+- a small image of Velton
+- a subtle personal note
+- a stronger line about routing the request properly
+- a small visual accent tied to the VGJ brand
 
-2. **Choose your path / audience router**
-   Four cards or a similarly elegant routing system:
-   - Work with me
-   - Partnerships / media
-   - Partnerships
-   - Follow the work / insights
+Do not make the contact page overly busy.
 
-   Each route must have a short explanation and clear CTA.
+#### 5. Direct contact copy
 
-3. **Credibility strip**
-   Use real proof only. This can include selected names, project categories, or notable work references.
-   Possible references include real work connected to HBO Max, Jamaica Tourist Board, Yello Media, UWI Mona, Jamaica Pegasus, Edmond Law, selected Jamaican business work, and similar verified items.
+Suggested copy:
 
-4. **What I actually do**
-   A concise strategic section that explains the core overlap:
-   - digital brand strategy
-   - web design / web presence
-   - content strategy and execution
-   - video / voice / digital storytelling
-   - workflow and systems thinking where relevant
+```text
+Prefer direct contact?
 
-   Keep it tight. No bloat.
+Quick human check before showing my email, phone, and WhatsApp. It keeps bots from scraping the page too easily while still keeping things simple for real people.
+```
 
-5. **Selected work preview**
-   3 to 6 featured projects with strong framing.
-   Each card should show:
-   - project / brand name
-   - contribution
-   - medium or deliverable
-   - one meaningful line about what the work achieved or clarified
-
-6. **Why this mix matters**
-   A section that explains why Veltonâ€™s value is not just one skill, but the way his skills converge.
-   This should speak to both clients and collaborators.
-
-7. **Opportunity snapshot**
-   Short, sharp overview of selected projects, capabilities, collaborations, and media-ready context with a CTA to `/partnerships/`.
-
-8. **Partnership / collaboration teaser**
-   A section that quietly signals openness to brand collaborations, tool partnerships, creator collaborations, speaking, workshops, or campaign support.
-
-9. **Newsletter / insights teaser**
-   Feature Creatorâ€™s Current and the broader content / ideas side of the brand.
-   Make it clear why somebody should subscribe or follow.
-
-10. **Strong final CTA section**
-    Must offer multiple routes, not just one button.
-
-### The homepage must not include
-- placeholders
-- unfinished modules
-- â€œcoming soonâ€ notices
-- vague cards with no proof
-- generic stock sections that could belong to anybody
+Keep it friendly.
 
 ---
 
-## 9. About page requirements
+## Old contact page reference
 
-This page should make Velton feel legible, credible, and human.
+The old provided contact page includes the human-check logic, but also contains obsolete form backend logic.
 
-### Required sections
+Use these parts as reference:
 
-1. **Intro hero**
-   Clear, grounded introduction. Not overly polished. Not overly casual.
+- `humanCheck`
+- `qRow`
+- `qText`
+- `qAnswer`
+- `refreshQ`
+- `unlockBtn`
+- `directContent`
+- `revealContacts()`
+- JavaScript challenge generation
+- JavaScript email/phone/WhatsApp assembly
+- noscript obfuscated fallback
 
-2. **Narrative**
-   Explain the through-line between:
-   - storytelling
-   - digital execution
-   - systems thinking
-   - practical business value
+Do not use:
 
-3. **How he thinks**
-   A section about approach, judgment, and how he solves problems.
-   This is not a values fluff section. It should feel real.
+- old Tailwind page structure
+- old Google Apps Script endpoint
+- old API secret
+- old form submission script
+- old services checklist
+- old “Services” and “Portfolio” nav routes
+- old contact form backend code
 
-4. **What he is actually strong at**
-   Use honest strengths, such as:
-   - systems thinking
-   - workflow optimisation
-   - brand clarity
-   - content planning and execution
-   - video and voice integration
-   - web presence and digital experience
-   - translating complexity into something clearer
-
-5. **Proof without arrogance**
-   Short highlights of notable projects, brands, or contexts.
-
-6. **Personal but relevant layer**
-   Enough humanity to feel like a person, not a robot or faceless service business.
-
-7. **CTA block**
-   Route to work, Lead Flow Fix, Partnerships, insights, or contact.
+The current site’s design system and Web3Forms form must remain the foundation.
 
 ---
 
-## 10. Work page requirements
+## Existing global JavaScript warning
 
-This page must do heavy lifting.
+The old uploaded `site.js` reference includes behaviour that disables all form inputs on submit and only runs once.
 
-The current portfolio is a start, but it needs to become stronger, more strategic, and more credible.
+Do not blindly copy that into the current site.
 
-### The work page should feel like curated proof, not a random gallery.
+Reason:
 
-### Required structure for each featured project
-Each project block or card should include:
-- project / brand name
-- year
-- contribution
-- deliverable type
-- context or challenge
-- what Velton did
-- what this demonstrates
-- live link, asset, or supporting proof where available
+- the current contact form already has a working async Web3Forms flow
+- disabling all form inputs globally can conflict with error handling, retries, and custom form behaviour
+- current form logic should remain local and controlled
 
-### Group work into meaningful buckets if helpful
-Examples:
-- Web / digital presence
-- Content and campaign work
-- Video and multimedia
-- Voiceover and narration
-- Strategy and systems
+If adding direct-contact human-check logic, either:
 
-### Prioritise work that best supports the new direction
-Likely stronger anchors include:
-- selected Jamaican business work website and brand/digital setup
-- Edmond Law website
-- hospitality and hotel-related digital work where relevant
-- Yello Media content work
-- UWI Mona projects
-- voiceover projects with notable brands
-- any project that demonstrates cross-functional thinking, not just one-off output
+- place it in the current contact page’s inline script, or
+- add a clearly scoped function in the current JS that only runs when the relevant elements exist
 
-### Important rule
-Do not present only tasks. Present judgment, contribution, and relevance.
-
-### Optional enhancement
-Create dedicated case study pages for 2 to 4 strongest projects.
-These should be world-class mini case studies, not bloated essays.
+Avoid global form submit behaviour that interferes with Web3Forms.
 
 ---
 
-## 11. Lead Flow Fix page requirements
+## Content policy and opportunity boundaries
 
-This page is for potential clients with messy lead flow.
+There should be consistent, subtle alignment between the Contact page and Speaking & Partnerships page.
 
-The current version is too tied to a narrower service mix. The new version should reflect Veltonâ€™s broader, more strategic direction while staying honest.
+Use boundaries such as:
 
-### Position the offer around clear, practical fixes
-Possible Lead Flow Fix areas:
-- digital front door clarity
-- Google presence cleanup
-- WhatsApp Business flow
-- saved replies and FAQ logic
-- simple lead labels, tracking, and follow-up structure
+- explicit sexual content
+- occult or spiritistic themes
+- hate or discrimination
+- gambling promotion
+- illicit/recreational drugs
+- partisan politics or political campaigning
+- violence-centred content
+- alcohol-led promotion
 
-### Important
-This page should not make him look like he is claiming mastery in everything.
-The framing should be:
-- strategic
-- practical
-- collaborative
-- adaptable
+Phrase respectfully.
 
-### Include
-- what kinds of service businesses are a good fit
-- what a typical engagement might tighten
-- what is in scope vs out of scope
-- why the work is practical rather than a giant custom buildout
-- what kind of enquiry to send
+Suggested site-wide policy copy:
 
-### Do not include
-- limp â€œI can do anythingâ€ language
-- defensive disclaimers everywhere
-- awkward morality or content policy copy unless it is truly necessary and elegantly handled
+```text
+I take on work that I can stand behind in good conscience. If an opportunity is not aligned with my values or the kind of work I am comfortable attaching my name to, I will say so clearly and, where possible, point you in a better direction.
+```
 
-If a fit filter is needed, make it subtle and mature.
+Keep this on Contact and Speaking & Partnerships. Do not over-explain.
 
 ---
 
-## 12. Partnerships page requirements
+## Accuracy audit tasks
 
-This page exists primarily for collaborators, partners, media, workshops, and aligned brand conversations.
+Before implementing copy changes, run a text audit across the site for risky claims.
 
-It should feel like a polished bridge between a collaboration page and a personal site.
+Search for:
 
-### Goals
-- help someone quickly understand what kind of professional Velton is
-- clarify the kinds of conversations and opportunities that fit
-- highlight experience, achievements, and range
-- offer relevant supporting material only when useful
+- “trusted by”
+- “strategy for”
+- “campaign”
+- “led”
+- “designed”
+- “managed”
+- “built”
+- “worked with”
+- “client”
+- “partner”
+- “speaking”
+- “keynote”
+- “media kit”
+- “testimonials”
+- “results”
+- “growth”
+- “conversion”
+- “revenue”
+- “hospitality specialist”
+- “Freeboard”
+- “Work, made workable”
+- “enquiries”
 
-### Required sections
+Then correct according to this instruction file.
 
-1. **Positioning summary**
-   A concise statement of the kinds of partnerships, workshops, media conversations, and collaborations he is best suited for.
-   Examples may include digital brand strategy, content strategy, web or digital communications, creative marketing, multimedia, and systems-minded brand conversations.
+Do not use the word `enquiries`. Use `requests`, `messages`, `project requests`, or `contact`.
 
-2. **Strengths at a glance**
-   Not a generic skill cloud. Curated strengths only.
+Do not describe Velton as a hospitality specialist.
 
-3. **Selected experience timeline**
-   Use real projects and contributions, framed cleanly.
+Do not mention Freeboard publicly.
 
-4. **Selected achievements / contributions**
-   Explain meaningful contributions without inflation.
-
-5. **Tools and platforms**
-   Only include tools he can credibly speak to and use.
-
-6. **Contact path for collaborators**
-   A clean dedicated route.
-
-### Important tone rule
-This page should be professional and clear, but it must still sound like Velton, not a generic auto-summary.
-
----
-
-## 13. Partners page requirements
-
-This page is for:
-- brand partnerships
-- creator partnerships
-- collaboration opportunities
-- tool and platform sponsors
-- workshop or speaking opportunities
-
-### The job of this page
-Make it easy for the right partner to understand:
-- who Velton is
-- what topics and formats fit his brand
-- what kinds of collaborations are welcome
-- why he is a useful collaborator
-
-### Include
-- short positioning statement
-- types of partnership formats he is open to
-- examples: creator-led demos, gear/tool features, educational partnerships, workshops, live appearances, sponsored content that fits his audience and perspective
-- what kinds of brands are a fit
-- what kinds of brands are not a fit
-- collaboration enquiry CTA
-
-### Important
-Do not pretend he has a massive following if he does not.
-The value proposition should come from:
-- clarity
-- thoughtfulness
-- niche relevance
-- credibility
-- production quality
-- real-world practitioner perspective
+Do not use the word `nestled`.
 
 ---
 
-## 14. Insights page requirements
+## Implementation order
 
-This page is for followers, readers, and future subscribers.
+### Phase 1: Safety and audit
 
-It should support the content side of the brand and give the site a reason to be revisited.
+1. Confirm current Git branch.
+2. Create a checkpoint commit or branch.
+3. Search for hallucinated claims and risky wording.
+4. Search for forbidden public references:
+   - Freeboard
+   - Work, made workable
+   - hospitality specialist
+   - enquiries
+   - nestled
+   - Google Apps Script
+   - `script.google.com`
+5. Confirm Web3Forms still exists before editing contact.
 
-### Include
-- Creatorâ€™s Current as a featured newsletter property
-- selected articles or posts
-- content pillars
-- why somebody should subscribe
-- clean CTA to subscribe or follow elsewhere
+### Phase 2: Sitewide visual and voice personality pass
 
-### Content pillars may include
-- digital brand strategy
-- creator systems
-- small workflow upgrades
-- web and digital presence lessons
-- content and storytelling observations
-- practical ideas for small businesses and creators
+1. Add more Velton imagery.
+2. Improve image layering and section depth.
+3. Improve logo sizing.
+4. Add relevant imagery where useful.
+5. Preserve blue/cyan brand DNA.
+6. Add more personal, Velton-like microcopy where appropriate.
+7. Review Creator's Current text, captions, and extracted embedded images before finalising personal story sections.
 
-### Important
-This page should feel alive and credible even if content volume is still growing.
-That means:
-- fewer pieces is fine
-- they must be presented well
-- no empty blog shell
-- no thin fake â€œinsightsâ€ page with nothing to say
+### Phase 3: Homepage
 
----
+1. Add Velton image to hero.
+2. Add Velton’s name more prominently.
+3. Add personal story bridge.
+4. Create dedicated Lead Flow Fix section near the top.
+5. Improve credibility logo sizing.
+6. Improve Creator’s Current teaser, including larger logo and `200+ subscribers`.
 
-## 15. Contact page requirements
+### Phase 4: About
 
-The contact page should feel calm, premium, and easy.
+1. Replace image with warmer photo.
+2. Rewrite into stronger narrative story.
+3. Add creativity-systems through-line.
+4. Add faith/value mention.
+5. Add father/mentor mention.
+6. Keep public-facing and reader-relevant.
 
-### It must support multiple enquiry types
-Use a clear selector or grouped options for:
-- project / client enquiry
-- partnership / media enquiry
-- partnership / collaboration enquiry
-- general question
+### Phase 5: Work
 
-### Include
-- name
-- email
-- optional phone / WhatsApp
-- enquiry type
-- message
-- optional budget / timeline only if it actually helps
+1. Fix project navigation alignment.
+2. Enlarge logos.
+3. Replace inaccurate project details with the corrected project descriptions in this document.
+4. Remove or soften anything unsupported.
 
-### Also include direct contact details cleanly
-No awkward reveal gates unless there is a very strong reason.
+### Phase 6: Speaking & Partnerships
 
-### Optional
-A short â€œbest forâ€ note so people know what kind of message is useful.
+1. Add more personal context.
+2. Add speaking images when provided.
+3. Add faith-aligned opportunity filter.
+4. Make resource buttons/cards clearer.
+5. Change email CTAs to contact page CTAs.
 
-### Avoid
-- clunky friction
-- â€œscheduling coming soonâ€ language
-- anything that makes the site feel incomplete
+### Phase 7: Contact
 
----
+1. Preserve Web3Forms.
+2. Add human-check direct contact card.
+3. Add small personality improvement to hero.
+4. Keep page clean and usable.
 
-## 16. Visual direction
+### Phase 8: QA
 
-The visual system should communicate:
-- taste
-- clarity
-- maturity
-- confidence
-- creative intelligence
+Verify:
 
-### It should feel like a premium personal brand site, not:
-- a bootstrap SaaS template
-- a generic Tailwind landing page
-- a loud creator page
-- a corporate bio microsite
-
-### Visual principles
-- generous whitespace
-- strong hierarchy
-- controlled contrast
-- a deliberate grid
-- refined typography
-- restrained motion
-- clear content rhythm
-- excellent states and spacing
-
-### Recommended design personality
-A hybrid of:
-- editorial sharpness
-- modern product design discipline
-- portfolio-level elegance
-
-### Avoid
-- gimmicks
-- flashy gradients everywhere
-- noisy cards
-- generic icon overload
-- fake 3D effects
-- busy glassmorphism
-- over-animated sections
-
-### Motion
-Use motion sparingly and with taste.
-Subtle reveal, hover refinement, and micro-interaction polish only.
-The motion should make the site feel expensive, not distracting.
+- site builds locally
+- no Web3Forms breakage
+- no Google Apps Script references
+- no forbidden wording
+- no unsupported project claims
+- logos are readable
+- homepage feels personal and includes small moments of Velton-like voice
+- About page feels like Velton’s story
+- Work page is accurate
+- Speaking page filters misaligned work clearly
+- Contact direct reveal works and the human-check copy has charm without becoming gimmicky
+- sitewide copy avoids generic consultant phrasing and includes appropriate asides or human touches
+- mobile layout remains clean
+- accessibility is not harmed
 
 ---
 
-## 17. Typography and copy direction
+## QA checklist
 
-### Typography
-Choose a pairing that feels premium, modern, and readable.
-The type system should help the site feel bespoke.
+After implementation, report:
 
-Do not use default-looking web typography that makes the site feel like every other AI-generated portfolio.
-
-### Copy tone
-The copy should be:
-- human
-- clear
-- confident
-- intelligent
-- slightly personal where useful
-- grounded in real work
-
-### The copy should not be
-- overhyped
-- bloated
-- jargon-stuffed
-- fake-deep
-- cheesy
-- corporate-robotic
-
-### Copy rules
-- no em dashes unless absolutely necessary
-- no AI clichÃ© phrasing
-- no lazy â€œpassionate about helping brands thriveâ€ type language
-- no pretending to be bigger than reality
-- no trying too hard to sound profound
-
-The best copy on this site should sound like someone who has actually done the work and thought about it.
+- files changed
+- claims removed or corrected
+- sections where images of Velton were added
+- project entries corrected
+- whether Lead Flow Fix now has a dedicated homepage section
+- whether Creator’s Current homepage teaser says `200+ subscribers`
+- whether logos were enlarged
+- whether About image changed
+- whether Speaking & Partnerships CTAs now route to `/contact/`
+- whether value/boundary filter was added
+- whether direct contact human-check was added
+- whether Web3Forms still submits
+- whether any `Google Apps Script` or `script.google.com` references remain
+- whether any `Freeboard` references remain publicly
+- whether any `enquiries` or `nestled` wording remains
+- whether any details still need Velton’s confirmation
 
 ---
 
-## 18. Proof and content sources to use
+## Final creative direction
 
-Use real material only.
-Wherever possible, pull from verified projects, experience, and work already connected to Velton.
+The site should feel more like:
 
-### Real proof points that may be used where relevant
-- HBO Max voiceover work
-- Jamaica Tourist Board-related work
-- Montego Bay Convention Centre voiceover work
-- Cari-Med Group Ltd. voiceover work
-- Joel Nomdarkham / Future Makers project
-- GrassROOTS Community Foundation project via Amplify Studios
-- Yello Media projects
-- Jamaica Pegasus / Courtleigh digital work where relevant
-- UWI Mona project work
-- selected Jamaican business work digital and website work
-- Edmond Law website project
-- other real client or brand work already represented truthfully
+```text
+Velton Gooden Jr.
+Jamaican
+personal
+creative
+strategic
+systems-minded
+visually alive
+human
+story-led
+trustworthy
+useful
+grounded in real work
+```
 
-### Important
-Do not use any proof point unless it can be represented honestly.
-If details are thin, frame carefully rather than inflating.
+It should feel less like:
 
----
+```text
+generic consultant site
+AI portfolio
+abstract service menu
+muted SaaS template
+logo wall with tiny icons
+impersonal authority page
+inflated case study collection
+```
 
-## 19. Technical standards
+The final test:
 
-1. **Static site, GitHub Pages friendly**
-2. **Clean directory routing**
-3. **Single shared stylesheet**
-4. **Single shared script where practical**
-5. **No production Tailwind CDN**
-6. **No inline style clutter except where genuinely justified**
-7. **No dead code or duplicated markup if it can be avoided responsibly**
-8. **Responsive images and good file hygiene**
-9. **Thoughtful component reuse**
-10. **No framework migration unless there is an overwhelming reason**
-
-### The site should be easy to maintain later
-This matters.
-Do not create an overcomplicated codebase just to look clever.
-
----
-
-## 20. Accessibility and UX requirements
-
-Mandatory:
-- skip link
-- semantic landmarks
-- one clear `h1` per page
-- visible focus states
-- keyboard-friendly navigation
-- `aria-current="page"` in nav
-- proper labels on forms
-- sensible error handling
-- reduced-motion support
-- strong colour contrast
-- touch target quality on mobile
-- no interaction that relies on hover only
-
-### UX principles
-- fewer, clearer choices
-- fast recognition of next steps
-- no clutter
-- no mixed signals
-- no weak or dead CTAs
-- nothing that makes the site feel unfinished
-
----
-
-## 21. SEO and discoverability
-
-This site should be discoverable, but not written like an SEO farm.
-
-### Baseline requirements
-- unique page titles
-- unique meta descriptions
-- canonical URLs
-- Open Graph tags
-- sitemap
-- robots.txt
-- structured data where relevant
-
-### Schema to consider
-- `Person`
-- `ProfessionalService`
-- `WebSite`
-- `Article` or `BlogPosting`
-- `CreativeWork` where useful
-
-### Search intent to support
-Likely useful positioning terms include combinations around:
-- digital brand strategist Jamaica
-- web designer Jamaica
-- content strategist Jamaica
-- video production Jamaica
-- voiceover Jamaica
-- personal brand strategist Jamaica
-- portfolio / creator systems / digital presence related terms where relevant
-
-Do this with restraint.
-No keyword stuffing.
-
----
-
-## 22. Specific improvements over the current build
-
-The redesign must directly fix these problems:
-
-- remove all placeholders from the homepage
-- replace weak gallery logic with stronger case-study logic
-- create a clear audience-routing system on the homepage
-- make `/partnerships/` work clearly for collaborators, partners, media, workshops, and brand collaborations
-- elevate Creatorâ€™s Current and the insights side of the brand
-- clean up the contact experience and remove incomplete-feeling friction
-- create a more bespoke visual identity
-- improve technical polish and accessibility
-- make the homepage feel intentional and expensive
-
----
-
-## 23. Final QA checklist
-
-Before calling the rebuild done, verify all of this.
-
-### Strategic QA
-- Does the site clearly serve clients, collaborators, partners, and followers?
-- Can each visitor type find their route within seconds?
-- Does the site feel coherent rather than crowded?
-- Does the site make Velton look more credible than before?
-
-### Content QA
-- Is every visible module real and finished?
-- Is the copy human and grounded?
-- Are there any filler lines, generic claims, or inflated descriptions?
-- Does each page earn its existence?
-
-### Design QA
-- Does the site feel custom rather than template-derived?
-- Is the hierarchy sharp?
-- Is spacing disciplined?
-- Do hover, focus, and transitions feel polished?
-- Would another designer or developer respect the execution?
-
-### Technical QA
-- Are metadata, canonicals, and OG tags in place?
-- Is accessibility handled properly?
-- Is the mobile experience genuinely strong?
-- Are there any broken links, duplicate IDs, dead sections, or odd states?
-- Is the codebase tidy enough to maintain confidently later?
-
-### Final gut-check
-Ask this before shipping:
-
-**Would this site make a serious person think â€œthis person clearly knows what theyâ€™re doingâ€?**
-
-If the answer is not yes, keep refining.
-
----
-
-## 24. Build order
-
-1. establish the final design system and stylesheet
-2. rebuild shared header, footer, navigation, buttons, cards, and layout primitives
-3. rebuild the homepage completely around routing and proof
-4. rebuild `/work/`
-5. rebuild `/lead-flow-fix/`
-6. rebuild `/partnerships/`
-7. rebuild `/about/`
-8. rebuild `/insights/`
-9. rebuild `/contact/`
-10. clean up privacy and 404
-11. finish metadata, schema, sitemap, robots, and final QA
-
----
-
-## 25. Final reminder
-
-This site is not meant to be merely â€œniceâ€.
-It is meant to become a serious business and brand asset.
-
-A client should feel safer working with Velton because of it.
-A collaborator should feel clearer about starting a conversation because of it.
-A brand partner should see a credible collaborator because of it.
-A thoughtful follower should want to stay connected because of it.
-
-**Build the site so it can hold all of that without feeling bloated.**
-
-That balance is the brief.
+> If someone lands on the site, they should immediately understand that this is Velton Gooden Jr.’s personal headquarters, not a generic digital strategy template with his logo on it.
