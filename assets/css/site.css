@@ -109,6 +109,16 @@ body {
 }
 
 img, svg, video { display: block; max-width: 100%; height: auto; }
+img,
+picture,
+svg,
+video,
+canvas {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
 a { color: inherit; text-underline-offset: 3px; }
 ul, ol { list-style: none; padding: 0; }
 button { cursor: pointer; font: inherit; background: none; border: none; }

@@ -7,6 +7,40 @@
   'use strict';
 
   /* ----------------------------------------------------------
+     MEDIA DOWNLOAD / COPY DETERRENTS
+     ---------------------------------------------------------- */
+  const protectedMediaSelector = 'img, picture, svg, video, canvas';
+
+  const hasProtectedBackground = (element) => {
+    if (!(element instanceof Element)) return false;
+
+    const backgroundImage = window.getComputedStyle(element).backgroundImage;
+    return backgroundImage && backgroundImage !== 'none' && backgroundImage.includes('url(');
+  };
+
+  const getProtectedMediaTarget = (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return null;
+
+    const directMedia = target.closest(protectedMediaSelector);
+    if (directMedia) return directMedia;
+
+    return hasProtectedBackground(target) ? target : null;
+  };
+
+  document.querySelectorAll(protectedMediaSelector).forEach(media => {
+    media.setAttribute('draggable', 'false');
+  });
+
+  ['contextmenu', 'dragstart', 'copy', 'cut', 'paste'].forEach(eventName => {
+    document.addEventListener(eventName, (event) => {
+      if (getProtectedMediaTarget(event)) {
+        event.preventDefault();
+      }
+    }, true);
+  });
+
+  /* ----------------------------------------------------------
      1. HEADER SCROLL SHADOW
      ---------------------------------------------------------- */
   const header = document.querySelector('.site-header');
