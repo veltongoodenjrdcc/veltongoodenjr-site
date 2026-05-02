@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Contact | Velton Gooden Jr.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get in touch with Velton Gooden Jr. about client work, lead flow, websites, messaging, content, and practical digital systems.">
+  <meta name="description" content="Get in touch with Velton Gooden Jr. about client work, digital presence support, Lead Flow Fix, partnerships, media, speaking, and workshops.">
   <link rel="canonical" href="https://www.veltongoodenjr.com/contact/">
   <link rel="icon" type="image/svg+xml" href="../assets/images/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,23 +14,46 @@
   <link rel="stylesheet" href="../assets/css/site.css">
   <script defer src="../assets/js/site.js"></script>
   <meta property="og:title" content="Contact | Velton Gooden Jr.">
-  <meta property="og:description" content="Get in touch about client work, lead flow, websites, messaging, content, and practical digital systems.">
+  <meta property="og:description" content="Get in touch about client work, digital presence support, Lead Flow Fix, partnerships, media, speaking, and workshops.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/contact/">
-  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/stock/hero-strategy-meeting.jpg">
+  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/content/photos/velton-gooden-jr-red-sweater-seated-smiling-portrait.jpg">
   <style>
     .contact-layout { display: grid; gap: var(--sp-10); align-items: start; }
     @media (min-width: 56rem) { .contact-layout { grid-template-columns: 1fr 22rem; } }
     .contact-card { background: var(--c-surface); border: 1.5px solid var(--c-border); border-radius: var(--r-xl); padding: clamp(1.5rem, 4vw, 2.25rem); }
-    .purpose-grid { display: grid; gap: var(--sp-2); }
-    @media (min-width: 40rem) { .purpose-grid { grid-template-columns: repeat(2, 1fr); } }
-    .purpose-label { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); border: 1.5px solid var(--c-border); border-radius: var(--r-md); cursor: pointer; transition: border-color 0.18s, background 0.18s; }
-    .purpose-label:hover { border-color: var(--c-brand); background: var(--c-surface-3); }
-    .purpose-label input { accent-color: var(--c-brand-dark); width: 16px; height: 16px; flex-shrink: 0; }
     .contact-note { font-size: var(--fs-sm); color: var(--c-muted); line-height: 1.7; }
+    .required-mark { color: var(--c-brand-dark); }
     .form-status { font-size: var(--fs-sm); padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md); margin-top: var(--sp-4); display: none; }
     .form-status.is-success { display: block; background: #ecfdf5; color: #065f46; border: 1px solid #6ee7b7; }
     .form-status.is-error { display: block; background: #fef2f2; color: #7f1d1d; border: 1px solid #fca5a5; }
+    .form-privacy-note { font-size: var(--fs-xs); color: var(--c-muted); line-height: 1.6; margin-top: var(--sp-4); }
+    .form-privacy-note a { color: var(--c-brand-dark); }
+    .hero-personal-chip { display: inline-flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3) var(--sp-2) var(--sp-2); margin-top: var(--sp-6); background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--r-pill); font-size: var(--fs-xs); color: var(--c-ink-2); }
+    .hero-personal-chip__avatar { width: 2.25rem; height: 2.25rem; border-radius: 50%; object-fit: cover; object-position: center 18%; }
+    .hero-personal-chip strong { color: var(--c-ink); font-weight: 700; }
+    .contact-human-photo { margin-top: var(--sp-4); width: 100%; max-width: 14rem; aspect-ratio: 1; }
+    .contact-human-photo img { object-position: center 18%; }
+    .human-check { display: flex; flex-direction: column; gap: var(--sp-3); margin-top: var(--sp-4); }
+    .human-check__intro { display: flex; align-items: center; gap: var(--sp-3); cursor: pointer; user-select: none; font-size: var(--fs-sm); color: var(--c-ink-2); }
+    .human-check__intro input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--c-brand-dark); cursor: pointer; }
+    .human-check__challenge { display: none; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: var(--sp-4); background: var(--c-surface-2); border-radius: var(--r-md); border: 1px solid var(--c-border); }
+    .human-check__challenge.is-active { display: flex; }
+    .human-check__q { font-weight: 700; color: var(--c-ink); font-size: var(--fs-md); }
+    .human-check__answer { width: 4.5rem; font-size: var(--fs-md); padding: var(--sp-2) var(--sp-3); border: 1px solid var(--c-border-2); border-radius: var(--r-md); background: var(--c-surface); color: var(--c-ink); }
+    .human-check__answer:focus { outline: 2px solid var(--c-brand); outline-offset: 1px; border-color: var(--c-brand); }
+    .human-check__refresh { background: transparent; border: 1px solid var(--c-border-2); color: var(--c-brand-dark); font-size: var(--fs-sm); padding: var(--sp-2) var(--sp-3); border-radius: var(--r-md); cursor: pointer; display: inline-flex; align-items: center; gap: var(--sp-2); }
+    .human-check__refresh:hover { background: var(--c-surface-3); border-color: var(--c-brand); }
+    .human-check__unlock { display: inline-flex; align-items: center; gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); background: var(--c-brand); color: #fff; border: none; border-radius: var(--r-md); font-weight: 700; font-size: var(--fs-sm); cursor: not-allowed; opacity: 0.45; transition: opacity 0.18s, background 0.18s; }
+    .human-check__unlock.is-ready { opacity: 1; cursor: pointer; }
+    .human-check__unlock.is-ready:hover { background: var(--c-brand-dark); }
+    .human-check__feedback { min-height: 1.5em; color: var(--c-muted); font-size: var(--fs-sm); line-height: 1.6; }
+    .human-check__feedback.is-success { color: #047857; }
+    .human-check__feedback.is-error { color: #9f1239; }
+    .direct-content { display: none; margin-top: var(--sp-5); padding-top: var(--sp-5); border-top: 1px dashed var(--c-border); }
+    .direct-content.is-visible { display: block; }
+    .direct-content a { color: var(--c-brand-dark); font-weight: 600; word-break: break-word; }
+    .human-check.is-hidden { display: none; }
   </style>
 </head>
 <body>
@@ -41,8 +64,10 @@
         <a href="../" class="nav-brand" aria-label="Velton Gooden Jr home"><img src="../assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr" width="130" height="36" loading="eager"></a>
         <ul class="nav-links" role="list">
           <li><a href="../">Home</a></li>
-          <li><a href="../lead-flow-fix/">Lead Flow Fix</a></li>
-          <li><a href="../work/">My Work</a></li><li><a href="../partnerships/">Partnerships</a></li><li><a href="../about/">About</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../work/">Work</a></li>
+          <li><a href="../creators-current/">Creator's Current</a></li>
+          <li><a href="../partnerships/">Speaking &amp; Partnerships</a></li>
           <li><a href="../contact/">Contact</a></li>
         </ul>
         <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
@@ -55,8 +80,10 @@
       <div class="mobile-nav__header"><img src="../assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr" height="32" loading="lazy"><button class="mobile-nav__close" id="navClose" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>
       <ul class="mobile-nav__links" role="list">
         <li><a href="../"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a></li>
-        <li><a href="../lead-flow-fix/"><i class="fa-solid fa-filter" aria-hidden="true"></i> Lead Flow Fix</a></li>
-        <li><a href="../work/"><i class="fa-regular fa-images" aria-hidden="true"></i> My Work</a></li><li><a href="../partnerships/"><i class="fa-regular fa-handshake" aria-hidden="true"></i> Partnerships</a></li><li><a href="../about/"><i class="fa-regular fa-user" aria-hidden="true"></i> About</a></li>
+        <li><a href="../about/"><i class="fa-regular fa-user" aria-hidden="true"></i> About</a></li>
+        <li><a href="../work/"><i class="fa-regular fa-images" aria-hidden="true"></i> Work</a></li>
+        <li><a href="../creators-current/"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Creator's Current</a></li>
+        <li><a href="../partnerships/"><i class="fa-regular fa-handshake" aria-hidden="true"></i> Speaking &amp; Partnerships</a></li>
         <li><a href="../contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
       <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
@@ -68,8 +95,13 @@
       <div class="container">
         <div class="page-hero__content reveal">
           <p class="page-hero__eyebrow">Contact</p>
-          <h1 class="page-hero__title display-heading">One clean next step.</h1>
-          <p class="page-hero__lead" style="margin-inline: auto;">If there is a client project, lead-flow problem, digital presence gap, or messaging issue worth fixing, start here. The point is not to make contact complicated. It is to get the context into the right shape quickly.</p>
+          <h1 class="page-hero__title display-heading">So... What now?</h1>
+          <p class="page-hero__lead" style="margin-inline: auto;">The right starting point depends on what you need.</p>
+          <p class="page-hero__lead" style="margin-inline: auto; margin-top: var(--sp-4);">Whether it&rsquo;s a client project, speaking opportunity, brand partnership, media request, workshop, or something else, use the form below and I&rsquo;ll route it from there. (Pick the closest fit; I&rsquo;ll figure out the rest.)</p>
+          <span class="hero-personal-chip">
+            <img class="hero-personal-chip__avatar" src="../assets/images/content/photos/velton-gooden-jr-red-sweater-seated-smiling-portrait.jpg" alt="" aria-hidden="true" loading="lazy" width="36" height="36">
+            <span>"I do my best to respond within <strong>48 hours</strong>"</span>
+          </span>
         </div>
       </div>
     </section>
@@ -78,37 +110,36 @@
         <div class="contact-layout">
           <div class="contact-card">
             <h2 style="font-size: var(--fs-xl); margin-bottom: var(--sp-2);">Tell me what this is about</h2>
-            <p class="contact-note" style="margin-bottom: var(--sp-6);">Use this for client work. Keep it simple: what is happening, what needs to change, and what would make the conversation useful.</p>
-            <form id="inquiryForm" autocomplete="on" novalidate>
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
-              <input type="hidden" name="source" value="Website Contact">
-              <input type="hidden" id="hiddenSubject" name="subject" value="New enquiry via veltongoodenjr.com">
+            <p class="contact-note" style="margin-bottom: var(--sp-6);">Keep it simple: who you are, what you need, and the best next step.</p>
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" autocomplete="on">
+              <input type="hidden" id="web3formsAccessKey" name="access_key" value="4505ad30-50ee-41f6-a80f-8e661b4548c1">
+              <input type="hidden" id="hiddenSubject" name="subject" value="[Website Contact] New message: Visitor">
+              <input type="hidden" name="from_name" value="Velton Gooden Jr. Website">
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+              <input type="hidden" id="pageSubmittedFrom" name="pageSubmittedFrom" value="">
+              <input type="hidden" id="utmSource" name="utmSource" value="">
+              <input type="hidden" id="utmMedium" name="utmMedium" value="">
+              <input type="hidden" id="utmCampaign" name="utmCampaign" value="">
+              <input type="hidden" id="userAgent" name="userAgent" value="">
               <div class="form-row" style="margin-bottom: var(--sp-5);">
-                <div class="form-group"><label class="form-label" for="name">Name</label><input class="form-input" type="text" id="name" name="name" autocomplete="name" required placeholder="Your name"></div>
-                <div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com"></div>
+                <div class="form-group"><label class="form-label" for="name">Name <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><input class="form-input" type="text" id="name" name="name" autocomplete="name" maxlength="100" required></div>
+                <div class="form-group"><label class="form-label" for="email">Email <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><input class="form-input" type="email" id="email" name="email" autocomplete="email" maxlength="150" required></div>
               </div>
-              <fieldset style="border: none; padding: 0; margin: 0 0 var(--sp-5);">
-                <legend class="form-label" style="margin-bottom: var(--sp-3);">What is this about?</legend>
-                <div class="purpose-grid">
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Lead Flow Fix" checked><span>Lead Flow Fix</span></label>
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Website / digital presence"><span>Website / digital presence</span></label>
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Messaging / offer clarity"><span>Messaging / offer clarity</span></label>
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Content / communication support"><span>Content / communication support</span></label>
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Systems cleanup"><span>Systems cleanup</span></label>
-                  <label class="purpose-label"><input type="radio" name="enquiryType" value="Not sure yet"><span>Not sure yet</span></label>
-                </div>
-              </fieldset>
               <div class="form-row" style="margin-bottom: var(--sp-5);">
-                <div class="form-group"><label class="form-label" for="phone">Phone or WhatsApp</label><input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+1 876-000-0000"></div>
-                <div class="form-group"><label class="form-label" for="contactMethod">Preferred contact method</label><select class="form-input" id="contactMethod" name="contactMethod"><option>Email</option><option>WhatsApp</option><option>Phone call</option></select></div>
+                <div class="form-group"><label class="form-label" for="phone">Phone / WhatsApp</label><input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" maxlength="50"></div>
+                <div class="form-group"><label class="form-label" for="preferredContactMethod">Preferred contact method</label><select class="form-input" id="preferredContactMethod" name="preferredContactMethod"><option value="Email">Email</option><option value="WhatsApp">WhatsApp</option><option value="Phone call">Phone call</option><option value="No preference">No preference</option></select></div>
               </div>
-              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="links">Reference link</label><input class="form-input" type="url" id="links" name="links" placeholder="https://"></div>
-              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="message">Brief message</label><textarea class="form-input" id="message" name="message" rows="7" required placeholder="Share what is happening, what feels messy, and what would make this work useful."></textarea></div>
-              <label class="consent-label" style="margin-bottom: var(--sp-6);"><input type="checkbox" id="consent" name="consent" required><span>I agree to my information being processed in order to receive a response. See the <a href="../privacy/">Privacy Notice</a>.</span></label>
+              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="requestType">What is this about? <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><select class="form-input" id="requestType" name="requestType" required aria-describedby="requestTypeHelper"><option value="">Choose the closest fit</option><option value="Client project">Client project</option><option value="Website or digital presence support">Website or digital presence support</option><option value="Lead Flow Fix specifically">Lead Flow Fix specifically</option><option value="Brand partnership">Brand partnership</option><option value="Media, interview, or speaking">Media, interview, or speaking</option><option value="Workshop or training">Workshop or training</option><option value="Something else">Something else</option></select><p class="form-hint" id="requestTypeHelper" aria-live="polite"></p></div>
+              <div class="form-row" style="margin-bottom: var(--sp-5);">
+                <div class="form-group"><label class="form-label" for="websiteSocialLink">Website / social link</label><input class="form-input" type="text" id="websiteSocialLink" name="websiteSocialLink" inputmode="url" autocomplete="url" maxlength="250"></div>
+                <div class="form-group"><label class="form-label" for="timeline">Timeline</label><input class="form-input" type="text" id="timeline" name="timeline" maxlength="150"></div>
+              </div>
+              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="message">Message <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><textarea class="form-input" id="message" name="message" rows="7" maxlength="3000" required></textarea></div>
               <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-3);">
-                <button type="submit" class="btn btn--primary btn--lg" id="inquirySubmit"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send message</button>
+                <button type="submit" class="btn btn--primary btn--lg" id="contactSubmit"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send message</button>
                 <a href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20saw%20your%20website%20and%20wanted%20to%20reach%20out." target="_blank" rel="noopener" class="btn btn--secondary btn--lg"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
               </div>
+              <p class="form-privacy-note">By submitting this form, you agree to your information being processed so I can respond. See the <a href="../privacy/">Privacy Notice</a>.</p>
               <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
             </form>
           </div>
@@ -120,92 +151,288 @@
             </div>
             <div class="contact-card">
               <h2 style="font-size: var(--fs-lg);">Prefer direct contact?</h2>
-              <p class="contact-note" style="margin-top: var(--sp-3);">For partnerships, media, workshops, collaborations, and anything that is not a client project, email me directly.</p>
-              <p class="contact-note" style="margin-top: var(--sp-3);">Email: <a href="mailto:info@veltongoodenjr.com?subject=Opportunity%20for%20Velton%20Gooden%20Jr." style="color: var(--c-brand-dark);">info@veltongoodenjr.com</a></p>
-              <p class="contact-note" style="margin-top: var(--sp-2);">WhatsApp: <a href="https://wa.me/18765735858" target="_blank" rel="noopener" style="color: var(--c-brand-dark);">+1 876-573-5858</a></p>
-              <a href="mailto:info@veltongoodenjr.com?subject=Opportunity%20for%20Velton%20Gooden%20Jr.&body=Hi%20Velton%2C%0A%0AI%27m%20reaching%20out%20about%3A%0A%0AUseful%20links%3A%0A%0ATimeline%20or%20key%20date%3A%0A%0ABudget%20or%20scope%20notes%3A%0A" class="btn btn--secondary" style="margin-top: var(--sp-5);"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email directly</a>
-              <p class="contact-note" style="margin-top: var(--sp-3);">Email is the best first move when there are details, dates, deliverables, or links to share.</p>
+              <p class="contact-note" style="margin-top: var(--sp-3);">Tiny human check first. Nothing dramatic, just enough to make the bots work for it.</p>
+              <div class="human-check" id="humanCheckWrap">
+                <label class="human-check__intro">
+                  <input type="checkbox" id="humanCheck" aria-controls="qRow">
+                  <span>I&rsquo;m human. Show me the contact details.</span>
+                </label>
+                <div class="human-check__challenge" id="qRow" aria-live="polite">
+                  <label for="qAnswer" class="human-check__q"><span id="qText">&middot; + &middot;</span></label>
+                  <input type="text" inputmode="numeric" pattern="[0-9]*" id="qAnswer" class="human-check__answer" aria-label="Answer to the math challenge" autocomplete="off">
+                  <button type="button" class="human-check__refresh" id="refreshQ" aria-label="Generate a new human check question"><i class="fa-solid fa-rotate" aria-hidden="true"></i> New one</button>
+                  <button type="button" class="human-check__unlock" id="unlockBtn" aria-label="Show contact details"><i class="fa-solid fa-lock-open" aria-hidden="true"></i> Show contact</button>
+                </div>
+                <p class="human-check__feedback" id="humanFeedback" aria-live="polite"></p>
+              </div>
+              <div class="direct-content" id="directContent" aria-live="polite">
+                <p class="contact-note">Email: <a id="revealedEmail" href="#">Hidden until unlocked</a></p>
+                <p class="contact-note" style="margin-top: var(--sp-2);">Phone: <a id="revealedPhone" href="#">Hidden until unlocked</a></p>
+                <p class="contact-note" style="margin-top: var(--sp-2);">WhatsApp: <a id="revealedWhatsApp" href="#" target="_blank" rel="noopener">Open WhatsApp chat</a></p>
+                <p class="contact-note" style="margin-top: var(--sp-3);">The form is still the cleanest route when there are details, dates, deliverables, or links to share.</p>
+              </div>
+              <noscript>
+                <p class="contact-note" style="margin-top: var(--sp-4);">Email: info [at] veltongoodenjr [dot] com</p>
+                <p class="contact-note" style="margin-top: var(--sp-2);">Phone: 876 [dash] 573 [dash] 5858</p>
+              </noscript>
             </div>
             <div class="contact-card">
               <h2 style="font-size: var(--fs-lg);">A quick note on fit</h2>
               <p class="contact-note" style="margin-top: var(--sp-3);">I am most useful when the problem involves clarity, communication, lead flow, digital presence, content, or practical brand systems. If the request is not a fit, I will say so plainly. If I can point you in a better direction, I will.</p>
+            </div>
+            <div class="contact-card">
+              <h2 style="font-size: var(--fs-lg);">Speaking, partnerships, or media?</h2>
+              <p class="contact-note" style="margin-top: var(--sp-3);">The Speaking &amp; Partnerships page has more context on formats, fit criteria, and what to include in your message. Worth a look first if you are coming with a collaboration or media opportunity.</p>
+              <a href="../partnerships/" class="btn btn--secondary" style="margin-top: var(--sp-4);"><i class="fa-regular fa-handshake" aria-hidden="true"></i> See Speaking &amp; Partnerships</a>
             </div>
           </aside>
         </div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><img src="../assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Sharper communication, cleaner digital paths, and practical systems help for businesses and aligned opportunities.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div><nav aria-label="Site links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="../lead-flow-fix/">Lead Flow Fix</a><a href="../work/">My Work</a><a href="../about/">About</a><a href="../contact/">Contact</a></div></nav><nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="../partnerships/">Partnerships</a><a href="../insights/">Insights</a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Newsletter</a></div></nav></div><div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="../privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div></div></footer>
+  <footer class="site-footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><img src="../assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Digital brand strategy, content, systems, and execution. Based in Jamaica.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div><nav aria-label="Explore links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="../about/">About</a><a href="../work/">Work</a><a href="../creators-current/">Creator's Current</a><a href="../partnerships/">Speaking &amp; Partnerships</a><a href="../contact/">Contact</a></div></nav><nav aria-label="Offers links"><span class="footer-nav__label">Offers</span><div class="footer-nav__links"><a href="../lead-flow-fix/">Lead Flow Fix</a></div></nav><nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div></nav></div><div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="../privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div></div></footer>
   <script>
     (function () {
-      const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyu5Otef4JZ0riM3qM2yAvUPBVydn8zEQWYiF_GZub70-Yy4QV0qv_ZJCedaMnGbULiag/exec";
-      const API_SECRET = "vGjR_2025_s3cr3t_1ba1bf";
-      const form = document.getElementById("inquiryForm");
-      const btn = document.getElementById("inquirySubmit");
+      const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+      const form = document.getElementById("contactForm");
+      const btn = document.getElementById("contactSubmit");
       const status = document.getElementById("formStatus");
       const hiddenSubject = document.getElementById("hiddenSubject");
-      const subjects = {
-        "Lead Flow Fix": "Lead Flow Fix enquiry via veltongoodenjr.com",
-        "Website / digital presence": "Website or digital presence enquiry via veltongoodenjr.com",
-        "Messaging / offer clarity": "Messaging or offer clarity enquiry via veltongoodenjr.com",
-        "Content / communication support": "Content or communication support enquiry via veltongoodenjr.com",
-        "Systems cleanup": "Systems cleanup enquiry via veltongoodenjr.com",
-        "Not sure yet": "Client project enquiry via veltongoodenjr.com"
+      const requestType = document.getElementById("requestType");
+      const requestTypeHelper = document.getElementById("requestTypeHelper");
+      const submitButtonContent = '<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send message';
+      const sendingButtonContent = '<i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Sending...';
+      const helperText = {
+        "Brand partnership": "Please include the brand, campaign idea, timeline, and why you think the fit makes sense.",
+        "Media, interview, or speaking": "Please include the event, platform, audience, topic, date, and whether it is paid or unpaid.",
+        "Workshop or training": "Please include the audience, topic, format, preferred date, and expected number of participants.",
+        "Client project": "Share what you need help with, what is already in place, and what outcome you are hoping for.",
+        "Website or digital presence support": "Share what you currently have online, what feels unclear, and what you want the website or digital touchpoints to help with.",
+        "Lead Flow Fix specifically": "Share where leads or messages currently come from, what happens after someone reaches out, and where the handoff feels messy.",
+        "Something else": "Share the context and the best next step you have in mind."
+      };
+      const subjectPrefixes = {
+        "Client project": "[Website Contact] Client project",
+        "Website or digital presence support": "[Website Contact] Website/digital presence",
+        "Lead Flow Fix specifically": "[Website Contact] Lead Flow Fix",
+        "Brand partnership": "[Website Contact] Brand partnership",
+        "Media, interview, or speaking": "[Website Contact] Speaking/media",
+        "Workshop or training": "[Website Contact] Workshop/training",
+        "Something else": "[Website Contact] General message"
       };
       if (!form) return;
-      const setSubject = () => {
-        const selected = form.querySelector('input[name="enquiryType"]:checked');
-        hiddenSubject.value = selected ? (subjects[selected.value] || "Client enquiry via veltongoodenjr.com") : "Client enquiry via veltongoodenjr.com";
+
+      const setTrackingFields = () => {
+        const params = new URLSearchParams(window.location.search);
+        form.elements.pageSubmittedFrom.value = window.location.href;
+        form.elements.utmSource.value = params.get("utm_source") || "";
+        form.elements.utmMedium.value = params.get("utm_medium") || "";
+        form.elements.utmCampaign.value = params.get("utm_campaign") || "";
+        form.elements.userAgent.value = navigator.userAgent;
       };
-      form.querySelectorAll('input[name="enquiryType"]').forEach((input) => input.addEventListener("change", setSubject));
+
+      const setSubject = () => {
+        const submittedName = form.elements.name.value.trim() || "Visitor";
+        const prefix = subjectPrefixes[requestType.value] || "[Website Contact] New message";
+        hiddenSubject.value = `${prefix}: ${submittedName}`;
+      };
+
+      const setRequestTypeHelper = () => {
+        requestTypeHelper.textContent = helperText[requestType.value] || "";
+      };
+
+      requestType.addEventListener("change", () => {
+        setRequestTypeHelper();
+        setSubject();
+      });
+      form.elements.name.addEventListener("input", setSubject);
+      setTrackingFields();
+
+      // Pre-select request type from URL ?type= param so deep links from
+      // Speaking & Partnerships and homepage Lead Flow Fix CTAs land correctly.
+      const typeToRequestType = {
+        "speaking": "Media, interview, or speaking",
+        "partnership": "Brand partnership",
+        "lead-flow-fix": "Lead Flow Fix specifically"
+      };
+      const incomingType = new URLSearchParams(window.location.search).get("type");
+      if (incomingType && typeToRequestType[incomingType]) {
+        requestType.value = typeToRequestType[incomingType];
+      }
+      setRequestTypeHelper();
       setSubject();
+
       const showStatus = (msg, type) => {
         status.textContent = msg;
         status.className = "form-status " + (type === "success" ? "is-success" : "is-error");
       };
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
-        if (form._gotcha.value) return;
-        if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
-          showStatus("Please fill in your name, email, and message.", "error");
+        if (form.elements.botcheck.checked) return;
+        if (!form.reportValidity()) {
           return;
         }
-        if (!form.consent.checked) {
-          showStatus("Please agree to the Privacy Notice to continue.", "error");
-          return;
-        }
-        const selected = form.querySelector('input[name="enquiryType"]:checked');
-        const params = new URLSearchParams();
-        params.append("name", form.name.value.trim());
-        params.append("email", form.email.value.trim());
-        params.append("phone", form.phone.value.trim());
-        params.append("contactMethod", form.contactMethod.value);
-        params.append("links", form.links.value.trim());
-        params.append("enquiryType", selected ? selected.value : "");
-        params.append("message", form.message.value.trim());
-        params.append("source", "Website Contact");
-        params.append("subject", hiddenSubject.value);
-        params.append("page", location.href);
-        params.append("_secret", API_SECRET);
+        setTrackingFields();
+        setSubject();
+        const formData = new FormData(form);
         btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Sending...';
+        btn.innerHTML = sendingButtonContent;
         status.className = "form-status";
         status.textContent = "";
         try {
-          const res = await fetch(GAS_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }, body: params.toString() });
+          const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", headers: { "Accept": "application/json" }, body: formData });
           const data = await res.json().catch(() => ({}));
-          if (res.ok && data.ok) {
+          if (res.ok && data.success) {
             form.reset();
+            setTrackingFields();
+            setRequestTypeHelper();
             setSubject();
-            showStatus("Message sent. I will be in touch within one to two business days.", "success");
+            showStatus("Thanks. Your message has been sent. I’ll review it and respond as soon as I can.", "success");
           } else {
-            showStatus(data.error ? "Error: " + data.error : "Something went wrong. Please try again or reach out directly.", "error");
+            showStatus("Something went wrong while sending. You can also email info@veltongoodenjr.com directly.", "error");
           }
         } catch (error) {
-          showStatus("Network error. Please check your connection and try again.", "error");
+          showStatus("Something went wrong while sending. You can also email info@veltongoodenjr.com directly.", "error");
         } finally {
           btn.disabled = false;
-          btn.innerHTML = '<i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send message';
+          btn.innerHTML = submitButtonContent;
+        }
+      });
+    })();
+  </script>
+  <script>
+    // Direct-contact human-check: tiny arithmetic challenge, then JS-assembled
+    // email/phone/WhatsApp reveal. Scoped so it cannot interfere with Web3Forms.
+    (function () {
+      const humanCheck = document.getElementById("humanCheck");
+      if (!humanCheck) return;
+
+      const wrap = document.getElementById("humanCheckWrap");
+      const qRow = document.getElementById("qRow");
+      const qText = document.getElementById("qText");
+      const qAnswer = document.getElementById("qAnswer");
+      const refreshBtn = document.getElementById("refreshQ");
+      const unlockBtn = document.getElementById("unlockBtn");
+      const directContent = document.getElementById("directContent");
+      const feedback = document.getElementById("humanFeedback");
+
+      let expectedAnswer = 0;
+      let wrongIndex = 0;
+      let successIndex = 0;
+
+      const wrongMessages = [
+        "Not quite.",
+        "Maybe try using a calculator? I won\u2019t judge. Much.",
+        "The bots are sweating, but so are you apparently.",
+        "Close-ish... in spirit.",
+        "Math said no.",
+        "Try again. This is not the final boss, I promise.",
+        "The answer is hiding from you. Happens to the best of us."
+      ];
+      const successMessages = [
+        "You passed. The robots are furious.",
+        "Nice. Human credentials accepted.",
+        "All set. The contact details have entered the chat.",
+        "Correct. Somewhere, a bot just sighed."
+      ];
+
+      function setFeedback(message, type) {
+        if (!feedback) return;
+        feedback.textContent = message || "";
+        feedback.className = "human-check__feedback" + (type ? " is-" + type : "");
+      }
+
+      function nextWrongMessage() {
+        const message = wrongMessages[wrongIndex % wrongMessages.length];
+        wrongIndex += 1;
+        return message;
+      }
+
+      function nextSuccessMessage() {
+        const message = successMessages[successIndex % successMessages.length];
+        successIndex += 1;
+        return message;
+      }
+
+      function newChallenge() {
+        const a = Math.floor(Math.random() * 8) + 2;
+        const b = Math.floor(Math.random() * 8) + 2;
+        expectedAnswer = a + b;
+        qText.textContent = a + " + " + b;
+        qAnswer.value = "";
+        unlockBtn.classList.remove("is-ready");
+        unlockBtn.innerHTML = '<i class="fa-solid fa-lock-open" aria-hidden="true"></i> Show contact';
+        setFeedback("", "");
+        qAnswer.focus();
+      }
+
+      function checkAnswer() {
+        const value = qAnswer.value.trim();
+        const v = parseInt(value, 10);
+        if (value !== "" && !isNaN(v) && v === expectedAnswer) {
+          unlockBtn.classList.add("is-ready");
+          setFeedback(nextSuccessMessage(), "success");
+        } else {
+          unlockBtn.classList.remove("is-ready");
+          if (value !== "") setFeedback("", "");
+        }
+      }
+
+      function revealContacts() {
+        if (!humanCheck.checked) {
+          setFeedback("Tick the box first. The honour system needs at least one honourable click.", "error");
+          return;
+        }
+        if (qAnswer.value.trim() === "") {
+          setFeedback("Enter a number first. The suspense is killing me.", "error");
+          qAnswer.focus();
+          return;
+        }
+        if (!unlockBtn.classList.contains("is-ready")) {
+          setFeedback(nextWrongMessage(), "error");
+          qAnswer.select();
+          return;
+        }
+        const fullEmail = "info" + "@" + "veltongoodenjr" + "." + "com";
+        const phoneRaw = "+1" + "8765735858";
+        const phoneDisplay = "+1 876-573-5858";
+        const waText = encodeURIComponent("Hi Velton, reaching out via your website.");
+        const emailLink = document.getElementById("revealedEmail");
+        const phoneLink = document.getElementById("revealedPhone");
+        const waLink = document.getElementById("revealedWhatsApp");
+        if (emailLink) {
+          emailLink.href = "mailto:" + fullEmail;
+          emailLink.textContent = fullEmail;
+        }
+        if (phoneLink) {
+          phoneLink.href = "tel:" + phoneRaw;
+          phoneLink.textContent = phoneDisplay;
+        }
+        if (waLink) {
+          waLink.href = "https://wa.me/18765735858?text=" + waText;
+        }
+        wrap.classList.add("is-hidden");
+        directContent.classList.add("is-visible");
+        unlockBtn.innerHTML = '<i class="fa-solid fa-lock-open" aria-hidden="true"></i> Contact unlocked';
+      }
+
+      humanCheck.addEventListener("change", function () {
+        if (humanCheck.checked) {
+          newChallenge();
+          qRow.classList.add("is-active");
+        } else {
+          qRow.classList.remove("is-active");
+          unlockBtn.classList.remove("is-ready");
+          setFeedback("Tick the box first. The honour system needs at least one honourable click.", "error");
+        }
+      });
+      qAnswer.addEventListener("input", checkAnswer);
+      refreshBtn.addEventListener("click", newChallenge);
+      unlockBtn.addEventListener("click", revealContacts);
+      qAnswer.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          revealContacts();
         }
       });
     })();
