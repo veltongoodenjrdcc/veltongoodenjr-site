@@ -265,13 +265,13 @@
   <script>
     (function () {
       var scriptState = 'idle';
-      var queue = [];
+      var processTimer;
 
-      function flushQueue() {
-        if (queue.length > 0) {
-          queue = [];
-          window.instgrm && window.instgrm.Embeds.process();
-        }
+      function scheduleProcess() {
+        clearTimeout(processTimer);
+        processTimer = setTimeout(function () {
+          if (window.instgrm) window.instgrm.Embeds.process();
+        }, 50);
       }
 
       function loadScript() {
@@ -281,27 +281,26 @@
         s.async = true;
         s.onload = function () {
           scriptState = 'ready';
-          flushQueue();
+          scheduleProcess();
         };
         document.body.appendChild(s);
       }
 
       function activateReel(placeholder) {
-        var url = placeholder.dataset.reelUrl;
         var bq = document.createElement('blockquote');
         bq.className = 'instagram-media';
-        bq.setAttribute('data-instgrm-permalink', url);
+        bq.setAttribute('data-instgrm-permalink', placeholder.dataset.reelUrl);
         bq.setAttribute('data-instgrm-version', '14');
         bq.style.width = '100%';
         bq.style.margin = '0';
         placeholder.replaceWith(bq);
 
-        if (scriptState === 'ready') {
-          window.instgrm.Embeds.process();
-        } else {
-          queue.push(url);
-          if (scriptState === 'idle') loadScript();
+        if (scriptState === 'idle') {
+          loadScript();
+        } else if (scriptState === 'ready') {
+          scheduleProcess();
         }
+        // if 'loading': onload will call scheduleProcess(), which finds all DOM blockquotes
       }
 
       var observer = new IntersectionObserver(function (entries) {
