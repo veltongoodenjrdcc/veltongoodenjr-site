@@ -118,7 +118,23 @@
       .home-hero-carousel__slide { animation: none; transform: none; }
       .home-hero-carousel__slide:first-child { opacity: 0.2; }
     }
+    .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(3rem, 6vw, 4.5rem); }
+    .home-whats-new__inner { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+    @media (min-width: 860px) { .home-whats-new__inner { grid-template-columns: 1fr 1.65fr; } }
+    .home-whats-new__copy { max-width: 40ch; }
+    .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-3); }
+    .home-whats-new__body { margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-6); }
+    .home-whats-new__embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-xl); background: #000; }
+    .home-whats-new__embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5EHZYMGHC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X5EHZYMGHC');
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -134,7 +150,7 @@
           <li><a href="partnerships/">Speaking &amp; Partnerships</a></li>
           <li><a href="contact/">Contact</a></li>
         </ul>
-        <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+        <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=booking_cta" target="_blank" rel="noopener" class="btn btn--primary nav-cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
           <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
         </button>
@@ -155,10 +171,10 @@
         <li><a href="partnerships/"><i class="fa-regular fa-handshake" aria-hidden="true"></i> Speaking &amp; Partnerships</a></li>
         <li><a href="contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
-      <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
+      <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=booking_cta" target="_blank" rel="noopener" class="btn btn--primary mobile-nav__cta"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a call</a>
       <div class="mobile-nav__footer">
-        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
@@ -192,6 +208,31 @@
               <img class="home-hero__portrait-img" src="assets/images/content/photos/optimized/velton-red-sweater-standing-900.webp" alt="Portrait of Velton Gooden Jr., Jamaica-based Digital Brand Strategist." loading="eager" fetchpriority="high" width="900" height="1350">
               <figcaption class="home-hero__portrait-badge"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> St. Catherine, Jamaica</figcaption>
             </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SECTION 1.25: WHAT'S NEW
+         ====================================================== -->
+    <section class="home-whats-new">
+      <div class="container">
+        <div class="home-whats-new__inner reveal">
+          <div class="home-whats-new__copy">
+            <span class="section-label">Now on YouTube</span>
+            <h2 class="home-whats-new__heading">There&rsquo;s a gap between looking polished and actually getting found.</h2>
+            <p class="home-whats-new__body">Your Instagram looks decent, your bio sounds fine, your website technically exists. But people still aren&rsquo;t taking the next step. This video breaks down the six specific places digital presence quietly loses people, and what to actually do about each one.</p>
+            <a href="https://www.youtube.com/@veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=youtube_channel&utm_content=whats_new" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Subscribe on YouTube</a>
+          </div>
+          <div class="home-whats-new__embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/7ol8Gq5jJ2A?rel=0&modestbranding=1"
+              title="Latest video — Velton Gooden Jr."
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
           </div>
         </div>
       </div>
@@ -426,7 +467,7 @@
             <p style="color: rgba(255,255,255,0.65); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--sp-4);">Field notes from the workshop &middot; not a guru manual</p>
             <p style="color: rgba(255,255,255,0.86); font-size: var(--fs-md); line-height: 1.75; max-width: 52ch;">Creator's Current is where I unpack the messy middle of creative work, digital presence, systems, and the occasional idea that refused to leave me alone. (Think Let&rsquo;s Play, not Walkthrough.)</p>
             <div style="display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6);">
-              <a class="btn btn--linkedin" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> Subscribe on LinkedIn</a>
+              <a class="btn btn--linkedin" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402&utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=newsletter&utm_content=creators_current" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> Subscribe on LinkedIn</a>
               <a href="creators-current/" class="btn btn--ghost btn--lg">Read Creator's Current <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
@@ -454,7 +495,7 @@
           <h2>Wherever you are starting from, the next step is the same: start a conversation.</h2>
           <p>Whether it is a project, a partnership, a media opportunity, or just a question, if it is worth asking, it is worth asking clearly.</p>
           <div class="cta-section__actions">
-            <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8" target="_blank" rel="noopener" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+            <a href="https://calendar.app.google/4TodNDiTt6GHsb9p8?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=booking_cta" target="_blank" rel="noopener" class="btn btn--primary btn--lg"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
             <a href="contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Send a Message</a>
             <a href="partnerships/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-handshake" aria-hidden="true"></i> See Partnerships</a>
           </div>
@@ -465,10 +506,10 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand"><img src="assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Digital brand strategy, content, systems, and execution. Based in Jamaica.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
+        <div class="footer-brand"><img src="assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Digital brand strategy, content, systems, and execution. Based in Jamaica.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
         <nav aria-label="Explore links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="about/">About</a><a href="work/">Work</a><a href="creators-current/">Creator's Current</a><a href="partnerships/">Speaking &amp; Partnerships</a><a href="contact/">Contact</a></div></nav>
         <nav aria-label="Offers links"><span class="footer-nav__label">Offers</span><div class="footer-nav__links"><a href="lead-flow-fix/">Lead Flow Fix</a></div></nav>
-        <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div></nav>
+        <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402&utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=newsletter&utm_content=creators_current" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div></nav>
       </div>
       <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
     </div>

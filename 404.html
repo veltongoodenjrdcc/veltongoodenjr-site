@@ -12,20 +12,122 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/site.css">
   <style>
-    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--sp-8) var(--sp-6); background: var(--c-brand-grad); color: #fff; }
-    .error-icon { font-size: clamp(3rem, 8vw, 5rem); margin-bottom: var(--sp-6); opacity: 0.9; }
-    .error-code { font-size: clamp(5rem, 16vw, 9rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: var(--sp-4); opacity: 0.9; }
-    .error-title { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 600; margin-bottom: var(--sp-4); }
-    .error-desc { font-size: var(--fs-lg); color: rgba(255,255,255,0.8); max-width: 44ch; line-height: 1.6; margin-bottom: var(--sp-8); }
-    .error-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; }
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-8) var(--sp-6);
+      background: linear-gradient(150deg, #040d17 0%, #071e33 52%, #0a2a42 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 50% 38%, rgba(29, 182, 242, 0.15) 0%, transparent 68%),
+        radial-gradient(ellipse 70% 55% at 80% 85%, rgba(14, 116, 144, 0.11) 0%, transparent 62%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .error-page > * { position: relative; z-index: 1; }
+
+    @keyframes compass-drift {
+      0%, 100% { transform: rotate(0deg); }
+      28%       { transform: rotate(18deg); }
+      72%       { transform: rotate(-12deg); }
+    }
+    @keyframes ring-pulse {
+      0%   { transform: translate(-50%, -50%) scale(0.55); opacity: 0.55; }
+      100% { transform: translate(-50%, -50%) scale(1.9); opacity: 0; }
+    }
+
+    .error-icon {
+      font-size: clamp(2.25rem, 6vw, 3.25rem);
+      color: #7dd3fc;
+      margin-bottom: var(--sp-5);
+      animation: compass-drift 5s ease-in-out infinite;
+      position: relative;
+      display: inline-block;
+    }
+    .error-icon::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      border: 1px solid rgba(29, 182, 242, 0.38);
+      animation: ring-pulse 3.2s ease-out infinite;
+    }
+
+    .error-code {
+      font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(6rem, 20vw, 13rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-3);
+      background: linear-gradient(140deg, rgba(255,255,255,0.96) 20%, #a5e3ff 58%, #1db6f2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .error-rule {
+      width: 2.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #1db6f2, transparent);
+      border: none;
+      margin: 0 auto var(--sp-5);
+    }
+
+    .error-title {
+      font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.2vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      max-width: 26ch;
+      margin-bottom: var(--sp-4);
+      color: #fff;
+    }
+    .error-desc {
+      font-size: var(--fs-lg);
+      color: rgba(255,255,255,0.88);
+      max-width: 44ch;
+      line-height: 1.68;
+      margin-bottom: var(--sp-8);
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      justify-content: center;
+    }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5EHZYMGHC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X5EHZYMGHC');
+  </script>
 </head>
 <body>
   <div class="error-page" role="main">
     <div class="error-icon" aria-hidden="true"><i class="fa-solid fa-compass"></i></div>
     <p class="error-code" aria-label="Error 404">404</p>
-    <h1 class="error-title">That page took a wrong turn.</h1>
-    <p class="error-desc">It may have been moved, renamed, or it never existed. Let us get you back somewhere useful.</p>
+    <hr class="error-rule" aria-hidden="true">
+    <h1 class="error-title">This page didn't make the final cut.</h1>
+    <p class="error-desc">It may have been moved, renamed, or quietly retired before it shipped. Either way, there is plenty worth exploring from here.</p>
     <div class="error-actions">
       <a href="./" class="btn btn--white btn--lg"><i class="fa-solid fa-house" aria-hidden="true"></i> Go to homepage</a>
       <a href="work/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-images" aria-hidden="true"></i> Explore the work</a>
