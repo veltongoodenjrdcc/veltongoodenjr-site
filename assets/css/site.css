@@ -2321,6 +2321,45 @@ blockquote.instagram-media {
   margin-bottom: var(--sp-5);
   color: var(--c-ink-2);
 }
+.article-body a {
+  color: var(--c-brand-dark);
+  font-weight: 700;
+}
+.article-body ul,
+.article-body ol {
+  margin: 0 0 var(--sp-5) var(--sp-6);
+  color: var(--c-ink-2);
+}
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li {
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  padding-left: var(--sp-1);
+}
+.article-body li + li { margin-top: var(--sp-2); }
+.article-figure {
+  margin: var(--sp-8) auto;
+  text-align: center;
+}
+.article-figure--compact {
+  max-width: 30rem;
+}
+.article-figure img {
+  width: auto;
+  max-width: min(100%, 42rem);
+  max-height: 42rem;
+  margin-inline: auto;
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-md);
+}
+.article-figure figcaption {
+  max-width: 38rem;
+  margin: var(--sp-3) auto 0;
+  color: var(--c-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
 .article-body blockquote {
   border-left: 3px solid var(--c-brand);
   padding: var(--sp-4) var(--sp-6);
@@ -2398,6 +2437,7 @@ blockquote.instagram-media {
   transition: background 0.2s;
   white-space: nowrap;
 }
+.article-body .btn--linkedin { color: #fff; }
 .btn--linkedin:hover { background: #084f97; color: #fff; }
 
 .cc-subscribe-block {
