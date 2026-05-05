@@ -12,22 +12,23 @@
   <meta property="og:type" content="profile">
   <meta property="og:image" content="../assets/images/content/home-portrait.webp">
   <meta name="theme-color" content="#071420">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   <style>
     :root {
       --bg: #071420;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-strong: rgba(255, 255, 255, 0.13);
       --text: #f0f9ff;
-      --muted: rgba(240, 249, 255, 0.72);
-      --line: rgba(240, 249, 255, 0.16);
+      --muted: rgba(240, 249, 255, 0.68);
+      --line: rgba(240, 249, 255, 0.15);
       --accent: #1db6f2;
       --accent-2: #67c0e0;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
-      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -35,8 +36,8 @@
     html {
       min-height: 100%;
       background:
-        radial-gradient(circle at top left, rgba(29, 182, 242, 0.22), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(103, 192, 224, 0.11), transparent 26rem),
+        radial-gradient(circle at top left, rgba(29, 182, 242, 0.20), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(14, 116, 144, 0.14), transparent 28rem),
         var(--bg);
     }
 
@@ -56,14 +57,15 @@
       position: relative;
     }
 
+    /* ── Card ── */
     .card {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
-        rgba(7, 20, 32, 0.78);
+        linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04)),
+        rgba(7, 20, 32, 0.80);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
     }
@@ -72,8 +74,7 @@
       content: "";
       position: absolute;
       inset: -1px;
-      background:
-        linear-gradient(130deg, rgba(29, 182, 242, 0.32), transparent 32%, rgba(255,255,255,0.10) 66%, transparent);
+      background: linear-gradient(130deg, rgba(29, 182, 242, 0.30), transparent 32%, rgba(255,255,255,0.08) 66%, transparent);
       opacity: 0.8;
       pointer-events: none;
       mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
@@ -82,10 +83,11 @@
       border-radius: inherit;
     }
 
+    /* ── Hero ── */
     .hero {
-      padding: 24px 22px 18px;
+      padding: 26px 22px 20px;
       display: grid;
-      gap: 18px;
+      gap: 16px;
       text-align: center;
     }
 
@@ -108,9 +110,9 @@
       height: 128px;
       margin: 0 auto;
       border-radius: 999px;
-      padding: 4px;
-      background: linear-gradient(135deg, #1db6f2, rgba(14, 116, 144, 0.6));
-      box-shadow: 0 18px 46px rgba(0,0,0,0.35);
+      padding: 3px;
+      background: linear-gradient(135deg, #1db6f2, #0e7490);
+      box-shadow: 0 0 0 1px rgba(29,182,242,0.2), 0 18px 46px rgba(0,0,0,0.38);
     }
 
     .portrait {
@@ -119,24 +121,24 @@
       display: block;
       border-radius: inherit;
       object-fit: cover;
-      background: rgba(255,255,255,0.08);
-      border: 3px solid rgba(7, 20, 32, 0.82);
+      border: 3px solid rgba(7, 20, 32, 0.85);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       margin: 0 auto;
       width: fit-content;
-      padding: 7px 11px;
-      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border: 1px solid rgba(29, 182, 242, 0.28);
       border-radius: 999px;
       color: var(--accent-2);
-      background: rgba(255,255,255,0.06);
-      font-size: 0.78rem;
-      letter-spacing: 0.02em;
+      background: rgba(29, 182, 242, 0.08);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -148,38 +150,41 @@
     }
 
     .role {
-      margin: -6px auto 0;
+      margin: -4px auto 0;
       max-width: 24rem;
       color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.55;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     .tagline {
       margin: 0 auto;
       max-width: 21rem;
       color: var(--text);
-      font-weight: 700;
-      font-size: 1.03rem;
-      line-height: 1.4;
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
 
+    /* ── Action buttons ── */
     .actions {
-      padding: 0 18px 18px;
+      padding: 0 18px 6px;
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
     .button {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
-      min-height: 54px;
-      padding: 14px 16px;
+      min-height: 52px;
+      padding: 13px 16px;
       border-radius: var(--radius-md);
       background: rgba(255,255,255,0.07);
       border: 1px solid var(--line);
+      font-size: 0.9rem;
+      font-weight: 600;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
@@ -188,8 +193,8 @@
     @media (hover: hover) {
       .button:hover {
         transform: translateY(-1px);
-        background: rgba(255,255,255,0.12);
-        border-color: rgba(29, 182, 242, 0.38);
+        background: rgba(255,255,255,0.11);
+        border-color: rgba(29, 182, 242, 0.35);
       }
     }
 
@@ -197,7 +202,7 @@
       background: linear-gradient(135deg, #1db6f2, #0e7490);
       color: #ffffff;
       border-color: transparent;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     @media (hover: hover) {
@@ -207,86 +212,127 @@
       }
     }
 
-    .button span {
+    .icon {
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
-      gap: 11px;
-      min-width: 0;
-    }
-
-    .button small {
-      display: block;
-      color: inherit;
-      opacity: 0.72;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .icon {
-      width: 28px;
-      height: 28px;
-      display: inline-grid;
-      place-items: center;
-      flex: 0 0 auto;
-      border-radius: 10px;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 9px;
       background: rgba(255,255,255,0.12);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      line-height: 1;
     }
 
-    .primary .icon { background: rgba(255, 255, 255, 0.18); }
+    .icon i { display: block; line-height: 1; }
 
-    .micro {
-      padding: 0 22px 22px;
-      display: grid;
-      gap: 14px;
-      color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.5;
-      text-align: center;
-    }
+    .primary .icon { background: rgba(255,255,255,0.18); }
 
+    /* ── Divider ── */
     .divider {
       height: 1px;
       background: var(--line);
-      margin: 0 18px 18px;
+      margin: 18px 18px 0;
     }
 
-    .chips {
+    /* ── Save My Card (special treatment) ── */
+    .save-wrap {
+      padding: 18px 18px 22px;
+    }
+
+    .save-card {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(29,182,242,0.11), rgba(14,116,144,0.09));
+      border: 1px solid rgba(29, 182, 242, 0.36);
+      box-shadow: 0 0 28px rgba(29, 182, 242, 0.09), inset 0 1px 0 rgba(255,255,255,0.07);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    @media (hover: hover) {
+      .save-card:hover {
+        transform: translateY(-1px);
+        border-color: rgba(29, 182, 242, 0.60);
+        box-shadow: 0 0 38px rgba(29, 182, 242, 0.16), inset 0 1px 0 rgba(255,255,255,0.09);
+      }
+    }
+
+    .save-card:active { transform: scale(0.985); }
+
+    .save-card__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1db6f2, #0e7490);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 0 18px 18px;
+      font-size: 1.25rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(14,116,144,0.48);
+      line-height: 1;
     }
 
-    .chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: rgba(255,255,255,0.055);
-      color: var(--muted);
-      font-size: 0.75rem;
+    .save-card__icon i { display: block; line-height: 1; }
+
+    .save-card__body { flex: 1; min-width: 0; }
+
+    .save-card__title {
+      display: block;
+      font-size: 0.93rem;
       font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
     }
 
+    .save-card__sub {
+      display: block;
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: var(--accent-2);
+      margin-top: 4px;
+      opacity: 0.85;
+    }
+
+    .save-card__arrow {
+      color: rgba(29, 182, 242, 0.65);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
     .footer-note {
       margin-top: 14px;
-      color: rgba(240,249,255,0.45);
+      color: rgba(240,249,255,0.38);
       text-align: center;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+    }
+
+    .footer-note strong {
+      display: block;
+      color: rgba(240,249,255,0.72);
+      font-weight: 700;
+      margin-bottom: -4px;
     }
 
     @media (max-width: 360px) {
       body { padding: 14px; }
       .hero { padding-inline: 18px; }
       .portrait-wrap { width: 112px; height: 112px; }
-      .button { padding-inline: 14px; }
+      .button, .save-card { padding-inline: 14px; }
     }
   </style>
 </head>
 <body>
   <main class="shell" aria-label="Digital business card for Velton Gooden Jr.">
     <section class="card">
+
       <div class="hero">
         <div class="brand-row">
           <img class="logo" src="../assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr. logo">
@@ -305,59 +351,55 @@
         </p>
 
         <p class="tagline">
-          Digital brand strategy, content, systems, and execution. Based in Jamaica.
+          Brand strategy, content, systems, and execution. Based in Jamaica.
         </p>
       </div>
 
       <div class="actions">
-        <a class="button primary" href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20got%20your%20digital%20card%20and%20wanted%20to%20connect." aria-label="Message Velton on WhatsApp">
-          <span><span class="icon"><i class="fa-brands fa-whatsapp"></i></span> Message me on WhatsApp</span>
-          <small>Fastest</small>
+        <a class="button primary" href="https://www.veltongoodenjr.com/" aria-label="Visit Velton's website">
+          <span class="icon"><i class="fa-solid fa-globe"></i></span>
+          Visit my website
         </a>
 
-        <a class="button" href="velton-gooden-jr.vcf" download aria-label="Save Velton Gooden Jr. to contacts">
-          <span><span class="icon"><i class="fa-regular fa-address-card"></i></span> Save to Contacts</span>
-          <small>Add me</small>
+        <a class="button" href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20got%20your%20digital%20card%20and%20wanted%20to%20connect." aria-label="Message Velton on WhatsApp">
+          <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+          Message me on WhatsApp
         </a>
 
         <a class="button" href="mailto:info@veltongoodenjr.com?subject=Following%20up%20from%20your%20digital%20card" aria-label="Email Velton">
-          <span><span class="icon"><i class="fa-regular fa-envelope"></i></span> Email me</span>
-          <small>info@...</small>
+          <span class="icon"><i class="fa-regular fa-envelope"></i></span>
+          Email me
         </a>
 
         <a class="button" href="tel:+18765735858" aria-label="Call Velton">
-          <span><span class="icon"><i class="fa-solid fa-phone"></i></span> Call me</span>
-          <small>+1 876</small>
-        </a>
-
-        <a class="button" href="https://www.veltongoodenjr.com/" aria-label="Visit Velton's website">
-          <span><span class="icon"><i class="fa-solid fa-globe"></i></span> Visit my website</span>
-          <small>Portfolio</small>
+          <span class="icon"><i class="fa-solid fa-phone"></i></span>
+          Call me
         </a>
 
         <a class="button" href="https://www.linkedin.com/in/veltongoodenjr/" aria-label="Connect with Velton on LinkedIn">
-          <span><span class="icon"><i class="fa-brands fa-linkedin"></i></span> Connect on LinkedIn</span>
-          <small>Profile</small>
+          <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
+          Connect on LinkedIn
         </a>
       </div>
 
       <div class="divider"></div>
 
-      <div class="chips" aria-label="Areas of work">
-        <span class="chip">Website Lite</span>
-        <span class="chip">Digital presence</span>
-        <span class="chip">Lead path</span>
-        <span class="chip">Creator's Current</span>
+      <div class="save-wrap">
+        <a class="save-card" href="velton-gooden-jr.vcf" download aria-label="Save Velton Gooden Jr. to your phone contacts">
+          <div class="save-card__icon">
+            <i class="fa-regular fa-address-card"></i>
+          </div>
+          <div class="save-card__body">
+            <strong class="save-card__title">Save My Card</strong>
+            <span class="save-card__sub">Tap to add me to your phone contacts</span>
+          </div>
+          <i class="fa-solid fa-arrow-down save-card__arrow"></i>
+        </a>
       </div>
 
-      <div class="micro">
-        <p>
-          Currently focused on helping Jamaican service-based MSMEs build clearer websites and digital touchpoints that support real customer action.
-        </p>
-      </div>
     </section>
 
-    <p class="footer-note">Save this page or share it after we connect.</p>
+    <p class="footer-note"><strong>Not ready yet?</strong><br><i class="fa-regular fa-bookmark"></i> Bookmark this page so you can find me when the time is right.</p>
   </main>
 </body>
 </html>
