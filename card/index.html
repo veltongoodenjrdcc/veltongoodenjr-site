@@ -18,101 +18,100 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   <style>
     :root {
-      --bg: #071420;
       --text: #f0f9ff;
       --muted: rgba(240, 249, 255, 0.68);
       --line: rgba(240, 249, 255, 0.15);
       --accent: #1db6f2;
       --accent-2: #67c0e0;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-      --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
       font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      min-height: 100%;
-      background:
-        radial-gradient(circle at top left, rgba(29, 182, 242, 0.20), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(14, 116, 144, 0.14), transparent 28rem),
-        var(--bg);
+    html, body {
+      height: 100dvh;
+      overflow: hidden;
+      background: #071420;
     }
 
     body {
-      min-height: 100svh;
-      margin: 0;
       color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 22px;
+      display: flex;
+      justify-content: center;
     }
 
     a { color: inherit; text-decoration: none; }
 
+    /* ── Shell fills the full viewport height ── */
     .shell {
       width: min(100%, 430px);
-      position: relative;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ── Card ── */
+    /* ── Card fills remaining space as a flex column ── */
     .card {
-      position: relative;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
+      position: relative;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04)),
-        rgba(7, 20, 32, 0.80);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+        radial-gradient(circle at 28% 16%, rgba(29, 182, 242, 0.18), transparent 48%),
+        radial-gradient(circle at 80% 88%, rgba(14, 116, 144, 0.14), transparent 40%),
+        #071420;
+      border-inline: 1px solid var(--line);
     }
 
+    /* Top shimmer edge */
     .card::before {
       content: "";
       position: absolute;
-      inset: -1px;
-      background: linear-gradient(130deg, rgba(29, 182, 242, 0.30), transparent 32%, rgba(255,255,255,0.08) 66%, transparent);
-      opacity: 0.8;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(29, 182, 242, 0.5), transparent);
       pointer-events: none;
-      mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-      -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
-      padding: 1px;
-      border-radius: inherit;
+      z-index: 1;
     }
 
-    /* ── Hero ── */
+    /* ── Hero — absorbs leftover space, content centred ── */
     .hero {
-      padding: 26px 22px 20px;
-      display: grid;
-      gap: 16px;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: clamp(14px, 2dvh, 28px) 22px clamp(10px, 1.2dvh, 20px);
+      gap: clamp(8px, 1.3dvh, 16px);
     }
 
     .brand-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 38px;
     }
 
     .logo {
-      max-width: 178px;
-      max-height: 42px;
+      max-width: 160px;
+      max-height: clamp(30px, 4dvh, 42px);
       object-fit: contain;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
     }
 
     .portrait-wrap {
-      width: 128px;
-      height: 128px;
-      margin: 0 auto;
+      width: clamp(84px, 12dvh, 120px);
+      height: clamp(84px, 12dvh, 120px);
+      flex-shrink: 0;
       border-radius: 999px;
       padding: 3px;
       background: linear-gradient(135deg, #1db6f2, #0e7490);
-      box-shadow: 0 0 0 1px rgba(29,182,242,0.2), 0 18px 46px rgba(0,0,0,0.38);
+      box-shadow: 0 0 0 1px rgba(29,182,242,0.2), 0 12px 36px rgba(0,0,0,0.35);
     }
 
     .portrait {
@@ -121,69 +120,122 @@
       display: block;
       border-radius: inherit;
       object-fit: cover;
-      border: 3px solid rgba(7, 20, 32, 0.85);
+      border: 3px solid rgba(7, 20, 32, 0.88);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
-      width: fit-content;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border: 1px solid rgba(29, 182, 242, 0.28);
       border-radius: 999px;
       color: var(--accent-2);
       background: rgba(29, 182, 242, 0.08);
-      font-size: 0.72rem;
+      font-size: clamp(0.62rem, 1.2dvh, 0.72rem);
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     h1 {
-      margin: 0;
       font-family: "DM Serif Display", Georgia, serif;
-      font-size: clamp(2.05rem, 10vw, 3.05rem);
+      font-size: clamp(1.7rem, 6.5dvh, 3.05rem);
       line-height: 0.94;
       letter-spacing: -0.035em;
     }
 
     .role {
-      margin: -4px auto 0;
       max-width: 24rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: clamp(0.78rem, 1.4dvh, 0.9rem);
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .tagline {
-      margin: 0 auto;
       max-width: 21rem;
       color: var(--text);
       font-weight: 600;
-      font-size: 0.95rem;
-      line-height: 1.45;
+      font-size: clamp(0.78rem, 1.4dvh, 0.9rem);
+      line-height: 1.4;
     }
 
-    /* ── Action buttons ── */
+    /* On very short screens hide tagline to protect hero from overflow */
+    @media (max-height: 680px) {
+      .tagline { display: none; }
+    }
+
+    /* ── Desktop: floating card on gradient background ── */
+    @media (min-width: 600px) {
+      html {
+        height: auto;
+        overflow: auto;
+        background:
+          radial-gradient(circle at top left, rgba(29, 182, 242, 0.20), transparent 34rem),
+          radial-gradient(circle at bottom right, rgba(14, 116, 144, 0.14), transparent 28rem),
+          #071420;
+      }
+
+      body {
+        height: auto;
+        min-height: 100dvh;
+        overflow: auto;
+        padding: 40px 22px;
+        align-items: center;
+      }
+
+      .shell { height: auto; }
+
+      .card {
+        flex: none;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(18px);
+        background:
+          linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04)),
+          rgba(7, 20, 32, 0.82);
+      }
+
+      .hero {
+        flex: none;
+        padding: 26px 22px 20px;
+        gap: 16px;
+        justify-content: flex-start;
+        overflow: visible;
+      }
+
+      .portrait-wrap { width: 120px; height: 120px; }
+      h1 { font-size: clamp(2.05rem, 4vw, 3.05rem); }
+      .role, .tagline { font-size: 0.9rem; display: block; }
+
+      .actions { padding: 0 18px 6px; gap: 9px; }
+      .button { min-height: 52px; font-size: 0.9rem; padding: 13px 16px; }
+
+      .divider { margin: 18px 18px 0; }
+      .save-wrap { padding: 18px 18px 16px; }
+      .footer-note { padding: 6px 22px 22px; font-size: 0.72rem; }
+    }
+
+    /* ── Action buttons — fixed height ── */
     .actions {
-      padding: 0 18px 6px;
+      flex-shrink: 0;
+      padding: 0 16px clamp(4px, 0.6dvh, 6px);
       display: grid;
-      gap: 9px;
+      gap: clamp(5px, 0.75dvh, 9px);
     }
 
     .button {
       display: flex;
       align-items: center;
       gap: 12px;
-      min-height: 52px;
-      padding: 13px 16px;
+      min-height: clamp(42px, 5.2dvh, 52px);
+      padding: clamp(9px, 1.1dvh, 13px) 16px;
       border-radius: var(--radius-md);
       background: rgba(255,255,255,0.07);
       border: 1px solid var(--line);
-      font-size: 0.9rem;
+      font-size: clamp(0.82rem, 1.5dvh, 0.9rem);
       font-weight: 600;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
@@ -200,7 +252,7 @@
 
     .button.primary {
       background: linear-gradient(135deg, #1db6f2, #0e7490);
-      color: #ffffff;
+      color: #fff;
       border-color: transparent;
       font-weight: 700;
     }
@@ -226,26 +278,27 @@
     }
 
     .icon i { display: block; line-height: 1; }
-
     .primary .icon { background: rgba(255,255,255,0.18); }
 
     /* ── Divider ── */
     .divider {
+      flex-shrink: 0;
       height: 1px;
       background: var(--line);
-      margin: 18px 18px 0;
+      margin: clamp(10px, 1.4dvh, 18px) 16px 0;
     }
 
-    /* ── Save My Card (special treatment) ── */
+    /* ── Save My Card ── */
     .save-wrap {
-      padding: 18px 18px 22px;
+      flex-shrink: 0;
+      padding: clamp(10px, 1.4dvh, 18px) 16px clamp(8px, 1.1dvh, 14px);
     }
 
     .save-card {
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 16px 18px;
+      padding: clamp(11px, 1.5dvh, 16px) 18px;
       border-radius: var(--radius-lg);
       background: linear-gradient(135deg, rgba(29,182,242,0.11), rgba(14,116,144,0.09));
       border: 1px solid rgba(29, 182, 242, 0.36);
@@ -264,27 +317,26 @@
     .save-card:active { transform: scale(0.985); }
 
     .save-card__icon {
-      width: 46px;
-      height: 46px;
+      width: clamp(38px, 4.8dvh, 46px);
+      height: clamp(38px, 4.8dvh, 46px);
+      flex-shrink: 0;
       border-radius: 14px;
       background: linear-gradient(135deg, #1db6f2, #0e7490);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: clamp(1rem, 1.6dvh, 1.25rem);
       color: #fff;
-      flex-shrink: 0;
       box-shadow: 0 6px 16px rgba(14,116,144,0.48);
       line-height: 1;
     }
 
     .save-card__icon i { display: block; line-height: 1; }
-
     .save-card__body { flex: 1; min-width: 0; }
 
     .save-card__title {
       display: block;
-      font-size: 0.93rem;
+      font-size: clamp(0.82rem, 1.5dvh, 0.93rem);
       font-weight: 700;
       color: var(--text);
       line-height: 1.2;
@@ -292,10 +344,10 @@
 
     .save-card__sub {
       display: block;
-      font-size: 0.73rem;
+      font-size: clamp(0.67rem, 1.1dvh, 0.73rem);
       font-weight: 500;
       color: var(--accent-2);
-      margin-top: 4px;
+      margin-top: 3px;
       opacity: 0.85;
     }
 
@@ -305,12 +357,13 @@
       flex-shrink: 0;
     }
 
-    /* ── Footer ── */
+    /* ── Footer note — inside card, pinned at bottom ── */
     .footer-note {
-      margin-top: 14px;
+      flex-shrink: 0;
+      padding: clamp(4px, 0.6dvh, 8px) 22px clamp(14px, 2dvh, 22px);
       color: rgba(240,249,255,0.38);
       text-align: center;
-      font-size: 0.72rem;
+      font-size: clamp(0.65rem, 1.1dvh, 0.72rem);
       font-weight: 400;
     }
 
@@ -319,13 +372,6 @@
       color: rgba(240,249,255,0.72);
       font-weight: 700;
       margin-bottom: -4px;
-    }
-
-    @media (max-width: 360px) {
-      body { padding: 14px; }
-      .hero { padding-inline: 18px; }
-      .portrait-wrap { width: 112px; height: 112px; }
-      .button, .save-card { padding-inline: 14px; }
     }
   </style>
 </head>
@@ -397,9 +443,12 @@
         </a>
       </div>
 
-    </section>
+      <p class="footer-note">
+        <strong>Not ready yet?</strong><br>
+        <i class="fa-regular fa-bookmark"></i> Bookmark this page so you can find me when the time is right.
+      </p>
 
-    <p class="footer-note"><strong>Not ready yet?</strong><br><i class="fa-regular fa-bookmark"></i> Bookmark this page so you can find me when the time is right.</p>
+    </section>
   </main>
 </body>
 </html>
