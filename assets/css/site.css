@@ -82,7 +82,7 @@
   /* Layout */
   --max-w:    90rem;
   --content-w: 72ch;
-  --section-v: clamp(5rem, 9vw, 8rem);
+  --section-v: clamp(3.5rem, 7.5vw, 8rem);
 }
 
 
@@ -96,6 +96,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-size: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -224,8 +225,8 @@ strong { font-weight: 700; color: var(--c-ink); }
 .section {
   padding-block: var(--section-v);
 }
-.section--sm { padding-block: clamp(3rem, 5vw, 4.5rem); }
-.section--roomy { padding-block: clamp(5.5rem, 10vw, 9rem); }
+.section--sm { padding-block: clamp(2rem, 4vw, 4.5rem); }
+.section--roomy { padding-block: clamp(4rem, 8vw, 9rem); }
 .section--alt { background: var(--c-surface); }
 .section--tint { background: var(--c-surface-2); }
 .section--dark {
@@ -404,6 +405,7 @@ strong { font-weight: 700; color: var(--c-ink); }
 
 .btn--primary {
   background: var(--c-brand-grad-h);
+  border-color: var(--c-brand-dark);
   color: #fff;
   box-shadow: 0 2px 8px rgba(14,116,144,0.3);
 }
@@ -576,7 +578,7 @@ strong { font-weight: 700; color: var(--c-ink); }
   transition: transform 0.22s, opacity 0.22s;
 }
 
-@media (min-width: 56rem) {
+@media (min-width: 76rem) {
   .nav-links { display: flex; }
   .nav-cta { display: inline-flex; }
   .nav-toggle { display: none; }
@@ -1701,6 +1703,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
    22. WHATSAPP FLOAT
    ---------------------------------------------------------- */
 .wa-float {
+  display: none;
   position: fixed;
   right: 20px;
   bottom: 28px;
@@ -1776,7 +1779,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   }
 }
 @media (max-width: 47.9rem) {
-  .wa-float { right: 14px; bottom: 20px; }
+  .wa-float { display: block; right: 14px; bottom: 20px; }
   .wa-float--mobile-only { display: block; }
   .wa-btn__label { display: none; }
 }
@@ -2621,4 +2624,688 @@ blockquote.instagram-media {
   font-size: var(--fs-sm);
   color: rgba(255,255,255,0.72);
   line-height: 1.7;
+}
+
+
+/* ----------------------------------------------------------
+   33. LEAD FLOW FIX LANDING PAGE
+   ---------------------------------------------------------- */
+.lff-page {
+  background: var(--c-bg);
+}
+
+.lff-page h1,
+.lff-page h2,
+.lff-page h3,
+.lff-page h4 {
+  letter-spacing: 0;
+}
+
+.lff-page .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.lff-page section[id],
+.lff-page :target {
+  scroll-margin-top: 5.5rem;
+}
+
+.lff-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(7, 20, 32, 0.96) 0%, rgba(7, 30, 51, 0.95) 52%, rgba(14, 116, 144, 0.94) 100%),
+    url("../images/content/stock/hero-digital-workspace.jpg") center / cover;
+  color: #fff;
+  padding-block: clamp(4.75rem, 9vw, 7.5rem);
+}
+
+.lff-hero__grid {
+  display: grid;
+  max-width: 58rem;
+}
+
+.lff-hero__copy {
+  max-width: 58rem;
+}
+
+.lff-hero__title {
+  max-width: 12ch;
+  color: #fff;
+  font-size: var(--fs-5xl);
+}
+
+.lff-hero__lead {
+  max-width: 58ch;
+  margin-top: var(--sp-5);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+.lff-hero__aside {
+  max-width: 58ch;
+  margin-top: var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  border-left: 3px solid #7dd3fc;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-hero__actions,
+.lff-final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+.lff-hero__actions .btn,
+.lff-final-cta__actions .btn,
+.lff-payment__actions .btn {
+  min-height: 48px;
+  white-space: normal;
+}
+
+.lff-hero__signals {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  max-width: 42rem;
+  margin-top: var(--sp-8);
+}
+
+.lff-hero__signals li {
+  padding: var(--sp-4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lff-hero__signals strong {
+  display: block;
+  color: #fff;
+  font-size: var(--fs-md);
+  line-height: 1.25;
+}
+
+.lff-hero__signals span {
+  display: block;
+  margin-top: var(--sp-1);
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+}
+
+.lff-section-lead {
+  max-width: 56ch;
+  margin-top: var(--sp-4);
+  color: var(--c-muted);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+.lff-small-note {
+  max-width: 58ch;
+  margin-top: var(--sp-5);
+  padding: var(--sp-4);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-ink-2);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-math-grid,
+.lff-build-grid,
+.lff-pricing-grid,
+.lff-fit-grid {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+.lff-math-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.lff-math-card,
+.lff-build-card,
+.lff-price-card,
+.lff-fit-card,
+.lff-faq-item {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--sh-sm);
+}
+
+.lff-math-card {
+  padding: var(--sp-5);
+}
+
+.lff-math-card__type,
+.lff-price-card__stage {
+  color: var(--c-brand-dark);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lff-math-card h3 {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xl);
+}
+
+.lff-math-card p:not(.lff-math-card__type) {
+  margin-top: var(--sp-3);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-math-card strong {
+  color: var(--c-ink);
+}
+
+.lff-split {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (min-width: 62rem) {
+  .lff-split {
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  }
+
+  .lff-split--timeline {
+    grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+  }
+}
+
+.lff-problem-list ul {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.lff-problem-list li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  padding: var(--sp-4);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-ink-2);
+  line-height: 1.65;
+}
+
+.lff-problem-list i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--r-md);
+  background: var(--c-surface-3);
+  color: var(--c-brand-dark);
+}
+
+.lff-before-after {
+  display: grid;
+  gap: var(--sp-5);
+}
+
+@media (min-width: 62rem) {
+  .lff-before-after {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.lff-flow-panel {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lff-flow-panel h3 {
+  font-size: var(--fs-xl);
+}
+
+.lff-flow-panel ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}
+
+.lff-flow-panel li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.lff-flow-panel--before li {
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.lff-flow-panel--after li {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.lff-build-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.lff-build-card {
+  padding: var(--sp-5);
+}
+
+.lff-build-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
+  color: var(--c-brand-dark);
+  font-size: 1.1rem;
+}
+
+.lff-build-card h3 {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-lg);
+}
+
+.lff-build-card p {
+  margin-top: var(--sp-3);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-timeline {
+  display: grid;
+  gap: var(--sp-3);
+  counter-reset: lff-days;
+}
+
+.lff-timeline__item {
+  counter-increment: lff-days;
+  position: relative;
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  padding-left: clamp(4.5rem, 8vw, 6rem);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--sh-sm);
+}
+
+.lff-timeline__item::before {
+  content: counter(lff-days, decimal-leading-zero);
+  position: absolute;
+  top: var(--sp-5);
+  left: var(--sp-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
+  color: var(--c-brand-dark);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+}
+
+.lff-timeline__item span {
+  color: var(--c-brand-dark);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lff-timeline__item h3 {
+  font-size: var(--fs-lg);
+}
+
+.lff-timeline__item p {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.lff-price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+}
+
+.lff-price-card--featured {
+  border-color: var(--c-brand);
+  box-shadow: var(--sh-md);
+}
+
+.lff-price-card--featured::before {
+  content: "Active beta payment card";
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-pill);
+  background: var(--c-ink);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+}
+
+.lff-price-card h3 {
+  font-size: var(--fs-2xl);
+}
+
+.lff-price-card p:not(.lff-price-card__stage) {
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-price-card ul {
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--c-border);
+}
+
+.lff-price-card li {
+  display: flex;
+  gap: var(--sp-2);
+  color: var(--c-ink-2);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+}
+
+.lff-price-card li::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 0.45rem;
+  margin-top: 0.45rem;
+  border-radius: var(--r-pill);
+  background: var(--c-brand);
+}
+
+.lff-payment {
+  border-block: 1px solid var(--c-border);
+}
+
+.lff-payment__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 62rem) {
+  .lff-payment__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 0.7fr);
+  }
+}
+
+.lff-payment h2 {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-3xl);
+}
+
+.lff-payment p {
+  max-width: 60ch;
+  margin-top: var(--sp-4);
+  color: var(--c-muted);
+  font-size: var(--fs-md);
+  line-height: 1.75;
+}
+
+.lff-payment__actions {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.lff-payment__note {
+  margin-top: var(--sp-6);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-guarantee {
+  background: linear-gradient(135deg, #071420 0%, #0c1e30 100%);
+}
+
+.lff-guarantee__inner {
+  max-width: 62rem;
+}
+
+.lff-guarantee h2 {
+  margin-top: var(--sp-3);
+  color: #fff;
+  font-size: var(--fs-3xl);
+}
+
+.lff-guarantee p {
+  max-width: 62ch;
+  margin-top: var(--sp-5);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+.lff-fit-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.lff-fit-card {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.lff-fit-card h3 {
+  font-size: var(--fs-xl);
+}
+
+.lff-fit-card ul {
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.lff-fit-card li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--c-ink-2);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.lff-fit-card li::before {
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.lff-fit-card--yes li::before {
+  content: "\f00c";
+  color: var(--c-success);
+}
+
+.lff-fit-card--no li::before {
+  content: "\f00d";
+  color: var(--c-error);
+}
+
+.lff-proof-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 62rem) {
+  .lff-proof-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  }
+}
+
+.lff-proof-copy {
+  margin-top: var(--sp-6);
+}
+
+.lff-proof-photo {
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--sh-md);
+}
+
+.lff-proof-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.lff-proof-photo figcaption {
+  padding: var(--sp-4);
+  color: var(--c-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+}
+
+.lff-faq-list {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.lff-faq-item {
+  padding: var(--sp-5);
+}
+
+.lff-faq-item h3 {
+  font-size: var(--fs-lg);
+}
+
+.lff-faq-item p {
+  margin-top: var(--sp-3);
+  color: var(--c-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+}
+
+.lff-final-cta {
+  background:
+    linear-gradient(135deg, rgba(7, 20, 32, 0.96) 0%, rgba(14, 61, 82, 0.96) 100%),
+    url("../images/content/stock/hero-strategy-meeting.jpg") center / cover;
+  color: #fff;
+}
+
+.lff-final-cta__inner {
+  max-width: 68rem;
+}
+
+.lff-final-cta h2 {
+  margin-top: var(--sp-3);
+  color: #fff;
+  font-size: var(--fs-4xl);
+}
+
+.lff-final-cta p {
+  max-width: 62ch;
+  margin-top: var(--sp-5);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+@media (max-width: 47.9rem) {
+  .lff-hero {
+    padding-block: clamp(3.75rem, 14vw, 5rem);
+  }
+
+  .lff-timeline__item {
+    padding-left: var(--sp-5);
+    padding-top: 4.75rem;
+  }
+
+  .lff-timeline__item::before {
+    top: var(--sp-5);
+  }
+
+  .lff-hero__actions .btn,
+  .lff-final-cta__actions .btn,
+  .lff-payment__actions .btn {
+    width: 100%;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   LAPTOP & SHORT-VIEWPORT COMPACT SPACING
+   Targets desktop screens with limited viewport height
+   (common on 1366×768 and 1280×800 laptops) and ensures
+   sections scale down gracefully so content fits cleanly.
+   ---------------------------------------------------------- */
+
+/* Reduce section spacing on short-height desktop viewports */
+@media (max-height: 820px) and (min-width: 76rem) {
+  :root {
+    --section-v: clamp(2rem, 4vw, 4rem);
+  }
+  .section--sm    { padding-block: clamp(1.25rem, 3vw, 2.5rem); }
+  .section--roomy { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+  .page-hero      { padding-block: clamp(2rem, 4vw, 3.5rem); }
+  .cc-index-hero  { padding-block: clamp(2rem, 4vw, 4rem); }
+  .article-hero   { padding-top: clamp(2rem, 4vw, 3.5rem); }
+  .home-hero__portrait-wrap { max-width: 360px; }
+}
+
+/* Compact nav spacing at wide-but-not-fullscreen sizes (76rem–96rem) */
+@media (min-width: 76rem) and (max-width: 96rem) {
+  .nav-links a {
+    padding: var(--sp-2) 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Very short desktop viewports (e.g. 1351×645, browser-adjusted 1366×768) */
+@media (max-height: 760px) and (min-width: 76rem) {
+  :root { --section-v: clamp(1.5rem, 3vw, 3rem); }
+  .section--sm      { padding-block: clamp(1rem, 2vw, 2rem); }
+  .section--roomy   { padding-block: clamp(2rem, 4vw, 3.5rem); }
+  .page-hero        { padding-block: clamp(1.5rem, 3vw, 3rem); }
+  .cc-index-hero    { padding-block: clamp(1.5rem, 3vw, 3rem); }
+  .article-hero     { padding-top: clamp(1.25rem, 2.5vw, 2.5rem); }
+  .home-hero__grid  { gap: var(--sp-8); }
+  .home-hero__portrait-wrap { max-width: 280px; }
 }

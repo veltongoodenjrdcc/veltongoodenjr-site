@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en-JM">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Velton Gooden Jr. | Digital Business Card</title>
+  <meta name="description" content="Velton Gooden Jr. — Digital Brand Strategist, content creator, and website/digital presence support for Jamaican MSMEs.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="../assets/images/brand/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Velton Gooden Jr.">
+  <meta property="og:description" content="Digital brand strategy, websites, content, systems, and execution. Based in Jamaica.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="../assets/images/content/home-portrait.webp">
+  <meta name="theme-color" content="#071420">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <style>
+    :root {
+      --bg: #071420;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.13);
+      --text: #f0f9ff;
+      --muted: rgba(240, 249, 255, 0.72);
+      --line: rgba(240, 249, 255, 0.16);
+      --accent: #1db6f2;
+      --accent-2: #67c0e0;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(29, 182, 242, 0.22), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(103, 192, 224, 0.11), transparent 26rem),
+        var(--bg);
+    }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(100%, 430px);
+      position: relative;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+        rgba(7, 20, 32, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background:
+        linear-gradient(130deg, rgba(29, 182, 242, 0.32), transparent 32%, rgba(255,255,255,0.10) 66%, transparent);
+      opacity: 0.8;
+      pointer-events: none;
+      mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      padding: 1px;
+      border-radius: inherit;
+    }
+
+    .hero {
+      padding: 24px 22px 18px;
+      display: grid;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 38px;
+    }
+
+    .logo {
+      max-width: 178px;
+      max-height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    }
+
+    .portrait-wrap {
+      width: 128px;
+      height: 128px;
+      margin: 0 auto;
+      border-radius: 999px;
+      padding: 4px;
+      background: linear-gradient(135deg, #1db6f2, rgba(14, 116, 144, 0.6));
+      box-shadow: 0 18px 46px rgba(0,0,0,0.35);
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: inherit;
+      object-fit: cover;
+      background: rgba(255,255,255,0.08);
+      border: 3px solid rgba(7, 20, 32, 0.82);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto;
+      width: fit-content;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent-2);
+      background: rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(2.05rem, 10vw, 3.05rem);
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+    }
+
+    .role {
+      margin: -6px auto 0;
+      max-width: 24rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .tagline {
+      margin: 0 auto;
+      max-width: 21rem;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.03rem;
+      line-height: 1.4;
+    }
+
+    .actions {
+      padding: 0 18px 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 54px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .button:active { transform: scale(0.985); }
+
+    @media (hover: hover) {
+      .button:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(29, 182, 242, 0.38);
+      }
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, #1db6f2, #0e7490);
+      color: #ffffff;
+      border-color: transparent;
+      font-weight: 800;
+    }
+
+    @media (hover: hover) {
+      .button.primary:hover {
+        background: linear-gradient(135deg, #35c4ff, #1a90b0);
+        border-color: transparent;
+      }
+    }
+
+    .button span {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .button small {
+      display: block;
+      color: inherit;
+      opacity: 0.72;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.12);
+      font-size: 0.9rem;
+    }
+
+    .primary .icon { background: rgba(255, 255, 255, 0.18); }
+
+    .micro {
+      padding: 0 22px 22px;
+      display: grid;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 18px 18px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 18px 18px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.055);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      color: rgba(240,249,255,0.45);
+      text-align: center;
+      font-size: 0.74rem;
+    }
+
+    @media (max-width: 360px) {
+      body { padding: 14px; }
+      .hero { padding-inline: 18px; }
+      .portrait-wrap { width: 112px; height: 112px; }
+      .button { padding-inline: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell" aria-label="Digital business card for Velton Gooden Jr.">
+    <section class="card">
+      <div class="hero">
+        <div class="brand-row">
+          <img class="logo" src="../assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr. logo">
+        </div>
+
+        <div class="portrait-wrap">
+          <img class="portrait" src="../assets/images/content/home-portrait.webp" alt="Portrait of Velton Gooden Jr.">
+        </div>
+
+        <div class="eyebrow">Digital Brand Strategy • Websites • Content</div>
+
+        <h1>Velton Gooden Jr.</h1>
+
+        <p class="role">
+          I help small businesses improve the way people find, understand, trust, and contact them online.
+        </p>
+
+        <p class="tagline">
+          Digital brand strategy, content, systems, and execution. Based in Jamaica.
+        </p>
+      </div>
+
+      <div class="actions">
+        <a class="button primary" href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20got%20your%20digital%20card%20and%20wanted%20to%20connect." aria-label="Message Velton on WhatsApp">
+          <span><span class="icon"><i class="fa-brands fa-whatsapp"></i></span> Message me on WhatsApp</span>
+          <small>Fastest</small>
+        </a>
+
+        <a class="button" href="velton-gooden-jr.vcf" download aria-label="Save Velton Gooden Jr. to contacts">
+          <span><span class="icon"><i class="fa-regular fa-address-card"></i></span> Save to Contacts</span>
+          <small>Add me</small>
+        </a>
+
+        <a class="button" href="mailto:info@veltongoodenjr.com?subject=Following%20up%20from%20your%20digital%20card" aria-label="Email Velton">
+          <span><span class="icon"><i class="fa-regular fa-envelope"></i></span> Email me</span>
+          <small>info@...</small>
+        </a>
+
+        <a class="button" href="tel:+18765735858" aria-label="Call Velton">
+          <span><span class="icon"><i class="fa-solid fa-phone"></i></span> Call me</span>
+          <small>+1 876</small>
+        </a>
+
+        <a class="button" href="https://www.veltongoodenjr.com/" aria-label="Visit Velton's website">
+          <span><span class="icon"><i class="fa-solid fa-globe"></i></span> Visit my website</span>
+          <small>Portfolio</small>
+        </a>
+
+        <a class="button" href="https://www.linkedin.com/in/veltongoodenjr/" aria-label="Connect with Velton on LinkedIn">
+          <span><span class="icon"><i class="fa-brands fa-linkedin"></i></span> Connect on LinkedIn</span>
+          <small>Profile</small>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="chips" aria-label="Areas of work">
+        <span class="chip">Website Lite</span>
+        <span class="chip">Digital presence</span>
+        <span class="chip">Lead path</span>
+        <span class="chip">Creator's Current</span>
+      </div>
+
+      <div class="micro">
+        <p>
+          Currently focused on helping Jamaican service-based MSMEs build clearer websites and digital touchpoints that support real customer action.
+        </p>
+      </div>
+    </section>
+
+    <p class="footer-note">Save this page or share it after we connect.</p>
+  </main>
+</body>
+</html>

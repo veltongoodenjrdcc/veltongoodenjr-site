@@ -36,7 +36,8 @@
   }
   </script>
   <style>
-    .home-hero-bg { background: linear-gradient(135deg, #040d17 0%, #071e33 48%, #0e3d52 100%); color: #fff; position: relative; overflow: hidden; padding-block: clamp(5.5rem, 10vw, 8.5rem); }
+    .home-hero-bg { background: linear-gradient(135deg, #040d17 0%, #071e33 48%, #0e3d52 100%); color: #fff; position: relative; overflow: hidden; padding-block: clamp(3.5rem, 7.5vw, 8.5rem); }
+    @media (max-height: 820px) and (min-width: 76rem) { .home-hero-bg { padding-block: clamp(2rem, 4vw, 4rem); } }
     .home-hero-bg::after { content: ""; position: absolute; z-index: 1; inset: 0; background: radial-gradient(ellipse 50% 55% at 88% 34%, rgba(29, 182, 242, 0.18), transparent 70%); pointer-events: none; }
     .home-hero-carousel { position: absolute; inset: 0; z-index: 0; opacity: 0; pointer-events: none; animation: heroCarouselLoad 420ms ease-out forwards; }
     .home-hero-carousel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4, 13, 23, 0.96) 0%, rgba(4, 13, 23, 0.84) 42%, rgba(4, 13, 23, 0.7) 100%), linear-gradient(180deg, rgba(4, 13, 23, 0.2), rgba(4, 13, 23, 0.68)); }
@@ -76,7 +77,7 @@
     .home-bridge__aside i { margin-top: 0.15rem; }
     @media (min-width: 56rem) { .home-bridge__aside { margin-top: var(--sp-8); } }
     .home-bridge__photo { justify-self: center; }
-    .home-lff { background: linear-gradient(135deg, #071e33 0%, #0e3d52 60%, #0e7490 100%); color: #fff; position: relative; overflow: hidden; padding-block: clamp(4rem, 8vw, 6rem); }
+    /* LFF-DISABLED: home-lff { background: linear-gradient(135deg, #071e33 0%, #0e3d52 60%, #0e7490 100%); color: #fff; position: relative; overflow: hidden; padding-block: clamp(4rem, 8vw, 6rem); }
     .home-lff::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 88% 30%, rgba(29, 182, 242, 0.22), transparent 70%); pointer-events: none; }
     .home-lff__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; grid-template-columns: 1fr; position: relative; z-index: 1; }
     @media (min-width: 900px) { .home-lff__grid { grid-template-columns: 1.1fr 1fr; } }
@@ -86,7 +87,7 @@
     .home-lff__panel h3 { color: #fff; font-size: var(--fs-lg); margin-bottom: var(--sp-3); }
     .home-lff__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
     .home-lff__list li { display: flex; align-items: flex-start; gap: var(--sp-3); color: rgba(255, 255, 255, 0.86); font-size: var(--fs-sm); line-height: 1.6; }
-    .home-lff__list li i { color: #7dd3fc; margin-top: 0.2rem; }
+    .home-lff__list li i { color: #7dd3fc; margin-top: 0.2rem; } END-LFF-DISABLED */
     .home-offer-note { background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--r-xl); padding: var(--sp-5) clamp(1.25rem, 3vw, 2rem); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-4); }
     .home-offer-note__text { font-size: var(--fs-sm); color: var(--c-ink-2); max-width: 44ch; }
     .home-offer-note__label { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-brand-dark); margin-bottom: var(--sp-1); }
@@ -118,7 +119,12 @@
       .home-hero-carousel__slide { animation: none; transform: none; }
       .home-hero-carousel__slide:first-child { opacity: 0.2; }
     }
-    .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(3rem, 6vw, 4.5rem); }
+    @media (max-height: 820px) and (min-width: 76rem) {
+      .home-hero__portrait-wrap { max-width: 400px; }
+      .home-bridge { padding-block: clamp(1.5rem, 3vw, 2.5rem); }
+      /* LFF-DISABLED: .home-lff { padding-block: clamp(2rem, 4vw, 4rem); } */
+    }
+    .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(2rem, 5vw, 4.5rem); }
     .home-whats-new__inner { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
     @media (min-width: 860px) { .home-whats-new__inner { grid-template-columns: 1fr 1.65fr; } }
     .home-whats-new__copy { max-width: 40ch; }
@@ -126,6 +132,17 @@
     .home-whats-new__body { margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-6); }
     .home-whats-new__embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-xl); background: #000; }
     .home-whats-new__embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    /* Very short desktop viewports (e.g. 1351×645, browser-chrome-adjusted 1366×768) */
+    @media (max-height: 760px) and (min-width: 76rem) {
+      .home-hero-bg           { padding-block: clamp(1.25rem, 2vw, 2.5rem); }
+      .home-hero__headline    { font-size: clamp(1.5rem, 2.6vw, 2.4rem); max-width: 26ch; }
+      .home-hero__pill-row    { margin-top: var(--sp-4); row-gap: var(--sp-2); }
+      .home-hero__actions     { margin-top: var(--sp-4); }
+      .home-hero__note        { display: none; }
+      .home-hero__portrait-wrap { max-width: 360px; }
+      .home-bridge            { padding-block: clamp(1rem, 2vw, 2rem); }
+      /* LFF-DISABLED: .home-lff { padding-block: clamp(1.5rem, 3vw, 3rem); } */
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5EHZYMGHC"></script>
@@ -374,9 +391,10 @@
       </div>
     </section>
 
-    <!-- ======================================================
+    <!-- LFF-DISABLED =============================================
          SECTION 4.5: LEAD FLOW FIX (CURRENT OFFER, OWN SECTION)
          ====================================================== -->
+    <!--
     <section class="home-lff" aria-labelledby="lff-heading">
       <div class="container">
         <div class="home-lff__grid reveal">
@@ -403,6 +421,7 @@
         </div>
       </div>
     </section>
+    END LFF-DISABLED -->
 
     <!-- ======================================================
          SECTION 5: WHY THIS MIX MATTERS
@@ -508,7 +527,7 @@
       <div class="footer-inner">
         <div class="footer-brand"><img src="assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Digital brand strategy, content, systems, and execution. Based in Jamaica.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div>
         <nav aria-label="Explore links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="about/">About</a><a href="work/">Work</a><a href="creators-current/">Creator's Current</a><a href="partnerships/">Speaking &amp; Partnerships</a><a href="contact/">Contact</a></div></nav>
-        <nav aria-label="Offers links"><span class="footer-nav__label">Offers</span><div class="footer-nav__links"><a href="lead-flow-fix/">Lead Flow Fix</a></div></nav>
+        <!-- LFF-DISABLED: <nav aria-label="Offers links"><span class="footer-nav__label">Offers</span><div class="footer-nav__links"><a href="lead-flow-fix/">Lead Flow Fix</a></div></nav> -->
         <nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402&utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=newsletter&utm_content=creators_current" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div></nav>
       </div>
       <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
