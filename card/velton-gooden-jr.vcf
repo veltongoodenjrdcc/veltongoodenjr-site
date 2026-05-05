@@ -1,11 +1,15 @@
 BEGIN:VCARD
 VERSION:3.0
 FN:Velton Gooden Jr.
-N:Gooden Jr.;Velton;;;
+N:Gooden;Velton;;;Jr.
 TITLE:Digital Brand Strategist
 ORG:VGJ Systems
 TEL;TYPE=CELL,VOICE:+18765735858
-EMAIL;TYPE=INTERNET:info@veltongoodenjr.com
-URL:https://www.veltongoodenjr.com/
-ADR;TYPE=HOME:;;Jamaica;;;;JM
+EMAIL;TYPE=WORK,INTERNET:info@veltongoodenjr.com
+URL;TYPE=WORK:https://www.veltongoodenjr.com/
+PHOTO;TYPE=JPEG;VALUE=URI:https://www.veltongoodenjr.com/assets/images/content/home-portrait.webp
+X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/veltongoodenjr/
+NOTE:Digital Brand Strategist based in Jamaica. I help service businesses build clearer websites\, sharper content\, and digital systems that actually convert.
+CATEGORIES:Brand Strategy,Digital Marketing,Websites,Consulting
+ADR;TYPE=WORK:;;;Jamaica;;;JM
 END:VCARD
