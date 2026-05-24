@@ -126,9 +126,7 @@
     }
     .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(2rem, 5vw, 4.5rem); overflow: hidden; }
     .home-whats-new__top { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
-    .home-whats-new__section-heading { font-size: var(--fs-3xl); margin-top: var(--sp-2); display: inline-flex; align-items: center; gap: var(--sp-3); }
-    .home-whats-new__section-icon { width: 2.5rem; height: 2.5rem; border-radius: var(--r-md); display: inline-flex; align-items: center; justify-content: center; background: rgba(29, 182, 242, 0.1); color: var(--c-brand-dark); flex-shrink: 0; }
-    .home-whats-new__section-icon svg { width: 1.2rem; height: 1.2rem; display: block; stroke: currentColor; }
+    .home-whats-new__section-heading { font-size: var(--fs-3xl); margin-top: var(--sp-2); }
     .home-whats-new__controls { width: min(100%, 58rem); display: flex; align-items: center; justify-content: center; gap: var(--sp-3); margin-top: clamp(1.5rem, 4vw, 2.25rem); }
     .home-whats-new__arrow { width: 2.5rem; height: 2.5rem; border: 1px solid var(--c-border); border-radius: var(--r-pill); background: #fff; color: var(--c-ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--sh-sm); transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
     .home-whats-new__arrow:hover { transform: translateY(-1px); border-color: var(--c-brand); color: var(--c-brand-dark); }
@@ -257,8 +255,7 @@
         <div class="home-whats-new__carousel reveal" data-whats-new-carousel aria-roledescription="carousel" aria-label="What's New">
           <div class="home-whats-new__top">
             <div>
-              <span class="section-label"><strong>Updates</strong></span>
-              <h2 class="home-whats-new__section-heading" id="whatsNewHeading"><span class="home-whats-new__section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13h6.25L9.75 22 19.5 10.25H13L13 2Z"></path></svg></span> What&rsquo;s New</h2>
+              <h2 class="home-whats-new__section-heading" id="whatsNewHeading">What&rsquo;s New</h2>
             </div>
           </div>
 
