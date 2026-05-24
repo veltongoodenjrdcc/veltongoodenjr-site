@@ -156,7 +156,119 @@
   });
 
   /* ----------------------------------------------------------
-     8. PENDING RESOURCE NOTICE
+     8. WHAT'S NEW CAROUSEL
+     ---------------------------------------------------------- */
+  document.querySelectorAll('[data-whats-new-carousel]').forEach(carousel => {
+    const slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
+    const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+    const viewport = carousel.querySelector('.home-whats-new__viewport');
+    const prevButton = carousel.querySelector('[data-carousel-prev]');
+    const nextButton = carousel.querySelector('[data-carousel-next]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const autoDelay = 8000;
+    let activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
+    let autoTimer;
+    let manuallyPaused = false;
+
+    if (slides.length < 2) return;
+
+    const syncViewportHeight = () => {
+      if (!viewport) return;
+      const maxHeight = Math.max(...slides.map(slide => Math.ceil(slide.getBoundingClientRect().height)));
+      if (maxHeight > 0) viewport.style.setProperty('--whats-new-height', `${maxHeight}px`);
+    };
+
+    const normaliseIndex = (index) => {
+      return (index + slides.length) % slides.length;
+    };
+
+    const setSlide = (index) => {
+      activeIndex = normaliseIndex(index);
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      });
+      dots.forEach((dot, dotIndex) => {
+        if (dotIndex === activeIndex) {
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.removeAttribute('aria-current');
+        }
+      });
+      window.requestAnimationFrame(syncViewportHeight);
+    };
+
+    const stopAuto = () => {
+      if (!autoTimer) return;
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      if (manuallyPaused || reduceMotion.matches) return;
+      autoTimer = window.setInterval(() => setSlide(activeIndex + 1), autoDelay);
+    };
+
+    const manualGoTo = (index) => {
+      manuallyPaused = true;
+      stopAuto();
+      setSlide(index);
+    };
+
+    prevButton && prevButton.addEventListener('click', () => manualGoTo(activeIndex - 1));
+    nextButton && nextButton.addEventListener('click', () => manualGoTo(activeIndex + 1));
+    dots.forEach((dot, dotIndex) => {
+      dot.addEventListener('click', () => manualGoTo(dotIndex));
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', (event) => {
+      if (!carousel.contains(event.relatedTarget)) startAuto();
+    });
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      manualGoTo(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+
+    const onMotionPreferenceChange = () => {
+      if (reduceMotion.matches) {
+        stopAuto();
+      } else {
+        startAuto();
+      }
+    };
+    if (typeof reduceMotion.addEventListener === 'function') {
+      reduceMotion.addEventListener('change', onMotionPreferenceChange);
+    } else if (typeof reduceMotion.addListener === 'function') {
+      reduceMotion.addListener(onMotionPreferenceChange);
+    }
+
+    if ('ResizeObserver' in window) {
+      const resizeObserver = new ResizeObserver(syncViewportHeight);
+      slides.forEach(slide => resizeObserver.observe(slide));
+    }
+    window.addEventListener('resize', syncViewportHeight);
+    slides.forEach(slide => {
+      slide.querySelectorAll('img, iframe').forEach(media => {
+        media.addEventListener('load', syncViewportHeight, { once: true });
+      });
+    });
+    if (document.fonts && typeof document.fonts.ready === 'object') {
+      document.fonts.ready.then(syncViewportHeight).catch(() => {});
+    }
+
+    setSlide(activeIndex);
+    syncViewportHeight();
+    startAuto();
+  });
+
+  /* ----------------------------------------------------------
+     9. PENDING RESOURCE NOTICE
      ---------------------------------------------------------- */
   const pendingResourceButtons = document.querySelectorAll('[data-pending-resource]');
   if (pendingResourceButtons.length > 0) {
@@ -197,7 +309,7 @@
   }
 
   /* ----------------------------------------------------------
-     9. GENTLE SOCIAL EXIT ASIDE
+     10. GENTLE SOCIAL EXIT ASIDE
      One friendly pause for profile links only. Newsletter,
      WhatsApp, calendar, email, forms, and essential contact links
      continue normally.

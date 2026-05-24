@@ -124,14 +124,33 @@
       .home-bridge { padding-block: clamp(1.5rem, 3vw, 2.5rem); }
       /* LFF-DISABLED: .home-lff { padding-block: clamp(2rem, 4vw, 4rem); } */
     }
-    .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(2rem, 5vw, 4.5rem); }
-    .home-whats-new__inner { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
-    @media (min-width: 860px) { .home-whats-new__inner { grid-template-columns: 1fr 1.65fr; } }
-    .home-whats-new__copy { max-width: 40ch; }
-    .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-3); }
-    .home-whats-new__body { margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-6); }
-    .home-whats-new__embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-xl); background: #000; }
-    .home-whats-new__embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .home-whats-new { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding-block: clamp(2rem, 5vw, 4.5rem); overflow: hidden; }
+    .home-whats-new__top { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
+    .home-whats-new__section-heading { font-size: var(--fs-3xl); margin-top: var(--sp-2); display: inline-flex; align-items: center; gap: var(--sp-3); }
+    .home-whats-new__section-icon { width: 2.5rem; height: 2.5rem; border-radius: var(--r-md); display: inline-flex; align-items: center; justify-content: center; background: rgba(29, 182, 242, 0.1); color: var(--c-brand-dark); flex-shrink: 0; }
+    .home-whats-new__section-icon svg { width: 1.2rem; height: 1.2rem; display: block; stroke: currentColor; }
+    .home-whats-new__controls { width: min(100%, 58rem); display: flex; align-items: center; justify-content: center; gap: var(--sp-3); margin-top: clamp(1.5rem, 4vw, 2.25rem); }
+    .home-whats-new__arrow { width: 2.5rem; height: 2.5rem; border: 1px solid var(--c-border); border-radius: var(--r-pill); background: #fff; color: var(--c-ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--sh-sm); transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .home-whats-new__arrow:hover { transform: translateY(-1px); border-color: var(--c-brand); color: var(--c-brand-dark); }
+    .home-whats-new__arrow:focus-visible, .home-whats-new__dot:focus-visible { outline: 3px solid rgba(29, 182, 242, 0.35); outline-offset: 3px; }
+    .home-whats-new__dots { display: inline-flex; align-items: center; gap: var(--sp-2); }
+    .home-whats-new__dot { width: 0.625rem; height: 0.625rem; border-radius: var(--r-pill); border: 0; background: var(--c-border); cursor: pointer; padding: 0; transition: width 0.2s ease, background 0.2s ease; }
+    .home-whats-new__dot[aria-current="true"] { width: 1.5rem; background: var(--c-brand-dark); }
+    .home-whats-new__viewport { position: relative; min-height: var(--whats-new-height, auto); }
+    .home-whats-new__slide { max-width: 58rem; min-width: 0; opacity: 1; visibility: visible; transform: translateX(0); transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease; }
+    .home-whats-new__slide[aria-hidden="true"] { position: absolute; top: 0; left: 0; right: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(1rem); }
+    .home-whats-new__copy { min-width: 0; }
+    .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-3); overflow-wrap: anywhere; }
+    .home-whats-new__body { margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-6); max-width: 62ch; }
+    .home-whats-new__media { position: relative; width: 100%; min-width: 0; aspect-ratio: 16 / 9; border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-xl); background: #000; display: block; margin: var(--sp-5) 0 var(--sp-6); }
+    .home-whats-new__media img, .home-whats-new__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
+    @media (max-width: 48rem) {
+      .home-whats-new__heading { font-size: var(--fs-2xl); }
+      .home-whats-new__body { font-size: var(--fs-sm); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-whats-new__slide, .home-whats-new__arrow, .home-whats-new__dot { transition: none; }
+    }
     /* Very short desktop viewports (e.g. 1351×645, browser-chrome-adjusted 1366×768) */
     @media (max-height: 760px) and (min-width: 76rem) {
       .home-hero-bg           { padding-block: clamp(1.25rem, 2vw, 2.5rem); }
@@ -233,23 +252,55 @@
     <!-- ======================================================
          SECTION 1.25: WHAT'S NEW
          ====================================================== -->
-    <section class="home-whats-new">
+    <section class="home-whats-new" aria-labelledby="whatsNewHeading">
       <div class="container">
-        <div class="home-whats-new__inner reveal">
-          <div class="home-whats-new__copy">
-            <span class="section-label">Now on YouTube</span>
-            <h2 class="home-whats-new__heading">There&rsquo;s a gap between looking polished and actually getting found.</h2>
-            <p class="home-whats-new__body">Your Instagram looks decent, your bio sounds fine, your website technically exists. But people still aren&rsquo;t taking the next step. This video breaks down the six specific places digital presence quietly loses people, and what to actually do about each one.</p>
-            <a href="https://www.youtube.com/@veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=youtube_channel&utm_content=whats_new" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Subscribe on YouTube</a>
+        <div class="home-whats-new__carousel reveal" data-whats-new-carousel aria-roledescription="carousel" aria-label="What's New">
+          <div class="home-whats-new__top">
+            <div>
+              <span class="section-label"><strong>Updates</strong></span>
+              <h2 class="home-whats-new__section-heading" id="whatsNewHeading"><span class="home-whats-new__section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13h6.25L9.75 22 19.5 10.25H13L13 2Z"></path></svg></span> What&rsquo;s New</h2>
+            </div>
           </div>
-          <div class="home-whats-new__embed">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/7ol8Gq5jJ2A?rel=0&modestbranding=1"
-              title="Latest video — Velton Gooden Jr."
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+
+          <div class="home-whats-new__viewport">
+            <article class="home-whats-new__slide is-active" data-carousel-slide aria-hidden="false">
+              <div class="home-whats-new__copy">
+                <span class="section-label">Latest Creator's Current</span>
+                <a class="home-whats-new__media" href="creators-current/your-brand-is-an-interface/" aria-label="Read Your Brand is an Interface">
+                  <img src="assets/images/brand/creators-current/cover-images/6.png" alt="Creator's Current touchscreen interface cover graphic" loading="lazy">
+                </a>
+                <h3 class="home-whats-new__heading">Your Brand is an Interface</h3>
+                <p class="home-whats-new__body">The Brand Interface Framework, or BIF, is the lens I am using to make brand strategy feel less like a fancy mood board and more like a practical question: where is your business making people work too hard to find you, understand you, trust you, or take the next step?</p>
+                <a href="creators-current/your-brand-is-an-interface/" class="btn btn--primary"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Read the BIF issue <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="home-whats-new__slide" data-carousel-slide aria-hidden="true">
+              <div class="home-whats-new__copy">
+                <span class="section-label">Now on YouTube</span>
+                <div class="home-whats-new__media">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/7ol8Gq5jJ2A?rel=0&modestbranding=1"
+                    title="Latest video - Velton Gooden Jr."
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy">
+                  </iframe>
+                </div>
+                <h3 class="home-whats-new__heading">The polished-but-invisible problem is real.</h3>
+                <p class="home-whats-new__body">A decent Instagram bio and a website that technically exists can still leak attention in quiet, annoying little ways. This video walks through six places your digital presence may be losing people before they ever get close enough to choose you.</p>
+                <a href="https://www.youtube.com/watch?v=7ol8Gq5jJ2A&utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=youtube_video&utm_content=whats_new" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-brands fa-youtube" aria-hidden="true"></i> Watch the breakdown <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <div class="home-whats-new__controls" role="group" aria-label="Carousel controls">
+            <button class="home-whats-new__arrow" type="button" data-carousel-prev aria-label="Show previous update"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+            <div class="home-whats-new__dots" role="group" aria-label="Choose update">
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="0" aria-label="Show latest Creator's Current article" aria-current="true"><span class="sr-only">Latest article</span></button>
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="1" aria-label="Show latest YouTube video"><span class="sr-only">Latest video</span></button>
+            </div>
+            <button class="home-whats-new__arrow" type="button" data-carousel-next aria-label="Show next update"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
