@@ -897,13 +897,16 @@
 
 
 /* ----------------------------------------------------------
-   VGJ DIGITAL PORTAL — cursor glow within the feature section,
-   full-screen circle expand from the CTA button on click.
+   VGJ DIGITAL PORTAL — cursor glow on the homepage feature
+   section, full-screen circle expand on any [data-vgj-portal]
+   link or #vgjPortalBtn click.
    ---------------------------------------------------------- */
 (function () {
-  const section = document.getElementById('vgjFeatureSection');
-  const btn     = document.getElementById('vgjPortalBtn');
-  if (!section || !btn) return;
+  const section      = document.getElementById('vgjFeatureSection');
+  const featureBtn   = document.getElementById('vgjPortalBtn');
+  const portalLinks  = Array.from(document.querySelectorAll('[data-vgj-portal]'));
+
+  if (!section && !featureBtn && !portalLinks.length) return;
 
   const overlay = document.createElement('div');
   overlay.className = 'vgj-portal-overlay';
@@ -920,50 +923,49 @@
   const reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)');
   let animating  = false;
 
-  // Position relative to section (for the ::after glow)
-  function updateGlow (e) {
-    const r = section.getBoundingClientRect();
-    section.style.setProperty('--glow-x', ((e.clientX - r.left)  / r.width  * 100).toFixed(1) + '%');
-    section.style.setProperty('--glow-y', ((e.clientY - r.top)   / r.height * 100).toFixed(1) + '%');
-  }
-
-  // Position the overlay origin from the button centre
-  function setOriginFromBtn () {
-    const r = btn.getBoundingClientRect();
+  function setOriginFromEl (el) {
+    const r = el.getBoundingClientRect();
     overlay.style.setProperty('--cx', (((r.left + r.width  / 2) / window.innerWidth)  * 100).toFixed(1) + '%');
     overlay.style.setProperty('--cy', (((r.top  + r.height / 2) / window.innerHeight) * 100).toFixed(1) + '%');
   }
 
-  function navigate () { window.location.href = btn.href; }
-
-  // Cursor glow — only on hover-capable devices, constrained to section
-  if (canHover.matches) {
-    section.addEventListener('mouseenter', (e) => {
-      if (animating) return;
-      updateGlow(e);
-      section.classList.add('has-cursor');
-    });
-    section.addEventListener('mousemove', (e) => {
-      if (animating) return;
-      updateGlow(e);
-    });
-    section.addEventListener('mouseleave', () => {
-      section.classList.remove('has-cursor');
-    });
-  }
-
-  // Click: full-screen expand then navigate
-  btn.addEventListener('click', (e) => {
+  function triggerPortal (e, href) {
     e.preventDefault();
     if (animating) return;
     animating = true;
-    section.classList.remove('has-cursor');
-
-    if (reduceMo.matches) { navigate(); return; }
-
-    setOriginFromBtn();
+    if (reduceMo.matches) { window.location.href = href; return; }
+    setOriginFromEl(e.currentTarget);
     overlay.classList.add('is-active');
-    overlay.addEventListener('transitionend', navigate, { once: true });
-    window.setTimeout(navigate, 950); // fallback
+    overlay.addEventListener('transitionend', () => { window.location.href = href; }, { once: true });
+    window.setTimeout(() => { window.location.href = href; }, 950);
+  }
+
+  // Homepage feature section — cursor glow + button click
+  if (section && featureBtn) {
+    if (canHover.matches) {
+      section.addEventListener('mouseenter', (e) => {
+        if (animating) return;
+        const r = section.getBoundingClientRect();
+        section.style.setProperty('--glow-x', ((e.clientX - r.left) / r.width  * 100).toFixed(1) + '%');
+        section.style.setProperty('--glow-y', ((e.clientY - r.top)  / r.height * 100).toFixed(1) + '%');
+        section.classList.add('has-cursor');
+      });
+      section.addEventListener('mousemove', (e) => {
+        if (animating) return;
+        const r = section.getBoundingClientRect();
+        section.style.setProperty('--glow-x', ((e.clientX - r.left) / r.width  * 100).toFixed(1) + '%');
+        section.style.setProperty('--glow-y', ((e.clientY - r.top)  / r.height * 100).toFixed(1) + '%');
+      });
+      section.addEventListener('mouseleave', () => section.classList.remove('has-cursor'));
+    }
+    featureBtn.addEventListener('click', (e) => {
+      section.classList.remove('has-cursor');
+      triggerPortal(e, featureBtn.href);
+    });
+  }
+
+  // Generic portal links on any page (e.g. contact aside card)
+  portalLinks.forEach(link => {
+    link.addEventListener('click', (e) => triggerPortal(e, link.href));
   });
 })();
