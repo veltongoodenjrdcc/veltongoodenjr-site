@@ -187,7 +187,7 @@
     } else {
       disableAnalytics();
     }
-    applyEmbeddedMediaConsent(consent.embeddedMedia);
+    applyEmbeddedMediaConsent(true); // embedded media always allowed
     document.documentElement.classList.toggle('has-cookie-consent', true);
     return consent;
   };
@@ -206,7 +206,11 @@
 
   const hideConsentBanner = () => {
     const banner = document.querySelector('[data-cookie-banner]');
-    if (banner) banner.remove();
+    if (!banner) return;
+    banner.classList.add('is-leaving');
+    const remove = () => banner.remove();
+    banner.addEventListener('animationend', remove, { once: true });
+    window.setTimeout(remove, 500); // fallback
   };
 
   let cookieModal;
@@ -258,10 +262,6 @@
             <span><strong>Analytics</strong><small>Allows Google Analytics to measure visits and page performance. Advertising signals are disabled.</small></span>
             <input type="checkbox" data-consent-choice="analytics"${current.analytics ? ' checked' : ''}>
           </label>
-          <label class="cookie-option">
-            <span><strong>Embedded media</strong><small>Allows YouTube embeds to load on this site.</small></span>
-            <input type="checkbox" data-consent-choice="embeddedMedia"${current.embeddedMedia ? ' checked' : ''}>
-          </label>
         </div>
         <div class="cookie-modal__actions">
           <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
@@ -312,15 +312,14 @@
     banner.setAttribute('aria-describedby', 'cookieConsentCopy');
     banner.innerHTML = `
       <div class="cookie-consent__content">
-        <p class="cookie-consent__eyebrow">Privacy choices</p>
-        <h2 class="cookie-consent__title" id="cookieConsentTitle">Cookies and optional services</h2>
-        <p class="cookie-consent__copy" id="cookieConsentCopy">This site uses essential storage to remember your choice. Analytics and YouTube embeds stay off unless you allow them.</p>
-        <div class="cookie-consent__links"><a href="${getPrivacyHref()}">Privacy Notice</a></div>
+        <p class="cookie-consent__title" id="cookieConsentTitle">Cookies, perchance?</p>
+        <a href="${getPrivacyHref()}" class="cookie-consent__policy-link">Privacy Notice</a>
+        <small class="cookie-consent__quip">(I wonder why they didn&rsquo;t call them brownies&hellip; or donuts)</small>
       </div>
-      <div class="cookie-consent__actions">
-        <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
-        <button type="button" class="btn btn--outline btn--sm" data-consent-manage>Manage choices</button>
-        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Accept optional</button>
+      <div class="cookie-consent__actions" role="group" aria-label="Cookie consent options">
+        <button type="button" class="btn btn--outline btn--sm" data-consent-reject>Essentials only</button>
+        <button type="button" class="btn btn--outline btn--sm" data-consent-manage>Let me choose</button>
+        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>All good</button>
       </div>
     `;
     document.body.appendChild(banner);
@@ -778,8 +777,8 @@
 (function () {
   // Replace with real Fygaro payment links before launch
   const LINKS = {
-    jmd: 'FYGARO_STRATEGY_SESSION_JMD_LINK',
-    usd: 'FYGARO_STRATEGY_SESSION_USD_LINK'
+    jmd: 'https://www.fygaro.com/en/pb/84a51305-b4b6-4a1e-9e4e-c7cbe45dfdef/',
+    usd: 'https://www.fygaro.com/en/pb/c6846e24-3b22-444f-88b8-03ec4b0b6528/'
   };
   const PRICES    = { jmd: 'JMD $7,500', usd: 'USD $50' };
   const SUBTITLES = {
@@ -807,7 +806,7 @@
       </div>
       <div class="strategy-modal__body">
         <p class="strategy-modal__copy">Bring a specific problem. Positioning that feels off, a message that is not landing, a website that is not converting, a brand direction you need a clear read on. Thirty minutes, one focus, a practical direction you can act on.</p>
-        <p class="strategy-modal__copy">If I see a fit for one of my offers I will say so. If not, I will point you toward someone in my network who is a better match.</p>
+        <p class="strategy-modal__copy">You leave with a clear direction and practical next steps, not just perspective with nowhere to go. Where it makes sense, I will also flag paths for implementation, whether that is through my own work or someone in my network who is the right fit.</p>
         <div class="strategy-modal__pricing">
           <p class="strategy-modal__price-label">Choose your currency</p>
           <div class="strategy-modal__currency-toggle">
@@ -856,6 +855,8 @@
     priceEl.textContent = PRICES[currency];
     subEl.textContent   = SUBTITLES[currency];
     currencyBtns.forEach(btn => btn.classList.toggle('is-active', btn.dataset.currency === currency));
+    const toggle = modal.querySelector('.strategy-modal__currency-toggle');
+    if (toggle) toggle.dataset.active = currency;
 
     const link = LINKS[currency];
     const isPlaceholder = link.startsWith('FYGARO_');
@@ -896,64 +897,73 @@
 
 
 /* ----------------------------------------------------------
-   VGJ DIGITAL PORTAL CARD
-   Hover: circle expands from cursor. Click: fills screen,
-   then navigates to VGJ Digital.
+   VGJ DIGITAL PORTAL — cursor glow within the feature section,
+   full-screen circle expand from the CTA button on click.
    ---------------------------------------------------------- */
 (function () {
-  const card = document.getElementById('vgjPortalCard');
-  if (!card) return;
+  const section = document.getElementById('vgjFeatureSection');
+  const btn     = document.getElementById('vgjPortalBtn');
+  if (!section || !btn) return;
 
   const overlay = document.createElement('div');
   overlay.className = 'vgj-portal-overlay';
   overlay.setAttribute('aria-hidden', 'true');
   overlay.innerHTML = `
     <div class="vgj-portal-overlay__inner">
-      <img src="/assets/images/brand/vgj-digital-logo-h.png" alt="VGJ Digital" class="vgj-portal-overlay__logo" loading="lazy">
+      <img src="/assets/images/brand/vgj-digital-logo-h.png" alt="VGJ Digital" class="vgj-portal-overlay__logo">
       <p class="vgj-portal-overlay__tagline">Make your brand click.</p>
     </div>
   `;
   document.body.appendChild(overlay);
 
-  const canHover  = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const reduceMo  = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let animating   = false;
-  let hoverTimer  = null;
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let animating  = false;
 
-  function setOrigin (e) {
-    overlay.style.setProperty('--cx', ((e.clientX / window.innerWidth)  * 100).toFixed(1) + '%');
-    overlay.style.setProperty('--cy', ((e.clientY / window.innerHeight) * 100).toFixed(1) + '%');
+  // Position relative to section (for the ::after glow)
+  function updateGlow (e) {
+    const r = section.getBoundingClientRect();
+    section.style.setProperty('--glow-x', ((e.clientX - r.left)  / r.width  * 100).toFixed(1) + '%');
+    section.style.setProperty('--glow-y', ((e.clientY - r.top)   / r.height * 100).toFixed(1) + '%');
   }
 
-  function navigate () {
-    window.location.href = card.href;
+  // Position the overlay origin from the button centre
+  function setOriginFromBtn () {
+    const r = btn.getBoundingClientRect();
+    overlay.style.setProperty('--cx', (((r.left + r.width  / 2) / window.innerWidth)  * 100).toFixed(1) + '%');
+    overlay.style.setProperty('--cy', (((r.top  + r.height / 2) / window.innerHeight) * 100).toFixed(1) + '%');
   }
 
-  if (canHover.matches && !reduceMo.matches) {
-    card.addEventListener('mouseenter', (e) => {
+  function navigate () { window.location.href = btn.href; }
+
+  // Cursor glow — only on hover-capable devices, constrained to section
+  if (canHover.matches) {
+    section.addEventListener('mouseenter', (e) => {
       if (animating) return;
-      setOrigin(e);
-      overlay.classList.add('is-hovering');
+      updateGlow(e);
+      section.classList.add('has-cursor');
     });
-    card.addEventListener('mouseleave', () => {
+    section.addEventListener('mousemove', (e) => {
       if (animating) return;
-      clearTimeout(hoverTimer);
-      overlay.classList.remove('is-hovering');
+      updateGlow(e);
+    });
+    section.addEventListener('mouseleave', () => {
+      section.classList.remove('has-cursor');
     });
   }
 
-  card.addEventListener('click', (e) => {
+  // Click: full-screen expand then navigate
+  btn.addEventListener('click', (e) => {
     e.preventDefault();
     if (animating) return;
     animating = true;
-    setOrigin(e);
-    overlay.classList.remove('is-hovering');
+    section.classList.remove('has-cursor');
+
+    if (reduceMo.matches) { navigate(); return; }
+
+    setOriginFromBtn();
     overlay.classList.add('is-active');
-    if (reduceMo.matches) {
-      navigate();
-    } else {
-      overlay.addEventListener('transitionend', navigate, { once: true });
-      window.setTimeout(navigate, 900); // fallback if transitionend fires late
-    }
+    overlay.addEventListener('transitionend', navigate, { once: true });
+    window.setTimeout(navigate, 950); // fallback
   });
 })();

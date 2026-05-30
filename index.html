@@ -129,7 +129,7 @@
     .home-whats-new__title-row { display: flex; align-items: center; gap: var(--sp-3); }
     .home-whats-new__section-heading { font-size: var(--fs-3xl); margin: 0; }
     .home-whats-new__title-icon { flex-shrink: 0; width: 2.75rem; height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); color: #fff; font-size: 1.125rem; background: var(--c-brand-grad); box-shadow: 0 8px 18px rgba(14, 116, 144, 0.2); }
-    .home-whats-new__controls { width: min(100%, 58rem); display: flex; align-items: center; justify-content: center; gap: var(--sp-3); margin-top: clamp(1.5rem, 4vw, 2.25rem); }
+    .home-whats-new__controls { width: min(100%, 58rem); margin-inline: auto; display: flex; align-items: center; justify-content: center; gap: var(--sp-3); margin-top: clamp(1.5rem, 4vw, 2.25rem); }
     .home-whats-new__arrow { width: 2.5rem; height: 2.5rem; border: 1px solid var(--c-border); border-radius: var(--r-pill); background: #fff; color: var(--c-ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--sh-sm); transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
     .home-whats-new__arrow:hover { transform: translateY(-1px); border-color: var(--c-brand); color: var(--c-brand-dark); }
     .home-whats-new__arrow:focus-visible, .home-whats-new__dot:focus-visible { outline: 3px solid rgba(29, 182, 242, 0.35); outline-offset: 3px; }
@@ -137,15 +137,27 @@
     .home-whats-new__dot { width: 0.625rem; height: 0.625rem; border-radius: var(--r-pill); border: 0; background: var(--c-border); cursor: pointer; padding: 0; transition: width 0.2s ease, background 0.2s ease; }
     .home-whats-new__dot[aria-current="true"] { width: 1.5rem; background: var(--c-brand-dark); }
     .home-whats-new__viewport { position: relative; min-height: var(--whats-new-height, auto); }
-    .home-whats-new__slide { max-width: 58rem; min-width: 0; opacity: 1; visibility: visible; transform: translateX(0); transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease; }
+    .home-whats-new__slide { max-width: none; min-width: 0; opacity: 1; visibility: visible; transform: translateX(0); transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease; }
     .home-whats-new__slide[aria-hidden="true"] { position: absolute; top: 0; left: 0; right: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(1rem); }
     .home-whats-new__copy { min-width: 0; }
-    .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-3); overflow-wrap: anywhere; }
-    .home-whats-new__body { margin-top: var(--sp-4); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-6); max-width: 62ch; }
+    @media (min-width: 56rem) {
+      .home-whats-new__copy { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto; column-gap: clamp(2rem, 5vw, 3.5rem); row-gap: var(--sp-3); align-items: start; }
+      .home-whats-new__copy .section-label { grid-column: 2; grid-row: 1; margin-bottom: 0; }
+      .home-whats-new__media { grid-column: 1; grid-row: 1 / -1; margin: 0; align-self: start; }
+      .home-whats-new__heading { grid-column: 2; grid-row: 2; margin-top: 0; }
+      .home-whats-new__body { grid-column: 2; grid-row: 3; max-width: none; margin-top: 0; margin-bottom: 0; }
+      .home-whats-new__copy > a:not(.home-whats-new__media) { grid-column: 2; grid-row: 4; align-self: start; justify-self: start; }
+    }
+    .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-2); overflow-wrap: anywhere; }
+    .home-whats-new__body { margin-top: var(--sp-2); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-3); max-width: 62ch; }
+    @media (min-width: 56rem) {
+      .home-whats-new__heading { margin-top: 0; }
+      .home-whats-new__body { margin-top: 0; margin-bottom: 0; max-width: none; }
+    }
     .home-whats-new__media { position: relative; width: 100%; min-width: 0; aspect-ratio: 16 / 9; border: 1px solid var(--c-border); border-radius: var(--r-xl); overflow: hidden; box-shadow: 0 18px 44px rgba(7, 21, 37, 0.14), 0 7px 16px rgba(14, 116, 144, 0.06); background: #000; display: block; margin: var(--sp-5) 0 var(--sp-6); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
     .home-whats-new__media img, .home-whats-new__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
     .home-whats-new__media img { transition: transform 0.4s ease; }
-    a.home-whats-new__media:hover, a.home-whats-new__media:focus-visible { transform: translateY(-3px); border-color: var(--c-brand); box-shadow: 0 20px 46px rgba(7, 21, 37, 0.15), 0 8px 16px rgba(14, 116, 144, 0.09); }
+    a.home-whats-new__media:hover, a.home-whats-new__media:focus-visible { border-color: var(--c-brand); box-shadow: 0 20px 46px rgba(7, 21, 37, 0.15), 0 8px 16px rgba(14, 116, 144, 0.09); }
     a.home-whats-new__media:hover img, a.home-whats-new__media:focus-visible img { transform: scale(1.018); }
     @media (max-width: 48rem) {
       .home-whats-new__heading { font-size: var(--fs-2xl); }
@@ -405,17 +417,16 @@
             <div class="service-card__icon"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i></div>
             <div>
               <h3 class="service-card__title">Digital Brand Strategy</h3>
-              <p class="service-card__desc">Clearer positioning, sharper offers, and the systems thinking that makes creative work durable.</p>
+              <p class="service-card__desc">Clearer positioning, sharper offers, and the systems thinking that makes creative work durable. Got a specific problem to work through? <a href="#" data-strategy-session style="color:var(--c-brand-dark);font-weight:600;">Book a strategy session.</a></p>
             </div>
           </article>
-          <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=portal" id="vgjPortalCard" class="service-card vgj-portal-card" aria-label="Visit VGJ Digital — website and digital presence projects">
-            <img src="assets/images/brand/vgj-digital-logo-h.png" alt="" aria-hidden="true" class="vgj-portal-card__logo" loading="lazy">
+          <article class="service-card">
+            <div class="service-card__icon"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i></div>
             <div>
               <h3 class="service-card__title">Web &amp; Digital Presence</h3>
-              <p class="service-card__desc">Websites, landing pages, and digital front doors that earn trust and move people to the next step. This work operates under VGJ Digital, where I serve as Founder &amp; Principal Strategist.</p>
-              <span class="vgj-portal-card__cta" aria-hidden="true">Visit VGJ Digital <i class="fa-solid fa-arrow-right"></i></span>
+              <p class="service-card__desc">Websites, landing pages, and digital front doors that earn trust and move people to the next step. This work operates under <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&amp;utm_medium=website&amp;utm_campaign=capabilities" target="_blank" rel="noopener" style="color:var(--c-brand-dark);font-weight:600;">VGJ Digital</a>, where I serve as Founder &amp; Principal Strategist.</p>
             </div>
-          </a>
+          </article>
           <article class="service-card">
             <div class="service-card__icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div>
             <div>
@@ -428,6 +439,7 @@
             <div>
               <h3 class="service-card__title">Voiceover &amp; Narration</h3>
               <p class="service-card__desc">Commercial, documentary, and corporate narration. Credits include HBO Max, Cari-Med Group, and Montego Bay Convention Centre.</p>
+              <a href="#" data-pending-resource="Voiceover rate card" style="display:inline-flex;align-items:center;gap:var(--sp-2);margin-top:var(--sp-4);font-size:var(--fs-xs);font-weight:700;color:var(--c-brand-dark);"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Request rate card</a>
             </div>
           </article>
           <article class="service-card">
@@ -435,6 +447,7 @@
             <div>
               <h3 class="service-card__title">Lead Flow &amp; Systems</h3>
               <p class="service-card__desc">Cleaning up the handoff between online interest, WhatsApp conversations, and the business outcomes that follow.</p>
+              <span style="display:inline-flex;align-items:center;gap:var(--sp-2);margin-top:var(--sp-4);padding:var(--sp-1) var(--sp-3);border:1px solid var(--c-border);border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:700;color:var(--c-muted);"><i class="fa-regular fa-clock" aria-hidden="true"></i> Coming soon</span>
             </div>
           </article>
         </div>
@@ -444,7 +457,7 @@
     <!-- ======================================================
          SECTION 4.5: VGJ DIGITAL FEATURE
          ====================================================== -->
-    <section class="section vgj-feature">
+    <section class="section vgj-feature" id="vgjFeatureSection">
       <div class="container">
         <div class="vgj-feature__grid reveal">
           <div>
@@ -453,7 +466,7 @@
             <h2 class="vgj-feature__headline">I also run VGJ Digital.</h2>
             <p class="vgj-feature__body">Website builds and post-launch support for service professionals and small businesses in Jamaica. Every project gets the same attention to strategy, message, and structure that I apply to my own work. No handoffs, no dilution.</p>
             <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-8);">
-              <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=feature" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Visit VGJ Digital <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=feature" id="vgjPortalBtn" class="btn btn--primary btn--lg">Visit VGJ Digital <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
           <div class="vgj-feature__stats reveal reveal--delay-1">
@@ -547,7 +560,6 @@
               <li>Brand partnerships and sponsorships</li>
               <li>Workshops, panels, and speaking</li>
               <li>Creative and production collaborations</li>
-              <li>Website &amp; digital presence projects &rarr; <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&amp;utm_medium=website&amp;utm_campaign=open_for" target="_blank" rel="noopener" style="color:var(--c-brand-dark);font-weight:700;">VGJ Digital</a></li>
             </ul>
           </div>
           <div style="display: flex; flex-direction: column; gap: var(--sp-4);">
