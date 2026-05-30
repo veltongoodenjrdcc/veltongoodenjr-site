@@ -768,3 +768,192 @@
   });
 
 })();
+
+
+/* ----------------------------------------------------------
+   DIGITAL BRAND STRATEGY SESSION MODAL
+   Intercepts all calendar.app.google links + [data-strategy-session]
+   triggers. Two-currency toggle, Fygaro payment links.
+   ---------------------------------------------------------- */
+(function () {
+  // Replace with real Fygaro payment links before launch
+  const LINKS = {
+    jmd: 'FYGARO_STRATEGY_SESSION_JMD_LINK',
+    usd: 'FYGARO_STRATEGY_SESSION_USD_LINK'
+  };
+  const PRICES    = { jmd: 'JMD $7,500', usd: 'USD $50' };
+  const SUBTITLES = {
+    jmd: 'Paid securely through Fygaro. After payment you will be directed to select your time slot.',
+    usd: 'International rate. Paid securely through Fygaro. After payment you will be directed to select your time slot.'
+  };
+
+  const modal = document.createElement('div');
+  modal.id = 'strategyModal';
+  modal.className = 'strategy-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'strategyModalTitle');
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="strategy-modal__card">
+      <div class="strategy-modal__header">
+        <div class="strategy-modal__meta">
+          <p class="strategy-modal__eyebrow">30 minutes &middot; Paid session</p>
+          <h2 class="strategy-modal__title" id="strategyModalTitle">Digital Brand Strategy Session</h2>
+        </div>
+        <button type="button" class="strategy-modal__close" id="strategyModalClose" aria-label="Close">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="strategy-modal__body">
+        <p class="strategy-modal__copy">Bring a specific problem. Positioning that feels off, a message that is not landing, a website that is not converting, a brand direction you need a clear read on. Thirty minutes, one focus, a practical direction you can act on.</p>
+        <p class="strategy-modal__copy">If I see a fit for one of my offers I will say so. If not, I will point you toward someone in my network who is a better match.</p>
+        <div class="strategy-modal__pricing">
+          <p class="strategy-modal__price-label">Choose your currency</p>
+          <div class="strategy-modal__currency-toggle">
+            <button type="button" class="strategy-modal__currency-btn is-active" data-currency="jmd">Pay in JMD</button>
+            <button type="button" class="strategy-modal__currency-btn" data-currency="usd">Pay in USD</button>
+          </div>
+          <p class="strategy-modal__price-amount" id="strategyPrice">JMD $7,500</p>
+          <p class="strategy-modal__price-sub" id="strategyPriceSub">Paid securely through Fygaro. After payment you will be directed to select your time slot.</p>
+        </div>
+        <div class="strategy-modal__actions">
+          <button type="button" class="btn btn--primary btn--lg" id="strategyPayBtn" data-pending-resource="Digital Brand Strategy Session — payment link">
+            Book the session <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <p class="strategy-modal__note">Card details are not collected on this site. Payment is handled by Fygaro.</p>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const closeBtn    = modal.querySelector('#strategyModalClose');
+  const payBtn      = modal.querySelector('#strategyPayBtn');
+  const priceEl     = modal.querySelector('#strategyPrice');
+  const subEl       = modal.querySelector('#strategyPriceSub');
+  const currencyBtns = modal.querySelectorAll('[data-currency]');
+  let activeCurrency = 'jmd';
+  let focusReturn    = null;
+
+  function openModal (returnEl) {
+    focusReturn = returnEl || null;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    window.setTimeout(() => closeBtn.focus(), 40);
+  }
+
+  function closeModal () {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (focusReturn && typeof focusReturn.focus === 'function') focusReturn.focus();
+  }
+
+  function setCurrency (currency) {
+    activeCurrency = currency;
+    priceEl.textContent = PRICES[currency];
+    subEl.textContent   = SUBTITLES[currency];
+    currencyBtns.forEach(btn => btn.classList.toggle('is-active', btn.dataset.currency === currency));
+
+    const link = LINKS[currency];
+    const isPlaceholder = link.startsWith('FYGARO_');
+    if (isPlaceholder) {
+      payBtn.removeAttribute('data-href');
+      payBtn.setAttribute('data-pending-resource', 'Digital Brand Strategy Session — payment link');
+    } else {
+      payBtn.setAttribute('data-href', link);
+      payBtn.removeAttribute('data-pending-resource');
+    }
+  }
+
+  currencyBtns.forEach(btn => btn.addEventListener('click', () => setCurrency(btn.dataset.currency)));
+
+  payBtn.addEventListener('click', () => {
+    const link = payBtn.getAttribute('data-href');
+    if (link) window.open(link, '_blank', 'noopener noreferrer');
+    // else: data-pending-resource handler in main IIFE shows the toast
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // Intercept calendar.app.google links AND [data-strategy-session] triggers site-wide
+  document.addEventListener('click', (e) => {
+    const calLink = e.target.closest('a[href*="calendar.app.google"]');
+    const trigger = e.target.closest('[data-strategy-session]');
+    if (!calLink && !trigger) return;
+    e.preventDefault();
+    openModal(e.target.closest('a, button'));
+  });
+
+  setCurrency('jmd');
+})();
+
+
+/* ----------------------------------------------------------
+   VGJ DIGITAL PORTAL CARD
+   Hover: circle expands from cursor. Click: fills screen,
+   then navigates to VGJ Digital.
+   ---------------------------------------------------------- */
+(function () {
+  const card = document.getElementById('vgjPortalCard');
+  if (!card) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'vgj-portal-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = `
+    <div class="vgj-portal-overlay__inner">
+      <img src="/assets/images/brand/vgj-digital-logo-h.png" alt="VGJ Digital" class="vgj-portal-overlay__logo" loading="lazy">
+      <p class="vgj-portal-overlay__tagline">Make your brand click.</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  const canHover  = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduceMo  = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let animating   = false;
+  let hoverTimer  = null;
+
+  function setOrigin (e) {
+    overlay.style.setProperty('--cx', ((e.clientX / window.innerWidth)  * 100).toFixed(1) + '%');
+    overlay.style.setProperty('--cy', ((e.clientY / window.innerHeight) * 100).toFixed(1) + '%');
+  }
+
+  function navigate () {
+    window.location.href = card.href;
+  }
+
+  if (canHover.matches && !reduceMo.matches) {
+    card.addEventListener('mouseenter', (e) => {
+      if (animating) return;
+      setOrigin(e);
+      overlay.classList.add('is-hovering');
+    });
+    card.addEventListener('mouseleave', () => {
+      if (animating) return;
+      clearTimeout(hoverTimer);
+      overlay.classList.remove('is-hovering');
+    });
+  }
+
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (animating) return;
+    animating = true;
+    setOrigin(e);
+    overlay.classList.remove('is-hovering');
+    overlay.classList.add('is-active');
+    if (reduceMo.matches) {
+      navigate();
+    } else {
+      overlay.addEventListener('transitionend', navigate, { once: true });
+      window.setTimeout(navigate, 900); // fallback if transitionend fires late
+    }
+  });
+})();
