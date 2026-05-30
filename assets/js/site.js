@@ -798,7 +798,7 @@
       <div class="strategy-modal__header">
         <div class="strategy-modal__meta">
           <p class="strategy-modal__eyebrow">30 minutes &middot; Paid session</p>
-          <h2 class="strategy-modal__title" id="strategyModalTitle">Digital Brand Strategy Session</h2>
+          <h2 class="strategy-modal__title" id="strategyModalTitle">Digital Brand<br>Strategy Session</h2>
         </div>
         <button type="button" class="strategy-modal__close" id="strategyModalClose" aria-label="Close">
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
