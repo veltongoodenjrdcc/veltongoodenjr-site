@@ -12,8 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../assets/css/site.css">
-  <!-- Web3Forms key loaded from gitignored config (see /assets/config/web3forms.js) -->
-  <script src="../assets/config/web3forms.js"></script>
   <script defer src="../assets/js/site.js"></script>
   <meta property="og:title" content="Contact | Velton Gooden Jr.">
   <meta property="og:description" content="Get in touch about client work, digital presence support, partnerships, media, speaking, and workshops.">
@@ -114,8 +112,7 @@
             <h2 style="font-size: var(--fs-xl); margin-bottom: var(--sp-2);">Tell me what this is about</h2>
             <p class="contact-note" style="margin-bottom: var(--sp-6);">Keep it simple: who you are, what you need, and the best next step.</p>
             <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" autocomplete="on">
-              <!-- access_key injected from window.VGJ_PERSONAL_W3F_KEY (loaded via /assets/config/web3forms.js) -->
-              <input type="hidden" id="web3formsAccessKey" name="access_key" value="">
+              <input type="hidden" id="web3formsAccessKey" name="access_key" value="4505ad30-50ee-41f6-a80f-8e661b4548c1">
               <input type="hidden" id="hiddenSubject" name="subject" value="[Website Contact] New message: Visitor">
               <input type="hidden" name="from_name" value="Velton Gooden Jr. Website">
               <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
@@ -223,12 +220,6 @@
       };
       if (!form) return;
 
-      // Inject key from gitignored config (window.VGJ_PERSONAL_W3F_KEY set by /assets/config/web3forms.js)
-      const keyInput = document.getElementById("web3formsAccessKey");
-      if (keyInput && window.VGJ_PERSONAL_W3F_KEY) {
-        keyInput.value = window.VGJ_PERSONAL_W3F_KEY;
-      }
-
       const setTrackingFields = () => {
         const params = new URLSearchParams(window.location.search);
         form.elements.pageSubmittedFrom.value = window.location.href;
@@ -278,7 +269,6 @@
         if (!form.reportValidity()) {
           return;
         }
-        if (keyInput && window.VGJ_PERSONAL_W3F_KEY) { keyInput.value = window.VGJ_PERSONAL_W3F_KEY; }
         setTrackingFields();
         setSubject();
         const formData = new FormData(form);
