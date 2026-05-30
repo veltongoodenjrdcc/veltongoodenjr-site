@@ -9,8 +9,8 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/site.css">
   <script defer src="assets/js/site.js"></script>
   <meta property="og:title" content="Velton Gooden Jr. | Digital Brand Strategist · Jamaica">
@@ -167,14 +167,6 @@
       /* LFF-DISABLED: .home-lff { padding-block: clamp(1.5rem, 3vw, 3rem); } */
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5EHZYMGHC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X5EHZYMGHC');
-  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -282,13 +274,15 @@
             <article class="home-whats-new__slide" data-carousel-slide aria-hidden="true">
               <div class="home-whats-new__copy">
                 <span class="section-label">Now on YouTube</span>
-                <div class="home-whats-new__media">
+                <div class="home-whats-new__media" data-consent-media>
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/7ol8Gq5jJ2A?rel=0&modestbranding=1"
+                    data-consent-src="https://www.youtube-nocookie.com/embed/7ol8Gq5jJ2A?rel=0&modestbranding=1"
                     title="Latest video - Velton Gooden Jr."
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
-                    loading="lazy">
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    hidden>
                   </iframe>
                 </div>
                 <h3 class="home-whats-new__heading">The polished-but-invisible problem is real.</h3>
@@ -418,7 +412,7 @@
             <div class="service-card__icon"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i></div>
             <div>
               <h3 class="service-card__title">Web &amp; Digital Presence</h3>
-              <p class="service-card__desc">Websites, landing pages, and digital front doors that earn trust and move people to the next step.</p>
+              <p class="service-card__desc">Websites, landing pages, and digital front doors that earn trust and move people to the next step. <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&amp;utm_medium=website&amp;utm_campaign=capabilities" target="_blank" rel="noopener" style="color: var(--c-brand-dark); font-weight: 600; white-space: nowrap;">Website projects &rarr; VGJ Digital</a></p>
             </div>
           </article>
           <article class="service-card">
@@ -509,13 +503,13 @@
         <div class="grid grid--2 reveal" style="align-items: center; gap: clamp(2rem, 5vw, 4rem);">
           <div>
             <span class="section-label">What is currently open</span>
-            <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">Open to client work, partnerships, and the right collaborations.</h2>
+            <h2 style="font-size: var(--fs-3xl); margin-top: var(--sp-3);">Open to partnerships, collaborations, and the right client work.</h2>
             <ul class="proof-highlight" style="margin-top: var(--sp-5);" role="list">
-              <li>Client work in strategy, web, content, and systems</li>
+              <li>Client work in strategy, content, and brand systems</li>
               <li>Brand partnerships and sponsorships</li>
               <li>Workshops, panels, and speaking</li>
               <li>Creative and production collaborations</li>
-              <li>Caribbean-context digital projects</li>
+              <li>Website projects &rarr; <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&amp;utm_medium=website&amp;utm_campaign=open_for" target="_blank" rel="noopener" style="color:var(--c-brand-dark);font-weight:700;">VGJ Digital</a></li>
             </ul>
           </div>
           <div style="display: flex; flex-direction: column; gap: var(--sp-4);">

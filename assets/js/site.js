@@ -7,6 +7,359 @@
   'use strict';
 
   /* ----------------------------------------------------------
+     COOKIE CONSENT + OPTIONAL THIRD-PARTY SERVICES
+     ---------------------------------------------------------- */
+  const CONSENT_KEY = 'vgj-cookie-consent-v1';
+  const ANALYTICS_ID = 'G-X5EHZYMGHC';
+  const CONSENT_DEFAULTS = Object.freeze({
+    analytics: false,
+    embeddedMedia: false
+  });
+  let analyticsConfigured = false;
+
+  const storageAvailable = () => {
+    try {
+      return 'localStorage' in window && window.localStorage !== null;
+    } catch {
+      return false;
+    }
+  };
+
+  const canUseStorage = storageAvailable();
+  let memoryConsent = null;
+
+  const normaliseConsent = (value) => {
+    return {
+      analytics: Boolean(value && value.analytics),
+      embeddedMedia: Boolean(value && value.embeddedMedia)
+    };
+  };
+
+  const getStoredConsent = () => {
+    if (!canUseStorage) return memoryConsent;
+    try {
+      const raw = window.localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      return normaliseConsent(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  };
+
+  const saveStoredConsent = (choices) => {
+    const consent = {
+      version: 1,
+      updatedAt: new Date().toISOString(),
+      ...normaliseConsent(choices)
+    };
+
+    memoryConsent = consent;
+    if (canUseStorage) {
+      try {
+        window.localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+      } catch {
+        memoryConsent = consent;
+      }
+    }
+    return consent;
+  };
+
+  const getPrivacyHref = () => {
+    const footerPrivacyLink = document.querySelector('.footer-legal a[href*="privacy"]');
+    return footerPrivacyLink ? footerPrivacyLink.getAttribute('href') : '/privacy/';
+  };
+
+  const expireCookie = (name, domain) => {
+    const domainPart = domain ? `; domain=${domain}` : '';
+    document.cookie = `${name}=; Max-Age=0; path=/${domainPart}; SameSite=Lax`;
+  };
+
+  const clearAnalyticsCookies = () => {
+    const names = document.cookie
+      .split(';')
+      .map(cookie => cookie.split('=')[0].trim())
+      .filter(name => /^_ga($|_)|^_gid$|^_gat/.test(name));
+
+    if (!names.length) return;
+
+    const host = window.location.hostname;
+    const hostParts = host.split('.').filter(Boolean);
+    const baseDomain = hostParts.length > 1 ? `.${hostParts.slice(-2).join('.')}` : '';
+    const domains = ['', host, `.${host}`, baseDomain].filter(Boolean);
+
+    names.forEach(name => {
+      expireCookie(name);
+      domains.forEach(domain => expireCookie(name, domain));
+    });
+  };
+
+  const consentStateFor = (granted) => ({
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: granted ? 'granted' : 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+
+  const getGtag = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+    return window.gtag;
+  };
+
+  const loadAnalytics = () => {
+    window[`ga-disable-${ANALYTICS_ID}`] = false;
+    const gtag = getGtag();
+    if (!analyticsConfigured) {
+      gtag('consent', 'default', consentStateFor(false));
+      gtag('consent', 'update', consentStateFor(true));
+      gtag('js', new Date());
+      gtag('config', ANALYTICS_ID, {
+        allow_ad_personalization_signals: false,
+        allow_google_signals: false
+      });
+      analyticsConfigured = true;
+    } else {
+      gtag('consent', 'update', consentStateFor(true));
+    }
+
+    if (document.querySelector(`script[data-consent-analytics="${ANALYTICS_ID}"]`)) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ANALYTICS_ID)}`;
+    script.setAttribute('data-consent-analytics', ANALYTICS_ID);
+    document.head.appendChild(script);
+  };
+
+  const disableAnalytics = () => {
+    window[`ga-disable-${ANALYTICS_ID}`] = true;
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', consentStateFor(false));
+    }
+    clearAnalyticsCookies();
+  };
+
+  const buildMediaPlaceholder = (container) => {
+    let placeholder = container.querySelector('[data-consent-media-placeholder]');
+    if (placeholder) return placeholder;
+
+    placeholder = document.createElement('div');
+    placeholder.className = 'consent-media-placeholder';
+    placeholder.setAttribute('data-consent-media-placeholder', '');
+    placeholder.innerHTML = `
+      <div class="consent-media-placeholder__inner">
+        <p class="consent-media-placeholder__title">Video paused for privacy</p>
+        <p class="consent-media-placeholder__copy">YouTube embeds stay off until you allow embedded media.</p>
+        <button type="button" class="btn btn--secondary btn--sm" data-consent-enable-media>Load this video</button>
+      </div>
+    `;
+    container.appendChild(placeholder);
+    return placeholder;
+  };
+
+  const applyEmbeddedMediaConsent = (granted) => {
+    document.querySelectorAll('[data-consent-media]').forEach(container => {
+      const iframe = container.querySelector('iframe[data-consent-src]');
+      if (!iframe) return;
+
+      const placeholder = buildMediaPlaceholder(container);
+      if (granted) {
+        if (!iframe.getAttribute('src')) {
+          iframe.setAttribute('src', iframe.getAttribute('data-consent-src'));
+        }
+        placeholder.hidden = true;
+        iframe.hidden = false;
+      } else {
+        iframe.removeAttribute('src');
+        iframe.hidden = true;
+        placeholder.hidden = false;
+      }
+    });
+  };
+
+  const applyConsent = (choices) => {
+    const consent = normaliseConsent(choices || CONSENT_DEFAULTS);
+    if (consent.analytics) {
+      loadAnalytics();
+    } else {
+      disableAnalytics();
+    }
+    applyEmbeddedMediaConsent(consent.embeddedMedia);
+    document.documentElement.classList.toggle('has-cookie-consent', true);
+    return consent;
+  };
+
+  const addFooterPreferencesLink = () => {
+    if (document.querySelector('[data-cookie-preferences]')) return;
+    const privacyLink = document.querySelector('.footer-legal a[href*="privacy"]');
+    if (!privacyLink) return;
+
+    const preferencesLink = document.createElement('a');
+    preferencesLink.href = '#cookie-preferences';
+    preferencesLink.textContent = 'Cookie preferences';
+    preferencesLink.setAttribute('data-cookie-preferences', '');
+    privacyLink.insertAdjacentElement('afterend', preferencesLink);
+  };
+
+  const hideConsentBanner = () => {
+    const banner = document.querySelector('[data-cookie-banner]');
+    if (banner) banner.remove();
+  };
+
+  let cookieModal;
+  let restoreFocusTo;
+
+  const closeCookieModal = () => {
+    if (!cookieModal) return;
+    cookieModal.remove();
+    cookieModal = null;
+    if (restoreFocusTo && typeof restoreFocusTo.focus === 'function') {
+      restoreFocusTo.focus();
+    }
+  };
+
+  const saveConsentAndRefresh = (choices) => {
+    const consent = saveStoredConsent(choices);
+    applyConsent(consent);
+    hideConsentBanner();
+    closeCookieModal();
+  };
+
+  const openCookieModal = () => {
+    if (cookieModal) {
+      cookieModal.querySelector('.cookie-modal__close').focus();
+      return;
+    }
+
+    restoreFocusTo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const current = normaliseConsent(getStoredConsent() || CONSENT_DEFAULTS);
+
+    cookieModal = document.createElement('div');
+    cookieModal.className = 'cookie-modal';
+    cookieModal.setAttribute('role', 'dialog');
+    cookieModal.setAttribute('aria-modal', 'true');
+    cookieModal.setAttribute('aria-labelledby', 'cookieModalTitle');
+    cookieModal.innerHTML = `
+      <div class="cookie-modal__backdrop" data-cookie-modal-close></div>
+      <div class="cookie-modal__panel" id="cookie-preferences">
+        <button type="button" class="cookie-modal__close" aria-label="Close cookie preferences" data-cookie-modal-close><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <p class="cookie-consent__eyebrow">Privacy choices</p>
+        <h2 class="cookie-modal__title" id="cookieModalTitle">Cookie preferences</h2>
+        <p class="cookie-modal__copy">Essential storage remembers this choice. Optional services stay off unless you allow them here.</p>
+        <div class="cookie-options">
+          <label class="cookie-option">
+            <span><strong>Essential preference storage</strong><small>Required to remember your cookie choice and keep the site usable.</small></span>
+            <input type="checkbox" checked disabled>
+          </label>
+          <label class="cookie-option">
+            <span><strong>Analytics</strong><small>Allows Google Analytics to measure visits and page performance. Advertising signals are disabled.</small></span>
+            <input type="checkbox" data-consent-choice="analytics"${current.analytics ? ' checked' : ''}>
+          </label>
+          <label class="cookie-option">
+            <span><strong>Embedded media</strong><small>Allows YouTube embeds to load on this site.</small></span>
+            <input type="checkbox" data-consent-choice="embeddedMedia"${current.embeddedMedia ? ' checked' : ''}>
+          </label>
+        </div>
+        <div class="cookie-modal__actions">
+          <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
+          <button type="button" class="btn btn--outline btn--sm" data-consent-save>Save choices</button>
+          <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Accept optional</button>
+        </div>
+        <p class="cookie-modal__fineprint"><a href="${getPrivacyHref()}">Privacy Notice</a></p>
+      </div>
+    `;
+    document.body.appendChild(cookieModal);
+    cookieModal.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(cookieModal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])'))
+        .filter(element => element instanceof HTMLElement && element.offsetParent !== null);
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    const closeButtons = cookieModal.querySelectorAll('[data-cookie-modal-close]');
+    closeButtons.forEach(button => button.addEventListener('click', closeCookieModal));
+    cookieModal.querySelector('[data-consent-reject]').addEventListener('click', () => saveConsentAndRefresh(CONSENT_DEFAULTS));
+    cookieModal.querySelector('[data-consent-accept]').addEventListener('click', () => saveConsentAndRefresh({ analytics: true, embeddedMedia: true }));
+    cookieModal.querySelector('[data-consent-save]').addEventListener('click', () => {
+      saveConsentAndRefresh({
+        analytics: cookieModal.querySelector('[data-consent-choice="analytics"]').checked,
+        embeddedMedia: cookieModal.querySelector('[data-consent-choice="embeddedMedia"]').checked
+      });
+    });
+    cookieModal.querySelector('.cookie-modal__close').focus();
+  };
+
+  const showConsentBanner = () => {
+    if (document.querySelector('[data-cookie-banner]')) return;
+
+    const banner = document.createElement('section');
+    banner.className = 'cookie-consent';
+    banner.setAttribute('data-cookie-banner', '');
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-labelledby', 'cookieConsentTitle');
+    banner.setAttribute('aria-describedby', 'cookieConsentCopy');
+    banner.innerHTML = `
+      <div class="cookie-consent__content">
+        <p class="cookie-consent__eyebrow">Privacy choices</p>
+        <h2 class="cookie-consent__title" id="cookieConsentTitle">Cookies and optional services</h2>
+        <p class="cookie-consent__copy" id="cookieConsentCopy">This site uses essential storage to remember your choice. Analytics and YouTube embeds stay off unless you allow them.</p>
+        <div class="cookie-consent__links"><a href="${getPrivacyHref()}">Privacy Notice</a></div>
+      </div>
+      <div class="cookie-consent__actions">
+        <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
+        <button type="button" class="btn btn--outline btn--sm" data-consent-manage>Manage choices</button>
+        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Accept optional</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+
+    banner.querySelector('[data-consent-reject]').addEventListener('click', () => saveConsentAndRefresh(CONSENT_DEFAULTS));
+    banner.querySelector('[data-consent-accept]').addEventListener('click', () => saveConsentAndRefresh({ analytics: true, embeddedMedia: true }));
+    banner.querySelector('[data-consent-manage]').addEventListener('click', openCookieModal);
+  };
+
+  const initCookieConsent = () => {
+    addFooterPreferencesLink();
+    const storedConsent = getStoredConsent();
+    applyConsent(storedConsent || CONSENT_DEFAULTS);
+    if (!storedConsent) showConsentBanner();
+
+    document.addEventListener('click', (event) => {
+      const preferencesLink = event.target.closest('[data-cookie-preferences]');
+      if (preferencesLink) {
+        event.preventDefault();
+        openCookieModal();
+        return;
+      }
+
+      const mediaButton = event.target.closest('[data-consent-enable-media]');
+      if (mediaButton) {
+        event.preventDefault();
+        const current = getStoredConsent() || CONSENT_DEFAULTS;
+        saveConsentAndRefresh({ ...current, embeddedMedia: true });
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && cookieModal) closeCookieModal();
+    });
+  };
+
+  initCookieConsent();
+
+  /* ----------------------------------------------------------
      MEDIA DOWNLOAD / COPY DETERRENTS
      ---------------------------------------------------------- */
   const protectedMediaSelector = 'img, picture, svg, video, canvas';

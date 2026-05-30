@@ -14,6 +14,12 @@
 .idea/
 velton_copy_voice_skill.md
 
+# Web3Forms keys — never commit the real files
+assets/config/web3forms.js
+
+# Visual QA reports and screenshots
+reports/
+
 # Dependencies and build/output caches
 node_modules/
 dist/

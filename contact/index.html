@@ -9,9 +9,11 @@
   <link rel="icon" type="image/svg+xml" href="../assets/images/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../assets/css/site.css">
+  <!-- Web3Forms key loaded from gitignored config (see /assets/config/web3forms.js) -->
+  <script src="../assets/config/web3forms.js"></script>
   <script defer src="../assets/js/site.js"></script>
   <meta property="og:title" content="Contact | Velton Gooden Jr.">
   <meta property="og:description" content="Get in touch about client work, digital presence support, partnerships, media, speaking, and workshops.">
@@ -55,14 +57,6 @@
     .direct-content a { color: var(--c-brand-dark); font-weight: 600; word-break: break-word; }
     .human-check.is-hidden { display: none; }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5EHZYMGHC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X5EHZYMGHC');
-  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -105,7 +99,7 @@
           <p class="page-hero__eyebrow">Contact</p>
           <h1 class="page-hero__title display-heading">So... What now?</h1>
           <p class="page-hero__lead" style="margin-inline: auto;">The right starting point depends on what you need.</p>
-          <p class="page-hero__lead" style="margin-inline: auto; margin-top: var(--sp-4);">Whether it&rsquo;s a client project, speaking opportunity, brand partnership, media request, workshop, or something else, use the form below and I&rsquo;ll route it from there. (Pick the closest fit; I&rsquo;ll figure out the rest.)</p>
+          <p class="page-hero__lead" style="margin-inline: auto; margin-top: var(--sp-4);">Speaking opportunity, brand partnership, media request, workshop, or something else entirely &mdash; use the form below and I&rsquo;ll route it from there. (If you&rsquo;re here about a website or digital presence project, that work lives at <a href="https://www.vgjdigital.com/" target="_blank" rel="noopener" style="color:#fff;font-weight:700;">VGJ Digital</a>.)</p>
           <span class="hero-personal-chip">
             <img class="hero-personal-chip__avatar" src="../assets/images/content/photos/velton-gooden-jr-red-sweater-seated-smiling-portrait.jpg" alt="" aria-hidden="true" loading="lazy" width="36" height="36">
             <span>"I do my best to respond within <strong>48 hours</strong>"</span>
@@ -120,7 +114,8 @@
             <h2 style="font-size: var(--fs-xl); margin-bottom: var(--sp-2);">Tell me what this is about</h2>
             <p class="contact-note" style="margin-bottom: var(--sp-6);">Keep it simple: who you are, what you need, and the best next step.</p>
             <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" autocomplete="on">
-              <input type="hidden" id="web3formsAccessKey" name="access_key" value="4505ad30-50ee-41f6-a80f-8e661b4548c1">
+              <!-- access_key injected from window.VGJ_PERSONAL_W3F_KEY (loaded via /assets/config/web3forms.js) -->
+              <input type="hidden" id="web3formsAccessKey" name="access_key" value="">
               <input type="hidden" id="hiddenSubject" name="subject" value="[Website Contact] New message: Visitor">
               <input type="hidden" name="from_name" value="Velton Gooden Jr. Website">
               <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
@@ -137,7 +132,7 @@
                 <div class="form-group"><label class="form-label" for="phone">Phone / WhatsApp</label><input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" maxlength="50"></div>
                 <div class="form-group"><label class="form-label" for="preferredContactMethod">Preferred contact method</label><select class="form-input" id="preferredContactMethod" name="preferredContactMethod"><option value="Email">Email</option><option value="WhatsApp">WhatsApp</option><option value="Phone call">Phone call</option><option value="No preference">No preference</option></select></div>
               </div>
-              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="requestType">What is this about? <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><select class="form-input" id="requestType" name="requestType" required aria-describedby="requestTypeHelper"><option value="">Choose the closest fit</option><option value="Client project">Client project</option><option value="Website or digital presence support">Website or digital presence support</option><!-- LFF-DISABLED: <option value="Lead Flow Fix specifically">Lead Flow Fix specifically</option> --><option value="Brand partnership">Brand partnership</option><option value="Media, interview, or speaking">Media, interview, or speaking</option><option value="Workshop or training">Workshop or training</option><option value="Something else">Something else</option></select><p class="form-hint" id="requestTypeHelper" aria-live="polite"></p></div>
+              <div class="form-group" style="margin-bottom: var(--sp-5);"><label class="form-label" for="requestType">What is this about? <span class="required-mark" aria-hidden="true">*</span><span class="sr-only">required</span></label><select class="form-input" id="requestType" name="requestType" required aria-describedby="requestTypeHelper"><option value="">Choose the closest fit</option><option value="Brand partnership">Brand partnership</option><option value="Media, interview, or speaking">Media, interview, or speaking</option><option value="Workshop or training">Workshop or training</option><option value="Something else">Something else</option></select><p class="form-hint" id="requestTypeHelper" aria-live="polite"></p></div>
               <div class="form-row" style="margin-bottom: var(--sp-5);">
                 <div class="form-group"><label class="form-label" for="websiteSocialLink">Website / social link</label><input class="form-input" type="text" id="websiteSocialLink" name="websiteSocialLink" inputmode="url" autocomplete="url" maxlength="250"></div>
                 <div class="form-group"><label class="form-label" for="timeline">Timeline</label><input class="form-input" type="text" id="timeline" name="timeline" maxlength="150"></div>
@@ -147,7 +142,7 @@
                 <button type="submit" class="btn btn--primary btn--lg" id="contactSubmit"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Send message</button>
                 <a href="https://wa.me/18765735858?text=Hi%20Velton%2C%20I%20saw%20your%20website%20and%20wanted%20to%20reach%20out." target="_blank" rel="noopener" class="btn btn--secondary btn--lg"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
               </div>
-              <p class="form-privacy-note">By submitting this form, you agree to your information being processed so I can respond. See the <a href="../privacy/">Privacy Notice</a>.</p>
+              <p class="form-privacy-note">By submitting this form, you understand your details and basic submission context will be processed so I can respond. See the <a href="../privacy/">Privacy Notice</a>.</p>
               <div id="formStatus" class="form-status" role="alert" aria-live="polite"></div>
             </form>
           </div>
@@ -184,8 +179,13 @@
               </noscript>
             </div>
             <div class="contact-card">
+              <h2 style="font-size: var(--fs-lg);">Need a website or digital presence project?</h2>
+              <p class="contact-note" style="margin-top: var(--sp-3);">Website builds, post-launch support, and digital presence work for service professionals and small businesses live at VGJ Digital. That is the right starting point for those projects.</p>
+              <a href="https://www.vgjdigital.com/" target="_blank" rel="noopener" class="btn btn--primary" style="margin-top: var(--sp-4);">Go to VGJ Digital &rarr;</a>
+            </div>
+            <div class="contact-card">
               <h2 style="font-size: var(--fs-lg);">A quick note on fit</h2>
-              <p class="contact-note" style="margin-top: var(--sp-3);">I am most useful when the problem involves clarity, communication, lead flow, digital presence, content, or practical brand systems. If the request is not a fit, I will say so plainly. If I can point you in a better direction, I will.</p>
+              <p class="contact-note" style="margin-top: var(--sp-3);">This form is for speaking, partnerships, media, workshops, and things that do not fit anywhere else. If the request is not a fit, I will say so plainly. If I can point you in a better direction, I will.</p>
             </div>
             <div class="contact-card">
               <h2 style="font-size: var(--fs-lg);">Speaking, partnerships, or media?</h2>
@@ -213,21 +213,21 @@
         "Brand partnership": "Please include the brand, campaign idea, timeline, and why you think the fit makes sense.",
         "Media, interview, or speaking": "Please include the event, platform, audience, topic, date, and whether it is paid or unpaid.",
         "Workshop or training": "Please include the audience, topic, format, preferred date, and expected number of participants.",
-        "Client project": "Share what you need help with, what is already in place, and what outcome you are hoping for.",
-        "Website or digital presence support": "Share what you currently have online, what feels unclear, and what you want the website or digital touchpoints to help with.",
-        // LFF-DISABLED: "Lead Flow Fix specifically": "Share where leads or messages currently come from, what happens after someone reaches out, and where the handoff feels messy.",
         "Something else": "Share the context and the best next step you have in mind."
       };
       const subjectPrefixes = {
-        "Client project": "[Website Contact] Client project",
-        "Website or digital presence support": "[Website Contact] Website/digital presence",
-        // LFF-DISABLED: "Lead Flow Fix specifically": "[Website Contact] Lead Flow Fix",
         "Brand partnership": "[Website Contact] Brand partnership",
         "Media, interview, or speaking": "[Website Contact] Speaking/media",
         "Workshop or training": "[Website Contact] Workshop/training",
         "Something else": "[Website Contact] General message"
       };
       if (!form) return;
+
+      // Inject key from gitignored config (window.VGJ_PERSONAL_W3F_KEY set by /assets/config/web3forms.js)
+      const keyInput = document.getElementById("web3formsAccessKey");
+      if (keyInput && window.VGJ_PERSONAL_W3F_KEY) {
+        keyInput.value = window.VGJ_PERSONAL_W3F_KEY;
+      }
 
       const setTrackingFields = () => {
         const params = new URLSearchParams(window.location.search);
@@ -259,8 +259,7 @@
       // Speaking & Partnerships CTAs land correctly.
       const typeToRequestType = {
         "speaking": "Media, interview, or speaking",
-        "partnership": "Brand partnership",
-        // LFF-DISABLED: "lead-flow-fix": "Lead Flow Fix specifically"
+        "partnership": "Brand partnership"
       };
       const incomingType = new URLSearchParams(window.location.search).get("type");
       if (incomingType && typeToRequestType[incomingType]) {
@@ -279,6 +278,7 @@
         if (!form.reportValidity()) {
           return;
         }
+        if (keyInput && window.VGJ_PERSONAL_W3F_KEY) { keyInput.value = window.VGJ_PERSONAL_W3F_KEY; }
         setTrackingFields();
         setSubject();
         const formData = new FormData(form);
