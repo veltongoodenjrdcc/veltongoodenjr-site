@@ -10,7 +10,6 @@
      COOKIE CONSENT + OPTIONAL THIRD-PARTY SERVICES
      ---------------------------------------------------------- */
   const CONSENT_KEY = 'vgj-cookie-consent-v1';
-  const COOKIE_FLOAT_DISMISSED_KEY = 'vgj-cookie-float-dismissed-v1';
   const ANALYTICS_ID = 'G-X5EHZYMGHC';
   const CONSENT_DEFAULTS = Object.freeze({
     analytics: false,
@@ -28,7 +27,7 @@
 
   const canUseStorage = storageAvailable();
   let memoryConsent = null;
-  let memoryCookieFloatDismissed = false;
+  let cookieFloatNudgeTimer = 0;
 
   const normaliseConsent = (value) => {
     return {
@@ -64,25 +63,6 @@
       }
     }
     return consent;
-  };
-
-  const getCookieFloatDismissed = () => {
-    if (!canUseStorage) return memoryCookieFloatDismissed;
-    try {
-      return window.localStorage.getItem(COOKIE_FLOAT_DISMISSED_KEY) === '1';
-    } catch {
-      return memoryCookieFloatDismissed;
-    }
-  };
-
-  const saveCookieFloatDismissed = () => {
-    memoryCookieFloatDismissed = true;
-    if (!canUseStorage) return;
-    try {
-      window.localStorage.setItem(COOKIE_FLOAT_DISMISSED_KEY, '1');
-    } catch {
-      memoryCookieFloatDismissed = true;
-    }
   };
 
   const getPrivacyHref = () => {
@@ -227,8 +207,36 @@
 
   const getCookieFloat = () => document.querySelector('.cookie-float');
 
+  const stopCookieFloatNudge = () => {
+    if (cookieFloatNudgeTimer) {
+      window.clearInterval(cookieFloatNudgeTimer);
+      cookieFloatNudgeTimer = 0;
+    }
+    const float = getCookieFloat();
+    if (float) float.classList.remove('is-nudging');
+  };
+
+  const nudgeCookieFloat = (float = getCookieFloat()) => {
+    if (!float || !float.isConnected || getStoredConsent()) {
+      stopCookieFloatNudge();
+      return;
+    }
+    float.classList.remove('is-nudging');
+    void float.offsetWidth;
+    float.classList.add('is-nudging');
+    window.setTimeout(() => {
+      if (float.isConnected) float.classList.remove('is-nudging');
+    }, 1800);
+  };
+
+  const startCookieFloatNudge = (float = getCookieFloat()) => {
+    if (!float || cookieFloatNudgeTimer || getStoredConsent()) return;
+    nudgeCookieFloat(float);
+    cookieFloatNudgeTimer = window.setInterval(() => nudgeCookieFloat(float), 6200);
+  };
+
   const dismissCookieFloat = () => {
-    saveCookieFloatDismissed();
+    stopCookieFloatNudge();
     const float = getCookieFloat();
     if (!float) return;
 
@@ -243,17 +251,15 @@
     const float = getCookieFloat();
     if (!float) return;
 
-    if (getCookieFloatDismissed()) {
+    if (getStoredConsent()) {
       float.remove();
       return;
     }
 
     window.requestAnimationFrame(() => {
       if (!float.isConnected) return;
-      float.classList.add('is-ready', 'is-nudging');
-      window.setTimeout(() => {
-        if (float.isConnected) float.classList.remove('is-nudging');
-      }, 1800);
+      float.classList.add('is-ready');
+      startCookieFloatNudge(float);
     });
   };
 
@@ -318,9 +324,9 @@
           </label>
         </div>
         <div class="cookie-modal__actions">
-          <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
+          <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Gimmie cookie!</button>
           <button type="button" class="btn btn--outline btn--sm" data-consent-save>Save choices</button>
-          <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Accept optional</button>
+          <button type="button" class="btn btn--secondary btn--sm" data-consent-reject>Reject optional</button>
         </div>
         <p class="cookie-modal__fineprint"><a href="${getPrivacyHref()}">Privacy Notice</a></p>
       </div>
@@ -353,7 +359,7 @@
         embeddedMedia: true
       });
     });
-    cookieModal.querySelector('.cookie-modal__close').focus();
+    cookieModal.querySelector('[data-consent-accept]').focus();
   };
 
   const showConsentBanner = () => {
@@ -377,9 +383,9 @@
         </div>
       </div>
       <div class="cookie-consent__actions" role="group" aria-label="Cookie consent options">
+        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Gimmie cookie!</button>
         <button type="button" class="btn btn--outline btn--sm" data-consent-reject>Essentials only</button>
         <button type="button" class="btn btn--outline btn--sm" data-consent-manage>Let me choose</button>
-        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Gimmie cookie!</button>
       </div>
     `;
     document.body.appendChild(banner);
@@ -399,7 +405,6 @@
       const preferencesLink = event.target.closest('[data-cookie-preferences]');
       if (preferencesLink) {
         event.preventDefault();
-        if (preferencesLink.closest('.cookie-float')) dismissCookieFloat();
         openCookieModal();
         return;
       }

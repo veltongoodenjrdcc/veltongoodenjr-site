@@ -382,6 +382,22 @@ strong { font-weight: 700; color: var(--c-ink); }
   transform: translate(-50%, 0) rotate(45deg);
 }
 
+@media (hover: none), (pointer: coarse) {
+  .vgj-section-link {
+    transition: none;
+  }
+
+  .vgj-section-link:hover,
+  .vgj-section-link:focus-visible {
+    transform: none;
+  }
+
+  .vgj-whisper-link::before,
+  .vgj-whisper-link::after {
+    display: none;
+  }
+}
+
 
 /* ----------------------------------------------------------
    5. LAYOUT
@@ -2425,6 +2441,11 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   align-items: center;
 }
 .cookie-modal__actions .btn { min-height: 2.5rem; white-space: normal; }
+.cookie-modal__actions [data-consent-accept] {
+  flex: 1 1 100%;
+  min-height: 2.85rem;
+  font-size: var(--fs-sm);
+}
 
 @keyframes cookieBannerIn {
   0%   { opacity: 0; transform: translateX(-50%) translateY(28px) scale(0.94); }
