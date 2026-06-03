@@ -394,7 +394,6 @@
     initCookieFloat();
     const storedConsent = getStoredConsent();
     applyConsent(storedConsent || CONSENT_DEFAULTS);
-    if (!storedConsent) showConsentBanner();
 
     document.addEventListener('click', (event) => {
       const preferencesLink = event.target.closest('[data-cookie-preferences]');

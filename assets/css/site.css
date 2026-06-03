@@ -1955,9 +1955,11 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 }
 
 .cookie-float__icon {
+  display: inline-block;
   flex: 0 0 auto;
   font-size: 1.1rem;
   line-height: 1;
+  transform-origin: 50% 58%;
 }
 
 .cookie-float__label {
@@ -1987,7 +1989,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   line-height: 1.1;
 }
 
-.cookie-float.is-nudging .cookie-float__btn {
+.cookie-float.is-nudging .cookie-float__icon {
   animation: cookieFloatShimmy 1.1s ease 0.45s both;
 }
 
@@ -2025,11 +2027,12 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 @media (prefers-reduced-motion: reduce) {
   .cookie-float,
-  .cookie-float__btn {
+  .cookie-float__btn,
+  .cookie-float__icon {
     transition: none;
   }
 
-  .cookie-float.is-nudging .cookie-float__btn {
+  .cookie-float.is-nudging .cookie-float__icon {
     animation: none;
   }
 }
