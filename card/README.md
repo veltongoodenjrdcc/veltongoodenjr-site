@@ -26,7 +26,6 @@ Because the page lives inside `/card/`, it uses these relative paths:
 
 Check these links inside the HTML and adjust if needed:
 
-- WhatsApp: `https://wa.me/18765735858`
 - Email: `info@veltongoodenjr.com`
 - Phone: `+18765735858`
 - Website: `https://www.veltongoodenjr.com/`

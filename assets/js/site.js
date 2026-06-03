@@ -293,9 +293,10 @@
     cookieModal.querySelector('[data-consent-reject]').addEventListener('click', () => saveConsentAndRefresh(CONSENT_DEFAULTS));
     cookieModal.querySelector('[data-consent-accept]').addEventListener('click', () => saveConsentAndRefresh({ analytics: true, embeddedMedia: true }));
     cookieModal.querySelector('[data-consent-save]').addEventListener('click', () => {
+      const analyticsChoice = cookieModal.querySelector('[data-consent-choice="analytics"]');
       saveConsentAndRefresh({
-        analytics: cookieModal.querySelector('[data-consent-choice="analytics"]').checked,
-        embeddedMedia: cookieModal.querySelector('[data-consent-choice="embeddedMedia"]').checked
+        analytics: analyticsChoice ? analyticsChoice.checked : false,
+        embeddedMedia: true
       });
     });
     cookieModal.querySelector('.cookie-modal__close').focus();
@@ -312,14 +313,19 @@
     banner.setAttribute('aria-describedby', 'cookieConsentCopy');
     banner.innerHTML = `
       <div class="cookie-consent__content">
-        <p class="cookie-consent__title" id="cookieConsentTitle">Cookies, perchance?</p>
-        <a href="${getPrivacyHref()}" class="cookie-consent__policy-link">Privacy Notice</a>
-        <small class="cookie-consent__quip">(I wonder why they didn&rsquo;t call them brownies&hellip; or donuts)</small>
+        <span class="cookie-consent__icon" aria-hidden="true"><i class="fa-solid fa-cookie-bite"></i></span>
+        <div class="cookie-consent__copy" id="cookieConsentCopy">
+          <div class="cookie-consent__headerline">
+            <p class="cookie-consent__title" id="cookieConsentTitle">Cookies, perchance?</p>
+            <a href="${getPrivacyHref()}" class="cookie-consent__policy-link">Privacy Notice</a>
+          </div>
+          <small class="cookie-consent__quip">(I wonder why they didn&rsquo;t call them brownies&hellip; or donuts)</small>
+        </div>
       </div>
       <div class="cookie-consent__actions" role="group" aria-label="Cookie consent options">
         <button type="button" class="btn btn--outline btn--sm" data-consent-reject>Essentials only</button>
         <button type="button" class="btn btn--outline btn--sm" data-consent-manage>Let me choose</button>
-        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>All good</button>
+        <button type="button" class="btn btn--primary btn--sm" data-consent-accept>Gimmie cookie!</button>
       </div>
     `;
     document.body.appendChild(banner);
@@ -357,6 +363,102 @@
   };
 
   initCookieConsent();
+
+  /* ----------------------------------------------------------
+     MEDIA STENCILS
+     Adds lightweight skeleton surfaces to content media while
+     images, videos, and embeds finish loading.
+     ---------------------------------------------------------- */
+  const initMediaStencils = () => {
+    const contentHostSelector = [
+      '.home-hero__portrait-wrap',
+      '.home-whats-new__media',
+      '.float-photo',
+      '.photo-caption-card',
+      '.work-card__thumb',
+      '.cred-strip__item',
+      '.article-figure',
+      '.speaking-video-card',
+      '.cc-article-card',
+      '.lff-proof-photo'
+    ].join(', ');
+
+    const excludedSelector = [
+      '.nav-brand',
+      '.mobile-nav__header',
+      '.footer-brand',
+      '.cookie-consent',
+      '.cookie-modal',
+      '.consent-media-placeholder',
+      '.site-toast',
+      '.vgj-portal-overlay'
+    ].join(', ');
+
+    const shouldSkipMediaStencil = (media) => {
+      if (!(media instanceof HTMLElement)) return true;
+      if (media.closest(excludedSelector)) return true;
+
+      if (media instanceof HTMLImageElement) {
+        const src = media.currentSrc || media.getAttribute('src') || '';
+        if (/\.svg(?:$|\?)/i.test(src)) return true;
+      }
+
+      return false;
+    };
+
+    const getMediaStencilHost = (media) => {
+      const host = media.closest(contentHostSelector);
+      if (host && media.parentElement === host) return host;
+      return null;
+    };
+
+    const isMediaLoaded = (media) => {
+      if (media instanceof HTMLImageElement) {
+        return media.complete;
+      }
+      if (media instanceof HTMLVideoElement) {
+        return media.readyState >= 1;
+      }
+      if (media instanceof HTMLIFrameElement) {
+        return !media.getAttribute('src');
+      }
+      return true;
+    };
+
+    const markMediaLoaded = (media, host) => {
+      media.classList.add('is-media-loaded');
+      if (host) host.classList.add('is-media-loaded');
+    };
+
+    document.querySelectorAll('img, video, iframe').forEach(media => {
+      if (shouldSkipMediaStencil(media)) return;
+
+      const host = getMediaStencilHost(media);
+      if (host) {
+        host.classList.add('media-stencil-host');
+        media.classList.add('media-stencil-target');
+      } else {
+        media.classList.add('media-stencil-standalone');
+      }
+
+      if (isMediaLoaded(media)) {
+        markMediaLoaded(media, host);
+        return;
+      }
+
+      const loadedEvents = media instanceof HTMLVideoElement
+        ? ['loadedmetadata', 'loadeddata', 'canplay', 'error']
+        : ['load', 'error'];
+
+      loadedEvents.forEach(eventName => {
+        media.addEventListener(eventName, () => markMediaLoaded(media, host), { once: true });
+      });
+
+      window.setTimeout(() => markMediaLoaded(media, host), 12000);
+    });
+  };
+
+  initMediaStencils();
 
   /* ----------------------------------------------------------
      MEDIA DOWNLOAD / COPY DETERRENTS
@@ -477,6 +579,12 @@
   /* ----------------------------------------------------------
      5. SMOOTH SCROLL FOR SAME-PAGE ANCHORS
      ---------------------------------------------------------- */
+  const VGJ_FEATURE_HASH = '#vgjFeatureSection';
+  const scrollToAnchorTarget = (target, behavior = 'smooth') => {
+    const block = target.id === 'vgjFeatureSection' ? 'center' : 'start';
+    target.scrollIntoView({ behavior, block });
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
@@ -484,11 +592,27 @@
         const target = document.querySelector(id);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (id === VGJ_FEATURE_HASH && window.history && typeof window.history.pushState === 'function') {
+            window.history.pushState(null, '', id);
+          }
+          scrollToAnchorTarget(target);
         }
       }
     });
   });
+
+  if (window.location.hash === VGJ_FEATURE_HASH) {
+    const centerVgjFeature = () => {
+      const target = document.getElementById('vgjFeatureSection');
+      if (target) scrollToAnchorTarget(target, 'auto');
+    };
+
+    window.requestAnimationFrame(() => {
+      centerVgjFeature();
+      window.requestAnimationFrame(centerVgjFeature);
+    });
+    window.addEventListener('load', centerVgjFeature, { once: true });
+  }
 
   /* ----------------------------------------------------------
      6. FOOTER YEAR
@@ -663,7 +787,7 @@
   /* ----------------------------------------------------------
      10. GENTLE SOCIAL EXIT ASIDE
      One friendly pause for profile links only. Newsletter,
-     WhatsApp, calendar, email, forms, and essential contact links
+     calendar, email, forms, and essential contact links
      continue normally.
      ---------------------------------------------------------- */
   const SOCIAL_EXIT_KEY = 'vgj-social-exit-aside-seen';
@@ -687,7 +811,7 @@
       const href = url.href;
       if (href === NEWSLETTER_URL) return false;
       if (url.protocol === 'mailto:' || url.protocol === 'tel:') return false;
-      if (host === 'wa.me' || host === 'calendar.app.google' || host.includes('web3forms.com')) return false;
+      if (host === 'calendar.app.google' || host.includes('web3forms.com')) return false;
       return (host === 'linkedin.com' && url.pathname.includes('/in/veltongoodenjr')) ||
         (host === 'instagram.com' && url.pathname.replace(/\/$/, '') === '/veltongoodenjr');
     } catch {
