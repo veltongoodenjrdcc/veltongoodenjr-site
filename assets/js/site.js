@@ -10,6 +10,7 @@
      COOKIE CONSENT + OPTIONAL THIRD-PARTY SERVICES
      ---------------------------------------------------------- */
   const CONSENT_KEY = 'vgj-cookie-consent-v1';
+  const COOKIE_FLOAT_DISMISSED_KEY = 'vgj-cookie-float-dismissed-v1';
   const ANALYTICS_ID = 'G-X5EHZYMGHC';
   const CONSENT_DEFAULTS = Object.freeze({
     analytics: false,
@@ -27,6 +28,7 @@
 
   const canUseStorage = storageAvailable();
   let memoryConsent = null;
+  let memoryCookieFloatDismissed = false;
 
   const normaliseConsent = (value) => {
     return {
@@ -62,6 +64,25 @@
       }
     }
     return consent;
+  };
+
+  const getCookieFloatDismissed = () => {
+    if (!canUseStorage) return memoryCookieFloatDismissed;
+    try {
+      return window.localStorage.getItem(COOKIE_FLOAT_DISMISSED_KEY) === '1';
+    } catch {
+      return memoryCookieFloatDismissed;
+    }
+  };
+
+  const saveCookieFloatDismissed = () => {
+    memoryCookieFloatDismissed = true;
+    if (!canUseStorage) return;
+    try {
+      window.localStorage.setItem(COOKIE_FLOAT_DISMISSED_KEY, '1');
+    } catch {
+      memoryCookieFloatDismissed = true;
+    }
   };
 
   const getPrivacyHref = () => {
@@ -193,15 +214,47 @@
   };
 
   const addFooterPreferencesLink = () => {
-    if (document.querySelector('[data-cookie-preferences]')) return;
     const privacyLink = document.querySelector('.footer-legal a[href*="privacy"]');
     if (!privacyLink) return;
+    if (privacyLink.parentElement && privacyLink.parentElement.querySelector('[data-cookie-preferences]')) return;
 
     const preferencesLink = document.createElement('a');
     preferencesLink.href = '#cookie-preferences';
     preferencesLink.textContent = 'Cookie preferences';
     preferencesLink.setAttribute('data-cookie-preferences', '');
     privacyLink.insertAdjacentElement('afterend', preferencesLink);
+  };
+
+  const getCookieFloat = () => document.querySelector('.cookie-float');
+
+  const dismissCookieFloat = () => {
+    saveCookieFloatDismissed();
+    const float = getCookieFloat();
+    if (!float) return;
+
+    float.classList.remove('is-nudging');
+    float.classList.add('is-dismissing');
+    const removeFloat = () => float.remove();
+    float.addEventListener('transitionend', removeFloat, { once: true });
+    window.setTimeout(removeFloat, 360);
+  };
+
+  const initCookieFloat = () => {
+    const float = getCookieFloat();
+    if (!float) return;
+
+    if (getCookieFloatDismissed()) {
+      float.remove();
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      if (!float.isConnected) return;
+      float.classList.add('is-ready', 'is-nudging');
+      window.setTimeout(() => {
+        if (float.isConnected) float.classList.remove('is-nudging');
+      }, 1800);
+    });
   };
 
   const hideConsentBanner = () => {
@@ -229,6 +282,7 @@
     const consent = saveStoredConsent(choices);
     applyConsent(consent);
     hideConsentBanner();
+    dismissCookieFloat();
     closeCookieModal();
   };
 
@@ -337,6 +391,7 @@
 
   const initCookieConsent = () => {
     addFooterPreferencesLink();
+    initCookieFloat();
     const storedConsent = getStoredConsent();
     applyConsent(storedConsent || CONSENT_DEFAULTS);
     if (!storedConsent) showConsentBanner();
@@ -345,6 +400,7 @@
       const preferencesLink = event.target.closest('[data-cookie-preferences]');
       if (preferencesLink) {
         event.preventDefault();
+        if (preferencesLink.closest('.cookie-float')) dismissCookieFloat();
         openCookieModal();
         return;
       }
@@ -1046,6 +1102,9 @@
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)');
   let animating  = false;
+  let portalTimer = 0;
+  let pendingPortalHref = '';
+  let portalTransitionHandler = null;
 
   function setOriginFromEl (el) {
     const r = el.getBoundingClientRect();
@@ -1053,16 +1112,59 @@
     overlay.style.setProperty('--cy', (((r.top  + r.height / 2) / window.innerHeight) * 100).toFixed(1) + '%');
   }
 
+  function clearPortalNavigation () {
+    if (portalTimer) {
+      window.clearTimeout(portalTimer);
+      portalTimer = 0;
+    }
+    if (portalTransitionHandler) {
+      overlay.removeEventListener('transitionend', portalTransitionHandler);
+      portalTransitionHandler = null;
+    }
+    pendingPortalHref = '';
+  }
+
+  function resetPortal () {
+    clearPortalNavigation();
+    animating = false;
+    if (section) section.classList.remove('has-cursor');
+    overlay.classList.remove('is-active');
+    overlay.style.removeProperty('--cx');
+    overlay.style.removeProperty('--cy');
+    if (typeof overlay.getAnimations === 'function') {
+      try {
+        overlay.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
+      } catch {
+        overlay.getAnimations().forEach(animation => animation.cancel());
+      }
+    }
+  }
+
+  function completePortalNavigation () {
+    if (!pendingPortalHref) return;
+    const href = pendingPortalHref;
+    clearPortalNavigation();
+    window.location.href = href;
+  }
+
   function triggerPortal (e, href) {
     e.preventDefault();
     if (animating) return;
     animating = true;
     if (reduceMo.matches) { window.location.href = href; return; }
+    pendingPortalHref = href;
     setOriginFromEl(e.currentTarget);
     overlay.classList.add('is-active');
-    overlay.addEventListener('transitionend', () => { window.location.href = href; }, { once: true });
-    window.setTimeout(() => { window.location.href = href; }, 950);
+    portalTransitionHandler = (event) => {
+      if (event.target !== overlay) return;
+      completePortalNavigation();
+    };
+    overlay.addEventListener('transitionend', portalTransitionHandler);
+    portalTimer = window.setTimeout(completePortalNavigation, 950);
   }
+
+  window.addEventListener('pagehide', resetPortal);
+  window.addEventListener('pageshow', resetPortal);
 
   // Homepage feature section — cursor glow + button click
   if (section && featureBtn) {
