@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260603-cookie-pill-4">
   <script defer src="assets/js/site.js"></script>
   <meta property="og:title" content="Velton Gooden Jr. | Digital Brand Strategist · Jamaica">
   <meta property="og:description" content="Digital brand strategy, content, systems, and execution by Velton Gooden Jr. Based in Jamaica.">
@@ -56,13 +56,9 @@
     .home-hero__cap-item { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); border-radius: var(--r-lg); background: rgba(255, 255, 255, 0.07); }
     .home-hero__cap-icon { width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-sm); background: rgba(255, 255, 255, 0.14); color: #7dd3fc; font-size: 0.875rem; flex-shrink: 0; }
     .home-hero__cap-label { color: rgba(255, 255, 255, 0.88); font-size: var(--fs-sm); font-weight: 600; }
-    .home-hero__headline { color: rgba(255, 255, 255, 0.96); font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: var(--fs-4xl); font-weight: 400; line-height: 1.08; letter-spacing: 0; max-width: 21ch; margin-top: var(--sp-4); }
-    .home-hero__headline-lock { white-space: nowrap; }
-    .home-hero__headline-icon { display: inline-flex; align-items: center; justify-content: center; width: 1.08em; height: 1.08em; margin-left: 0.08em; border-radius: 50%; background: rgba(125, 211, 252, 0.13); color: #7dd3fc; font-size: 0.78em; vertical-align: 0; transform-origin: 55% 55%; animation: none; }
-    .home-hero__headline-icon i { font-size: 1.08em; line-height: 1; }
-    @media (hover: hover) and (pointer: fine) {
-      .home-hero__headline-icon:hover { animation: heroLensSearch 1.1s ease-in-out 1; }
-    }
+    .home-hero__headline { color: rgba(255, 255, 255, 0.96); font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-size: var(--fs-4xl); font-weight: 400; letter-spacing: -0.025em; line-height: 1.1; max-width: 21ch; margin-top: var(--sp-4); }
+    @media (min-width: 56rem) { .home-hero__headline { font-size: var(--fs-5xl); } }
+    .hero-em { font-style: italic; color: rgba(125, 211, 252, 0.78); }
     .home-hero__subhead { display: grid; gap: 0.7rem; max-width: 58ch; margin-top: var(--sp-5); color: rgba(255, 255, 255, 0.86); font-size: var(--fs-lg); line-height: 1.65; }
     .home-hero__subhead p { margin: 0; color: inherit; }
     .home-hero__subhead p:first-child { color: rgba(255, 255, 255, 0.94); }
@@ -96,18 +92,20 @@
         opacity: 1;
         transform: translate(-50%, 0) scale(1);
       }
-    }
-    @keyframes heroLensSearch {
-      0%, 58%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      64% { transform: translate(-0.08em, 0.03em) rotate(-7deg) scale(1.04); }
-      70% { transform: translate(0.1em, -0.04em) rotate(8deg) scale(1.06); }
-      76% { transform: translate(-0.02em, 0.06em) rotate(-3deg) scale(1.03); }
-      82% { transform: translate(0, 0) rotate(0deg) scale(1); }
+
+      .home-hero__subhead-vgj.vgj-section-link:hover {
+        color: inherit;
+        transform: none;
+      }
+
+      .home-hero__subhead-vgj.vgj-section-link:hover::after {
+        opacity: 0.48;
+        transform: scaleX(0.34);
+      }
     }
     .home-hero__eyebrow-vgj { font-style: italic; }
     @media (hover: hover) and (pointer: fine) {
-      .home-hero__eyebrow-vgj:hover,
-      .home-hero__subhead-vgj:hover { color: #7dd3fc; }
+      .home-hero__eyebrow-vgj:hover { color: #7dd3fc; }
     }
     @media (hover: none), (pointer: coarse) {
       .home-hero__eyebrow-vgj,
@@ -229,7 +227,7 @@
     /* Very short desktop viewports (e.g. 1351×645, browser-chrome-adjusted 1366×768) */
     @media (max-height: 760px) and (min-width: 76rem) {
       .home-hero-bg           { padding-block: clamp(1.25rem, 2vw, 2.5rem); }
-      .home-hero__headline    { font-size: clamp(1.5rem, 2.6vw, 2.4rem); max-width: 26ch; }
+      .home-hero__headline    { font-size: var(--fs-4xl); max-width: 21ch; }
       .home-hero__pill-row    { margin-top: var(--sp-4); row-gap: var(--sp-2); }
       .home-hero__actions     { margin-top: var(--sp-4); }
       .home-hero__note        { display: none; }
@@ -291,11 +289,10 @@
         <div class="home-hero__grid reveal" style="position: relative; z-index: 2;">
           <div>
             <p class="section-label section-label--light">Digital Brand Strategist &middot; Founder of <a href="#vgjFeatureSection" class="vgj-section-link home-hero__eyebrow-vgj">VGJ Digital</a> &middot; Jamaica</p>
-            <h1 class="home-hero__headline">Good service shouldn&rsquo;t need detective <span class="home-hero__headline-lock">work.<span class="home-hero__headline-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span></span></h1>
+            <h1 class="home-hero__headline">I make things<br><em class="hero-em">make sense</em></h1>
             <div class="home-hero__subhead">
-              <p>I&rsquo;m Velton Gooden Jr., a Jamaica-based Digital Brand Strategist and Founder &amp; Principal Strategist of <a href="#vgjFeatureSection" class="vgj-section-link home-hero__subhead-vgj" data-hover-note="psst... click me">VGJ Digital</a>.</p>
+              <p>I&rsquo;m Velton Gooden Jr., a Jamaica-based Digital Brand Strategist.</p>
               <p>I work across content, websites, voice, video, and practical systems for service-based businesses.</p>
-              <p>The goal: turn what they do into something people can understand, trust, and act on.</p>
             </div>
             <div class="home-hero__pill-row">
               <span class="home-hero__pill"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Brand strategy</span>
@@ -528,7 +525,7 @@
             <img src="assets/images/brand/vgj-digital-logo-h.png" alt="VGJ Digital" class="vgj-feature__logo" loading="lazy">
             <span class="vgj-feature__role">Founder &amp; Principal Strategist</span>
             <h2 class="vgj-feature__headline">I also run VGJ Digital.</h2>
-            <p class="vgj-feature__body">VGJ Digital handles website builds and post-launch support for solo service professionals, growing service businesses, and larger service-centric organisations in Jamaica. Strategy and message inform every build. The result is a website that actually works for your business, not just one that looks the part.</p>
+            <p class="vgj-feature__body">VGJ Digital is a Digital Brand & Web Agency that builds and supports websites for solo service professionals, growing service businesses, and larger service-centric organisations. Strategy and message shape every build, so the final website does more than look polished. It helps people understand what you do, trust what they see, and know what to do next.</p>
             <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-8);">
               <a href="https://www.vgjdigital.com/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=feature" id="vgjPortalBtn" class="btn btn--primary btn--lg">Visit the VGJ Digital site <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
@@ -696,6 +693,6 @@
       <div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div>
     </div>
   </footer>
-  <div class="cookie-float cookie-float--mobile-only"><button type="button" class="cookie-float__btn" data-cookie-preferences aria-label="Open cookie preferences"><i class="fa-solid fa-cookie-bite cookie-float__icon" aria-hidden="true"></i><span class="cookie-float__label" aria-hidden="true"><span class="cookie-float__title">Cookies</span><span class="cookie-float__sub">Preferences</span></span></button></div>
+  <div class="cookie-float cookie-float--mobile-only"><button type="button" class="cookie-float__btn" data-cookie-preferences aria-label="Open cookie preferences"><i class="fa-solid fa-cookie-bite cookie-float__icon" aria-hidden="true"></i><span class="cookie-float__label" aria-hidden="true"><span class="cookie-float__title">Cookie preferences</span></span></button></div>
 </body>
 </html>

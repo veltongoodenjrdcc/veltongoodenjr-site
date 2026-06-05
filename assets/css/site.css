@@ -320,6 +320,8 @@ strong { font-weight: 700; color: var(--c-ink); }
   transform: scaleX(1);
 }
 
+.home-hero__subhead-vgj::after { display: none; }
+
 .vgj-whisper-link {
   position: relative;
   display: inline-block;
@@ -1980,7 +1982,9 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 
 .cookie-float__label {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
+  flex: 0 0 auto;
   max-width: 0;
   margin-left: 0;
   opacity: 0;
@@ -1991,18 +1995,12 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 }
 
 .cookie-float__title {
+  display: inline-block;
+  padding-right: 0.2em;
   color: var(--c-ink);
   font-size: 0.78rem;
   font-weight: 800;
-  line-height: 1.1;
-}
-
-.cookie-float__sub {
-  margin-top: 1px;
-  color: var(--c-muted);
-  font-size: 0.64rem;
-  font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .cookie-float.is-nudging .cookie-float__icon {
@@ -2020,16 +2018,21 @@ textarea.form-input { resize: vertical; min-height: 130px; }
 @media (hover: hover) and (pointer: fine) {
   .cookie-float__btn:hover,
   .cookie-float__btn:focus-visible {
-    width: 9.75rem;
+    width: 15rem;
+    width: min(15rem, calc(100vw - 1.5rem));
     justify-content: flex-start;
     padding-inline: var(--sp-4);
     background: #fff;
+    overflow: visible;
   }
   .cookie-float__btn:hover .cookie-float__label,
   .cookie-float__btn:focus-visible .cookie-float__label {
-    max-width: 7rem;
+    width: 10.75rem;
+    width: min(10.75rem, calc(100vw - 5.75rem));
+    max-width: none;
     margin-left: var(--sp-2);
     opacity: 1;
+    overflow: visible;
     transform: translateX(0);
   }
 }
