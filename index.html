@@ -197,6 +197,13 @@
     .home-whats-new__slide { max-width: none; min-width: 0; opacity: 1; visibility: visible; transform: translateX(0); transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease; }
     .home-whats-new__slide[aria-hidden="true"] { position: absolute; top: 0; left: 0; right: 0; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(1rem); }
     .home-whats-new__copy { min-width: 0; }
+    .home-whats-new__copy--packed { display: flex; flex-direction: column; }
+    .home-whats-new__copy--packed .home-whats-new__details { display: contents; }
+    .home-whats-new__copy--packed .section-label { order: 1; }
+    .home-whats-new__copy--packed .home-whats-new__media { order: 2; }
+    .home-whats-new__copy--packed .home-whats-new__heading { order: 3; }
+    .home-whats-new__copy--packed .home-whats-new__body { order: 4; }
+    .home-whats-new__copy--packed .home-whats-new__details > a { order: 5; align-self: flex-start; }
     @media (min-width: 56rem) {
       .home-whats-new__copy { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto; column-gap: clamp(2rem, 5vw, 3.5rem); row-gap: var(--sp-3); align-items: start; }
       .home-whats-new__copy .section-label { grid-column: 2; grid-row: 1; margin-bottom: 0; }
@@ -204,6 +211,9 @@
       .home-whats-new__heading { grid-column: 2; grid-row: 2; margin-top: 0; }
       .home-whats-new__body { grid-column: 2; grid-row: 3; max-width: none; margin-top: 0; margin-bottom: 0; }
       .home-whats-new__copy > a:not(.home-whats-new__media) { grid-column: 2; grid-row: 4; align-self: start; justify-self: start; }
+      .home-whats-new__copy--packed { grid-template-rows: auto; }
+      .home-whats-new__copy--packed .home-whats-new__media { grid-column: 1; grid-row: 1; }
+      .home-whats-new__copy--packed .home-whats-new__details { min-width: 0; grid-column: 2; grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
     }
     .home-whats-new__heading { font-size: var(--fs-3xl); margin-top: var(--sp-2); overflow-wrap: anywhere; }
     .home-whats-new__body { margin-top: var(--sp-2); font-size: var(--fs-md); color: var(--c-muted); line-height: 1.75; margin-bottom: var(--sp-3); max-width: 62ch; }
@@ -349,14 +359,16 @@
             </article>
 
             <article class="home-whats-new__slide" data-carousel-slide aria-hidden="true" inert>
-              <div class="home-whats-new__copy">
-                <span class="section-label">Programme selection</span>
+              <div class="home-whats-new__copy home-whats-new__copy--packed">
                 <a class="home-whats-new__media home-whats-new__media--intrinsic home-whats-new__media--compact" href="https://conecta.bridgeforbillions.org/conecta-caribbean/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=conecta_caribbean" target="_blank" rel="noopener" aria-label="Read about Conecta Caribbean">
                   <img src="assets/images/content/announcements/ecast-pre-accelerator-2026.jpg" alt="ECAST Pre-Accelerator and Conecta Caribbean programme artwork" width="1200" height="1500" loading="lazy" decoding="async">
                 </a>
-                <h3 class="home-whats-new__heading">Selected for the ECAST Pre-Accelerator, 2026</h3>
-                <p class="home-whats-new__body">As Founder and Principal Strategist of VGJ Digital, selected for the 2026 <a href="https://ecastgroup.org/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=ecast" target="_blank" rel="noopener">Eastern Caribbean Association of Science &amp; Technology (ECAST)</a> Pre-Accelerator Programme, part of Conecta Caribbean, run by Bridge for Billions and backed by the European Union and IDB Lab.</p>
-                <a href="https://conecta.bridgeforbillions.org/conecta-caribbean/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=conecta_caribbean" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-solid fa-rocket" aria-hidden="true"></i> About Conecta Caribbean <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <div class="home-whats-new__details">
+                  <span class="section-label">Programme selection</span>
+                  <h3 class="home-whats-new__heading">Selected for the ECAST Pre-Accelerator, 2026</h3>
+                  <p class="home-whats-new__body">As Founder and Principal Strategist of VGJ Digital, selected for the 2026 <a href="https://ecastgroup.org/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=ecast" target="_blank" rel="noopener">Eastern Caribbean Association of Science &amp; Technology (ECAST)</a> Pre-Accelerator Programme, part of Conecta Caribbean, run by Bridge for Billions and backed by the European Union and IDB Lab.</p>
+                  <a href="https://conecta.bridgeforbillions.org/conecta-caribbean/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=conecta_caribbean" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-solid fa-rocket" aria-hidden="true"></i> About Conecta Caribbean <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
               </div>
             </article>
 
