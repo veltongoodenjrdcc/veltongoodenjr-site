@@ -159,6 +159,87 @@
       display: block;
       width: 100%;
     }
+
+    /* Copy-link permalinks on section headings */
+    .anchor-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      margin-left: var(--sp-3);
+      padding: 0;
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-pill);
+      background: var(--c-surface-2);
+      color: var(--c-brand-dark);
+      font-size: 0.7rem;
+      line-height: 1;
+      cursor: pointer;
+      vertical-align: middle;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .anchor-link:hover,
+    .anchor-link:focus-visible,
+    .anchor-link.is-copied {
+      background: var(--c-brand-dark);
+      border-color: var(--c-brand-dark);
+      color: #fff;
+    }
+    .anchor-link.is-copied::after {
+      content: 'Link copied';
+      position: absolute;
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: var(--r-pill);
+      background: var(--c-ink);
+      color: #fff;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Film and voice group */
+    .work-group {
+      padding-block: clamp(2.25rem, 5vw, 3.25rem);
+      background: var(--c-surface-2);
+      border-top: 2px solid var(--c-brand);
+    }
+    .work-group__label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c-brand-dark);
+    }
+    .work-group__title {
+      margin-top: var(--sp-2);
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.15;
+    }
+    .work-group__copy {
+      margin-top: var(--sp-2);
+      max-width: 56ch;
+      color: var(--c-muted);
+      line-height: 1.7;
+    }
+
+    .work-group--plain {
+      background: transparent;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .client-block--feature {
+      background: var(--c-surface-2);
+    }
+
+    section[id],
+    .work-group[id] {
+      scroll-margin-top: calc(var(--header-h, 4.35rem) + 0.75rem);
+    }
   </style>
 </head>
 <body>
@@ -176,19 +257,30 @@
           <h1 class="page-hero__title display-heading">Short-form video content, built to land.</h1>
           <p class="page-hero__lead" style="margin-inline: auto;">A cross-section of video content produced for four clients across Jamaica, plus proposal films and a voiceover demo reel. Work spans event coverage, hospitality, higher education, retail, and personal milestones. Concept, direction, filming, editing, and voice.</p>
           <div class="page-hero__actions" style="justify-content: center; flex-wrap: wrap;">
-            <a href="#amplify-studios" class="btn btn--white btn--lg"><i class="fa-solid fa-film" aria-hidden="true"></i> Browse the work</a>
+            <a href="#socials" class="btn btn--white btn--lg"><i class="fa-solid fa-film" aria-hidden="true"></i> Socials</a>
+            <a href="#proposal-films" class="btn btn--white btn--lg"><i class="fa-solid fa-heart" aria-hidden="true"></i> Proposals</a>
+            <a href="#voiceover" class="btn btn--white btn--lg"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Voiceover</a>
             <a href="../contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Work with me</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Social content group -->
+    <div class="work-group work-group--plain" id="socials">
+      <div class="container">
+        <p class="work-group__label">Client work</p>
+        <h2 class="work-group__title">Socials</h2>
+        <p class="work-group__copy">Short-form social content produced for four brands across Jamaica.</p>
+      </div>
+    </div>
+
     <!-- Amplify Studios -->
     <section class="client-block" id="amplify-studios">
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-film" aria-hidden="true"></i> Client work</p>
-          <h2>Amplify Studios</h2>
+          <h2>Amplify Studios<button class="anchor-link" type="button" data-anchor="amplify-studios" title="Copy link to this section" aria-label="Copy link to the Amplify Studios section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>Short-form reels produced for the Jamaica Book Festival through Amplify Studios. Work focused on event atmosphere, author moments, and cultural storytelling crafted for social reach and engagement.</p>
           <span class="client-header__tag">Jamaica Book Festival</span>
         </div>
@@ -214,7 +306,7 @@
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-building" aria-hidden="true"></i> Client work</p>
-          <h2>Jamaica Pegasus Hotel</h2>
+          <h2>Jamaica Pegasus Hotel<button class="anchor-link" type="button" data-anchor="jamaica-pegasus" title="Copy link to this section" aria-label="Copy link to the Jamaica Pegasus Hotel section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>Social content produced for the hotel's social channels. Atmosphere-led reels built to communicate the property's identity and connect with the right audience through considered framing and pacing.</p>
           <span class="client-header__tag">Hospitality</span>
         </div>
@@ -237,7 +329,7 @@
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Client work</p>
-          <h2>UWI Mona</h2>
+          <h2>UWI Mona<button class="anchor-link" type="button" data-anchor="uwi-mona" title="Copy link to this section" aria-label="Copy link to the UWI Mona section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>Content work for the University of the West Indies, Mona campus. Reels covering campus life, institutional communication, and student-focused storytelling built to reach and resonate with a younger audience.</p>
           <span class="client-header__tag">University of the West Indies, Mona</span>
         </div>
@@ -269,7 +361,7 @@
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-store" aria-hidden="true"></i> Client work</p>
-          <h2>Hi-Pro Ace Supercentre</h2>
+          <h2>Hi-Pro Ace Supercentre<button class="anchor-link" type="button" data-anchor="hipro" title="Copy link to this section" aria-label="Copy link to the Hi-Pro Ace Supercentre section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>Product and brand content for Hi-Pro Ace Supercentre. Retail-focused reels with a direct, practical feel built to connect with a consumer audience and drive in-store interest.</p>
           <span class="client-header__tag">Retail &middot; Consumer content</span>
         </div>
@@ -290,12 +382,21 @@
       </div>
     </section>
 
+    <!-- Film and voice group -->
+    <div class="work-group">
+      <div class="container">
+        <p class="work-group__label">More work</p>
+        <h2 class="work-group__title">Film &amp; voice</h2>
+        <p class="work-group__copy">Longer-form film work and a voiceover reel, kept separate from the brand content above.</p>
+      </div>
+    </div>
+
     <!-- Proposal films -->
-    <section class="client-block" id="proposal-films">
+    <section class="client-block client-block--feature" id="proposal-films">
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> Milestone films</p>
-          <h2>Proposal Films</h2>
+          <h2>Proposal Films<button class="anchor-link" type="button" data-anchor="proposal-films" title="Copy link to this section" aria-label="Copy link to the Proposal Films section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>Proposal films shot and edited for two couples. Moments that only happen once, captured as they unfold and cut into something worth keeping.</p>
           <span class="client-header__tag">Event &middot; Personal milestones</span>
         </div>
@@ -333,11 +434,11 @@
     </section>
 
     <!-- Voiceover -->
-    <section class="client-block client-block--alt" id="voiceover">
+    <section class="client-block client-block--feature" id="voiceover">
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Voiceover</p>
-          <h2>Voiceover Demo Reel</h2>
+          <h2>Voiceover Demo Reel<button class="anchor-link" type="button" data-anchor="voiceover" title="Copy link to this section" aria-label="Copy link to the Voiceover Demo Reel section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
           <p>A short reel demonstrating range across read styles and tones. Every brand featured in it is fictitious, written purely to showcase delivery rather than to represent past client work.</p>
           <span class="client-header__tag">Fictitious brands &middot; 1:40</span>
         </div>
@@ -423,5 +524,74 @@
       });
     })();
   </script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var header = document.querySelector('.site-header');
+
+      function setHeaderOffset() {
+        if (header) root.style.setProperty('--header-h', header.offsetHeight + 'px');
+      }
+      setHeaderOffset();
+      window.addEventListener('resize', setHeaderOffset);
+      window.addEventListener('load', setHeaderOffset);
+
+      function setHash(hash) {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', hash);
+        }
+      }
+
+      var targets = {};
+      document.querySelectorAll('section[id], .work-group[id]').forEach(function (el) {
+        targets[el.id] = true;
+      });
+
+      // site.js smooth-scrolls same-page anchors but never updates the address
+      // bar, so reflect the jump here to keep section links copyable.
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        var id = a.getAttribute('href').slice(1);
+        if (targets[id]) {
+          a.addEventListener('click', function () { setHash('#' + id); });
+        }
+      });
+
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-100px';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        return ok;
+      }
+
+      document.querySelectorAll('[data-anchor]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-anchor');
+          var url = window.location.origin + window.location.pathname + '#' + id;
+          var flag = function () {
+            btn.classList.add('is-copied');
+            window.setTimeout(function () { btn.classList.remove('is-copied'); }, 1800);
+          };
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(url).then(flag, function () {
+              if (fallbackCopy(url)) flag();
+            });
+          } else if (fallbackCopy(url)) {
+            flag();
+          }
+          setHash('#' + id);
+        });
+      });
+    })();
+  </script>
 </body>
+
+
 </html>
