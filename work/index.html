@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Work | Velton Gooden Jr.: Content Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A selection of short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus proposal films and a voiceover demo reel.">
+  <meta name="description" content="A selection of short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus film work and a voiceover demo reel.">
   <link rel="canonical" href="https://www.veltongoodenjr.com/work/">
   <link rel="icon" type="image/svg+xml" href="../assets/images/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../assets/css/site.css?v=20260603-cookie-pill-4">
   <script defer src="../assets/js/site.js"></script>
   <meta property="og:title" content="Work | Velton Gooden Jr.: Content Portfolio">
-  <meta property="og:description" content="Short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus proposal films and a voiceover demo reel.">
+  <meta property="og:description" content="Short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus film work and a voiceover demo reel.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/work/">
   <style>
@@ -202,42 +202,54 @@
       white-space: nowrap;
     }
 
-    /* Film and voice group */
-    .work-group {
-      padding-block: clamp(2.25rem, 5vw, 3.25rem);
-      background: var(--c-surface-2);
-      border-top: 2px solid var(--c-brand);
-    }
-    .work-group__label {
-      font-size: var(--fs-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--c-brand-dark);
-    }
-    .work-group__title {
-      margin-top: var(--sp-2);
-      font-size: clamp(1.5rem, 2.6vw, 2rem);
-      line-height: 1.15;
-    }
-    .work-group__copy {
-      margin-top: var(--sp-2);
-      max-width: 56ch;
-      color: var(--c-muted);
-      line-height: 1.7;
-    }
-
-    .work-group--plain {
-      background: transparent;
-      border-bottom: 1px solid var(--c-border);
+    .work-divider {
+      height: 3px;
+      background: var(--c-brand);
     }
 
     .client-block--feature {
       background: var(--c-surface-2);
     }
 
-    section[id],
-    .work-group[id] {
+    .jump-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(7, 21, 37, 0.86);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    .jump-loader[hidden] { display: none; }
+    .jump-loader__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-4);
+      color: #fff;
+    }
+    .jump-loader__spinner {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 3px solid rgba(255, 255, 255, 0.25);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: jump-spin 0.8s linear infinite;
+    }
+    .jump-loader__text {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+    }
+    @keyframes jump-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .jump-loader__spinner { animation-duration: 2.4s; }
+    }
+
+    section[id] {
       scroll-margin-top: calc(var(--header-h, 4.35rem) + 0.75rem);
     }
   </style>
@@ -255,25 +267,16 @@
         <div class="page-hero__content reveal">
           <p class="page-hero__eyebrow">Content portfolio</p>
           <h1 class="page-hero__title display-heading">Short-form video content, built to land.</h1>
-          <p class="page-hero__lead" style="margin-inline: auto;">A cross-section of video content produced for four clients across Jamaica, plus proposal films and a voiceover demo reel. Work spans event coverage, hospitality, higher education, retail, and personal milestones. Concept, direction, filming, editing, and voice.</p>
+          <p class="page-hero__lead" style="margin-inline: auto;">A cross-section of video content produced for four clients across Jamaica, plus film work and a voiceover demo reel. Work spans event coverage, hospitality, higher education, retail, and personal milestones. Concept, direction, filming, editing, and voice.</p>
           <div class="page-hero__actions" style="justify-content: center; flex-wrap: wrap;">
-            <a href="#socials" class="btn btn--white btn--lg"><i class="fa-solid fa-film" aria-hidden="true"></i> Socials</a>
-            <a href="#proposal-films" class="btn btn--white btn--lg"><i class="fa-solid fa-heart" aria-hidden="true"></i> Proposals</a>
+            <a href="#amplify-studios" class="btn btn--white btn--lg"><i class="fa-solid fa-film" aria-hidden="true"></i> Socials</a>
+            <a href="#films" class="btn btn--white btn--lg"><i class="fa-solid fa-heart" aria-hidden="true"></i> Films</a>
             <a href="#voiceover" class="btn btn--white btn--lg"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Voiceover</a>
             <a href="../contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Work with me</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Social content group -->
-    <div class="work-group work-group--plain" id="socials">
-      <div class="container">
-        <p class="work-group__label">Client work</p>
-        <h2 class="work-group__title">Socials</h2>
-        <p class="work-group__copy">Short-form social content produced for four brands across Jamaica.</p>
-      </div>
-    </div>
 
     <!-- Amplify Studios -->
     <section class="client-block" id="amplify-studios">
@@ -382,22 +385,16 @@
       </div>
     </section>
 
-    <!-- Film and voice group -->
-    <div class="work-group">
-      <div class="container">
-        <p class="work-group__label">More work</p>
-        <h2 class="work-group__title">Film &amp; voice</h2>
-        <p class="work-group__copy">Longer-form film work and a voiceover reel, kept separate from the brand content above.</p>
-      </div>
-    </div>
+    <!-- Separator into the film and voice work -->
+    <div class="work-divider" role="presentation"></div>
 
-    <!-- Proposal films -->
-    <section class="client-block client-block--feature" id="proposal-films">
+    <!-- Films -->
+    <section class="client-block client-block--feature" id="films">
       <div class="container">
         <div class="client-header reveal">
-          <p class="client-header__eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> Milestone films</p>
-          <h2>Proposal Films<button class="anchor-link" type="button" data-anchor="proposal-films" title="Copy link to this section" aria-label="Copy link to the Proposal Films section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
-          <p>Proposal films shot and edited for two couples. Moments that only happen once, captured as they unfold and cut into something worth keeping.</p>
+          <p class="client-header__eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> Milestone work</p>
+          <h2>Films<button class="anchor-link" type="button" data-anchor="films" title="Copy link to this section" aria-label="Copy link to the Films section"><i class="fa-solid fa-link" aria-hidden="true"></i></button></h2>
+          <p>Films shot and edited for two couples. Moments that only happen once, captured as they unfold and cut into something worth keeping.</p>
           <span class="client-header__tag">Event &middot; Personal milestones</span>
         </div>
         <div class="video-grid reveal">
@@ -469,8 +466,28 @@
   <footer class="site-footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><img src="../assets/images/brand/logo.svg" alt="Velton Gooden Jr" width="100" height="30" loading="lazy"><p>Digital brand strategy, content, systems, and execution. Based in Jamaica.</p><div class="footer-brand__social"><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></div></div><nav aria-label="Explore links"><span class="footer-nav__label">Explore</span><div class="footer-nav__links"><a href="../about/">About</a><a href="../work/">Work</a><a href="../creators-current/">Creator's Current</a><a href="../partnerships/">Speaking &amp; Partnerships</a><a href="../contact/">Contact</a></div></nav><!-- LFF-DISABLED: <nav aria-label="Offers links"><span class="footer-nav__label">Offers</span><div class="footer-nav__links"><a href="../lead-flow-fix/">Lead Flow Fix</a></div></nav> --><nav aria-label="Connect links"><span class="footer-nav__label">Connect</span><div class="footer-nav__links"><a href="https://www.linkedin.com/in/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=linkedin" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/veltongoodenjr?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=social_profile&utm_content=instagram" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402&utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=newsletter&utm_content=creators_current" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div></nav></div><div class="footer-legal"><p>&copy; <span class="js-year">2026</span> Velton Gooden Jr. All rights reserved.</p><div style="display: flex; gap: var(--sp-5); align-items: center;"><a href="../privacy/">Privacy Notice</a><a href="#top" data-back-top class="back-to-top">Back to top</a></div></div></div></footer>
   <div class="cookie-float cookie-float--mobile-only"><button type="button" class="cookie-float__btn" data-cookie-preferences aria-label="Open cookie preferences"><i class="fa-solid fa-cookie-bite cookie-float__icon" aria-hidden="true"></i><span class="cookie-float__label" aria-hidden="true"><span class="cookie-float__title">Cookie preferences</span></span></button></div>
 
+  <div class="jump-loader" id="jumpLoader" role="status" aria-live="polite" hidden>
+    <div class="jump-loader__inner">
+      <span class="jump-loader__spinner" aria-hidden="true"></span>
+      <span class="jump-loader__text">Loading the work&hellip;</span>
+    </div>
+  </div>
+
   <script>
     (function () {
+      var root = document.documentElement;
+      var header = document.querySelector('.site-header');
+      var loader = document.getElementById('jumpLoader');
+
+      /* ---- sticky header offset for anchored sections ---- */
+      function setHeaderOffset() {
+        if (header) root.style.setProperty('--header-h', header.offsetHeight + 'px');
+      }
+      setHeaderOffset();
+      window.addEventListener('resize', setHeaderOffset);
+      window.addEventListener('load', setHeaderOffset);
+
+      /* ---- Instagram reels, rendered lazily ---- */
       var scriptState = 'idle';
       var processTimer;
 
@@ -522,19 +539,36 @@
       document.querySelectorAll('[data-reel-url]').forEach(function (el) {
         observer.observe(el);
       });
-    })();
-  </script>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var header = document.querySelector('.site-header');
 
-      function setHeaderOffset() {
-        if (header) root.style.setProperty('--header-h', header.offsetHeight + 'px');
+      /* ---- jumping to a section ----
+         Reels settle at whatever height Instagram hands back, so any that are
+         still dormant above the target will shove it down after we land on it.
+         Render those first, wait for the target to stop moving, then scroll. */
+      function activateReelsAbove(target) {
+        var count = 0;
+        document.querySelectorAll('[data-reel-url]').forEach(function (el) {
+          if (target.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING) {
+            observer.unobserve(el);
+            activateReel(el);
+            count++;
+          }
+        });
+        return count;
       }
-      setHeaderOffset();
-      window.addEventListener('resize', setHeaderOffset);
-      window.addEventListener('load', setHeaderOffset);
+
+      function whenSettled(target, done) {
+        var last = null, stable = 0, waited = 0;
+        var STEP = 100, NEEDED = 4, MAX = 8000;
+        var timer = setInterval(function () {
+          var top = Math.round(target.getBoundingClientRect().top + window.pageYOffset);
+          if (top === last) { stable++; } else { stable = 0; last = top; }
+          waited += STEP;
+          if (stable >= NEEDED || waited >= MAX) {
+            clearInterval(timer);
+            done();
+          }
+        }, STEP);
+      }
 
       function setHash(hash) {
         if (window.history && window.history.replaceState) {
@@ -542,20 +576,54 @@
         }
       }
 
+      // land exactly, without the page-level smooth scroll easing us in
+      function land(target) {
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        target.scrollIntoView({ block: 'start' });
+        root.style.scrollBehavior = prev;
+      }
+
+      function jumpTo(target, hash) {
+        if (hash) setHash(hash);
+        if (activateReelsAbove(target) === 0) {
+          target.scrollIntoView({ block: 'start' });
+          return;
+        }
+        if (loader) loader.hidden = false;
+        whenSettled(target, function () {
+          land(target);
+          if (loader) loader.hidden = true;
+        });
+      }
+
       var targets = {};
-      document.querySelectorAll('section[id], .work-group[id]').forEach(function (el) {
+      document.querySelectorAll('section[id]').forEach(function (el) {
         targets[el.id] = true;
       });
 
-      // site.js smooth-scrolls same-page anchors but never updates the address
-      // bar, so reflect the jump here to keep section links copyable.
+      // registered before site.js's deferred handler, so stopping the event
+      // here keeps site.js from scrolling us there before the page settles
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         var id = a.getAttribute('href').slice(1);
-        if (targets[id]) {
-          a.addEventListener('click', function () { setHash('#' + id); });
-        }
+        if (!targets[id]) return;
+        a.addEventListener('click', function (e) {
+          var target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          jumpTo(target, '#' + id);
+        });
       });
 
+      // someone opening /work/#films directly gets the same correction
+      var initial = window.location.hash;
+      if (initial.length > 1 && targets[initial.slice(1)]) {
+        var deep = document.getElementById(initial.slice(1));
+        if (deep) window.requestAnimationFrame(function () { jumpTo(deep, null); });
+      }
+
+      /* ---- copy a link to any section ---- */
       function fallbackCopy(text) {
         var ta = document.createElement('textarea');
         ta.value = text;
@@ -592,6 +660,7 @@
     })();
   </script>
 </body>
+
 
 
 </html>
