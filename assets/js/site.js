@@ -710,8 +710,9 @@
 
     const syncViewportHeight = () => {
       if (!viewport) return;
-      const maxHeight = Math.max(...slides.map(slide => Math.ceil(slide.getBoundingClientRect().height)));
-      if (maxHeight > 0) viewport.style.setProperty('--whats-new-height', `${maxHeight}px`);
+      const activeSlide = slides[activeIndex] || slides[0];
+      const activeHeight = Math.ceil(activeSlide.getBoundingClientRect().height);
+      if (activeHeight > 0) viewport.style.setProperty('--whats-new-height', `${activeHeight}px`);
     };
 
     const normaliseIndex = (index) => {
@@ -724,6 +725,7 @@
         const isActive = slideIndex === activeIndex;
         slide.classList.toggle('is-active', isActive);
         slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        slide.toggleAttribute('inert', !isActive);
       });
       dots.forEach((dot, dotIndex) => {
         if (dotIndex === activeIndex) {
