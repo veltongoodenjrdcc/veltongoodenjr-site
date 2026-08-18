@@ -214,6 +214,12 @@
     .home-whats-new__media { position: relative; width: 100%; min-width: 0; aspect-ratio: 16 / 9; border: 1px solid var(--c-border); border-radius: var(--r-xl); overflow: hidden; box-shadow: 0 18px 44px rgba(7, 21, 37, 0.14), 0 7px 16px rgba(14, 116, 144, 0.06); background: #000; display: block; margin: var(--sp-5) 0 var(--sp-6); transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
     .home-whats-new__media img, .home-whats-new__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
     .home-whats-new__media img { transition: transform 0.4s ease; }
+    /* Swap the inner .media-placeholder span for an <img> once art is ready */
+    .home-whats-new__media--placeholder { background: var(--c-surface-2); text-decoration: none; border-style: dashed; display: flex; align-items: center; justify-content: center; }
+    .media-placeholder { display: inline-flex; flex-direction: column; align-items: center; gap: var(--sp-2); padding: var(--sp-4); color: var(--c-muted); font-size: var(--fs-sm); font-weight: 600; text-align: center; }
+    .media-placeholder i { font-size: 1.75rem; color: var(--c-brand-dark); opacity: 0.7; }
+    .home-whats-new__body a { color: var(--c-brand-dark); font-weight: 600; }
+    .home-whats-new__body a:hover, .home-whats-new__body a:focus-visible { color: var(--c-ink); }
     a.home-whats-new__media:hover, a.home-whats-new__media:focus-visible { border-color: var(--c-brand); box-shadow: 0 20px 46px rgba(7, 21, 37, 0.15), 0 8px 16px rgba(14, 116, 144, 0.09); }
     a.home-whats-new__media:hover img, a.home-whats-new__media:focus-visible img { transform: scale(1.018); }
     @media (max-width: 48rem) {
@@ -333,6 +339,30 @@
           <div class="home-whats-new__viewport">
             <article class="home-whats-new__slide is-active" data-carousel-slide aria-hidden="false">
               <div class="home-whats-new__copy">
+                <span class="section-label">Speaking next</span>
+                <a class="home-whats-new__media home-whats-new__media--placeholder" href="https://www.hratheart.com/event-details/disrupthr-kingston-jamaica-edition-3-0?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=disrupthr_kingston" target="_blank" rel="noopener" aria-label="Buy tickets for DisruptHR Kingston, Jamaica Edition 3.0">
+                  <span class="media-placeholder"><i class="fa-regular fa-image" aria-hidden="true"></i> DisruptHR image to come</span>
+                </a>
+                <h3 class="home-whats-new__heading">Fix the Interface Before You Blame the People</h3>
+                <p class="home-whats-new__body">Selected to speak at DisruptHR Kingston, Jamaica Edition 3.0 on 7 October, 6:00pm. Five minutes on why the friction we blame on people is usually sitting in the interface they were handed.</p>
+                <a href="https://www.hratheart.com/event-details/disrupthr-kingston-jamaica-edition-3-0?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=disrupthr_kingston" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-solid fa-ticket" aria-hidden="true"></i> Buy tickets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="home-whats-new__slide" data-carousel-slide aria-hidden="true">
+              <div class="home-whats-new__copy">
+                <span class="section-label">Programme selection</span>
+                <a class="home-whats-new__media home-whats-new__media--placeholder" href="https://conecta.bridgeforbillions.org/conecta-caribbean/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=conecta_caribbean" target="_blank" rel="noopener" aria-label="Read about Conecta Caribbean">
+                  <span class="media-placeholder"><i class="fa-regular fa-image" aria-hidden="true"></i> ECAST image to come</span>
+                </a>
+                <h3 class="home-whats-new__heading">Selected for the 2026 ECAST Pre-Accelerator</h3>
+                <p class="home-whats-new__body">As Founder and Principal Strategist of VGJ Digital, selected for the 2026 <a href="https://ecastgroup.org/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=ecast" target="_blank" rel="noopener">Eastern Caribbean Association of Science &amp; Technology (ECAST)</a> Pre-Accelerator Programme &mdash; part of Conecta Caribbean, run by Bridge for Billions and backed by the European Union and IDB Lab.</p>
+                <a href="https://conecta.bridgeforbillions.org/conecta-caribbean/?utm_source=veltongoodenjr.com&utm_medium=website&utm_campaign=announcement&utm_content=conecta_caribbean" target="_blank" rel="noopener" class="btn btn--primary"><i class="fa-solid fa-rocket" aria-hidden="true"></i> About Conecta Caribbean <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="home-whats-new__slide" data-carousel-slide aria-hidden="true">
+              <div class="home-whats-new__copy">
                 <span class="section-label">Latest Creator's Current</span>
                 <a class="home-whats-new__media" href="creators-current/your-brand-is-an-interface/" aria-label="Read Your Brand is an Interface">
                   <img src="assets/images/brand/creators-current/cover-images/6.png" alt="Creator's Current touchscreen interface cover graphic" loading="lazy">
@@ -367,8 +397,10 @@
           <div class="home-whats-new__controls" role="group" aria-label="Carousel controls">
             <button class="home-whats-new__arrow" type="button" data-carousel-prev aria-label="Show previous update"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
             <div class="home-whats-new__dots" role="group" aria-label="Choose update">
-              <button class="home-whats-new__dot" type="button" data-carousel-dot="0" aria-label="Show latest Creator's Current article" aria-current="true"><span class="sr-only">Latest article</span></button>
-              <button class="home-whats-new__dot" type="button" data-carousel-dot="1" aria-label="Show latest YouTube video"><span class="sr-only">Latest video</span></button>
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="0" aria-label="Show DisruptHR Kingston speaking announcement" aria-current="true"><span class="sr-only">Speaking announcement</span></button>
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="1" aria-label="Show ECAST Pre-Accelerator announcement"><span class="sr-only">Programme selection</span></button>
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="2" aria-label="Show latest Creator's Current article"><span class="sr-only">Latest article</span></button>
+              <button class="home-whats-new__dot" type="button" data-carousel-dot="3" aria-label="Show latest YouTube video"><span class="sr-only">Latest video</span></button>
             </div>
             <button class="home-whats-new__arrow" type="button" data-carousel-next aria-label="Show next update"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
           </div>
