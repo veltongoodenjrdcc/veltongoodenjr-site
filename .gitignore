@@ -39,3 +39,8 @@ coverage/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Source media masters (ship the web-optimised export, not the master)
+*.wav
+*.aiff
+*.aif

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Work | Velton Gooden Jr.: Content Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A selection of short-form video content produced for brands including Amplify Studios, Surrey Hotel Management, UWI Mona, and Hi-Pro Ace Supercentre.">
+  <meta name="description" content="A selection of short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus proposal films and a voiceover demo reel.">
   <link rel="canonical" href="https://www.veltongoodenjr.com/work/">
   <link rel="icon" type="image/svg+xml" href="../assets/images/brand/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../assets/css/site.css?v=20260603-cookie-pill-4">
   <script defer src="../assets/js/site.js"></script>
   <meta property="og:title" content="Work | Velton Gooden Jr.: Content Portfolio">
-  <meta property="og:description" content="Short-form video content produced for brands including Amplify Studios, Surrey Hotel Management, UWI Mona, and Hi-Pro Ace Supercentre.">
+  <meta property="og:description" content="Short-form video content produced for brands including Amplify Studios, Jamaica Pegasus Hotel, UWI Mona, and Hi-Pro Ace Supercentre, plus proposal films and a voiceover demo reel.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/work/">
   <style>
@@ -113,6 +113,52 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.55; }
     }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+      gap: var(--sp-6);
+      align-items: start;
+    }
+
+    .video-item {
+      margin: 0;
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-item figcaption {
+      margin-top: var(--sp-3);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--c-ink-2);
+    }
+
+    .audio-card {
+      max-width: 46rem;
+      padding: var(--sp-6);
+      background: var(--c-surface-2);
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-md);
+    }
+    .audio-card audio {
+      display: block;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -128,7 +174,7 @@
         <div class="page-hero__content reveal">
           <p class="page-hero__eyebrow">Content portfolio</p>
           <h1 class="page-hero__title display-heading">Short-form video content, built to land.</h1>
-          <p class="page-hero__lead" style="margin-inline: auto;">A cross-section of social media content produced for four clients across Jamaica. Work spans event coverage, hospitality, higher education, and retail. Concept, direction, filming, and editing.</p>
+          <p class="page-hero__lead" style="margin-inline: auto;">A cross-section of video content produced for four clients across Jamaica, plus proposal films and a voiceover demo reel. Work spans event coverage, hospitality, higher education, retail, and personal milestones. Concept, direction, filming, editing, and voice.</p>
           <div class="page-hero__actions" style="justify-content: center; flex-wrap: wrap;">
             <a href="#amplify-studios" class="btn btn--white btn--lg"><i class="fa-solid fa-film" aria-hidden="true"></i> Browse the work</a>
             <a href="../contact/" class="btn btn--ghost btn--lg"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Work with me</a>
@@ -144,7 +190,7 @@
           <p class="client-header__eyebrow"><i class="fa-solid fa-film" aria-hidden="true"></i> Client work</p>
           <h2>Amplify Studios</h2>
           <p>Short-form reels produced for the Jamaica Book Festival through Amplify Studios. Work focused on event atmosphere, author moments, and cultural storytelling crafted for social reach and engagement.</p>
-          <span class="client-header__tag">Jamaica Book Festival &middot; 2025</span>
+          <span class="client-header__tag">Jamaica Book Festival</span>
         </div>
         <div class="reels-grid reveal">
           <div class="reel-cell">
@@ -163,14 +209,14 @@
       </div>
     </section>
 
-    <!-- Surrey Hotel Management -->
-    <section class="client-block client-block--alt" id="surrey-hotel">
+    <!-- Jamaica Pegasus Hotel -->
+    <section class="client-block client-block--alt" id="jamaica-pegasus">
       <div class="container">
         <div class="client-header reveal">
           <p class="client-header__eyebrow"><i class="fa-solid fa-building" aria-hidden="true"></i> Client work</p>
-          <h2>Surrey Hotel Management</h2>
-          <p>Social content produced for Jamaica Pegasus hotel. Atmosphere-led reels built to communicate the property's identity and connect with the right audience through considered framing and pacing.</p>
-          <span class="client-header__tag">Jamaica Pegasus</span>
+          <h2>Jamaica Pegasus Hotel</h2>
+          <p>Social content produced for the hotel's social channels. Atmosphere-led reels built to communicate the property's identity and connect with the right audience through considered framing and pacing.</p>
+          <span class="client-header__tag">Hospitality</span>
         </div>
         <div class="reels-grid reveal">
           <div class="reel-cell">
@@ -240,6 +286,66 @@
           <div class="reel-cell">
             <div class="reel-placeholder" data-reel-url="https://www.instagram.com/reel/DEyG12my5qf/"><div class="reel-placeholder__inner"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Loading reel&hellip;</span></div></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposal films -->
+    <section class="client-block" id="proposal-films">
+      <div class="container">
+        <div class="client-header reveal">
+          <p class="client-header__eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> Milestone films</p>
+          <h2>Proposal Films</h2>
+          <p>Proposal films shot and edited for two couples. Moments that only happen once, captured as they unfold and cut into something worth keeping.</p>
+          <span class="client-header__tag">Event &middot; Personal milestones</span>
+        </div>
+        <div class="video-grid reveal">
+          <figure class="video-item">
+            <div class="video-frame" data-consent-media>
+              <iframe
+                data-consent-src="https://www.youtube-nocookie.com/embed/MKCy8G1EwJs?rel=0&modestbranding=1"
+                title="Michael &amp; Sarah Proposal"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                hidden>
+              </iframe>
+            </div>
+            <figcaption>Michael &amp; Sarah Proposal</figcaption>
+          </figure>
+          <figure class="video-item">
+            <div class="video-frame" data-consent-media>
+              <iframe
+                data-consent-src="https://www.youtube-nocookie.com/embed/1Hy0qKt5Xkg?rel=0&modestbranding=1"
+                title="Rhodwayne &amp; Rosalie Proposal"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                hidden>
+              </iframe>
+            </div>
+            <figcaption>Rhodwayne &amp; Rosalie Proposal</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voiceover -->
+    <section class="client-block client-block--alt" id="voiceover">
+      <div class="container">
+        <div class="client-header reveal">
+          <p class="client-header__eyebrow"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Voiceover</p>
+          <h2>Voiceover Demo Reel</h2>
+          <p>A short reel demonstrating range across read styles and tones. Every brand featured in it is fictitious, written purely to showcase delivery rather than to represent past client work.</p>
+          <span class="client-header__tag">Fictitious brands &middot; 1:40</span>
+        </div>
+        <div class="audio-card reveal">
+          <audio controls preload="metadata" aria-label="Voiceover demo reel by Velton Gooden Jr.">
+            <source src="../assets/media/speaking/voiceover-demo-reel.mp3" type="audio/mpeg">
+            <p>Your browser does not support embedded audio. <a href="../assets/media/speaking/voiceover-demo-reel.mp3">Download the demo reel (MP3)</a>.</p>
+          </audio>
         </div>
       </div>
     </section>
