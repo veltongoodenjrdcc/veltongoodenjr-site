@@ -556,18 +556,60 @@
         return count;
       }
 
+      // Reels that have been handed to Instagram but not yet swapped for an
+      // iframe are still going to change height.
+      function unrenderedAbove(target) {
+        var n = 0;
+        document.querySelectorAll('blockquote.instagram-media, [data-reel-url]').forEach(function (el) {
+          if (target.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING) n++;
+        });
+        return n;
+      }
+
+      function marginOf(el) {
+        return Math.round(parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+      }
+
+      // Position alone is not enough: embeds arrive in bursts, and a network
+      // lull between them looks exactly like the page having settled. Wait for
+      // every reel above the target to be rendered as well, and treat a long
+      // freeze with reels still outstanding as embeds that are never coming.
       function whenSettled(target, done) {
-        var last = null, stable = 0, waited = 0;
-        var STEP = 100, NEEDED = 4, MAX = 8000;
+        var lastTop = null, lastPending = null, still = 0, waited = 0;
+        var STEP = 100, MAX = 12000;
         var timer = setInterval(function () {
           var top = Math.round(target.getBoundingClientRect().top + window.pageYOffset);
-          if (top === last) { stable++; } else { stable = 0; last = top; }
+          var pending = unrenderedAbove(target);
+          if (top === lastTop && pending === lastPending) {
+            still += STEP;
+          } else {
+            still = 0; lastTop = top; lastPending = pending;
+          }
           waited += STEP;
-          if (stable >= NEEDED || waited >= MAX) {
+          var settled = pending === 0 ? still >= 600 : still >= 2500;
+          if (settled || waited >= MAX) {
             clearInterval(timer);
             done();
           }
         }, STEP);
+      }
+
+      // Safety net: nudge back onto the target if anything shifts just after
+      // we land, and stand down the moment the reader scrolls for themselves.
+      function holdPosition(target) {
+        var expected = Math.round(window.pageYOffset);
+        var until = Date.now() + 5000;
+        var timer = setInterval(function () {
+          if (Math.abs(Math.round(window.pageYOffset) - expected) > 2) {
+            clearInterval(timer);
+            return;
+          }
+          if (Math.abs(Math.round(target.getBoundingClientRect().top) - marginOf(target)) > 2) {
+            land(target);
+            expected = Math.round(window.pageYOffset);
+          }
+          if (Date.now() > until) clearInterval(timer);
+        }, 150);
       }
 
       function setHash(hash) {
@@ -594,6 +636,7 @@
         whenSettled(target, function () {
           land(target);
           if (loader) loader.hidden = true;
+          holdPosition(target);
         });
       }
 
